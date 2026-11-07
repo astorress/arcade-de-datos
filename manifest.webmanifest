@@ -1,0 +1,14 @@
+{
+  "name": "Arcade de Datos",
+  "short_name": "Arcade Datos",
+  "description": "Misiones para repasar Análisis de datos. Sin cuentas.",
+  "lang": "es-CO",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#1E1B33",
+  "theme_color": "#1E1B33",
+  "icons": [
+    { "src": "assets/icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

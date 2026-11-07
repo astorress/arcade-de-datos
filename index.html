@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Arcade de Datos</title>
+  <meta name="description" content="Misiones tipo arcade para repasar Análisis de datos (Estud-IA, Capa 1). Recurso de apoyo opcional. Sin cuentas: tu progreso se guarda solo en tu navegador.">
+  <meta name="theme-color" content="#1E1B33">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preload" href="assets/fonts/Jersey10.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="saltar" href="#app">Saltar al contenido</a>
+
+  <header class="barra-superior">
+    <a class="logo" href="#/" aria-label="Ir al mapa">
+      <span class="logo__icono" aria-hidden="true">▣</span>
+      <span class="logo__texto" data-nombre-sitio>Arcade de Datos</span>
+    </a>
+    <p class="hud-puntos" aria-label="Puntos"><span aria-hidden="true">PTS </span><span id="hud-puntos">0000</span></p>
+    <a id="btn-personaje" class="btn btn--icono btn-personaje" href="#/personaje" aria-label="Mi personaje"><span id="hud-personaje" aria-hidden="true"></span></a>
+    <button type="button" id="btn-ajustes" class="btn btn--icono" aria-expanded="false" aria-controls="panel-ajustes">⚙<span class="btn__texto"> Ajustes</span></button>
+  </header>
+  <section id="panel-ajustes" class="panel-ajustes" hidden aria-label="Ajustes de pantalla"></section>
+
+  <main id="app" tabindex="-1">
+    <noscript><p class="vista">Esta página necesita JavaScript activado.</p></noscript>
+    <p class="cargando vista">Cargando…</p>
+  </main>
+
+  <nav class="nav-principal" aria-label="Principal">
+    <a href="#/" data-nav="mapa"><span aria-hidden="true">🗺</span><span>Mapa</span></a>
+    <a href="#/glosario" data-nav="glosario"><span aria-hidden="true">📖</span><span>Glosario</span></a>
+    <a href="#/progreso" data-nav="progreso"><span aria-hidden="true">🏆</span><span>Progreso</span></a>
+    <a href="#/ayuda" data-nav="ayuda"><span aria-hidden="true">❔</span><span>Ayuda</span></a>
+  </nav>
+
+  <div id="anuncios" class="sr-only" aria-live="polite"></div>
+  <div id="toasts" class="toasts"></div>
+  <div id="zona-impresion"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

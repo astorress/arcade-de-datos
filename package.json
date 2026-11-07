@@ -1,0 +1,14 @@
+{
+  "name": "arcade-de-datos",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Misiones tipo arcade para repasar Análisis de datos (Estud-IA, Capa 1). Sitio estático sin dependencias.",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "dev": "node scripts/serve.mjs . 5180",
+    "check": "node scripts/check.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/build.mjs && node scripts/serve.mjs dist 4180"
+  }
+}

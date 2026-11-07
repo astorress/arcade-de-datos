@@ -1,0 +1,66 @@
+{
+  "nombre": "Arcade de Datos",
+  "subtitulo": "Misiones para repasar Análisis de datos · Estud-IA, Capa 1",
+  "descripcion": "Un recurso de apoyo opcional, hecho por tu tutor, para repasar y practicar lo que trabajamos en las sesiones en vivo. No es una evaluación y no reemplaza las clases ni los cursos de Platzi.",
+  "bienvenida": {
+    "titulo": "Un mensaje antes de jugar",
+    "parrafos": [
+      "Aquí **tú eres lo primero**. Lo único que importa es que aprendas, a tu ritmo y sin presión.",
+      "El análisis de datos no es algo mágico ni de otro mundo: ya lo haces todos los días. Cuando vas a comprar unas papitas y miras cuánta plata tienes, tienes un **dato** (la plata), una **pregunta** (¿me alcanza?) y una **decisión**. Aquí vamos a hacer eso mismo, con más cuidado.",
+      "No hay nada difícil, solo cosas que todavía no hemos practicado. **Equivócate todas las veces que quieras**: cada error es una pista. Y si te surge una pregunta, por loca que parezca, llévala a la clase: ahí nacen las mejores."
+    ]
+  },
+  "guia": {
+    "nombre": "Profe Dato",
+    "presentacion": "¡Hola! Soy Profe Dato y voy a acompañarte en cada misión. Aquí puedes equivocarte todas las veces que quieras: cada error nos da una pista.",
+    "intro": [
+      "¿Listo? Vamos paso a paso, sin afán.",
+      "Este nivel se juega haciendo. Si te trabas, pide una pista: no resta nada.",
+      "Recuerda: no hay preguntas tontas. Si algo no te cuadra, llévalo a la clase."
+    ],
+    "bien": [
+      "¡Bien visto!",
+      "¡Eso es!",
+      "¡Muy bien pensado!",
+      "¡Así se hace!",
+      "¡Lo tienes!"
+    ],
+    "casi": [
+      "Miremos juntos.",
+      "Qué bueno que salió esto: aprendamos de ahí.",
+      "Casi. Revisemos una cosa.",
+      "Buen intento. Mira esto:"
+    ],
+    "nivel": [
+      "¡Mira lo que acabas de hacer!",
+      "¡Qué buen trabajo! Cada nivel cuenta.",
+      "¡Nivel superado! Me encanta cómo lo resolviste."
+    ]
+  },
+  "autoria": "Recurso de apoyo preparado por el tutor del grupo. No es un sitio oficial del programa.",
+  "avisoPrivacidad": "Aquí no hay cuentas ni registro. Tu progreso y lo que escribes se guardan solo en este navegador, en este dispositivo. Nadie más lo ve. Puedes borrarlo cuando quieras desde «Mi progreso».",
+  "avisoDatos": "Todos los datos de las misiones son ficticios, solo para practicar.",
+  "fases": {
+    "hacer": {
+      "nombre": "Hacer",
+      "descripcion": "Vives una experiencia concreta con los datos."
+    },
+    "observar": {
+      "nombre": "Observar",
+      "descripcion": "Te detienes a mirar qué pasó y por qué."
+    },
+    "entender": {
+      "nombre": "Entender",
+      "descripcion": "Le pones nombre a lo que descubriste."
+    },
+    "aplicar": {
+      "nombre": "Aplicar",
+      "descripcion": "Usas lo aprendido en un reto nuevo."
+    }
+  },
+  "puntos": {
+    "actividad": 10,
+    "nivel": 30,
+    "mision": 50
+  }
+}

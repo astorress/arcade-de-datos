@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Íconos pixel art</title>
+<style>
+  body { margin: 0; font-family: ui-monospace, Menlo, monospace; font-size: 11px; }
+  section { padding: 12px; }
+  .oscuro { background: #1E1B33; color: #F3EEE3; }
+  .claro { background: #F3ECDD; color: #2A2440; }
+  h2 { margin: 0 0 8px; font-size: 13px; }
+  .grilla { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 6px; }
+  .item { display: flex; flex-direction: column; gap: 4px; padding: 6px; border: 1px solid currentColor; border-color: color-mix(in srgb, currentColor 20%, transparent); }
+  .tamanos { display: flex; align-items: flex-end; gap: 10px; }
+  .icono { display: block; }
+  #error { color: #c00; }
+</style>
+</head>
+<body>
+<section class="oscuro"><h2>Fondo oscuro</h2><div class="grilla" id="g-oscuro"></div></section>
+<section class="claro"><h2>Fondo claro</h2><div class="grilla" id="g-claro"></div></section>
+<pre id="error"></pre>
+<script type="module">
+import { ICONOS, icono } from '../js/components/iconos.js';
+try {
+  const html = Object.keys(ICONOS).map((n) => `
+    <div class="item">
+      <div class="tamanos">${icono(n, { tam: 16 })}${icono(n, { tam: 24 })}${icono(n, { tam: 48, titulo: n })}</div>
+      <span>${n}</span>
+    </div>`).join('');
+  document.getElementById('g-oscuro').innerHTML = html;
+  document.getElementById('g-claro').innerHTML = html;
+  const malos = Object.entries(ICONOS).filter(([, f]) => f.length !== 12 || f.some((r) => r.length !== 12 || /[^.xoamvy]/.test(r)));
+  if (malos.length) document.getElementById('error').textContent = 'Cuadrículas inválidas: ' + malos.map(([n]) => n).join(', ');
+} catch (e) { document.getElementById('error').textContent = e.stack; }
+</script>
+</body>
+</html>

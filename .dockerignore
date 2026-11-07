@@ -1,0 +1,4 @@
+.git
+.docker/docker-compose.yml
+dist
+.DS_Store

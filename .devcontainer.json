@@ -1,0 +1,55 @@
+{
+  "name": "arcade-de-datos",
+  "dockerComposeFile": ".docker/docker-compose.yml",
+  "service": "arcade_datos",
+  "workspaceFolder": "/app",
+  "overrideCommand": true,
+  "remoteUser": "arcade",
+  "forwardPorts": [
+    5180,
+    4180
+  ],
+  "portsAttributes": {
+    "5180": {
+      "label": "Sitio (desarrollo)",
+      "onAutoForward": "notify"
+    },
+    "4180": {
+      "label": "Vista previa de dist/",
+      "onAutoForward": "notify"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "aaron-bond.better-comments",
+        "davidanson.vscode-markdownlint",
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "ms-azuretools.vscode-docker",
+        "ms-vscode.live-server",
+        "streetsidesoftware.code-spell-checker",
+        "streetsidesoftware.code-spell-checker-spanish",
+        "yzhang.markdown-all-in-one"
+      ],
+      "settings": {
+        "cSpell.files": [
+          "**/*.md",
+          "**/*.json"
+        ],
+        "cSpell.language": "en,es",
+        "editor.codeActionsOnSave": {
+          "source.fixAll.markdownlint": "explicit"
+        },
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "git.autoRepositoryDetection": true,
+        "json.format.enable": true,
+        "[markdown]": {
+          "editor.formatOnSave": true
+        }
+      }
+    }
+  },
+  "postCreateCommand": "chmod +x .docker/entrypoint.sh && .docker/entrypoint.sh"
+}

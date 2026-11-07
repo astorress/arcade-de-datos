@@ -1,0 +1,150 @@
+{
+  "numero": 5,
+  "estado": "proximamente",
+  "titulo": "Consultar y resumir",
+  "sesion": "Consultar, filtrar y resumir de forma reproducible",
+  "habilidad": "Filtros con Y / O, agrupar y sumar. SQL opcional.",
+  "caso": "Talleres por tema y mes",
+  "color": "magenta",
+  "historia": "",
+  "insignia": {
+    "nombre": "Filtro maestro",
+    "descripcion": "",
+    "simbolo": "embudo"
+  },
+  "niveles": [],
+  "conceptos": [],
+  "teoria": {
+    "intro": "Hoy vamos a convertir una pregunta en un procedimiento que cualquiera pueda repetir: elegir filas, agruparlas y sumarlas. Es como buscar en el celular las fotos de «mi familia» Y «en diciembre»: si usas bien el filtro, encuentras justo lo que buscabas.",
+    "platzi": [
+      {
+        "curso": "Data1 · Fundamentos del análisis de datos",
+        "modulo": "M2. Organizar y limpiar datos",
+        "contenidos": [
+          "Filtros y ordenamiento en Excel"
+        ],
+        "relacion": "retoma",
+        "semanaPlatzi": 2
+      },
+      {
+        "curso": "Data1 · Fundamentos del análisis de datos",
+        "modulo": "M4. Preguntar con datos",
+        "contenidos": [
+          "Tablas dinámicas simples en Excel para resumir datos"
+        ],
+        "relacion": "anticipa",
+        "semanaPlatzi": 4
+      },
+      {
+        "curso": "Data2 · Consultas y análisis exploratorio con SQL y Python",
+        "modulo": "M5. SQL para consultar datos reales",
+        "contenidos": [
+          "Modelo relacional: tablas, filas, columnas y relaciones (primary key, foreign key)",
+          "Sintaxis básica de SQL: SELECT, FROM, WHERE, ORDER BY, LIMIT",
+          "Filtros avanzados: AND, OR, IN, BETWEEN, LIKE",
+          "Agregaciones: GROUP BY, HAVING, COUNT, SUM, AVG, MAX, MIN"
+        ],
+        "relacion": "aplica",
+        "semanaPlatzi": 3
+      },
+      {
+        "curso": "Data3 · Visualización y comunicación de datos desde cero",
+        "modulo": "M4. Mi primer tablero",
+        "contenidos": [
+          "Organizar los datos necesarios para responderla"
+        ],
+        "relacion": "anticipa",
+        "semanaPlatzi": 4
+      }
+    ],
+    "ampliacion": [
+      "Trazabilidad por códigos: dejar visibles las filas que forman cada cifra.",
+      "Diferencia entre conteo, suma y personas únicas."
+    ],
+    "temas": [
+      {
+        "id": "unidad-y-codigos",
+        "titulo": "Qué es cada fila y para qué sirve el código",
+        "idea": "El código identifica una fila; las cantidades son las que se suman.",
+        "explicacion": "Antes de filtrar, pregúntate qué representa cada fila. El **código** (o **clave**) sirve para reconocer cada registro y rastrear de dónde sale una cifra, pero **no se suma**. Si una columna cuenta asistencias por taller, una misma persona pudo ir a varios: la suma da **asistencias registradas**, no personas distintas.",
+        "cotidiano": "El número de tu cédula identifica a una persona; a nadie se le ocurre sumar cédulas.",
+        "ejemplo": "Datos ficticios de un polideportivo: C01 · Belén · Yoga · abr · 14 asistentes. C01 es solo una etiqueta; 14 es la cantidad.",
+        "enElReto": "Usa los códigos para mostrar qué filas entraron en tu resultado y rotula el total como asistencias, no como personas."
+      },
+      {
+        "id": "condicion-y-o",
+        "titulo": "Condiciones con Y y con O",
+        "idea": "Con Y la fila debe cumplir todo; con O le basta cumplir una cosa.",
+        "explicacion": "Un **filtro** deja ver solo las filas que cumplen una condición. Si la pregunta tiene dos condiciones, importa cómo las unes: **Y** exige que la fila cumpla **ambas**; **O** acepta las que cumplan **al menos una**. Cambiar Y por O puede meter filas que no tenían nada que hacer en tu respuesta.",
+        "cotidiano": "Si buscas un bus que pase por tu barrio Y que llegue al centro, te sirven menos rutas que si te sirve cualquiera que pase por tu barrio O llegue al centro.",
+        "ejemplo": "Polideportivo ficticio: C01 (Belén, Yoga, abr, 14), C02 (Robledo, Yoga, abr, 7), C03 (Belén, Fútbol, abr, 21), C04 (Castilla, Yoga, mar, 10). Con «Yoga Y abril» entran C01 y C02. Con «Yoga O abril» entran las cuatro.",
+        "enElReto": "Escribe las dos condiciones de la pregunta y decide si van con Y o con O antes de filtrar."
+      },
+      {
+        "id": "seleccionar-sin-borrar",
+        "titulo": "Selecciona sin borrar y predice antes de filtrar",
+        "idea": "Marca o filtra las filas; no las borres, y anticipa qué códigos deberían quedar.",
+        "explicacion": "Un filtro **oculta** filas, no las elimina: la tabla original sigue completa. Un buen hábito es **escribir la selección antes de ejecutarla** y predecir qué códigos van a entrar. Si la herramienta muestra algo distinto, ya sabes que hay que revisar el filtro.",
+        "cotidiano": "Antes de buscar en tu correo «factura de la luz», ya sabes más o menos cuántas deberían salir. Si salen cien, algo está raro en tu búsqueda.",
+        "ejemplo": "Polideportivo ficticio: «tema = Yoga Y mes = abr. Espero que entren C01 y C02. C04 queda fuera aunque es Yoga, porque es de marzo».",
+        "enElReto": "Anota tu criterio, predice los códigos, luego filtra o marca, y explica por qué al menos una fila quedó por fuera."
+      },
+      {
+        "id": "agrupar-y-sumar",
+        "titulo": "Agrupar y sumar (no es lo mismo que contar)",
+        "idea": "Contar filas dice cuántos registros hay; sumar una columna dice cuánto dan sus cantidades.",
+        "explicacion": "Después de seleccionar, se **agrupa** (por ejemplo, por sede) y se calcula una **medida**. **Contar** responde «¿cuántos talleres?» y **sumar** responde «¿cuántas asistencias?». Una **tabla dinámica** en Excel hace este paso; a mano también se puede. Siempre rotula qué medida es y de qué periodo.",
+        "cotidiano": "Contar cuántos domicilios pediste en el mes no es lo mismo que sumar cuánta plata gastaste en ellos.",
+        "ejemplo": "Polideportivo ficticio, Yoga en abril por sede: Belén 14, Robledo 7, total 21 asistencias. Filas seleccionadas: 2.",
+        "enElReto": "Agrupa por sede, suma la columna de asistentes y compara ese total con el número de filas, para no confundir las dos medidas."
+      },
+      {
+        "id": "procedimiento-reproducible",
+        "titulo": "Un procedimiento que otro pueda repetir",
+        "idea": "Si otra persona sigue tus pasos, debería llegar a la misma cifra.",
+        "explicacion": "Un análisis es **reproducible** cuando dejas escritas las decisiones: qué filtros usaste, cómo agrupaste y qué operación hiciste. Expresiones como «sumé lo importante» no sirven, porque nadie sabe qué era lo importante. Con un procedimiento claro también puedes **cambiar la pregunta de forma controlada**: quitas una condición, agregas otra y vuelves a comprobar.",
+        "cotidiano": "Una buena receta dice cuánta harina, cuánto tiempo y a qué temperatura. «Échale lo que veas» no se puede repetir.",
+        "ejemplo": "Polideportivo ficticio: «1) Filtré tema = Yoga Y mes = abr. 2) Agrupé por sede. 3) Sumé asistentes. 4) Revisé los códigos C01 y C02». Para una nueva pregunta sobre Belén en abril, cambias la condición de tema por la de sede.",
+        "enElReto": "Escribe tus pasos en orden. Cuando adaptes el procedimiento a la nueva pregunta, di qué condición quitaste y cuál agregaste."
+      },
+      {
+        "id": "sql-opcional",
+        "titulo": "SQL: otra forma de escribir lo mismo (opcional)",
+        "idea": "SQL es un lenguaje para pedirle datos a una tabla; es opcional y siempre puedes hacerlo con filtros en una hoja de cálculo.",
+        "explicacion": "Si ya lo viste en Data2, puedes leer una consulta SQL como una receta: **SELECT** dice qué quieres ver, **FROM** de qué tabla, **WHERE** qué filas seleccionas (con AND para Y, OR para O), **GROUP BY** cómo agrupas y **SUM** qué sumas. **No es obligatorio**: con una tabla, filtros o tu cuaderno resuelves lo mismo. Y ojo: que una consulta corra sin error no garantiza que responda la pregunta.",
+        "cotidiano": "Es como pedir un domicilio por la app o por teléfono: el pedido es el mismo, solo cambia el medio.",
+        "ejemplo": "Polideportivo ficticio: SELECT sede, SUM(asistentes) AS total FROM clases WHERE tema = 'Yoga' AND mes = 'abr' GROUP BY sede;",
+        "enElReto": "Si usas SQL, explica qué hace cada parte de la consulta. Si no, traduce la consulta a pasos en tu tabla: la lógica es la misma."
+      }
+    ],
+    "pasos": [
+      "Lee qué representa cada fila y qué columna vas a sumar.",
+      "Escribe las condiciones de la pregunta y decide si van con Y o con O.",
+      "Predice qué códigos deberían entrar; luego filtra o marca las filas.",
+      "Agrupa por sede y suma la cantidad, rotulando medida y periodo.",
+      "Escribe el procedimiento para que otra persona lo repita y adáptalo a la nueva pregunta."
+    ],
+    "errores": [
+      {
+        "error": "Usar O cuando la pregunta pide que se cumplan las dos condiciones.",
+        "consejo": "Revisa una fila que cumpla solo una condición y pregúntate si debería entrar."
+      },
+      {
+        "error": "Contar filas cuando la pregunta pide sumar asistencias (por ejemplo, que salga «1» por sede).",
+        "consejo": "Pregúntate: «¿conté talleres o sumé asistencias?». Elige la medida que pide la pregunta."
+      },
+      {
+        "error": "Decir «personas» cuando lo que sumaste son asistencias registradas.",
+        "consejo": "Una misma persona pudo ir a varios talleres. Rotula tu total como asistencias."
+      },
+      {
+        "error": "Dejar el procedimiento con frases ambiguas o con un filtro que no se menciona.",
+        "consejo": "Escribe cada condición tal cual la aplicaste, para que otra persona pueda seguirte paso a paso."
+      },
+      {
+        "error": "Creer que si la consulta o la fórmula no da error, ya responde la pregunta.",
+        "consejo": "Si el total no cuadra, revisa primero las condiciones y las filas incluidas; después, la suma."
+      }
+    ]
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "numero": 3,
+  "estado": "proximamente",
+  "titulo": "Indicadores y distribuciones",
+  "sesion": "Construir indicadores y describir distribuciones",
+  "habilidad": "Media, mediana, mínimo, máximo, rango, porcentaje y valor extremo.",
+  "caso": "Tiempos de espera",
+  "color": "verde",
+  "historia": "",
+  "insignia": {
+    "nombre": "Medidor de centros",
+    "descripcion": "",
+    "simbolo": "regla"
+  },
+  "niveles": [],
+  "conceptos": [],
+  "teoria": {
+    "intro": "Hoy vamos a resumir muchos números en pocas cifras que cuenten la historia completa. Lo haces a diario cuando dices «el bus casi siempre se demora poquito, pero un día me tocó esperar un montón».",
+    "platzi": [
+      {
+        "curso": "Data1 · Fundamentos del análisis de datos",
+        "modulo": "M2. Organizar y limpiar datos",
+        "contenidos": [
+          "Funciones esenciales: CONTAR, SUMA, PROMEDIO, SI"
+        ],
+        "relacion": "aplica",
+        "semanaPlatzi": 2
+      },
+      {
+        "curso": "Data2 · Consultas y análisis exploratorio con SQL y Python",
+        "modulo": "M2. Organizar y limpiar datos",
+        "contenidos": [
+          "Funciones esenciales: CONTAR, SUMA, PROMEDIO, SI"
+        ],
+        "relacion": "aplica",
+        "semanaPlatzi": 2
+      },
+      {
+        "curso": "Data3 · Visualización y comunicación de datos desde cero",
+        "modulo": "M1. Los datos y su lectura visual",
+        "contenidos": [
+          "Lectura e interpretación de tablas y gráficos simples"
+        ],
+        "relacion": "retoma",
+        "semanaPlatzi": 1
+      },
+      {
+        "curso": "Data3 · Visualización y comunicación de datos desde cero",
+        "modulo": "M3. Detectar gráficos engañosos",
+        "contenidos": [
+          "Buenas prácticas éticas al presentar datos"
+        ],
+        "relacion": "anticipa",
+        "semanaPlatzi": 3
+      }
+    ],
+    "ampliacion": [
+      "Mediana",
+      "Mínimo y máximo",
+      "Rango",
+      "Porcentaje",
+      "Efecto de un valor extremo (sensibilidad de la media)"
+    ],
+    "temas": [
+      {
+        "id": "conteo-y-suma",
+        "titulo": "Conteo y suma",
+        "idea": "Contar dice cuántos datos tienes; sumar dice cuánto dan entre todos.",
+        "explicacion": "El **conteo** es el número de observaciones (en Excel, CONTAR). La **suma** junta todos los valores (SUMA). Son la base de casi todo lo demás, y sirven de control: si al final algo no cuadra, vuelves a revisar cuántos datos contaste y cuánto sumaron. Siempre con su **unidad**: minutos, pesos, personas.",
+        "cotidiano": "Cuando cuentas cuántas monedas tienes en el bolsillo (conteo) y cuánta plata suman (suma) antes de comprar las papitas.",
+        "ejemplo": "Datos ficticios: minutos que esperaste el bus durante cinco días: 4, 6, 6, 9 y 30. Conteo: 5 días. Suma: 55 minutos.",
+        "enElReto": "Antes de cualquier otra medida, cuenta las observaciones y súmalas. Si usas fórmula, revisa que el rango de celdas incluya todos los valores."
+      },
+      {
+        "id": "media",
+        "titulo": "Media (promedio)",
+        "idea": "La media reparte la suma en partes iguales entre todas las observaciones.",
+        "explicacion": "La **media** se calcula dividiendo la suma entre el conteo (en Excel, PROMEDIO). Es útil, pero ojo: la media **no** dice lo que le pasó a la mayoría. Un solo valor muy grande o muy pequeño la puede jalar hacia arriba o hacia abajo.",
+        "cotidiano": "Si entre cuatro amigos pagan una pizza, la media es lo que le tocaría a cada uno si dividen por partes iguales, aunque uno se haya comido más.",
+        "ejemplo": "Con los tiempos ficticios del bus: 55 ÷ 5 = 11 minutos de media. Pero cuatro de los cinco días esperaste 9 minutos o menos.",
+        "enElReto": "Calcula la media dejando a la vista la suma y el conteo, y luego pregúntate si de verdad describe lo que vivió la mayoría."
+      },
+      {
+        "id": "mediana",
+        "titulo": "Mediana",
+        "idea": "La mediana es el valor que queda justo en la mitad cuando ordenas los datos.",
+        "explicacion": "Para hallar la **mediana**, ordena los valores de menor a mayor y busca el del centro. Si la cantidad de datos es par, hay dos en el centro: se suman y se dividen entre dos. La mediana **no** es el valor que más se repite (aunque a veces coincidan). Como mira la posición, un valor extremo casi no la mueve.",
+        "cotidiano": "Si cinco amigos se ponen en fila del más bajito al más alto, la estatura del que queda en la mitad es la mediana.",
+        "ejemplo": "Tiempos ficticios ordenados: 4, 6, 6, 9, 30. El del centro es el tercero: la mediana es 6 minutos.",
+        "enElReto": "Ordena la lista completa, ubica la posición central y explica cómo la encontraste. Te ayudará a describir la espera típica."
+      },
+      {
+        "id": "minimo-maximo-rango",
+        "titulo": "Mínimo, máximo y rango",
+        "idea": "El mínimo y el máximo son los extremos; el rango es la distancia entre ellos.",
+        "explicacion": "El **mínimo** es el valor más pequeño y el **máximo** el más grande (en Excel, MIN y MAX). El **rango** es máximo menos mínimo y muestra qué tan separados están los datos. Las tres medidas se escriben con la misma unidad de los datos.",
+        "cotidiano": "Si el pasaje del bus en tu recorrido varía entre lo más barato y lo más caro que has pagado, la diferencia entre esos dos es el rango.",
+        "ejemplo": "En los tiempos ficticios: mínimo 4 minutos, máximo 30 minutos, rango 30 − 4 = 26 minutos.",
+        "enElReto": "Calcula los tres y úsalos para mostrar que no todas las esperas fueron iguales, sin esconder la más larga."
+      },
+      {
+        "id": "porcentaje",
+        "titulo": "Porcentaje",
+        "idea": "Un porcentaje dice cuántos de cada 100 cumplen algo.",
+        "explicacion": "Para sacar un **porcentaje**, divide la parte entre el total (el **denominador**) y multiplica por 100. Siempre di primero de qué total hablas: «4 de 5» es más claro cuando lo acompañas con «80 %». Un porcentaje no es un tiempo ni una cantidad de personas: es una proporción.",
+        "cotidiano": "Si de 10 pandebonos que compraste, 7 estaban calienticos, el 70 % estaba caliente.",
+        "ejemplo": "En los tiempos ficticios, 4 de 5 días esperaste 9 minutos o menos: 4 ÷ 5 = 0,8, es decir, 80 %.",
+        "enElReto": "Cuando calcules qué proporción de atenciones esperó cierto tiempo o menos, escribe la fracción y el porcentaje juntos."
+      },
+      {
+        "id": "valor-extremo",
+        "titulo": "Valor extremo",
+        "idea": "Un valor muy distinto de los demás merece atención, no borrarse sin evidencia.",
+        "explicacion": "Un **valor extremo** es un dato que se aleja mucho del resto. Puede ser real (un día de trancón) o un error, pero sin evidencia no lo sabemos. Lo responsable es **conservarlo** en el análisis principal y, aparte, hacer un **contraste**: calcular otra vez sin ese valor para ver qué medidas cambian. Ese contraste muestra sensibilidad, no prueba que el dato esté errado ni explica su causa.",
+        "cotidiano": "Un día el bus se demoró muchísimo por un accidente en la vía. Ese día pasó; no lo borras de tu memoria, pero tampoco dices que el bus siempre se demora así.",
+        "ejemplo": "Sin el 30, los tiempos ficticios quedan 4, 6, 6, 9: la media baja de 11 a 6,25 minutos y la mediana sigue en 6. La media se movió mucho; la mediana casi nada.",
+        "enElReto": "Haz el contraste en un espacio aparte, compara qué cambió y explica por qué el valor extremo se queda en el informe principal."
+      }
+    ],
+    "pasos": [
+      "Copia la lista completa, déjale su unidad y cuenta las observaciones.",
+      "Ordena los valores de menor a mayor sin perder ninguno.",
+      "Calcula conteo, suma, media, mediana, mínimo, máximo y rango, dejando rastro de cada operación.",
+      "En un espacio aparte, repite media y mediana sin el valor extremo y compara.",
+      "Escribe una frase sobre lo típico y otra que muestre la variación o el caso más largo, con un porcentaje sencillo."
+    ],
+    "errores": [
+      {
+        "error": "Creer que la mediana es «el número que más se repite».",
+        "consejo": "Vuelve a la lista ordenada y señala la posición del centro. Esa es la mediana."
+      },
+      {
+        "error": "Que la fórmula deje por fuera el valor más grande y la media salga más baja de lo que es.",
+        "consejo": "Revisa que el rango de celdas incluya todos los datos y comprueba que el conteo coincida con la lista."
+      },
+      {
+        "error": "Borrar el valor extremo porque «se ve raro».",
+        "consejo": "Pregúntate qué evidencia tienes de que sea un error. Si no la hay, consérvalo y haz el contraste aparte."
+      },
+      {
+        "error": "Decir que «la mayoría esperó» lo que dice la media.",
+        "consejo": "La media no habla de la mayoría. Señala los datos que respaldan cada frase."
+      },
+      {
+        "error": "Explicar por qué pasó el valor extremo sin tener datos sobre eso, o dar números sin unidad.",
+        "consejo": "Describe lo que muestran los datos, con su unidad, y deja la causa como una pregunta pendiente."
+      }
+    ]
+  }
+}

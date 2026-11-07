@@ -1,0 +1,141 @@
+{
+  "numero": 4,
+  "estado": "proximamente",
+  "titulo": "Comparar con justicia",
+  "sesion": "Agrupar y comparar segmentos",
+  "habilidad": "Tasas con denominador; tasa global frente a promedio de tasas.",
+  "caso": "Tres sedes de talleres",
+  "color": "naranja",
+  "historia": "",
+  "insignia": {
+    "nombre": "Balanza justa",
+    "descripcion": "",
+    "simbolo": "balanza"
+  },
+  "niveles": [],
+  "conceptos": [],
+  "teoria": {
+    "intro": "Para comparar grupos de tamaños distintos no basta con mirar quién tiene más: hay que mirar «de cuántos». Es lo mismo que pensar si un bus va lleno o no según cuántos puestos tiene.",
+    "platzi": [
+      {
+        "curso": "Data1 · Fundamentos del análisis de datos",
+        "modulo": "M4. Preguntar con datos",
+        "contenidos": [
+          "Tablas dinámicas simples en Excel para resumir datos"
+        ],
+        "relacion": "anticipa",
+        "semanaPlatzi": 4
+      },
+      {
+        "curso": "Data2 · Consultas y análisis exploratorio con SQL y Python",
+        "modulo": "M4. Preguntar con datos",
+        "contenidos": [
+          "Tablas dinámicas simples en Excel para resumir datos"
+        ],
+        "relacion": "anticipa",
+        "semanaPlatzi": 3
+      },
+      {
+        "curso": "Data3 · Visualización y comunicación de datos desde cero",
+        "modulo": "M4. Mi primer tablero",
+        "contenidos": [
+          "Organizar los datos necesarios para responderla"
+        ],
+        "relacion": "anticipa",
+        "semanaPlatzi": 4
+      }
+    ],
+    "ampliacion": [
+      "Tasas con numerador y denominador visibles",
+      "Ocupación global frente a promedio simple de tasas",
+      "Escenarios (base y actualización separadas)",
+      "Puntos porcentuales"
+    ],
+    "temas": [
+      {
+        "id": "tabla-resumen",
+        "titulo": "Tabla resumen por grupo",
+        "idea": "Una tabla resumen pone en una fila lo de cada grupo para poder compararlo.",
+        "explicacion": "Cuando quieres comparar sedes, grupos o barrios, lo primero es una **tabla resumen**: una fila por grupo y columnas con las cantidades que necesitas. En Excel se puede hacer con una **tabla dinámica**, que agrupa y suma por ti, o a mano. Antes de calcular, pregúntate qué representa cada fila y qué mide cada columna.",
+        "cotidiano": "En la tienda, el tendero apunta por día cuántas gaseosas tenía y cuántas vendió. Con eso arma su propio resumen de la semana.",
+        "ejemplo": "Datos ficticios de un curso de natación: Grupo mañana: 50 cupos, 33 inscritos. Grupo tarde: 20 cupos, 19 inscritos.",
+        "enElReto": "Arma la tabla con una fila por sede y deja visibles los cupos y los inscritos antes de agregar cualquier cálculo."
+      },
+      {
+        "id": "tasa",
+        "titulo": "Tasa: numerador y denominador",
+        "idea": "Una tasa compara una parte con su base: «tantos de cuántos».",
+        "explicacion": "Una **tasa** es una división: arriba va lo que pasó (**numerador**) y abajo la base posible (**denominador**). La **ocupación** es inscritos ÷ cupos. El resultado se puede leer como porcentaje. Ojo en Excel: si a 0,66 le das formato de porcentaje, ya se muestra como 66 %; no hace falta multiplicar otra vez por 100.",
+        "cotidiano": "Si en el bus hay 30 puestos y van 15 personas sentadas, va medio lleno: 15 de 30.",
+        "ejemplo": "Curso ficticio: mañana 33 ÷ 50 = 0,66 = 66 %. Tarde 19 ÷ 20 = 0,95 = 95 %. Ese 95 % no son «95 personas»: son 95 de cada 100 cupos.",
+        "enElReto": "Calcula la tasa de cada sede escribiendo la división completa, para que se vea qué va arriba y qué va abajo."
+      },
+      {
+        "id": "cantidad-vs-tasa",
+        "titulo": "Más cantidad no es mayor proporción",
+        "idea": "Un grupo puede tener más inscritos y aun así llenar menos sus cupos.",
+        "explicacion": "Las cantidades (cuántos) y las tasas (cuántos de cuántos) responden preguntas distintas. Un grupo grande puede tener más gente y menor ocupación, porque tiene muchos más cupos. Para decidir dónde revisar, define primero tu **criterio** según la pregunta.",
+        "cotidiano": "Un supermercado grande puede vender más arepas que la tienda de la esquina y aun así quedarse con más arepas sin vender.",
+        "ejemplo": "Curso ficticio: el grupo de la mañana tiene más inscritos (33 frente a 19), pero menor ocupación (66 % frente a 95 %).",
+        "enElReto": "Ordena las sedes por tasa, no solo por cantidad, y explica por qué ese es el criterio que responde la pregunta."
+      },
+      {
+        "id": "global-vs-promedio",
+        "titulo": "Tasa global frente a promedio de tasas",
+        "idea": "Para el total, primero sumas las cantidades y después divides.",
+        "explicacion": "La **tasa global** responde por todos los cupos juntos: sumas todos los inscritos, sumas todos los cupos y divides. El **promedio simple de tasas** suma los porcentajes y los divide entre el número de grupos: trata a cada grupo como si pesara igual, aunque sean de tamaños distintos. No es un error en sí, pero responde otra pregunta y no reemplaza la ocupación conjunta.",
+        "cotidiano": "Si un bus grande va medio vacío y una buseta pequeña va llena, promediar «medio» y «lleno» no te dice cuántos puestos libres hay en total.",
+        "ejemplo": "Curso ficticio: global = (33 + 19) ÷ (50 + 20) = 52 ÷ 70 ≈ 74,3 %. Promedio simple = (66 % + 95 %) ÷ 2 = 80,5 %. Son medidas distintas.",
+        "enElReto": "Para el total, suma inscritos y cupos y divide al final. Si te sale el promedio de los porcentajes, pregúntate si cada sede tiene los mismos cupos."
+      },
+      {
+        "id": "escenario-y-puntos",
+        "titulo": "Escenarios y puntos porcentuales",
+        "idea": "Una actualización va en una copia aparte, y la diferencia entre dos porcentajes se mide en puntos porcentuales.",
+        "explicacion": "Un **escenario** es una versión de prueba: «¿qué pasa si cambian estos datos?». Se hace en una **copia rotulada**, sin borrar la base original. Cuando una tasa cambia, la diferencia entre dos porcentajes se dice en **puntos porcentuales**: pasar de 40 % a 45 % es subir 5 puntos porcentuales. Eso no equivale a 5 personas más.",
+        "cotidiano": "Si en tu barrio la cobertura de internet pasa de 52 % a 55 % de las casas, subió 3 puntos porcentuales, no 3 casas.",
+        "ejemplo": "Escenario ficticio: el grupo de la mañana suma 4 inscritos más: 37 ÷ 50 = 74 %. Subió 8 puntos porcentuales (de 66 % a 74 %), pero solo llegaron 4 personas nuevas.",
+        "enElReto": "Haz la actualización en una copia rotulada, recalcula la tasa de la sede y la global, y revisa si cambia la sede con menor ocupación."
+      },
+      {
+        "id": "prioridad-prudente",
+        "titulo": "Priorizar no es explicar la causa",
+        "idea": "Los datos pueden decirte dónde mirar primero, no por qué pasa algo.",
+        "explicacion": "Una **recomendación prudente** dice qué sede revisar, con qué tasa y con qué criterio, y añade qué información falta. Decir «aquí hay menor ocupación» es un hallazgo; decir «aquí la convocatoria es mala» es una **hipótesis** que necesita más datos (horarios, cancelaciones, motivos).",
+        "cotidiano": "Si una tienda vende menos que otra, no sabes si es por el precio, la ubicación o el horario hasta que lo averiguas.",
+        "ejemplo": "Curso ficticio: «Conviene revisar primero el grupo de la mañana, que tiene 66 % de ocupación. Antes de cambiar algo, preguntaríamos si el horario le sirve a la gente».",
+        "enElReto": "Escribe una frase con sede, tasa y criterio, y una pregunta sobre lo que todavía necesitas saber."
+      }
+    ],
+    "pasos": [
+      "Arma la tabla por sede con cupos e inscritos visibles.",
+      "Calcula la tasa de cada sede escribiendo la división.",
+      "Ordena las sedes según el criterio de la pregunta.",
+      "Calcula la tasa global sumando cantidades antes de dividir.",
+      "Prueba la actualización en una copia rotulada y compara con la base.",
+      "Escribe tu recomendación con sede, tasa, criterio y una pregunta pendiente."
+    ],
+    "errores": [
+      {
+        "error": "Dividir al revés (cupos ÷ inscritos) o leer el porcentaje como cantidad de personas.",
+        "consejo": "Pregúntate: «¿tantos de cuántos?». Lo que pasó va arriba y la base va abajo."
+      },
+      {
+        "error": "Calcular el total promediando los porcentajes de las sedes.",
+        "consejo": "Vuelve a sumar inscritos y cupos y divide al final. El promedio de tasas responde otra pregunta."
+      },
+      {
+        "error": "Mezclar las cifras del escenario con las de la base.",
+        "consejo": "Rotula cada tabla («base» y «actualización») y pregúntate a cuál pertenece cada cifra."
+      },
+      {
+        "error": "Confundir puntos porcentuales con personas.",
+        "consejo": "Mira las dos columnas: cuántas personas cambiaron y cuántos puntos cambió la tasa son cosas distintas."
+      },
+      {
+        "error": "Afirmar la causa: «en esa sede la convocatoria es mala».",
+        "consejo": "Convierte la causa supuesta en una pregunta por verificar. Los datos te dicen dónde mirar, no el porqué."
+      }
+    ]
+  }
+}

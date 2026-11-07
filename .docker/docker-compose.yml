@@ -1,0 +1,21 @@
+# Único compose del proyecto. Lo usan `make dev` y el devcontainer de VS Code (.devcontainer.json).
+name: arcade-datos
+services:
+  arcade_datos:
+    container_name: 'ArcadeDatos'
+    build:
+      context: ..
+      dockerfile: .docker/Dockerfile
+    ports:
+      - "5180:5180"
+      - "4180:4180"
+    volumes:
+      - ..:/app
+      - arcade-datos-bashhistory:/commandhistory
+    environment:
+      - HOST=0.0.0.0
+    working_dir: /app
+    command: ["node", "scripts/serve.mjs", ".", "5180"]
+
+volumes:
+  arcade-datos-bashhistory:

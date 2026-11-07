@@ -1,0 +1,146 @@
+{
+  "numero": 2,
+  "estado": "proximamente",
+  "titulo": "Limpiar para no equivocarnos",
+  "sesion": "Limpiar datos para evitar conclusiones equivocadas",
+  "habilidad": "Duplicados, faltantes, formatos y registro de cambios.",
+  "caso": "Préstamos de una biblioteca",
+  "color": "magenta",
+  "historia": "",
+  "insignia": {
+    "nombre": "Guardián de la limpieza",
+    "descripcion": "",
+    "simbolo": "escoba"
+  },
+  "niveles": [],
+  "conceptos": [],
+  "teoria": {
+    "intro": "Antes de sacar cuentas, hay que mirar si los datos están bien anotados. Una palabra escrita de dos formas, una fila copiada o una casilla vacía pueden cambiar el resultado, igual que cuando revisas la cuenta de la tienda antes de pagar.",
+    "platzi": [
+      {
+        "curso": "Data1 · Fundamentos del análisis de datos",
+        "modulo": "M2. Organizar y limpiar datos",
+        "contenidos": [
+          "Por qué los datos sucios generan malas decisiones",
+          "Filtros y ordenamiento en Excel",
+          "Identificación de valores faltantes, duplicados y errores tipográficos",
+          "Limpieza básica: eliminar duplicados, estandarizar formatos de fecha y texto"
+        ],
+        "relacion": "anticipa",
+        "semanaPlatzi": 2
+      },
+      {
+        "curso": "Data2 · Consultas y análisis exploratorio con SQL y Python",
+        "modulo": "M2. Organizar y limpiar datos",
+        "contenidos": [
+          "Por qué los datos sucios generan malas decisiones",
+          "Filtros y ordenamiento en Excel",
+          "Identificación de valores faltantes, duplicados y errores tipográficos",
+          "Limpieza básica: eliminar duplicados, estandarizar formatos de fecha y texto"
+        ],
+        "relacion": "anticipa",
+        "semanaPlatzi": 2
+      },
+      {
+        "curso": "Data3 · Visualización y comunicación de datos desde cero",
+        "modulo": "M4. Mi primer tablero",
+        "contenidos": [
+          "Organizar los datos necesarios para responderla"
+        ],
+        "relacion": "anticipa",
+        "semanaPlatzi": 4
+      }
+    ],
+    "ampliacion": [
+      "Reglas de registro y registro de cambios: anotar qué cambiaste y por qué.",
+      "Suma conocida frente a total completo cuando falta un dato.",
+      "Contraste con una confirmación posterior de un dato faltante."
+    ],
+    "temas": [
+      {
+        "id": "datos-sucios",
+        "titulo": "Datos sucios, decisiones equivocadas",
+        "idea": "Si los datos están mal anotados, la cuenta puede salir bien hecha y aun así responder otra cosa.",
+        "explicacion": "Los **datos sucios** son registros con problemas de calidad: palabras escritas de formas distintas, fechas en varios formatos, filas copiadas o casillas vacías. La operación puede estar perfecta, pero si la tabla tiene esos problemas, la respuesta cambia. Por eso, **limpiar es tomar decisiones y poder explicarlas**, no solo dejar la tabla bonita.",
+        "cotidiano": "Si en la lista del mercado anotas «papa» y luego «Papa», y cuentas por separado, vas a creer que necesitas dos cosas distintas cuando es la misma.",
+        "ejemplo": "En una ludoteca ficticia, la tabla de préstamos de juegos tiene «Rompecabezas» y «rompecabezas». Si las cuentas por separado, parece que hay dos tipos de juego, cuando es uno solo.",
+        "enElReto": "Antes de sumar, recorre la tabla buscando problemas concretos: señala la celda y di qué le pasa."
+      },
+      {
+        "id": "fuente-y-copia",
+        "titulo": "Conserva la fuente y anota tus cambios",
+        "idea": "Trabaja en una copia y deja escrito qué cambiaste y por qué.",
+        "explicacion": "La **fuente** es la tabla original, tal como llegó. Nunca la modifiques: haz una **copia de trabajo** y ahí aplicas los cambios. Al lado, lleva un **registro de cambios** con tres columnas: registro, decisión y motivo. Así cualquier persona puede repetir lo que hiciste y comprobarlo.",
+        "cotidiano": "Es como cuando corriges una receta de la abuela: no tachas el cuaderno original, la copias en otra hoja y anotas «le puse menos sal porque…».",
+        "ejemplo": "Registro de cambios de la ludoteca (ficticio): «J02 · rompecabezas pasa a Rompecabezas · es la misma categoría escrita distinto».",
+        "enElReto": "Separa la tabla original de tu versión revisada y completa, por cada cambio, la frase «cambié… porque…»."
+      },
+      {
+        "id": "escritura-y-fechas",
+        "titulo": "Una sola forma de escribir textos y fechas",
+        "idea": "La misma categoría y la misma fecha deben escribirse siempre igual.",
+        "explicacion": "**Estandarizar** es elegir una sola forma de escribir algo y usarla en toda la tabla. En textos, ojo con mayúsculas, tildes y espacios. En fechas, puede aparecer «2026-11-03» en una fila y «03/11/2026» en otra: ambas son el 3 de noviembre. Al unificarlas, cambia la forma de escribir, **no el día real** ni el registro.",
+        "cotidiano": "En el chat del barrio unos escriben «Bello» y otros «bello»: es el mismo municipio, solo cambia la escritura.",
+        "ejemplo": "En la ludoteca ficticia, una fila dice «2026-11-03» y otra «04/11/2026». Las dejas todas como día/mes/año y revisas que el 3 siga siendo 3 y el 4 siga siendo 4.",
+        "enElReto": "Revisa la columna de categorías y la de fechas. Elige una forma común y verifica que ningún día cambie al convertir."
+      },
+      {
+        "id": "duplicado-exacto",
+        "titulo": "Categoría repetida no es lo mismo que duplicado",
+        "idea": "Que dos filas compartan una categoría es normal; un duplicado es la misma operación copiada dos veces.",
+        "explicacion": "Una categoría puede repetirse muchas veces de forma legítima: muchos préstamos pueden ser del mismo tipo. Un **duplicado exacto** es otra cosa: mismo identificador y mismos valores en **todos** los campos, y además la regla del caso confirma que es una copia. Solo entonces excluyes **una** copia y conservas la otra.",
+        "cotidiano": "Si en tu extracto del banco aparece dos veces la misma compra, mismo día, misma hora y mismo valor, vale la pena revisar. Pero que hayas comprado en la tienda varias veces no es un error.",
+        "ejemplo": "En la ludoteca ficticia aparecen dos filas «J03 · Dominó · 05/11/2026 · 4». La ludoteca confirma que fue un error de copia: dejas una y anotas la exclusión. Las otras filas de Dominó con otros códigos se quedan.",
+        "enElReto": "Compara campo por campo las filas que parezcan repetidas y apóyate en lo que el caso confirma. Nunca borres todas las filas de una categoría."
+      },
+      {
+        "id": "dato-faltante",
+        "titulo": "Vacío no es lo mismo que cero",
+        "idea": "Una casilla vacía significa «no sé», y un cero significa «no hubo».",
+        "explicacion": "Un **valor faltante** es un dato que no se registró. Si lo cambias por cero, estás inventando que no pasó nada, y eso puede ser falso. Lo responsable es **dejarlo visible** como desconocido y anotar qué preguntarías para completarlo. Tampoco se vale adivinar un número para que la cuenta cierre.",
+        "cotidiano": "Si no sabes cuánto te costó el pasaje de ayer, no escribes «$0»: escribes «no me acuerdo» y lo averiguas.",
+        "ejemplo": "En la ludoteca ficticia, J04 (Parqués) tiene la cantidad vacía. No sabemos si se prestó uno, tres o ninguno: queda marcado como «sin dato».",
+        "enElReto": "Identifica qué fila no tiene cantidad, déjala marcada y escribe qué le preguntarías a la biblioteca para completarla."
+      },
+      {
+        "id": "antes-y-despues",
+        "titulo": "Compara antes y después de limpiar",
+        "idea": "Contar filas y sumar antes y después de revisar te muestra el efecto de tus decisiones.",
+        "explicacion": "Al terminar, cuenta cuántas filas tenías al inicio y cuántas quedaron, y suma las cantidades conocidas en ambos momentos. Si falta un dato, tu resultado es una **suma conocida**, no el **total completo**. Decirlo con claridad evita que alguien tome decisiones con una cifra incompleta.",
+        "cotidiano": "Si sumas lo que gastaste en la semana pero te falta el recibo de un día, dices «gasté por lo menos tanto», no «gasté exactamente tanto».",
+        "ejemplo": "En la ludoteca ficticia: 5 filas pasan a 4 al quitar la copia de J03, y la suma conocida baja de 11 a 7 préstamos. Como J04 no tiene dato, 7 no es el total completo.",
+        "enElReto": "Escribe cuántas filas y cuánta suma conocida había antes y después, y explica por qué todavía no puedes cerrar el total."
+      }
+    ],
+    "pasos": [
+      "Guarda la tabla original sin tocarla y trabaja en una copia.",
+      "Lee una fila completa y di qué representa.",
+      "Busca problemas: escritura de categorías, fechas, filas repetidas y casillas vacías.",
+      "Aplica una regla a la vez y anota «cambié… porque…».",
+      "Deja visible el dato que falta y escribe qué preguntarías para completarlo.",
+      "Compara filas y suma conocida antes y después, y explica qué no puedes calcular todavía."
+    ],
+    "errores": [
+      {
+        "error": "Borrar todas las filas que tienen la misma categoría porque «se repiten».",
+        "consejo": "Una categoría repetida es normal. Para hablar de duplicado, compara todos los campos y revisa qué dice la regla del caso."
+      },
+      {
+        "error": "Cambiar la casilla vacía por cero o inventar un número para que la cuenta cierre.",
+        "consejo": "Deja el dato como desconocido. Escribir «no sé» también es información valiosa."
+      },
+      {
+        "error": "Presentar la suma conocida como si fuera el total completo.",
+        "consejo": "Acompaña tu cifra con una advertencia: «esta suma no incluye el registro que no tiene cantidad»."
+      },
+      {
+        "error": "Dejar la tabla ordenada, pero sin explicar qué cambió.",
+        "consejo": "Cada cambio necesita su motivo. Completa «cambié… porque…» para que otra persona pueda seguirte."
+      },
+      {
+        "error": "Al unificar fechas, cambiar sin querer el día registrado.",
+        "consejo": "Después de convertir, revisa fila por fila que el día y el mes sigan siendo los mismos."
+      }
+    ]
+  }
+}

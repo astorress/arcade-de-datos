@@ -1,0 +1,141 @@
+<!doctype html><html><body><h1 style="font-family:sans-serif">Prueba de la Misión 1 (borra el progreso de este navegador)</h1><pre id="out">corriendo…</pre>
+<iframe id="f" style="width:360px;height:800px"></iframe>
+<script>
+const f = document.getElementById('f'); const log = []; let fallos = 0;
+const ok = (c, m) => { log.push((c ? 'OK   ' : 'FAIL ') + m); if (!c) fallos++; };
+const esperar = (ms = 120) => new Promise((r) => setTimeout(r, ms));
+const W = () => f.contentWindow, D = () => f.contentDocument;
+const ir = async (h) => { W().location.hash = h; await esperar(200); };
+const btn = (txt, sel = 'button, a') => [...D().querySelectorAll(sel)].find((b) => b.textContent.trim().includes(txt));
+const clic = async (el) => { if (!el) throw new Error('no encontrado'); el.click(); await esperar(); };
+const fb = () => D().querySelector('.feedback')?.textContent || '';
+const esBien = () => !!D().querySelector('.feedback .fb--bien');
+const radio = async (legend, txt) => { const fs = [...D().querySelectorAll('fieldset')].find((x) => x.querySelector('legend')?.textContent.trim().startsWith(legend)); const l = [...fs.querySelectorAll('label')].find((x) => x.textContent.trim() === txt || x.textContent.includes(txt)); l.querySelector('input').click(); await esperar(30); };
+const filaBtn = (c) => [...D().querySelectorAll('.fila-btn')].find((b) => b.textContent.includes(c));
+async function correr() {
+  f.src = '/'; await esperar(800);
+  W().localStorage.clear(); W().location.reload(); await esperar(900);
+  ok(D().querySelector('.portada__titulo')?.textContent === 'Arcade de Datos', 'portada');
+  ok(D().querySelectorAll('.cp').length === 8, '8 checkpoints en el mapa');
+  ok(D().querySelectorAll('.cp--pronto').length === 7, '7 próximamente');
+  ok(D().querySelector('.mundo__jugador svg'), 'personaje en la misión actual');
+  ok(D().documentElement.scrollWidth <= 360, 'sin scroll horizontal en el mapa (' + D().documentElement.scrollWidth + ')');
+  await ir('#/mision/2'); ok(D().body.textContent.includes('PRÓXIMAMENTE'), 'misión 2 próximamente');
+  await ir('#/mision/1/teoria'); ok(D().querySelectorAll('.tema').length === 7 && D().querySelectorAll('.curso-platzi').length === 3, 'guía de teoría: 7 temas y 3 cursos Platzi');
+  ok(D().documentElement.scrollWidth <= 360, 'teoría sin scroll horizontal');
+  // Nivel 1
+  await ir('#/mision/1/nivel/1/1');
+  ok(D().querySelector('.btn--continuar').classList.contains('btn--bloqueado'), 'continuar bloqueado al inicio');
+  await clic(filaBtn('01')); ok(D().querySelector('.lectura__texto').textContent.startsWith('El registro 01 es una inscripción a Dibujo'), 'lectura fila 01');
+  await clic(filaBtn('05')); ok(esBien(), 'leer 2 filas completa');
+  ok(D().documentElement.scrollWidth <= 360, 'sin scroll horizontal en actividad con tabla');
+  await ir('#/mision/1/nivel/1/2');
+  ok(D().querySelector('.recordemos summary')?.textContent.includes('Unidad de análisis'), 'recordemos en la actividad');
+  await clic(btn('Una persona', '.opcion')); ok(fb().includes('no tiene un identificador') && !/incorrect/i.test(fb()), 'feedback "una persona"');
+  await clic(btn('Una inscripción', '.opcion')); ok(esBien(), '1.2 correcta');
+  await ir('#/mision/1/nivel/1/3');
+  await radio('Taller', 'Categórica'); await radio('Barrio', 'Categórica'); await radio('Fecha', 'Temporal'); await radio('Asistencia', 'Sí / No'); await radio('Código', 'Cantidad');
+  await clic(btn('Comprobar')); ok(fb().includes('El código identifica una inscripción; no es una cantidad.'), 'feedback código como cantidad');
+  await radio('Código', 'Identificador'); await clic(btn('Comprobar')); ok(esBien(), '1.3 emparejar correcto');
+  await ir('#/mision/1/nivel/1/4'); await clic(btn('No: cambia la etiqueta', '.opcion')); ok(esBien(), '1.4');
+  await ir('#/mision/1/nivel/1/5');
+  await radio('Espacio 1', 'una persona'); await radio('Espacio 2', 'una característica'); await clic(btn('Comprobar'));
+  ok(fb().includes('La tabla no permite saber si son seis personas distintas'), 'feedback 6 personas');
+  await radio('Espacio 1', 'una inscripción'); await clic(btn('Comprobar')); ok(esBien(), '1.5');
+  const ta = D().querySelector('textarea'); ta.value = 'Una fila es una inscripción'; ta.dispatchEvent(new Event('input')); await esperar();
+  await ir('#/mision/1/nivel/1/fin'); ok(D().body.textContent.includes('Nivel 1 listo: ya sabes leer una fila.'), 'cierre nivel 1');
+  // Nivel 2
+  await ir('#/mision/1/nivel/2/1');
+  D().querySelectorAll('.casilla input')[0].click(); D().querySelectorAll('.casilla input')[3].click(); await clic(btn('Comprobar'));
+  ok(fb().includes('más concreta'), 'feedback distractor 2.1');
+  D().querySelectorAll('.casilla input')[3].click(); D().querySelectorAll('.casilla input')[1].click(); D().querySelectorAll('.casilla input')[2].click(); await clic(btn('Comprobar')); ok(esBien(), '2.1');
+  await ir('#/mision/1/nivel/2/2');
+  for (const r of ['no', 'si', 'no', 'si']) {
+    const bs = D().querySelectorAll('.btn--decision'); const malo = r === 'si' ? bs[1] : bs[0]; const bueno = r === 'si' ? bs[0] : bs[1];
+    await clic(malo); ok(D().querySelector('.tarjeta__explicacion').textContent.includes('Miremos'), 'tarjeta error productivo');
+    await clic(bueno); await clic(D().querySelector('.tarjeta .btn--primario'));
+  }
+  ok(esBien(), '2.2 tarjetas');
+  await ir('#/mision/1/nivel/2/3'); await clic(btn('más inscripciones en estos registros', '.opcion')); ok(esBien(), '2.3');
+  await ir('#/mision/1/nivel/2/4');
+  for (const c of ['01', '02', '03', '04', '05']) await clic(filaBtn(c));
+  await clic(btn('Comprobar')); ok(fb().includes('¿Qué significa el «Sí»'), 'feedback fila con No');
+  await clic(filaBtn('02')); await clic(btn('Comprobar')); ok(esBien(), '2.4 filas');
+  await ir('#/mision/1/nivel/2/5');
+  const ins = D().querySelectorAll('.contador-input'); const set = async (v) => { v.forEach((x, i) => { ins[i].value = x; ins[i].dispatchEvent(new Event('input')); }); await esperar(30); };
+  await set([3, 2, 1]); await clic(btn('Comprobar')); ok(fb().includes('Contaste todas las inscripciones'), 'feedback conteo sin condición');
+  await set([2, 1, 1]); await clic(btn('Comprobar')); ok(esBien(), '2.4 conteo');
+  await ir('#/mision/1/nivel/2/6'); await clic(btn('dos preguntas distintas', '.opcion')); ok(esBien(), '2.4 por qué cambió');
+  await ir('#/mision/1/nivel/2/7');
+  await clic(btn('Vinieron 4 personas', '.opcion')); ok(fb().includes('Para hablar de personas únicas faltan datos'), 'feedback 4 personas');
+  await clic(btn('La suma de los códigos', '.opcion')); ok(fb().includes('El código identifica una inscripción'), 'feedback suma códigos');
+  await clic(btn('Hay 4 inscripciones', '.opcion')); ok(esBien(), '2.x honestidad');
+  await ir('#/mision/1/nivel/2/fin'); ok(D().body.textContent.includes('Nivel 2 listo'), 'cierre nivel 2');
+  // Nivel 3
+  await ir('#/mision/1/nivel/3/1');
+  ok(D().querySelector('.ejemplo') && D().querySelector('.ejemplo').hidden && btn('Ver ejemplo').disabled, 'ejemplo bloqueado antes de intentar');
+  D().querySelector('#n3-reto-ruta-mapa').click(); await esperar();
+  ok(D().querySelector('#n3-reto-pregunta').value.startsWith('En estos seis registros'), 'ruta mapa precarga pregunta');
+  ok(btn('Ver ejemplo').disabled, 'la pregunta precargada no desbloquea el ejemplo');
+  await clic(btn('Terminé mi reto')); ok(fb().includes('Te falta escribir'), 'reto incompleto avisa');
+  const llenar = (id, v) => { const t = D().querySelector('#n3-reto-' + id); t.value = v; t.dispatchEvent(new Event('input')); };
+  llenar('fila-columnas', 'Cada fila representa una inscripción. Uso Taller.');
+  ok(!btn('Ver ejemplo').disabled, 'ejemplo se habilita al escribir');
+  D().querySelector('.selector-filas').open = true; const tablaSel = D().querySelector('.selector-filas');
+  [...tablaSel.querySelectorAll('.fila-btn')].filter((b) => /01|03|06/.test(b.textContent)).forEach((b) => b.click()); await esperar();
+  await clic([...tablaSel.querySelectorAll('button')].find((b) => b.textContent.includes('Agregar')));
+  ok(D().querySelector('#n3-reto-comprobacion').value.includes('Códigos: 01, 03, 06'), 'agregar códigos marcados');
+  llenar('respuesta-limite', 'Dibujo 3, Música 2, Programación 1. No permite saber personas distintas.');
+  await clic(btn('Terminé mi reto')); ok(fb().includes('lista de verificación'), 'pide lista de verificación');
+  D().querySelectorAll('.verificacion input').forEach((i) => i.click()); await clic(btn('Terminé mi reto')); ok(esBien(), 'reto completo');
+  await ir('#/mision/1/nivel/3/2'); await clic(btn('Solo la B', '.opcion')); ok(fb().includes('no tiene datos de población'), 'feedback población');
+  await clic(btn('Solo la A', '.opcion')); ok(esBien(), 'contraste');
+  await ir('#/mision/1/nivel/3/3'); await clic(btn('Hay empate', '.opcion')); ok(esBien(), 'empate');
+  await ir('#/mision/1/nivel/3/4'); await clic(btn('Listo')); ok(fb().includes('Completa también'), 'cierre pide frases');
+  D().querySelector('#n3-cierre-papel').click(); await clic(btn('Listo')); ok(esBien(), 'cierre con papel');
+  await ir('#/mision/1/nivel/3/fin'); ok(D().body.textContent.includes('¡Ganaste una insignia!') && D().body.textContent.includes('Detective de filas'), 'insignia ganada');
+  ok(D().body.textContent.includes('Desbloqueaste un accesorio') , 'anuncia accesorio desbloqueado');
+  await ir('#/personaje');
+  ok(!D().querySelector('#pj-acc-lupa').disabled && D().querySelector('#pj-acc-escoba').disabled, 'lupa desbloqueada, escoba bloqueada');
+  D().querySelector('#pj-estilo-casco').click(); D().querySelector('#pj-camiseta-verde').click(); D().querySelector('#pj-acc-lupa').click();
+  const nom = D().querySelector('#pj-nombre'); nom.value = 'Tigre'; nom.dispatchEvent(new Event('input')); await esperar();
+  const pj = JSON.parse(W().localStorage.getItem('arcade-datos:v1')).personaje;
+  ok(pj.estilo === 'casco' && pj.camiseta === 'verde' && pj.accesorio === 'lupa' && pj.nombre === 'Tigre', 'personaje guardado');
+  ok(D().querySelector('.personaje-previa__nombre').textContent === 'TIGRE', 'nombre en la vista previa');
+  ok(D().documentElement.scrollWidth <= 360, 'personaje sin scroll horizontal');
+  await ir('#/'); ok(D().querySelector('.portada__pre').textContent.includes('TIGRE') && D().querySelector('.mundo__jugador svg rect[fill="#7FC200"]'), 'personaje personalizado en portada y mapa');
+  await ir('#/progreso'); const pts = D().querySelector('.marcador__valor').textContent; ok(pts === '0300', 'puntos 16x10+3x30+50=300 -> ' + pts);
+  ok(D().body.textContent.includes('Ganada'), 'insignia en progreso');
+  await ir('#/mision/1/cuaderno'); ok(D().body.textContent.includes('Códigos: 01, 03, 06') && D().body.textContent.includes('Una fila es una inscripción'), 'cuaderno guarda textos');
+  await ir('#/mision/1/llevar'); ok(D().querySelectorAll('.hoja-previa tbody tr').length === 6 && D().body.textContent.includes('Datos ficticios'), 'hoja para llevar');
+  await ir('#/glosario'); const b = D().querySelector('#buscar-glosario'); b.value = 'identif'; b.dispatchEvent(new Event('input')); await esperar();
+  ok(D().querySelectorAll('.carta').length >= 1 && D().querySelector('.carta__termino').textContent.startsWith('Identificador'), 'buscador glosario');
+  ok(D().querySelector('.carta--mia'), 'carta coleccionada tras jugar la misión 1');
+  // Repaso relámpago
+  await ir('#/repaso');
+  ok(D().querySelectorAll('.opcion').length >= 2, 'repaso muestra una pregunta');
+  for (let k = 0; k < 5; k++) {
+    const correcta = [...D().querySelectorAll('.opcion')];
+    for (const o of correcta) { if (D().querySelector('.feedback .fb--bien')) break; o.click(); await esperar(60); }
+    const sig = btn('Siguiente pregunta') || btn('Ver cómo me fue'); if (sig) await clic(sig);
+  }
+  ok(D().body.textContent.includes('RONDA TERMINADA'), 'repaso: ronda completa');
+  // Modo clase
+  await ir('#/clase/1');
+  ok(D().body.classList.contains('modo-clase') && D().querySelector('.clase-titulo')?.textContent === 'Centro Cultural', 'modo clase: portada');
+  for (let k = 0; k < 4; k++) await clic(D().querySelector('[aria-label="Diapositiva siguiente"]'));
+  ok(/#\/clase\/1\/5$/.test(W().location.hash), 'modo clase: navega y guarda la diapositiva');
+  W().document.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight' })); await esperar();
+  ok(/#\/clase\/1\/6$/.test(W().location.hash), 'modo clase: flecha del teclado');
+  await ir('#/'); ok(!D().body.classList.contains('modo-clase'), 'salir del modo clase restaura la página');
+  ok(D().querySelectorAll('.nav-principal .icono').length === 4 && !/[\u{1F5FA}\u{1F4D6}\u{1F3C6}]/u.test(D().querySelector('.nav-principal').textContent), 'íconos pixel en lugar de emojis');
+  ok(typeof W().navigator !== 'undefined' && D().querySelector('.pantalla-nivel') === null, 'sin pantallas colgadas');
+  await ir('#/progreso'); ok(btn('Compartir'), 'botón compartir insignia');
+  await ir('#/progreso'); await clic(btn('Borrar mi progreso')); await clic(btn('Sí, borrar todo')); await esperar(300);
+  ok(D().querySelector('.marcador__valor').textContent === '0000', 'borrar progreso');
+  ok(!JSON.parse(W().localStorage.getItem('arcade-datos:v1')).personaje, 'borrar también reinicia el personaje');
+  ok(!/incorrecto/i.test(log.join()), 'nunca dice incorrecto');
+  await ir('#/no-existe'); ok(D().body.textContent.includes('No encontramos'), 'ruta inexistente');
+}
+correr().catch((e) => { log.push('ERROR ' + e.stack); fallos++; }).finally(() => { document.getElementById('out').textContent = log.join('\n') + `\n\nFALLOS: ${fallos}`; document.title = 'FIN'; });
+</script></body></html>

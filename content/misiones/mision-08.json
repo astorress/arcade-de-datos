@@ -1,0 +1,187 @@
+{
+  "numero": 8,
+  "estado": "proximamente",
+  "titulo": "Del dato imperfecto a la recomendación",
+  "sesion": "Integrar un análisis del dato imperfecto",
+  "habilidad": "El ciclo completo: limpiar, analizar, comunicar y recomendar con límites.",
+  "caso": "Asesorías en tres sedes",
+  "color": "magenta",
+  "historia": "",
+  "insignia": {
+    "nombre": "Analista completo",
+    "descripcion": "",
+    "simbolo": "estrella"
+  },
+  "niveles": [],
+  "conceptos": [],
+  "teoria": {
+    "intro": "Esta es la misión que lo junta todo: preguntar, limpiar, calcular, graficar y recomendar con honestidad. Es lo que haces cuando decides algo importante en tu casa: miras los datos que tienes, revisas que estén bien y decides sin prometer más de lo que sabes.",
+    "platzi": [
+      {
+        "curso": "Data1 · Fundamentos del análisis de datos",
+        "modulo": "M2. Organizar y limpiar datos",
+        "contenidos": [
+          "Identificación de valores faltantes, duplicados y errores tipográficos",
+          "Limpieza básica: eliminar duplicados, estandarizar formatos de fecha y texto"
+        ],
+        "relacion": "retoma",
+        "semanaPlatzi": 2
+      },
+      {
+        "curso": "Data1 · Fundamentos del análisis de datos",
+        "modulo": "M4. Preguntar con datos",
+        "contenidos": [
+          "Formulación de una pregunta analítica a partir de un problema real o cercano",
+          "Ciclo básico del análisis de datos: preguntar → recopilar → limpiar → analizar → comunicar",
+          "Construcción de un reporte narrativo corto que combine texto y visualización",
+          "Introducción a la ética de los datos: privacidad, sesgo y uso responsable"
+        ],
+        "relacion": "aplica",
+        "semanaPlatzi": 4
+      },
+      {
+        "curso": "Data2 · Consultas y análisis exploratorio con SQL y Python",
+        "modulo": "M2. Organizar y limpiar datos",
+        "contenidos": [
+          "Identificación de valores faltantes, duplicados y errores tipográficos",
+          "Limpieza básica: eliminar duplicados, estandarizar formatos de fecha y texto"
+        ],
+        "relacion": "retoma",
+        "semanaPlatzi": 2
+      },
+      {
+        "curso": "Data2 · Consultas y análisis exploratorio con SQL y Python",
+        "modulo": "M4. Preguntar con datos",
+        "contenidos": [
+          "Formulación de una pregunta analítica a partir de un problema real o cercano",
+          "Ciclo básico del análisis de datos: preguntar → recopilar → limpiar → analizar → comunicar",
+          "Construcción de un reporte narrativo corto que combine texto y visualización",
+          "Introducción a la ética de los datos: privacidad, sesgo y uso responsable"
+        ],
+        "relacion": "retoma",
+        "semanaPlatzi": 3
+      },
+      {
+        "curso": "Data2 · Consultas y análisis exploratorio con SQL y Python",
+        "modulo": "M5. SQL para consultar datos reales",
+        "contenidos": [
+          "Sintaxis básica de SQL: SELECT, FROM, WHERE, ORDER BY, LIMIT",
+          "Agregaciones: GROUP BY, HAVING, COUNT, SUM, AVG, MAX, MIN"
+        ],
+        "relacion": "retoma",
+        "semanaPlatzi": 3
+      },
+      {
+        "curso": "Data3 · Visualización y comunicación de datos desde cero",
+        "modulo": "M4. Mi primer tablero",
+        "contenidos": [
+          "Formular una pregunta sencilla a partir de un dato cotidiano",
+          "Organizar los datos necesarios para responderla",
+          "Construir un tablero básico con una o dos visualizaciones",
+          "Acompañar el tablero con una narrativa corta"
+        ],
+        "relacion": "aplica",
+        "semanaPlatzi": 4
+      }
+    ],
+    "ampliacion": [
+      "Comparar tasa y volumen no asistido (reservas menos asistencias)",
+      "Probar el efecto de un duplicado sobre los resultados"
+    ],
+    "temas": [
+      {
+        "id": "ciclo-del-analisis",
+        "titulo": "El ciclo del análisis de datos",
+        "idea": "Preguntar, recopilar, limpiar, analizar y comunicar: cada paso depende del anterior.",
+        "explicacion": "El **ciclo del análisis** ordena todo lo que has practicado: primero una **pregunta**, luego los **datos**, después la **limpieza**, el **análisis** (cálculos y comparaciones) y al final la **comunicación**. Si un paso falla, los siguientes arrastran el problema. Por eso conviene poder explicar cada decisión de la cadena.",
+        "cotidiano": "Cocinar un sancocho también es un ciclo: decides qué vas a hacer, compras, lavas y pelas, cocinas y sirves. Si no lavas bien, el plato final lo sufre.",
+        "ejemplo": "Datos ficticios de un punto de vacunación con dos sedes: pregunta → tabla de citas → revisar duplicados y nombres → calcular tasas → gráfico y recomendación.",
+        "enElReto": "Usa el ciclo como lista de chequeo: revisa que tu análisis tenga los cinco pasos y que cada uno se pueda explicar."
+      },
+      {
+        "id": "pregunta-y-criterio",
+        "titulo": "La pregunta y el criterio, desde el inicio",
+        "idea": "Decide con qué criterio vas a priorizar antes de ver los resultados.",
+        "explicacion": "Una buena pregunta dice qué se mide, en qué conjunto y en qué periodo. El **criterio de prioridad** (por ejemplo, la menor tasa de asistencia o el mayor volumen de citas perdidas) se declara **al comienzo**. Cambiarlo al final para que coincida con lo que querías concluir hace que el análisis pierda confianza.",
+        "cotidiano": "Si antes de un partido acuerdas que gana quien meta más goles, no vale cambiar la regla en el segundo tiempo.",
+        "ejemplo": "Punto de vacunación ficticio: «En este mes, ¿qué sede tiene menor tasa de asistencia sobre citas y conviene revisar primero?».",
+        "enElReto": "Escribe tu pregunta y tu criterio antes de limpiar o calcular, y mantenlos visibles durante todo el reto."
+      },
+      {
+        "id": "limpieza-documentada",
+        "titulo": "Limpieza documentada",
+        "idea": "Conserva la fuente, quita solo lo que el caso confirma y anota cada decisión.",
+        "explicacion": "Repasa lo de la misión 2: trabaja en una **copia**, une nombres que describen lo mismo (por ejemplo, «belén» y «Belén») y excluye solo la **copia confirmada** de un registro. Una categoría repetida no es un duplicado. Cada cambio va con su motivo, para que otra persona pueda reconstruir de dónde salen las cifras.",
+        "cotidiano": "Cuando organizas los contactos del celular, juntas «Mamá» y «mamá», pero no borras a todos los que se llaman Juan.",
+        "ejemplo": "Punto ficticio: L01 Robledo 25 citas, 20 asistencias; L02 Belén 30 y 18; L03 belén 10 y 7; L03 belén 10 y 7 (copia confirmada). Quedan tres lotes válidos y dos sedes.",
+        "enElReto": "Revisa nombres de sede y filas repetidas, aplica solo lo que el caso confirma y anota «cambié… porque…»."
+      },
+      {
+        "id": "agregar-antes-de-dividir",
+        "titulo": "Agrega antes de dividir",
+        "idea": "Para la tasa de una sede, primero sumas todos sus lotes y después divides.",
+        "explicacion": "Cuando una sede tiene varios lotes, sumas sus citas y sus asistencias, y **después** divides. Promediar las tasas de cada lote no da la tasa conjunta. Lo mismo para el total: sumas todo y divides al final. Si ya trabajaste SQL en Data2, puedes hacerlo con GROUP BY y SUM; es **opcional**, y en una tabla o en tu cuaderno se resuelve igual.",
+        "cotidiano": "Si en dos idas al mercado compraste 10 y 5 mangos, y en cada una salieron algunos malos, para saber la proporción total de mangos malos sumas todo primero.",
+        "ejemplo": "Punto ficticio, después de limpiar: Belén = (30 + 10) citas y (18 + 7) asistencias = 25 ÷ 40 = 62,5 %. Robledo = 20 ÷ 25 = 80 %.",
+        "enElReto": "Suma reservas y asistencias de cada sede antes de dividir, y haz lo mismo para el total global."
+      },
+      {
+        "id": "tasa-y-volumen",
+        "titulo": "Tasa y volumen: dos miradas",
+        "idea": "La tasa dice qué proporción faltó; el volumen dice cuántas citas se perdieron.",
+        "explicacion": "La **tasa de asistencia** (asistencias ÷ reservas) compara sedes de distinto tamaño. El **volumen no asistido** (reservas − asistencias) dice cuántas citas se perdieron en números. Mirar las dos ayuda a justificar una prioridad. Ojo: un porcentaje que se queda igual no prueba que la limpieza esté bien; compara también las cantidades con y sin el duplicado.",
+        "cotidiano": "Una tienda pequeña puede botar una proporción mayor de pan, pero una panadería grande puede botar más panes en total.",
+        "ejemplo": "Punto ficticio: Robledo pierde 5 citas (25 − 20); Belén pierde 15 (40 − 25). Si no quitaras la copia de L03, Belén tendría 50 citas y 32 asistencias: 64 % y 18 perdidas.",
+        "enElReto": "Calcula, para cada sede, la tasa y las reservas no asistidas, con sus unidades. Compara los resultados con y sin la copia accidental."
+      },
+      {
+        "id": "figura-fiel",
+        "titulo": "Una figura fiel a los datos",
+        "idea": "El gráfico debe mostrar las tasas sin exagerar y con su contexto.",
+        "explicacion": "Para comparar sedes, unas **barras de tasas** con eje desde cero en porcentaje funcionan bien. Acompáñalas con una tabla de cantidades de apoyo. Revisa título, unidad, escala y fuente, como en la misión 6.",
+        "cotidiano": "Un mapa del metro sirve porque no exagera ni esconde estaciones: muestra justo lo que necesitas para llegar.",
+        "ejemplo": "Punto ficticio: «Tasa de asistencia por sede, mes ficticio · % de citas · Fuente: datos ficticios», con barras de Robledo y Belén desde 0 %.",
+        "enElReto": "Construye un gráfico de tasas por sede, desde cero, y deja al lado las cantidades que lo respaldan."
+      },
+      {
+        "id": "recomendacion-proporcionada",
+        "titulo": "Recomendación proporcionada",
+        "idea": "Recomienda dónde revisar primero, sin prometer causas ni resultados.",
+        "explicacion": "Una **recomendación proporcionada** cita una cifra, un criterio y un límite: «conviene revisar primero… porque…; todavía no sabemos…». Priorizar una sede para revisar **no prueba** por qué faltó la gente ni que una acción (como enviar recordatorios) vaya a funcionar. Para eso harían falta otros datos.",
+        "cotidiano": "Si tu celular se descarga rápido, puedes revisar primero qué apps gastan más batería, pero eso no prueba que el problema sea una app y no la batería.",
+        "ejemplo": "Punto ficticio: «Conviene revisar primero Belén, con 62,5 % de asistencia y 15 citas perdidas. Todavía no sabemos por qué faltaron las personas ni si un recordatorio ayudaría».",
+        "enElReto": "Escribe tu recomendación con cifra, criterio y límite, y separa la evidencia de cualquier suposición sobre las causas."
+      }
+    ],
+    "pasos": [
+      "Escribe la pregunta y el criterio de prioridad, y guarda la fuente sin cambios.",
+      "Limpia en una copia: une nombres de la misma sede y excluye solo la copia confirmada, anotando cada decisión.",
+      "Suma reservas y asistencias por sede y calcula tasas, volumen no asistido y tasa global.",
+      "Compara los resultados con y sin la copia accidental.",
+      "Construye un gráfico fiel de tasas por sede, con su tabla de apoyo.",
+      "Redacta una recomendación con cifra, criterio y límite."
+    ],
+    "errores": [
+      {
+        "error": "Eliminar todas las filas de una sede porque se repite su nombre.",
+        "consejo": "Una sede repetida es normal. Revisa el ID, todos los campos y la regla del caso antes de excluir."
+      },
+      {
+        "error": "Contar «sur» y «Sur» (o variantes) como si fueran sedes distintas.",
+        "consejo": "Unifica la escritura en tu copia de trabajo y anota el cambio en tu registro."
+      },
+      {
+        "error": "Promediar las tasas de los lotes para obtener la tasa de la sede o la global.",
+        "consejo": "Suma primero las cantidades de los lotes y divide al final."
+      },
+      {
+        "error": "Validar la limpieza solo porque el porcentaje no cambió.",
+        "consejo": "Una tasa igual no garantiza una base limpia. Revisa también las cantidades y el número de lotes."
+      },
+      {
+        "error": "Afirmar que la gente faltó por olvido o que los recordatorios lo resolverán.",
+        "consejo": "Recomienda dónde revisar y deja la causa y el efecto de cualquier acción como preguntas por investigar."
+      }
+    ]
+  }
+}

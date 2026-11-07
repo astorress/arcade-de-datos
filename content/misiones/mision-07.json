@@ -1,0 +1,161 @@
+{
+  "numero": 7,
+  "estado": "proximamente",
+  "titulo": "Mi primer tablero",
+  "sesion": "Diseñar un tablero y narrar hallazgos",
+  "habilidad": "Dos indicadores (KPI), dos gráficos y una narrativa; cantidad frente a tasa.",
+  "caso": "Biblioteca, 3 meses",
+  "color": "naranja",
+  "historia": "",
+  "insignia": {
+    "nombre": "Narrador de tableros",
+    "descripcion": "",
+    "simbolo": "tablero"
+  },
+  "niveles": [],
+  "conceptos": [],
+  "teoria": {
+    "intro": "Un tablero junta en una sola vista las cifras y gráficos que responden una pregunta, con un texto corto que ayuda a leerlos. Es como el resumen del partido: el marcador, un par de datos clave y una frase que cuenta qué pasó, sin inventar lo que no se vio.",
+    "platzi": [
+      {
+        "curso": "Data1 · Fundamentos del análisis de datos",
+        "modulo": "M3. Visualizar para comunicar",
+        "contenidos": [
+          "Buenas prácticas: títulos, etiquetas, colores accesibles, evitar gráficos engañosos"
+        ],
+        "relacion": "retoma",
+        "semanaPlatzi": 3
+      },
+      {
+        "curso": "Data1 · Fundamentos del análisis de datos",
+        "modulo": "M4. Preguntar con datos",
+        "contenidos": [
+          "Construcción de un reporte narrativo corto que combine texto y visualización",
+          "Introducción a la ética de los datos: privacidad, sesgo y uso responsable"
+        ],
+        "relacion": "aplica",
+        "semanaPlatzi": 4
+      },
+      {
+        "curso": "Data2 · Consultas y análisis exploratorio con SQL y Python",
+        "modulo": "M3. Visualizar para comunicar",
+        "contenidos": [
+          "Buenas prácticas: títulos, etiquetas, colores accesibles, evitar gráficos engañosos"
+        ],
+        "relacion": "retoma",
+        "semanaPlatzi": 2
+      },
+      {
+        "curso": "Data2 · Consultas y análisis exploratorio con SQL y Python",
+        "modulo": "M4. Preguntar con datos",
+        "contenidos": [
+          "Construcción de un reporte narrativo corto que combine texto y visualización",
+          "Introducción a la ética de los datos: privacidad, sesgo y uso responsable"
+        ],
+        "relacion": "retoma",
+        "semanaPlatzi": 3
+      },
+      {
+        "curso": "Data3 · Visualización y comunicación de datos desde cero",
+        "modulo": "M4. Mi primer tablero",
+        "contenidos": [
+          "Formular una pregunta sencilla a partir de un dato cotidiano",
+          "Organizar los datos necesarios para responderla",
+          "Construir un tablero básico con una o dos visualizaciones",
+          "Acompañar el tablero con una narrativa corta"
+        ],
+        "relacion": "aplica",
+        "semanaPlatzi": 4
+      }
+    ],
+    "ampliacion": [
+      "Periodos, cantidades, tasas y puntos porcentuales en una misma vista",
+      "Qué hacer cuando no hay denominador por categoría (no se puede calcular una tasa por tema)"
+    ],
+    "temas": [
+      {
+        "id": "tablero",
+        "titulo": "Tablero: una vista para una pregunta",
+        "idea": "Un tablero reúne pocas piezas que, juntas, responden una pregunta.",
+        "explicacion": "Un **tablero** (o dashboard) es una sola vista con indicadores, gráficos y un texto corto. Antes de decorar, define **para quién** es, **qué pregunta** responde y **qué periodo** cubre. Cada bloque debe ayudar a responder una parte de esa pregunta; si un bloque no aporta, sobra.",
+        "cotidiano": "El tablero del carro muestra velocidad y gasolina: lo justo para manejar, no todo lo que pasa en el motor.",
+        "ejemplo": "Datos ficticios de un club de lectura: pregunta «¿Cómo cambió la asistencia de abril a junio y qué actividades concentraron asistencias en junio?». Bloques: dos indicadores de junio, una línea mensual y unas barras por actividad.",
+        "enElReto": "Escribe la pregunta y los periodos antes de ubicar los bloques. Mantén separadas la tabla mensual y la tabla por tema."
+      },
+      {
+        "id": "kpi",
+        "titulo": "Indicador clave (KPI)",
+        "idea": "Un KPI es una cifra importante para la pregunta, con su unidad y su periodo.",
+        "explicacion": "**KPI** viene del inglés y significa **indicador clave**: una cifra que resume algo importante para la decisión. Un KPI sin unidad ni periodo no se entiende: «39» no dice nada; «39 asistentes en junio» sí. Si muestras un porcentaje, deja ver de dónde sale su denominador.",
+        "cotidiano": "En el recibo de servicios, el consumo del mes en kWh es un indicador clave: te dice cuánto gastaste ese mes.",
+        "ejemplo": "Club de lectura ficticio, junio: «39 asistentes» y «65 % de asistencia (39 de 60 inscritos)».",
+        "enElReto": "Calcula y rotula los dos indicadores del mes que pide el reto, con unidad, periodo y denominador visible."
+      },
+      {
+        "id": "cantidad-vs-tasa",
+        "titulo": "Cantidad frente a tasa",
+        "idea": "Que vayan más personas no significa que haya ido una mayor proporción de los inscritos.",
+        "explicacion": "La **cantidad** dice cuántos asistieron. La **tasa de asistencia** dice cuántos asistieron **de cada 100 inscritos** (asistentes ÷ inscritos). Pueden moverse en direcciones distintas: si crecen mucho los inscritos, puede haber más asistentes y aun así menor tasa. Aunque una cantidad y un porcentaje coincidan en número, son cosas diferentes.",
+        "cotidiano": "Si invitas a más gente a tu cumpleaños, pueden llegar más personas y aun así faltar una mayor parte de los invitados.",
+        "ejemplo": "Club ficticio: abril 34 de 40 (85 %), mayo 38 de 50 (76 %), junio 39 de 60 (65 %). Los asistentes suben y la tasa baja.",
+        "enElReto": "Calcula la tasa de cada mes dividiendo asistentes entre inscritos y compara cómo se mueven las cantidades y las tasas."
+      },
+      {
+        "id": "puntos-porcentuales",
+        "titulo": "Puntos porcentuales",
+        "idea": "La diferencia entre dos tasas se dice en puntos porcentuales, no en personas.",
+        "explicacion": "Si una tasa pasa de 76 % a 65 %, bajó **11 puntos porcentuales**. Eso no quiere decir que fueron 11 personas menos: hay que mirar la columna de asistentes para saber cuántas personas cambiaron. En un tablero conviene decir las dos cosas por separado.",
+        "cotidiano": "Si tu equipo ganaba el 60 % de los partidos y ahora gana el 55 %, bajó 5 puntos porcentuales, sin importar cuántos partidos jugó.",
+        "ejemplo": "Club ficticio: de mayo a junio hay 1 asistente más (38 → 39), pero la tasa bajó 11 puntos porcentuales (76 % → 65 %).",
+        "enElReto": "Al comparar dos meses, escribe por un lado el cambio en asistentes y por otro el cambio en puntos porcentuales."
+      },
+      {
+        "id": "sin-denominador",
+        "titulo": "Sin denominador no hay tasa",
+        "idea": "Para calcular una tasa por categoría necesitas la base de esa categoría.",
+        "explicacion": "Si tienes asistencias por tema, pero no tienes inscritos por tema, **no puedes** calcular una tasa por tema. Usar el total de inscritos como si fuera de un solo tema da un número sin sentido. En ese caso, las barras muestran **cantidades** y lo dices claramente.",
+        "cotidiano": "Sabes cuántos goles hizo cada jugador, pero no cuántos tiros hizo cada uno: no puedes decir quién tiene mejor puntería.",
+        "ejemplo": "Club ficticio, junio: cocina 20, inglés 12, música 7 asistencias (suman 39). No hay inscritos por actividad, así que solo se grafican cantidades.",
+        "enElReto": "Para la distribución por tema, grafica cantidades y explica por qué no hay tasa por tema."
+      },
+      {
+        "id": "hallazgo-hipotesis-limite",
+        "titulo": "Hallazgo, recomendación y pregunta pendiente",
+        "idea": "Una narrativa responsable separa lo que muestran los datos de lo que todavía suponemos.",
+        "explicacion": "El texto del tablero puede tener tres frases: un **hallazgo** con cifras (lo que se ve), una **recomendación prudente** (qué revisar) y una **pregunta pendiente** (qué datos faltan). Una **hipótesis** es una posible explicación que aún no está comprobada. Usar los datos con responsabilidad es no culpar a nadie sin evidencia.",
+        "cotidiano": "Si tu planta se marchita, el hallazgo es «tiene hojas secas»; la hipótesis es «le falta agua»; lo prudente es revisar la tierra antes de echarle un balde.",
+        "ejemplo": "Club ficticio: «En junio asistió el 65 % de los inscritos, 11 puntos porcentuales menos que en mayo. Recomendamos revisar con el equipo qué cambió en la convocatoria. Pregunta pendiente: ¿cambiaron los horarios?».",
+        "enElReto": "Redacta las tres frases, añade la fuente ficticia y una limitación, y revisa que el texto y los gráficos hablen del mismo periodo."
+      }
+    ],
+    "pasos": [
+      "Escribe la pregunta del tablero, para quién es y qué periodos usa.",
+      "Calcula y rotula los dos indicadores con unidad y denominador.",
+      "Construye la línea de tasas mensuales con porcentajes en el eje.",
+      "Construye las barras por tema desde cero y aclara el mes.",
+      "Redacta hallazgo, recomendación prudente y pregunta pendiente, con fuente y una limitación."
+    ],
+    "errores": [
+      {
+        "error": "Dividir al revés (inscritos ÷ asistentes).",
+        "consejo": "Pregúntate qué parte de los inscritos llegó a asistir: los inscritos son la base y van abajo."
+      },
+      {
+        "error": "Mostrar un número sin unidad y confundir cantidad con porcentaje aunque coincidan.",
+        "consejo": "Escribe siempre «asistentes» o «%» y el periodo al lado de cada cifra."
+      },
+      {
+        "error": "Calcular una tasa por tema usando el total de inscritos.",
+        "consejo": "Ese denominador no está desglosado por tema. Grafica cantidades y explícalo en una nota."
+      },
+      {
+        "error": "Decir que «bajó tantas personas» cuando lo que bajó fue la tasa en puntos porcentuales.",
+        "consejo": "Vuelve a las columnas: una cosa es el cambio en asistentes y otra el cambio de la tasa."
+      },
+      {
+        "error": "Culpar a una campaña o dar por hecha una causa en el texto del tablero.",
+        "consejo": "Convierte esa causa en una pregunta pendiente y di qué evidencia faltaría para comprobarla."
+      }
+    ]
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "numero": 6,
+  "estado": "proximamente",
+  "titulo": "Gráficos que responden",
+  "sesion": "Crear visualizaciones que respondan preguntas",
+  "habilidad": "Líneas o barras, ejes, etiquetas y cuidado con la causalidad.",
+  "caso": "Asistencia mensual",
+  "color": "verde",
+  "historia": "",
+  "insignia": {
+    "nombre": "Ojo de gráfico",
+    "descripcion": "",
+    "simbolo": "grafico"
+  },
+  "niveles": [],
+  "conceptos": [],
+  "teoria": {
+    "intro": "Un buen gráfico responde una pregunta de un vistazo, sin exagerar ni esconder nada. Lo ves todos los días en noticias y redes; hoy aprendes a elegirlo, construirlo y leerlo con ojo crítico.",
+    "platzi": [
+      {
+        "curso": "Data1 · Fundamentos del análisis de datos",
+        "modulo": "M3. Visualizar para comunicar",
+        "contenidos": [
+          "Principios básicos de visualización de datos: elegir el gráfico correcto",
+          "Tipos de gráfico: barras, líneas, torta, dispersión",
+          "Buenas prácticas: títulos, etiquetas, colores accesibles, evitar gráficos engañosos",
+          "Lectura crítica de visualizaciones en medios y redes sociales"
+        ],
+        "relacion": "aplica",
+        "semanaPlatzi": 3
+      },
+      {
+        "curso": "Data2 · Consultas y análisis exploratorio con SQL y Python",
+        "modulo": "M3. Visualizar para comunicar",
+        "contenidos": [
+          "Principios básicos de visualización de datos: elegir el gráfico correcto",
+          "Tipos de gráfico: barras, líneas, torta, dispersión",
+          "Buenas prácticas: títulos, etiquetas, colores accesibles, evitar gráficos engañosos",
+          "Lectura crítica de visualizaciones en medios y redes sociales"
+        ],
+        "relacion": "retoma",
+        "semanaPlatzi": 2
+      },
+      {
+        "curso": "Data3 · Visualización y comunicación de datos desde cero",
+        "modulo": "M2. Elegir y construir el gráfico correcto",
+        "contenidos": [
+          "Principios básicos de visualización: claridad antes que adorno",
+          "Tipos de gráfico: barras, líneas, torta, dispersión y cuándo usar cada uno",
+          "Construcción de gráficos paso a paso en Excel",
+          "Títulos, etiquetas y colores accesibles"
+        ],
+        "relacion": "retoma",
+        "semanaPlatzi": 2
+      },
+      {
+        "curso": "Data3 · Visualización y comunicación de datos desde cero",
+        "modulo": "M3. Detectar gráficos engañosos",
+        "contenidos": [
+          "Ejes manipulados, escalas y proporciones que engañan",
+          "Lectura crítica de visualizaciones en medios y redes sociales",
+          "Comparar dos versiones de un gráfico y elegir la más honesta"
+        ],
+        "relacion": "aplica",
+        "semanaPlatzi": 3
+      }
+    ],
+    "ampliacion": [
+      "Variación relativa (cuánto creció respecto al punto de partida)",
+      "Cautela causal: separar un aumento observado de su explicación"
+    ],
+    "temas": [
+      {
+        "id": "pregunta-del-grafico",
+        "titulo": "Primero la pregunta, después el gráfico",
+        "idea": "Cada gráfico debe responder una pregunta concreta.",
+        "explicacion": "Antes de abrir cualquier herramienta, escribe qué quieres que el gráfico responda y qué tabla lo respalda. Una pregunta sobre **cambio en el tiempo** pide conservar el orden de los meses; una pregunta sobre **comparar categorías** pide poner nombres lado a lado. Si mezclas tablas de periodos distintos, el gráfico confunde.",
+        "cotidiano": "Antes de salir, te preguntas «¿va a llover hoy?» y miras el pronóstico por horas; no te sirve ver el clima de todo el año.",
+        "ejemplo": "Datos ficticios de una tienda: «¿Cómo cambiaron las ventas de empanadas de enero a marzo?» y «¿Qué sabor se vendió más en marzo?». Son dos preguntas y dos gráficos.",
+        "enElReto": "Escribe la pregunta de cada figura y elige la tabla que la responde, sin mezclar la tabla mensual con la de un solo mes."
+      },
+      {
+        "id": "lineas-tiempo",
+        "titulo": "Líneas para ver cambios en el tiempo",
+        "idea": "Una línea une momentos ordenados para ver si algo sube, baja o se mantiene.",
+        "explicacion": "El **gráfico de líneas** es una buena opción para una **evolución temporal**: los periodos van en el eje horizontal, en orden, y la cantidad en el eje vertical. La línea sugiere continuidad, por eso funciona con el tiempo y no con categorías sueltas como sabores o temas.",
+        "cotidiano": "La app del clima muestra la temperatura del día con una línea: se ve cómo sube al mediodía y baja en la noche.",
+        "ejemplo": "Tienda ficticia: empanadas vendidas en enero 50, febrero 56 y marzo 65. Los tres meses en orden, de izquierda a derecha.",
+        "enElReto": "Para la asistencia mensual, ordena los meses cronológicamente y verifica que cada punto coincida con la tabla."
+      },
+      {
+        "id": "barras-categorias",
+        "titulo": "Barras para comparar categorías",
+        "idea": "Las barras ponen categorías lado a lado para ver cuál es mayor.",
+        "explicacion": "El **gráfico de barras** compara categorías (temas, sabores, barrios). La **longitud** de cada barra representa la cantidad, por eso el eje de cantidad debe empezar en **cero**. Si usaras una línea para unir categorías, parecería que hay un «camino» entre ellas, y no lo hay.",
+        "cotidiano": "Si comparas cuántos goles hizo cada jugador del equipo, las barras te muestran de una quién lleva más.",
+        "ejemplo": "Tienda ficticia, sabores vendidos en marzo: carne 30, pollo 20, ranchera 15 (suman 65). Barras desde cero y con el mes en el título.",
+        "enElReto": "Para comparar los temas de un mes, usa barras desde cero y deja claro en el título a qué mes corresponden."
+      },
+      {
+        "id": "escala-honesta",
+        "titulo": "Escala honesta: el eje desde cero",
+        "idea": "Cortar el eje puede hacer que una diferencia pequeña parezca enorme.",
+        "explicacion": "Si el eje vertical de un gráfico de barras empieza, por ejemplo, en 48 en lugar de 0, una diferencia de unas pocas unidades se ve como si una barra fuera varias veces la otra. Eso es un **gráfico engañoso**, aunque los números sean ciertos. Compara siempre lo que ves con los valores de la tabla.",
+        "cotidiano": "Pasa en publicidad: «¡Nuestro plan es el más rápido!» con barras cortadas, cuando la diferencia real es mínima.",
+        "ejemplo": "Tienda ficticia: 50 y 65 empanadas. Con el eje desde 0, la barra de marzo se ve un poco más alta. Con el eje desde 48, parece casi nueve veces más alta.",
+        "enElReto": "Revisa la escala de tus barras y lee un valor directamente del gráfico para comprobar que coincide con la tabla."
+      },
+      {
+        "id": "elementos-del-grafico",
+        "titulo": "Título, ejes, unidad, fuente y accesibilidad",
+        "idea": "Un gráfico debe poder leerse sin que tú estés al lado explicándolo.",
+        "explicacion": "Revisa que tenga: un **título específico** (qué, de dónde y cuándo), **ejes** con nombre y **unidad**, una **escala** legible y la **fuente** («datos ficticios del ejercicio»). Usa colores con buen contraste y no dependas solo del color para distinguir categorías: agrega etiquetas. «Resultados» no es un título.",
+        "cotidiano": "Un aviso de ruta de bus sirve porque dice el número, el destino y por dónde pasa; si solo dijera «Bus», no te ayuda.",
+        "ejemplo": "Tienda ficticia: «Empanadas vendidas por mes, enero a marzo de 2026 · Unidades · Fuente: datos ficticios».",
+        "enElReto": "Antes de dar por terminado cada gráfico, recorre la lista: título, ejes, unidad, escala y fuente."
+      },
+      {
+        "id": "variacion-relativa",
+        "titulo": "Variación relativa",
+        "idea": "La variación relativa dice cuánto creció algo en proporción a su punto de partida.",
+        "explicacion": "La **variación relativa** se calcula así: (valor final − valor inicial) ÷ valor inicial, y se expresa en porcentaje. El punto de partida es la **base**. Si la medida original es una cantidad (no una tasa), el cambio se dice «creció tanto por ciento», no «subió tantos **puntos porcentuales**»; los puntos porcentuales son para restar dos porcentajes.",
+        "cotidiano": "Si el pasaje sube de $3.000 a $3.300, sube $300, es decir, un 10 % respecto al precio anterior.",
+        "ejemplo": "Tienda ficticia: de 50 a 65 empanadas hay 15 más; 15 ÷ 50 = 0,30, o sea, un aumento del 30 % respecto a enero.",
+        "enElReto": "Si calculas el crecimiento de la asistencia, identifica el primer mes como base y escribe la operación completa."
+      },
+      {
+        "id": "observacion-vs-causa",
+        "titulo": "Ver un aumento no es saber por qué pasó",
+        "idea": "El gráfico muestra qué cambió; la causa necesita otros datos.",
+        "explicacion": "Un aumento en el gráfico es una **observación** que puedes comprobar en la tabla. Decir que fue por una campaña, por el clima o por la calidad es una **explicación causal**, y para sostenerla necesitas información adicional. Lo responsable es separar las dos cosas en tu conclusión.",
+        "cotidiano": "Si un día vendiste más empanadas, puede ser por el partido, por la quincena o por la lluvia. Sin más datos, no sabes cuál.",
+        "ejemplo": "Tienda ficticia: «Las ventas crecieron 30 % entre enero y marzo» (comprobable). «Crecieron por el nuevo letrero» (necesitaría más datos).",
+        "enElReto": "Escribe una conclusión que sí respalden tus tablas y una afirmación causal que todavía no podrías sostener."
+      }
+    ],
+    "pasos": [
+      "Escribe la pregunta de cada gráfico y elige su tabla.",
+      "Para la evolución, construye una línea con los meses en orden.",
+      "Para comparar temas, construye barras con el eje desde cero.",
+      "Revisa título, ejes, unidad, escala, colores y fuente.",
+      "Lee un valor del gráfico y compáralo con la tabla.",
+      "Escribe una conclusión respaldada y una causa que aún no puedes afirmar."
+    ],
+    "errores": [
+      {
+        "error": "Usar una línea para comparar temas o categorías.",
+        "consejo": "Pregúntate qué continuidad hay entre esas categorías. Las barras suelen facilitar la comparación."
+      },
+      {
+        "error": "Cortar el eje de las barras y exagerar la diferencia.",
+        "consejo": "Empieza el eje en cero y compara la impresión visual con la diferencia real de la tabla."
+      },
+      {
+        "error": "Poner un título genérico o no decir a qué periodo corresponde el gráfico.",
+        "consejo": "Un buen título dice qué se mide, de dónde y cuándo. Que se pueda leer sin tu explicación."
+      },
+      {
+        "error": "Afirmar que el aumento se debe a una campaña o a otra causa sin datos que lo muestren.",
+        "consejo": "Separa lo que viste en la tabla de lo que supones. La causa queda como pregunta pendiente."
+      },
+      {
+        "error": "Decir «puntos porcentuales» cuando lo que cambió fue una cantidad, o seleccionar títulos y totales como si fueran datos.",
+        "consejo": "Revisa si la medida original era una tasa y qué celdas seleccionaste antes de graficar."
+      }
+    ]
+  }
+}
