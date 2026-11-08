@@ -17,11 +17,15 @@ self.addEventListener('activate', (e) => {
 });
 
 // Primero la red (para ver contenido nuevo), y si no hay conexión, lo guardado.
+// cache: 'no-cache' obliga a preguntarle al servidor si hay versión nueva, en vez de usar la copia
+// del navegador (GitHub Pages pide guardarla 10 minutos y los cambios tardaban en verse).
+const deRed = (req) => (req.mode === 'navigate' ? fetch(req.url, { cache: 'no-cache', credentials: 'same-origin' }) : fetch(req, { cache: 'no-cache' }));
+
 self.addEventListener('fetch', (e) => {
   const req = e.request;
   if (req.method !== 'GET' || new URL(req.url).origin !== self.location.origin) return;
   e.respondWith(
-    fetch(req)
+    deRed(req)
       .then((res) => {
         if (res.ok) {
           const copia = res.clone();
