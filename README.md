@@ -22,7 +22,7 @@ Página web de apoyo, con estética de videojuego arcade, para que los estudiant
 | Aprendizaje basado en retos | El Nivel 3 de cada misión es el reto de la clase, con contexto, restricciones, producto, criterios (lista de verificación) y tres rutas. |
 | Ciclo de Kolb | Cada actividad está marcada con su fase (Hacer → Observar → Entender → Aplicar) y el indicador la muestra arriba. |
 | Hacer antes que leer | La misión empieza con una actividad. La teoría está siempre a mano pero plegada («Recordemos» en cada actividad) o en su propia guía. |
-| Conexión con Platzi | La guía de teoría dice qué módulo de Data1, Data2 y Data3 se aplica, se anticipa o se retoma en esa sesión (según la matriz metodológica). |
+| Conexión con las clases asincrónicas | La guía de teoría dice qué módulo de Data1, Data2 y Data3 se aplica, se anticipa o se retoma en esa sesión (según la matriz metodológica). |
 | Error productivo | Nunca dice «Incorrecto». Cada error común tiene su mensaje: reconoce, señala una cosa y da el siguiente paso. Se puede reintentar sin límite. |
 | Andamiaje | Pistas progresivas (pista 1, pista 2, solución) y ejemplo resuelto que se abre después de intentarlo. |
 | Honestidad con los datos | Siempre hay una pregunta sobre lo que **no** se puede afirmar. |
@@ -120,7 +120,7 @@ En los textos puedes usar `**negrita**` y `*cursiva*`.
 "teoria": {
   "intro": "Qué necesitas saber y por qué importa en tu vida diaria.",
   "platzi": [{ "curso": "Data1 · …", "modulo": "M1. …", "contenidos": ["…"], "relacion": "aplica | anticipa | retoma", "semanaPlatzi": 1 }],
-  "ampliacion": ["Temas que se ven en vivo y no están en Platzi"],
+  "ampliacion": ["Temas que se ven en vivo y no están en las clases asincrónicas"],
   "temas": [{ "id": "unidad-analisis", "titulo": "…", "idea": "…", "explicacion": "…", "cotidiano": "…", "ejemplo": "…", "enElReto": "…" }],
   "pasos": ["Cómo abordar el reto, sin resolverlo"],
   "errores": [{ "error": "…", "consejo": "…" }]

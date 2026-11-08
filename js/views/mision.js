@@ -53,7 +53,7 @@ export function vistaMision(c, m) {
         h('p', {}, completa ? m.insignia.descripcion : 'Completa los niveles para ganarla.'))),
     h('h2', { class: 'titulo-seccion' }, 'Herramientas de la misión'),
     h('div', { class: 'herramientas' },
-      m.teoria ? herramienta(`#/mision/${m.numero}/teoria`, '📘', 'Guía de teoría', 'Recordemos: lo que ves en Platzi y lo que necesitas para el reto.') : null,
+      m.teoria ? herramienta(`#/mision/${m.numero}/teoria`, '📘', 'Guía de teoría', 'Recordemos: lo que ves en las clases asincrónicas y lo que necesitas para el reto.') : null,
       herramienta(`#/mision/${m.numero}/cuaderno`, '📓', 'Mi cuaderno', 'Lo que has escrito en esta misión. Para copiar o imprimir.'),
       herramienta(`#/mision/${m.numero}/llevar`, '🖨', 'Para llevar', 'Una hoja con la tabla, las definiciones y la consigna.'),
       herramienta('#/repaso', '⚡', 'Repaso relámpago', '5 preguntas al azar de lo que ya jugaste. Sin tiempo.'),

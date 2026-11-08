@@ -1,7 +1,7 @@
 {
   "nombre": "Arcade de Datos",
   "subtitulo": "Misiones para repasar Análisis de datos · Estud-IA, Capa 1",
-  "descripcion": "Un recurso de apoyo opcional, hecho por tu tutor, para repasar y practicar lo que trabajamos en las sesiones en vivo. No es una evaluación y no reemplaza las clases ni los cursos de Platzi.",
+  "descripcion": "Una herramienta de apoyo, hecha por tu tutor, Sebastian Torres, para repasar y practicar a tu ritmo lo que trabajamos en clase. Es un complemento: no es una evaluación y no reemplaza las clases en vivo ni las asincrónicas.",
   "bienvenida": {
     "titulo": "Un mensaje antes de jugar",
     "parrafos": [
@@ -37,7 +37,7 @@
       "¡Nivel superado! Me encanta cómo lo resolviste."
     ]
   },
-  "autoria": "Recurso de apoyo preparado por el tutor del grupo. No es un sitio oficial del programa.",
+  "autoria": "Herramienta de apoyo preparada por Sebastian Torres, tutor del grupo. No es un sitio oficial del programa.",
   "avisoPrivacidad": "Aquí no hay cuentas ni registro. Tu progreso y lo que escribes se guardan solo en este navegador, en este dispositivo. Nadie más lo ve. Puedes borrarlo cuando quieras desde «Mi progreso».",
   "avisoDatos": "Todos los datos de las misiones son ficticios, solo para practicar.",
   "fases": {

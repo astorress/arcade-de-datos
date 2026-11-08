@@ -2,9 +2,9 @@ import { h, md, plano, imprimir, rotulo } from '../util.js';
 import { migas } from './mision.js';
 
 const RELACION = {
-  aplica: () => ({ icono: '✔', texto: 'Lo ves en Platzi esta misma semana' }),
-  anticipa: (s) => ({ icono: '⏩', texto: `Platzi lo ve más adelante (semana ${s}). Aquí tienes una base` }),
-  retoma: (s) => ({ icono: '↩', texto: `Ya lo viste en Platzi (semana ${s}). Aquí lo pones en práctica` }),
+  aplica: () => ({ icono: '✔', texto: 'Lo ves en las clases asincrónicas esta misma semana' }),
+  anticipa: (s) => ({ icono: '⏩', texto: `Las clases asincrónicas lo ven más adelante (semana ${s}). Aquí tienes una base` }),
+  retoma: (s) => ({ icono: '↩', texto: `Ya lo viste en las clases asincrónicas (semana ${s}). Aquí lo pones en práctica` }),
 };
 
 export function vistaTeoria(c, m) {
@@ -56,12 +56,12 @@ export function vistaTeoria(c, m) {
     h('p', { class: 'nota' }, 'Puedes leerla antes de jugar, volver a ella cuando te trabes o repasarla después de la clase.'),
     temas.length ? [h('h2', { class: 'titulo-seccion' }, 'Temas'), indice] : null,
     platzi.length ? [
-      h('h2', { class: 'titulo-seccion' }, 'Qué ves en Platzi'),
+      h('h2', { class: 'titulo-seccion' }, 'Qué ves en las clases asincrónicas'),
       h('p', { class: 'nota' }, 'Estás en uno de estos cursos. Busca el tuyo: no necesitas haber visto el módulo para jugar la misión.'),
       h('div', { class: 'cursos-platzi' }, platzi)] : null,
     t.ampliacion?.length ? h('div', { class: 'panel panel--vivo' },
       h('h2', {}, '🎙 Lo trabajamos en la clase en vivo'),
-      h('p', { class: 'nota' }, 'Estos temas no aparecen de forma explícita en Platzi: los construimos juntos en la sesión.'),
+      h('p', { class: 'nota' }, 'Estos temas no aparecen de forma explícita en las clases asincrónicas: los construimos juntos en la sesión.'),
       h('ul', {}, t.ampliacion.map((x) => h('li', { html: md(x) })))) : null,
     tarjetas,
     t.pasos?.length ? h('section', { class: 'panel' },
