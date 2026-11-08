@@ -368,9 +368,9 @@
               "explicacion": "La tabla es de una sola tienda y tiene seis ventas. Aunque tuviera más filas de la misma tienda, seguiría sin representar a toda la ciudad."
             },
             {
-              "texto": "¿Qué producto tiene más ventas en estos registros?",
+              "texto": "¿Qué producto tiene más ventas (filas) en estos registros?",
               "respuesta": "si",
-              "explicacion": "Se cuenta la columna Producto. Papitas tiene 3."
+              "explicacion": "Se cuenta la columna Producto: Papitas tiene 3 ventas. Ojo: si contaras **unidades** habría empate entre Papitas y Pan (6 y 6). «Más vendido» depende de qué se mide."
             },
             {
               "texto": "¿Cuántos clientes distintos tuvo la tienda?",
@@ -583,7 +583,59 @@
             "Primero marca las ventas con Pagada en Sí: 01, 03, 04 y 05.",
             "Suma su Valor total: 4.000 + 2.000 + 3.000 + 7.000."
           ],
-          "explicacion": "Entraron **$16.000** (ventas 01, 03, 04 y 05). Se vendieron $25.500, pero $9.500 quedaron fiados. Es la misma idea de antes: **primero la condición, después la cuenta**. Lo único que cambia es que ahora sumamos pesos en lugar de contar filas.",
+          "explicacion": "Entraron **$16.000** en el momento (ventas 01, 03, 04 y 05). Se vendieron $25.500, pero $9.500 quedaron fiados. Primero la condición, después la cuenta: lo único que cambia es que ahora sumamos pesos. Y un límite: la tabla no dice si lo fiado **ya se cobró después**.",
+          "tema": "contar-condicion"
+        },
+        {
+          "id": "n2-deja-plata",
+          "tipo": "seleccion",
+          "fase": "observar",
+          "titulo": "¿Cuál le deja más plata?",
+          "consigna": "Mira lo vendido y lo que entró, por producto. **¿Qué producto le dejó más plata en la mano a doña Marta?**",
+          "apoyo": {
+            "tipo": "tabla",
+            "columnas": [
+              "Producto",
+              "Lo vendido",
+              "Lo que entró"
+            ],
+            "filas": [
+              [
+                "Papitas",
+                "$12.000",
+                "$6.000"
+              ],
+              [
+                "Gaseosa",
+                "$10.500",
+                "$7.000"
+              ],
+              [
+                "Pan",
+                "$3.000",
+                "$3.000"
+              ]
+            ]
+          },
+          "opciones": [
+            {
+              "texto": "Papitas",
+              "feedback": "Papitas gana en lo **vendido** ($12.000), ¡bien leído! Pero la pregunta es por la plata que **entró**. Mira la última columna."
+            },
+            {
+              "texto": "Gaseosa",
+              "correcta": true
+            },
+            {
+              "texto": "Pan",
+              "feedback": "Pan cobró todo lo que vendió, pero fueron $3.000. ¿Cuál tiene más en la columna «Lo que entró»?"
+            },
+            {
+              "texto": "Empatan Papitas y Pan",
+              "feedback": "Papitas y Pan empatan en **unidades** (6 y 6), pero la pregunta es por plata que entró. Otra pregunta, otra respuesta."
+            }
+          ],
+          "explicacion": "**Gaseosa** ($7.000), aunque Papitas vendió más ($12.000): la mitad de las papitas quedó fiada. Aquí el ganador **sí cambia**: vender no es lo mismo que cobrar. Por eso, antes de decir «lo más vendido», pregunta: **¿según qué: ventas, unidades o plata?**",
           "tema": "contar-condicion"
         }
       ]
@@ -655,7 +707,7 @@
               "ayuda": "«Mi respuesta describe únicamente… pero aún no permite saber…»",
               "pistas": [
                 "¿Tu respuesta habla de ventas o de clientes?",
-                "Piensa en algo que la tabla no tiene: clientes distintos, gustos, otras tiendas, el resto del mes…"
+                "Piensa en algo que la tabla no tiene: clientes distintos, si el fiado ya se pagó, otras tiendas, el resto del mes…"
               ]
             }
           ],
@@ -665,7 +717,7 @@
             "¿Anoté los códigos o el conteo?",
             "¿Dije qué no puedo concluir?"
           ],
-          "ejemplo": "«En estos seis registros, ¿qué producto tiene más ventas pagadas? Cada fila representa una venta. Uso Producto y Pagada. Selecciono los códigos 01, 03, 04 y 05 porque dicen sí y cuento por producto: papitas dos, gaseosa uno y pan uno. Las papitas tienen más ventas pagadas en esta tabla. Esto no permite saber cuántos clientes distintos hubo ni qué se venderá el próximo mes.»",
+          "ejemplo": "«En estos seis registros, ¿qué producto tiene más ventas pagadas? Cada fila representa una venta. Uso Producto y Pagada. Selecciono los códigos 01, 03, 04 y 05 porque dicen sí y cuento por producto: papitas dos, gaseosa uno y pan uno. Las papitas tienen más ventas pagadas en esta tabla. Esto no permite saber cuántos clientes distintos hubo, si lo fiado ya se cobró ni qué se venderá el próximo mes.»",
           "explicacion": "No se busca un texto largo: una respuesta breve sirve si otra persona puede seguirla y comprobarla.",
           "tema": "limites"
         },
@@ -792,7 +844,7 @@
     {
       "termino": "Venta ≠ cliente ≠ pago",
       "definicion": "Son tres cosas distintas. La tabla cuenta ventas; no puede contar clientes distintos, y vender no es lo mismo que cobrar.",
-      "ejemplo": "Hay 4 ventas pagadas, no «4 clientes». Se vendieron $25.500, pero entraron $16.000."
+      "ejemplo": "Hay 4 ventas pagadas, no «4 clientes». Papitas vendió más ($12.000), pero Gaseosa dejó más plata en la mano ($7.000)."
     },
     {
       "termino": "Límite de una conclusión",

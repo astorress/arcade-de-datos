@@ -73,6 +73,9 @@ async function correr() {
   await ir('#/mision/1/nivel/2/8');
   await clic(btn('$25.500', '.opcion')); ok(fb().includes('incluido lo fiado'), 'feedback plata sin condición');
   await clic(btn('$16.000', '.opcion')); ok(esBien(), '2.8 plata que entró');
+  await ir('#/mision/1/nivel/2/9');
+  await clic(btn('Papitas', '.opcion')); ok(fb().includes('vendido'), 'feedback papitas gana en lo vendido');
+  await clic(btn('Gaseosa', '.opcion')); ok(esBien(), '2.9 gaseosa deja más plata');
   await ir('#/mision/1/nivel/2/fin'); ok(D().body.textContent.includes('Nivel 2 listo'), 'cierre nivel 2');
   // Nivel 3
   await ir('#/mision/1/nivel/3/1');
@@ -107,7 +110,7 @@ async function correr() {
   ok(D().querySelector('.personaje-previa__nombre').textContent === 'TIGRE', 'nombre en la vista previa');
   ok(D().documentElement.scrollWidth <= 360, 'personaje sin scroll horizontal');
   await ir('#/'); ok(D().querySelector('.portada__pre').textContent.includes('TIGRE') && D().querySelector('.mundo__jugador svg rect[fill="#7FC200"]'), 'personaje personalizado en portada y mapa');
-  await ir('#/progreso'); const pts = D().querySelector('.marcador__valor').textContent; ok(pts === '0310', 'puntos 17x10+3x30+50=310 -> ' + pts);
+  await ir('#/progreso'); const pts = D().querySelector('.marcador__valor').textContent; ok(pts === '0320', 'puntos 18x10+3x30+50=320 -> ' + pts);
   ok(D().body.textContent.includes('Ganada'), 'insignia en progreso');
   await ir('#/mision/1/cuaderno'); ok(D().body.textContent.includes('Códigos: 01, 03, 06') && D().body.textContent.includes('Una fila es una venta'), 'cuaderno guarda textos');
   await ir('#/mision/1/llevar'); ok(D().querySelectorAll('.hoja-previa tbody tr').length === 6 && D().body.textContent.includes('Datos ficticios'), 'hoja para llevar');
