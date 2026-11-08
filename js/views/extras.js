@@ -1,6 +1,6 @@
 import { h, md, plano, copiar, aviso, imprimir } from '../util.js';
 import * as store from '../store.js';
-import { disponible } from '../content.js';
+import { disponible, claveTexto } from '../content.js';
 import { tarjetaInsignia } from '../components/insignia.js';
 import { leyendaKolb } from '../components/kolb.js';
 import { migas } from './mision.js';
@@ -136,7 +136,7 @@ export function vistaLlevar(c, m) {
       h('ul', {}, m.datos.definiciones.map((d) => h('li', {}, plano(d))), h('li', {}, m.datos.aviso)),
       pl.consigna ? [h('h2', {}, 'El reto'), h('p', {}, pl.consigna)] : null,
       pl.pasos ? h('ol', {}, pl.pasos.map((p) => h('li', {}, p))) : null,
-      pl.lupa ? [h('h2', {}, 'La lupa: una buena pregunta…'), h('ul', { class: 'lista-check' }, pl.lupa.map((x) => h('li', {}, x)))] : null,
+      pl.lupa ? [h('h2', {}, `La lupa: ${(pl.lupaTitulo || 'Una buena pregunta…').replace(/^./, (c) => c.toLowerCase())}`), h('ul', { class: 'lista-check' }, pl.lupa.map((x) => h('li', {}, x)))] : null,
       m.fraseClave ? h('p', { class: 'frase-clave' }, '«', m.fraseClave, '»') : null);
   };
   return h('div', { class: 'vista' }, migas(m, 'Para llevar'),
@@ -155,7 +155,8 @@ export function vistaCuaderno(c, m) {
     (a.pasos || []).forEach((p) => { etiquetas[`reto-${p.clave}`] = `Reto · ${p.titulo}`; });
     (a.frases || []).forEach((f) => { etiquetas[f.clave] = f.inicio; });
   }));
-  const entradas = Object.keys(etiquetas).filter((k) => (textos[k] || '').trim()).map((k) => ({ titulo: etiquetas[k], texto: textos[k].trim() }));
+  const t = (k) => (textos[claveTexto(m, k)] || '').trim();
+  const entradas = Object.keys(etiquetas).filter((k) => t(k)).map((k) => ({ titulo: etiquetas[k], texto: t(k) }));
   const comoTexto = () => [`MI CUADERNO · Misión ${m.numero}: ${m.titulo}`, ...entradas.map((e) => `${e.titulo}\n${e.texto}`)].join('\n\n');
   const hoja = () => h('div', { class: 'hoja' }, h('h1', {}, `Mi cuaderno · Misión ${m.numero}: ${m.titulo}`),
     entradas.map((e) => h('section', {}, h('h2', {}, e.titulo), h('p', { class: 'hoja__respuesta' }, e.texto))));

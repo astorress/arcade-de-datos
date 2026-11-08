@@ -53,7 +53,7 @@ export function constructor(act, ctx) {
           ta.value = `${ta.value}${ta.value && !ta.value.endsWith('\n') ? '\n' : ''}Códigos: ${sel.join(', ')} → ${sel.length} ${sel.length === 1 ? (ctx.mision?.datos?.unidad?.[0] || 'registro') : (ctx.mision?.datos?.unidad?.[1] || 'registros')}.`;
           ctx.guardar(k(paso.clave), ta.value);
           revisarEjemplo();
-          aviso('Códigos agregados al paso 3.');
+          aviso(`Códigos agregados al paso «${paso.titulo}».`);
         } }, 'Agregar los códigos marcados'));
     }
 

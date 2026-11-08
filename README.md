@@ -85,17 +85,37 @@ scripts/                    check.mjs (valida), build.mjs (compila), serve.mjs (
 tests/e2e.html              Prueba de punta a punta de la Misión 1
 ```
 
-## Cómo agregar el contenido de una misión
+## Panel de control: abrir misiones y elegir el caso
 
-Las 8 misiones ya existen. Las de la 2 a la 8 están en `"estado": "proximamente"`. Para publicar una:
+Todo se maneja desde **un solo archivo**: `content/panel-de-control.js`.
 
-1. Abre `content/misiones/mision-0N.json`.
-2. Llena `historia`, `datos`, `niveles`, `conceptos`, `fraseClave` y `paraLlevar` (copia la estructura de `mision-01.json`).
-3. Cambia `"estado"` a `"disponible"`.
-4. Agrega sus términos a `content/glosario.json` con `"mision": N`.
-5. Corre `make check` (o `npm run check`). Te dice exactamente qué falta o qué está mal.
+```js
+export default {
+  1: { abierta: true },
+  2: { abierta: false, caso: 'cotidiano' },
+  3: { abierta: false, caso: 'guia' },
+  // …
+};
+```
 
-No hay que tocar código. Si una misión necesita un tipo de actividad nuevo (por ejemplo, gráficos en la 6 y la 7), se crea un archivo en `js/actividades/` y se registra en `js/actividades/index.js` y en la lista `TIPOS` de `scripts/check.mjs`.
+- `abierta`: `true` para que los estudiantes la jueguen, `false` para verla bloqueada («Próximamente», con la teoría disponible). También vale `'si'`/`'no'` u `'on'`/`'off'`.
+- `caso`: las misiones 2 a 8 traen dos casos completos: `'cotidiano'` (vida diaria) y `'guia'` (el de la guía oficial).
+
+**Antes de cada clase:**
+1. Revisa la misión bloqueada abriendo el sitio con `?previa` (por ejemplo `https://astorress.github.io/arcade-de-datos/?previa`). Ves todas las misiones y, arriba de cada una, botones para cambiar de caso. Solo afecta a tu pestaña; `?previa=0` la apaga.
+2. Cambia `abierta` y `caso` en el panel.
+3. `make panel` (o `make check`) muestra el estado de todas las misiones y avisa si escribiste algo mal.
+4. Commit y push: GitHub Pages publica en 1 o 2 minutos. Si hay un error en el panel, la publicación se detiene y el sitio sigue como estaba.
+
+Las cifras de control de cada caso, para la clase, están en `Planeación/Clase_0N/Clase_0N_Casos_y_cifras.md`.
+
+## Cómo editar el contenido de una misión
+
+1. Abre `content/misiones/mision-0N.json`. Las misiones con dos casos tienen `casos.cotidiano` y `casos.guia`, cada uno con `nombre`, `titulo`, `caso`, `historia`, `datos`, `niveles`, `conceptos`, `fraseClave` y `paraLlevar`. La teoría (`teoria`) es común a los dos casos.
+2. Agrega términos a `content/glosario.json` con `"mision": N` si hace falta.
+3. Corre `make check`. Te dice exactamente qué falta o qué está mal.
+
+No hay que tocar código. Una actividad puede mostrar apoyos visuales en `apoyo` (uno o una lista): `texto`, `tabla`, `comparacion` o `grafico` (barras o líneas, ver `js/components/grafico.js`).
 
 En los textos puedes usar `**negrita**` y `*cursiva*`.
 
@@ -104,7 +124,8 @@ En los textos puedes usar `**negrita**` y `*cursiva*`.
 | Campo | Para qué |
 |---|---|
 | `numero`, `titulo`, `sesion`, `caso`, `habilidad` | Datos de la tarjeta en el mapa |
-| `estado` | `"disponible"` o `"proximamente"` |
+| `estado` | `"disponible"` o `"proximamente"`. El panel de control manda sobre este campo. |
+| `casos`, `casoActivo` | Varios casos de la misma misión; el panel de control elige cuál ven los estudiantes |
 | `color` | `"naranja"`, `"magenta"` o `"verde"` |
 | `historia` | 2 o 3 frases con el caso ficticio |
 | `insignia` | `{ nombre, descripcion, simbolo }`. Símbolos: `lupa`, `escoba`, `regla`, `balanza`, `embudo`, `grafico`, `tablero`, `estrella` |

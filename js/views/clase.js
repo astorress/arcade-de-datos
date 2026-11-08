@@ -79,7 +79,7 @@ function diapositivas(c, m) {
   if (m.fraseClave || m.paraLlevar?.lupa) {
     d.push({ titulo: 'Para llevar', cuerpo: () => [
       h('h2', { class: 'clase-h2' }, 'Para llevar'),
-      m.paraLlevar?.lupa ? [h('p', {}, 'Una buena pregunta…'), h('ul', { class: 'clase-pasos' }, m.paraLlevar.lupa.map((x) => h('li', {}, x)))] : null,
+      m.paraLlevar?.lupa ? [h('p', {}, m.paraLlevar.lupaTitulo || 'Una buena pregunta…'), h('ul', { class: 'clase-pasos' }, m.paraLlevar.lupa.map((x) => h('li', {}, x)))] : null,
       m.fraseClave ? h('p', { class: 'frase-clave clase-pregunta' }, '«', m.fraseClave, '»') : null,
     ] });
   }

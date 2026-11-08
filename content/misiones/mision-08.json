@@ -3,17 +3,1801 @@
   "estado": "proximamente",
   "titulo": "Del dato imperfecto a la recomendación",
   "sesion": "Integrar un análisis del dato imperfecto",
-  "habilidad": "El ciclo completo: limpiar, analizar, comunicar y recomendar con límites.",
-  "caso": "Asesorías en tres sedes",
+  "habilidad": "El ciclo completo: limpiar, describir con medidas, comparar con tasas, agrupar, elegir un gráfico y recomendar con límites.",
+  "caso": "Domicilios de la tienda de doña Marta",
   "color": "magenta",
-  "historia": "",
   "insignia": {
     "nombre": "Analista completo",
-    "descripcion": "",
+    "descripcion": "Recorres el ciclo completo: limpias con motivos, mides, comparas con tasas, eliges un gráfico fiel y recomiendas sin prometer más de lo que dicen los datos.",
     "simbolo": "estrella"
   },
-  "niveles": [],
-  "conceptos": [],
+  "casoActivo": "cotidiano",
+  "casos": {
+    "cotidiano": {
+      "nombre": "Cotidiano: domicilios de doña Marta",
+      "titulo": "Los domicilios de doña Marta",
+      "caso": "Domicilios de la tienda de doña Marta a tres sectores del barrio",
+      "historia": "¿Te acuerdas de doña Marta, la de la tienda de la misión 1? Ahora también hace domicilios a tres sectores del barrio: La Loma, El Parque y La Cancha. Promete que el pedido llega en 30 minutos, pero algunos llegan tarde, y quiere saber a qué sector revisarle primero la ruta. Al pasar el cuaderno a una hoja se colaron un par de imperfecciones. Esta vez haces el análisis completo: limpiar, medir, comparar, graficar y recomendar, sin prometer más de lo que dicen los datos.",
+      "datos": {
+        "titulo": "Domicilios de doña Marta, por semana y sector",
+        "unidad": [
+          "registro semanal",
+          "registros semanales"
+        ],
+        "columnas": [
+          "Fila",
+          "Semana",
+          "Sector",
+          "Pedidos",
+          "A tiempo"
+        ],
+        "filas": [
+          [
+            "01",
+            "S1",
+            "La Loma",
+            "24",
+            "18"
+          ],
+          [
+            "02",
+            "S1",
+            "El Parque",
+            "28",
+            "26"
+          ],
+          [
+            "03",
+            "S1",
+            "La Cancha",
+            "10",
+            "8"
+          ],
+          [
+            "04",
+            "S2",
+            "La Loma",
+            "16",
+            "12"
+          ],
+          [
+            "05",
+            "S2",
+            "La Loma",
+            "16",
+            "12"
+          ],
+          [
+            "06",
+            "S2",
+            "el parque",
+            "12",
+            "10"
+          ],
+          [
+            "07",
+            "S2",
+            "La Cancha",
+            "10",
+            "8"
+          ]
+        ],
+        "definiciones": [
+          "Cada **fila** resume **una semana de domicilios a un sector**: no es un pedido ni un cliente.",
+          "**S1** es la semana del 5 al 10 de octubre de 2026 y **S2**, la del 12 al 17.",
+          "**Pedidos** son los domicilios que salieron a ese sector esa semana (todos se entregaron). **A tiempo** son los que llegaron dentro de los 30 minutos prometidos.",
+          "Doña Marta **confirmó** que la fila **05** es una copia de la 04: la pasó dos veces del cuaderno a la hoja.",
+          "Los sectores son partes del mismo barrio; sus nombres son solo etiquetas. **No hay** datos de por qué un pedido llegó tarde (distancia, hora, lluvia o quién lo llevó)."
+        ],
+        "aviso": "Datos ficticios, solo para practicar."
+      },
+      "niveles": [
+        {
+          "numero": 1,
+          "titulo": "Preguntar y limpiar",
+          "objetivo": "Fijar la pregunta y el criterio desde el inicio, y limpiar la tabla anotando cada decisión.",
+          "cierre": "Nivel 1 listo: tienes pregunta, criterio y una copia limpia con sus motivos.",
+          "actividades": [
+            {
+              "id": "n1-toca-fila",
+              "tipo": "leer-filas",
+              "fase": "hacer",
+              "titulo": "Toca una fila",
+              "consigna": "Antes de calcular nada, mira qué cuenta cada fila. Lee al menos **3 filas** para continuar.",
+              "minimo": 3,
+              "lecturas": {
+                "01": "La fila 01 dice: en la semana 1 salieron 24 domicilios a La Loma y 18 llegaron a tiempo. O sea, 6 llegaron tarde.",
+                "02": "La fila 02 dice: en la semana 1 salieron 28 domicilios a El Parque y 26 llegaron a tiempo (2 tarde).",
+                "03": "La fila 03 dice: en la semana 1 salieron 10 domicilios a La Cancha y 8 llegaron a tiempo (2 tarde).",
+                "04": "La fila 04 dice: en la semana 2 salieron 16 domicilios a La Loma y 12 llegaron a tiempo (4 tarde).",
+                "05": "La fila 05 dice exactamente lo mismo que la 04: semana 2, La Loma, 16 domicilios y 12 a tiempo. ¿Dos semanas iguales o la misma semana anotada dos veces? Las definiciones lo aclaran.",
+                "06": "La fila 06 dice: en la semana 2 salieron 12 domicilios a «el parque» y 10 llegaron a tiempo (2 tarde). Fíjate cómo está escrito el sector.",
+                "07": "La fila 07 dice: en la semana 2 salieron 10 domicilios a La Cancha y 8 llegaron a tiempo (2 tarde). Tiene los mismos números que la 03, pero es otra semana."
+              },
+              "explicacion": "Cada fila es **una semana de domicilios a un sector**: un resumen con cantidades, no un pedido suelto. Por eso tiene sentido sumar pedidos de varias filas del mismo sector.",
+              "tema": "ciclo-del-analisis"
+            },
+            {
+              "id": "n1-pregunta",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "La pregunta y el criterio",
+              "consigna": "Doña Marta quiere saber a qué sector revisarle primero la ruta. ¿Cuál es la mejor forma de empezar?",
+              "opciones": [
+                {
+                  "texto": "«En las semanas 1 y 2 de octubre, ¿qué sector tiene la **menor tasa de domicilios a tiempo** y conviene revisar primero?»",
+                  "correcta": true
+                },
+                {
+                  "texto": "«¿Por qué llegan tarde los domicilios?»",
+                  "feedback": "Es una pregunta valiosa, pero la tabla no tiene datos de causas (distancia, hora, lluvia…). Con estos datos puedes priorizar dónde revisar, no explicar por qué pasa."
+                },
+                {
+                  "texto": "«¿Cuál es el peor sector del barrio?»",
+                  "feedback": "«Peor» no se puede medir con estas columnas y además no dice el periodo ni el criterio. Ojo: los sectores son solo etiquetas; aquí miramos entregas, no sectores «buenos» o «malos»."
+                },
+                {
+                  "texto": "«¿Qué sector tiene más pedidos tarde? Si no sale lo que espero, cambio a la tasa.»",
+                  "feedback": "Priorizar por volumen de pedidos tarde es un criterio válido. Lo que no vale es cambiarlo al final para que coincida con lo que esperabas: el criterio se declara al comienzo y se sostiene."
+                }
+              ],
+              "pistas": [
+                "Una buena pregunta dice qué se mide, en qué conjunto y en qué periodo.",
+                "Busca la opción que además diga con qué criterio se va a priorizar."
+              ],
+              "explicacion": "La pregunta dice **qué se mide** (domicilios a tiempo), **en qué conjunto y periodo** (estas dos semanas) y **el criterio** (la menor tasa). Escríbela antes de limpiar o calcular y déjala a la vista.",
+              "tema": "pregunta-y-criterio"
+            },
+            {
+              "id": "n1-problemas",
+              "tipo": "seleccion",
+              "multiple": true,
+              "fase": "observar",
+              "titulo": "¿Qué hay que limpiar?",
+              "consigna": "Revisa la tabla y las definiciones. **Marca todos los problemas reales** que hay que resolver antes de agrupar por sector.",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "La fila 05 repite la 04, y doña Marta confirmó que es una copia",
+                  "correcta": true,
+                  "siFalta": "Compara todos los campos de las filas 04 y 05, y lee qué dicen las definiciones sobre ellas."
+                },
+                {
+                  "texto": "«el parque» y «El Parque» están escritos distinto, pero son el mismo sector",
+                  "correcta": true,
+                  "siFalta": "Recorre la columna Sector de arriba abajo: ¿todos los nombres están escritos igual?"
+                },
+                {
+                  "texto": "Las filas 03 y 07 tienen los mismos números, así que una sobra",
+                  "feedback": "Tienen los mismos números, pero son semanas distintas (S1 y S2). Coincidir en las cifras no convierte una fila en copia."
+                },
+                {
+                  "texto": "La Loma aparece en tres filas, así que hay que dejar solo una",
+                  "feedback": "Que un sector se repita es normal: cada fila es una semana distinta. De las tres filas de La Loma, solo la 05 es una copia confirmada."
+                },
+                {
+                  "texto": "En todas las filas, A tiempo es menor que Pedidos",
+                  "feedback": "Eso no es un error: los que llegaron a tiempo son una parte de los pedidos. Sería raro si A tiempo fuera mayor."
+                }
+              ],
+              "explicacion": "Hay dos problemas: una **copia confirmada** (fila 05) y una **categoría escrita distinto** («el parque»). Un sector repetido o dos filas con los mismos números **no** son duplicados por sí solos: hace falta revisar todos los campos y la regla del caso.",
+              "tema": "limpieza-documentada"
+            },
+            {
+              "id": "n1-quitar",
+              "tipo": "seleccionar-filas",
+              "fase": "aplicar",
+              "titulo": "Limpia tu copia de trabajo",
+              "consigna": "La hoja original se guarda sin cambios. En tu **copia de trabajo**, marca la fila (o las filas) que vas a **excluir**.",
+              "esperadas": [
+                "05"
+              ],
+              "feedback": {
+                "sobran": "Excluye solo lo que el caso confirma. Una fila con números parecidos o con el sector mal escrito no se borra: se conserva y, si hace falta, se corrige.",
+                "faltan": "Todavía no marcas la copia confirmada. Lee de nuevo las definiciones."
+              },
+              "pistas": [
+                "¿Qué fila confirmó doña Marta que es una copia?",
+                "Las filas 04 y 05 son iguales, pero solo una es la copia: si quitas las dos, pierdes una semana real de La Loma."
+              ],
+              "explicacion": "Solo se excluye la **05**. La 06 se conserva y se corrige el nombre del sector. Así quedan **6 registros válidos** de **3 sectores**.",
+              "tema": "limpieza-documentada"
+            },
+            {
+              "id": "n1-registro",
+              "tipo": "completar",
+              "fase": "entender",
+              "titulo": "Anota tus decisiones",
+              "consigna": "Una limpieza sin motivos no se puede revisar. Completa tu registro de cambios.",
+              "frase": "En mi copia de trabajo excluí {0} porque {1}, y cambié «el parque» por «El Parque» porque {2}.",
+              "huecos": [
+                {
+                  "opciones": [
+                    {
+                      "texto": "la fila 05",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "las filas 04 y 05",
+                      "feedback": "Así perderías una semana real de La Loma: solo una de las dos es la copia."
+                    },
+                    {
+                      "texto": "las filas 03 y 07",
+                      "feedback": "La 03 y la 07 son semanas distintas de La Cancha. Las dos son válidas."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "doña Marta confirmó que es una copia de la 04",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "tiene los mismos números que otra fila",
+                      "feedback": "Los números iguales no bastan: la 03 y la 07 también coinciden y son semanas distintas. Lo que justifica excluirla es la confirmación del caso."
+                    },
+                    {
+                      "texto": "La Loma tiene demasiadas filas",
+                      "feedback": "Que un sector tenga varias filas es normal. El motivo tiene que ser que esa fila es una copia confirmada."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "los dos nombres describen el mismo sector",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "así se ve más ordenado",
+                      "feedback": "El motivo no es de presentación: si no los unes, al agrupar tendrías un cuarto sector que no existe."
+                    },
+                    {
+                      "texto": "«el parque» tiene menos pedidos",
+                      "feedback": "El número de pedidos no tiene que ver: se unifica porque es el mismo sector escrito de otra forma."
+                    }
+                  ]
+                }
+              ],
+              "textoLibre": {
+                "etiqueta": "Si quieres, escribe tu registro con tus palabras: «cambié… porque…» (opcional, queda en tu cuaderno):",
+                "clave": "registro-limpieza"
+              },
+              "explicacion": "Cada cambio va con su **motivo**. Así otra persona puede reconstruir de dónde salen tus cifras, y tú puedes volver atrás si algo no cuadra.",
+              "tema": "limpieza-documentada"
+            }
+          ]
+        },
+        {
+          "numero": 2,
+          "titulo": "Medir, agrupar y comparar",
+          "objetivo": "Describir con una medida, agrupar por sector antes de dividir y comprobar qué cambia con la copia.",
+          "cierre": "Nivel 2 listo: tus cifras salen de una base limpia y sabes reconstruirlas.",
+          "actividades": [
+            {
+              "id": "n2-mediana",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Una semana típica",
+              "consigna": "Con la copia limpia (sin la fila 05), ¿cuál es la **mediana** de pedidos por registro semanal?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "14 pedidos",
+                  "correcta": true
+                },
+                {
+                  "texto": "16 pedidos",
+                  "feedback": "Esa es la mediana si dejas la copia: con 7 filas, el valor del medio pasa a ser 16. ¡Un duplicado también mueve las medidas! Ordena solo los 6 registros válidos."
+                },
+                {
+                  "texto": "16,7 pedidos",
+                  "feedback": "Esa es la media (100 ÷ 6). Las semanas grandes de 24 y 28 la jalan hacia arriba. La mediana es el valor del medio cuando ordenas."
+                },
+                {
+                  "texto": "10 pedidos",
+                  "feedback": "10 es el valor que más se repite. La mediana es el valor del centro al ordenar."
+                }
+              ],
+              "pistas": [
+                "Ordena los pedidos de las filas 01, 02, 03, 04, 06 y 07 de menor a mayor.",
+                "Quedan 10, 10, 12, 16, 24, 28. Con 6 valores, la mediana es el promedio de los dos del centro."
+              ],
+              "explicacion": "Ordenados: 10, 10, **12, 16**, 24, 28 → mediana = (12 + 16) ÷ 2 = **14**. La media es 16,7, por encima de cuatro de las seis semanas. Y si dejas la copia, la mediana sube a 16: limpiar también cambia las medidas.",
+              "tema": "limpieza-documentada"
+            },
+            {
+              "id": "n2-filtra-parque",
+              "tipo": "seleccionar-filas",
+              "fase": "hacer",
+              "titulo": "Filtra un sector",
+              "consigna": "Para agrupar, primero filtras. En tu copia limpia, marca **todas** las filas del sector El Parque, sin importar cómo esté escrito.",
+              "esperadas": [
+                "02",
+                "06"
+              ],
+              "feedback": {
+                "sobran": "Revisa la columna Sector de las filas que marcaste: solo entran las de El Parque.",
+                "faltan": "Vas bien. Te falta una: busca El Parque escrito de otra forma."
+              },
+              "pistas": [
+                "Mira solo la columna Sector.",
+                "Una está escrita «El Parque» y la otra «el parque»."
+              ],
+              "explicacion": "Las filas **02 y 06** son de El Parque. Si no unificas el nombre, el filtro deja por fuera la 06 y El Parque parece tener solo 28 pedidos.",
+              "tema": "agregar-antes-de-dividir"
+            },
+            {
+              "id": "n2-agrupa",
+              "tipo": "conteo",
+              "fase": "aplicar",
+              "titulo": "Agrupa por sector",
+              "consigna": "Suma, para cada sector, los **pedidos** y los **a tiempo** de sus filas válidas (las resaltadas). Puedes escribir el número o usar los botones.",
+              "usaDatos": true,
+              "resaltar": [
+                "01",
+                "02",
+                "03",
+                "04",
+                "06",
+                "07"
+              ],
+              "categorias": [
+                "La Loma · pedidos",
+                "La Loma · a tiempo",
+                "El Parque · pedidos",
+                "El Parque · a tiempo",
+                "La Cancha · pedidos",
+                "La Cancha · a tiempo"
+              ],
+              "esperado": {
+                "La Loma · pedidos": 40,
+                "La Loma · a tiempo": 30,
+                "El Parque · pedidos": 40,
+                "El Parque · a tiempo": 36,
+                "La Cancha · pedidos": 20,
+                "La Cancha · a tiempo": 16
+              },
+              "erroresComunes": [
+                {
+                  "valores": {
+                    "La Loma · pedidos": 56,
+                    "La Loma · a tiempo": 42,
+                    "El Parque · pedidos": 40,
+                    "El Parque · a tiempo": 36,
+                    "La Cancha · pedidos": 20,
+                    "La Cancha · a tiempo": 16
+                  },
+                  "mensaje": "La Loma quedó con 56 y 42: sumaste también la fila 05, que es la copia. Déjala por fuera."
+                },
+                {
+                  "valores": {
+                    "La Loma · pedidos": 40,
+                    "La Loma · a tiempo": 30,
+                    "El Parque · pedidos": 28,
+                    "El Parque · a tiempo": 26,
+                    "La Cancha · pedidos": 20,
+                    "La Cancha · a tiempo": 16
+                  },
+                  "mensaje": "A El Parque le falta la fila 06, la que dice «el parque». Es el mismo sector: súmala."
+                },
+                {
+                  "valores": {
+                    "La Loma · pedidos": 56,
+                    "La Loma · a tiempo": 42,
+                    "El Parque · pedidos": 28,
+                    "El Parque · a tiempo": 26,
+                    "La Cancha · pedidos": 20,
+                    "La Cancha · a tiempo": 16
+                  },
+                  "mensaje": "Aquí están las dos trampas juntas: sumaste la copia (fila 05) y dejaste por fuera «el parque» (fila 06)."
+                }
+              ],
+              "mensajeGeneral": "Vas por buen camino. Revisa {categorias}: suma solo las filas resaltadas de cada sector.",
+              "pistas": [
+                "La Loma: filas 01 y 04. El Parque: filas 02 y 06. La Cancha: filas 03 y 07.",
+                "La Loma: 24 + 16 pedidos y 18 + 12 a tiempo."
+              ],
+              "explicacion": "**La Loma** 40 pedidos y 30 a tiempo · **El Parque** 40 y 36 · **La Cancha** 20 y 16. En total, **100 pedidos** y **82 a tiempo**. Primero se agrupa; después se divide.",
+              "tema": "agregar-antes-de-dividir"
+            },
+            {
+              "id": "n2-tasa-parque",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "La tasa de El Parque",
+              "consigna": "El Parque tuvo 26 de 28 a tiempo en la semana 1 (92,9 %) y 10 de 12 en la semana 2 (83,3 %). ¿Cuál es la **tasa a tiempo de El Parque** en las dos semanas?",
+              "apoyo": {
+                "tipo": "tabla",
+                "columnas": [
+                  "Semana",
+                  "Pedidos",
+                  "A tiempo",
+                  "Tasa"
+                ],
+                "filas": [
+                  [
+                    "S1 (fila 02)",
+                    "28",
+                    "26",
+                    "92,9 %"
+                  ],
+                  [
+                    "S2 (fila 06)",
+                    "12",
+                    "10",
+                    "83,3 %"
+                  ]
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "90 %",
+                  "correcta": true
+                },
+                {
+                  "texto": "88,1 %",
+                  "feedback": "Ese es el promedio de las dos tasas: (92,9 + 83,3) ÷ 2. Pero las semanas no tienen el mismo tamaño (28 y 12 pedidos). Suma primero pedidos y a tiempo, y divide al final."
+                },
+                {
+                  "texto": "92,9 %",
+                  "feedback": "Esa es solo la semana 1. Te falta la fila 06, la de «el parque»."
+                },
+                {
+                  "texto": "36",
+                  "feedback": "36 son los pedidos a tiempo: una cantidad. La tasa es esa cantidad dividida entre los pedidos del sector."
+                }
+              ],
+              "pistas": [
+                "Suma: 26 + 10 a tiempo y 28 + 12 pedidos.",
+                "36 ÷ 40 = ?"
+              ],
+              "explicacion": "(26 + 10) ÷ (28 + 12) = 36 ÷ 40 = **90 %**. Promediar las tasas de cada semana daría 88,1 %, porque le da el mismo peso a una semana de 12 pedidos que a una de 28. **Agrega antes de dividir.**",
+              "tema": "agregar-antes-de-dividir"
+            },
+            {
+              "id": "n2-global",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "La tasa global",
+              "consigna": "Las tasas por sector son: La Loma 75 %, El Parque 90 % y La Cancha 80 %. ¿Cuál es la **tasa global** de domicilios a tiempo en las dos semanas?",
+              "opciones": [
+                {
+                  "texto": "82 %",
+                  "correcta": true
+                },
+                {
+                  "texto": "81,7 %",
+                  "feedback": "Ese es el promedio de las tres tasas: (75 + 90 + 80) ÷ 3. Pero La Cancha tiene la mitad de pedidos que los otros. Suma todos los pedidos y todos los a tiempo, y divide al final."
+                },
+                {
+                  "texto": "81,0 %",
+                  "feedback": "Eso da si dejas la copia: 94 ÷ 116. Usa la copia limpia: 100 pedidos en total."
+                },
+                {
+                  "texto": "75 %",
+                  "feedback": "Esa es la tasa de La Loma, la más baja. La global junta los tres sectores."
+                }
+              ],
+              "pistas": [
+                "Total de pedidos: 40 + 40 + 20. Total a tiempo: 30 + 36 + 16.",
+                "82 ÷ 100 = ?"
+              ],
+              "explicacion": "82 a tiempo ÷ 100 pedidos = **82 %**. El promedio de tasas (81,7 %) no es la tasa global: igual que con El Parque, **primero sumas y al final divides**.",
+              "tema": "agregar-antes-de-dividir"
+            },
+            {
+              "id": "n2-contraste",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "Con y sin la copia",
+              "consigna": "Mira lo que pasa si no quitas la fila 05. La tasa de La Loma es **75 % en los dos casos**. ¿Qué concluyes?",
+              "apoyo": {
+                "tipo": "comparacion",
+                "items": [
+                  {
+                    "etiqueta": "Con la copia",
+                    "texto": "La Loma: 56 pedidos, 42 a tiempo → **75 %**, 14 tarde. Global: 94 ÷ 116 → **81,0 %**."
+                  },
+                  {
+                    "etiqueta": "Sin la copia",
+                    "texto": "La Loma: 40 pedidos, 30 a tiempo → **75 %**, 10 tarde. Global: 82 ÷ 100 → **82 %**."
+                  }
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Que la limpieza no importaba: la tasa de La Loma no cambió",
+                  "feedback": "La tasa no cambió, pero cambiaron los pedidos, los tarde (14 frente a 10) y la tasa global. Un porcentaje igual no garantiza una base limpia."
+                },
+                {
+                  "texto": "Que una tasa igual no prueba que la base esté limpia: cambian las cantidades y la tasa global",
+                  "correcta": true
+                },
+                {
+                  "texto": "Que la copia ayuda, porque con más filas el análisis es más confiable",
+                  "feedback": "Más filas no es más información si son copias: la semana 2 de La Loma quedaría contada dos veces."
+                },
+                {
+                  "texto": "Que lo más seguro es quitar las dos filas, 04 y 05",
+                  "feedback": "Así perderías una semana real de La Loma: quedaría con 24 pedidos y el total con 84. Solo se excluye la copia confirmada."
+                }
+              ],
+              "explicacion": "La copia tiene la misma tasa que el resto de La Loma (75 %), por eso el porcentaje del sector no se mueve. Pero los **pedidos tarde** (14 frente a 10) y la **tasa global** (81,0 % frente a 82 %) sí cambian. Comparar con y sin la copia es una buena prueba de tu limpieza.",
+              "tema": "tasa-y-volumen"
+            }
+          ]
+        },
+        {
+          "numero": 3,
+          "titulo": "Graficar y recomendar",
+          "objetivo": "Elegir un gráfico fiel y recomendar con cifra, criterio y límite. Es el reto de la clase, en versión autoguiada.",
+          "cierre": "Nivel 3 listo: recorriste el ciclo completo, de la tabla imperfecta a una recomendación honesta.",
+          "actividades": [
+            {
+              "id": "n3-prioridad",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "Tasa y volumen",
+              "consigna": "Tu criterio declarado es **la menor tasa a tiempo**. ¿Qué sector conviene revisar primero? Y si alguien hubiera declarado desde el inicio **más pedidos tarde**, ¿cambiaría la respuesta?",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Copia limpia, semanas 1 y 2 de octubre",
+                "columnas": [
+                  "Sector",
+                  "Pedidos",
+                  "A tiempo",
+                  "Tasa a tiempo",
+                  "Tarde"
+                ],
+                "filas": [
+                  [
+                    "La Loma",
+                    "40",
+                    "30",
+                    "75 %",
+                    "10"
+                  ],
+                  [
+                    "El Parque",
+                    "40",
+                    "36",
+                    "90 %",
+                    "4"
+                  ],
+                  [
+                    "La Cancha",
+                    "20",
+                    "16",
+                    "80 %",
+                    "4"
+                  ],
+                  [
+                    "Total",
+                    "100",
+                    "82",
+                    "82 %",
+                    "18"
+                  ]
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "La Loma con los dos criterios: menor tasa (75 %) y más pedidos tarde (10)",
+                  "correcta": true
+                },
+                {
+                  "texto": "La Loma por tasa, pero El Parque por volumen, porque tiene muchos pedidos",
+                  "feedback": "El Parque tiene tantos pedidos como La Loma (40), pero solo 4 llegaron tarde. El volumen que importa aquí es el de pedidos **tarde**: Pedidos − A tiempo."
+                },
+                {
+                  "texto": "La Cancha, porque tiene menos pedidos y será más fácil de mejorar",
+                  "feedback": "Ese no es ninguno de los dos criterios declarados, y «más fácil de mejorar» no está en la tabla. El criterio se elige al comienzo, no al final."
+                },
+                {
+                  "texto": "No se puede decidir, porque los sectores tienen distinto número de pedidos",
+                  "feedback": "Justo para eso sirve la tasa: compara sectores de distinto tamaño. Y el volumen de tarde da la otra mirada."
+                }
+              ],
+              "explicacion": "En este caso los dos criterios coinciden: **La Loma** tiene la menor tasa (75 %) y el mayor volumen de pedidos tarde (10 de 18). Si no coincidieran, valdría cualquiera de los dos **siempre que se declare al inicio** y se justifique.",
+              "tema": "tasa-y-volumen"
+            },
+            {
+              "id": "n3-grafico",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "Elige el gráfico",
+              "consigna": "Tu pregunta es por la **tasa a tiempo** de cada sector. ¿Cuál de estos gráficos la muestra de forma fiel?",
+              "apoyo": {
+                "tipo": "comparacion",
+                "items": [
+                  {
+                    "etiqueta": "A",
+                    "grafico": {
+                      "tipo": "grafico",
+                      "forma": "barras",
+                      "titulo": "Pedidos por sector",
+                      "etiquetas": [
+                        "La Loma",
+                        "El Parque",
+                        "La Cancha"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Pedidos",
+                          "valores": [
+                            40,
+                            40,
+                            20
+                          ]
+                        }
+                      ],
+                      "unidad": "pedidos"
+                    }
+                  },
+                  {
+                    "etiqueta": "B",
+                    "grafico": {
+                      "tipo": "grafico",
+                      "forma": "barras",
+                      "titulo": "Domicilios a tiempo por sector",
+                      "etiquetas": [
+                        "La Loma",
+                        "El Parque",
+                        "La Cancha"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Tasa a tiempo",
+                          "valores": [
+                            75,
+                            90,
+                            80
+                          ]
+                        }
+                      ],
+                      "ejeDesde": 70,
+                      "unidad": "%"
+                    }
+                  },
+                  {
+                    "etiqueta": "C",
+                    "grafico": {
+                      "tipo": "grafico",
+                      "forma": "barras",
+                      "titulo": "Domicilios a tiempo por sector",
+                      "etiquetas": [
+                        "La Loma",
+                        "El Parque",
+                        "La Cancha"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Tasa a tiempo",
+                          "valores": [
+                            75,
+                            90,
+                            80
+                          ]
+                        }
+                      ],
+                      "unidad": "%",
+                      "nota": "Fuente: hoja de domicilios de doña Marta (datos ficticios), semanas 1 y 2 de octubre de 2026, sin la fila 05."
+                    }
+                  }
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "A",
+                  "feedback": "A muestra datos reales, pero responde otra pregunta: cuántos pedidos salieron, no qué proporción llegó a tiempo. Puede ir como tabla de apoyo."
+                },
+                {
+                  "texto": "B",
+                  "feedback": "B muestra las tasas, pero el eje empieza en 70 %: la barra de El Parque parece cuatro veces la de La Loma, cuando la diferencia real es de 15 puntos. Y no dice la fuente."
+                },
+                {
+                  "texto": "C",
+                  "correcta": true
+                }
+              ],
+              "pistas": [
+                "Primero descarta el que no muestra tasas.",
+                "Entre los que quedan, mira dónde empieza el eje y si dicen de dónde salen los datos."
+              ],
+              "explicacion": "**C**: barras de tasas, eje desde 0 %, con título, unidad y fuente. Al lado puedes dejar la tabla de cantidades (pedidos, a tiempo y tarde) que la respalda.",
+              "tema": "figura-fiel"
+            },
+            {
+              "id": "n3-limites",
+              "tipo": "tarjetas",
+              "fase": "entender",
+              "titulo": "¿Lo dicen los datos?",
+              "consigna": "Para cada frase, decide si **la respaldan los datos** o si **va más allá** de lo que muestran.",
+              "botones": {
+                "si": "Lo respaldan los datos",
+                "no": "Va más allá de los datos"
+              },
+              "tarjetas": [
+                {
+                  "texto": "En estas dos semanas, La Loma tuvo la menor proporción de domicilios a tiempo: 75 %.",
+                  "respuesta": "si",
+                  "explicacion": "Sale de 30 ÷ 40, con la copia limpia, y dice el periodo."
+                },
+                {
+                  "texto": "Los domicilios a La Loma llegan tarde porque el sector es una loma.",
+                  "respuesta": "no",
+                  "explicacion": "El nombre sugiere una causa, pero la tabla no tiene datos de distancia, pendiente, hora ni clima. Es una hipótesis por revisar, no una conclusión."
+                },
+                {
+                  "texto": "De los 18 domicilios que llegaron tarde, 10 fueron a La Loma.",
+                  "respuesta": "si",
+                  "explicacion": "La Loma: 40 − 30 = 10 tarde. Total: 100 − 82 = 18 tarde."
+                },
+                {
+                  "texto": "Si doña Marta consigue un segundo domiciliario, La Loma va a llegar a tiempo.",
+                  "respuesta": "no",
+                  "explicacion": "Es una posible acción por estudiar. La tabla no dice si funcionaría: para eso habría que probarla y medir otra vez."
+                },
+                {
+                  "texto": "La Loma siempre va a tener las entregas más demoradas.",
+                  "respuesta": "no",
+                  "explicacion": "Son solo dos semanas. No sabemos qué pasará en las siguientes."
+                },
+                {
+                  "texto": "Conviene revisar primero la ruta a La Loma.",
+                  "respuesta": "si",
+                  "explicacion": "Es una prioridad de revisión apoyada en la tasa y en el volumen. No afirma la causa ni promete un resultado."
+                }
+              ],
+              "explicacion": "Priorizar dónde revisar **no prueba** por qué pasa ni que una acción vaya a funcionar. La fórmula: **«conviene revisar primero… porque…; todavía no sabemos…»**.",
+              "tema": "recomendacion-proporcionada"
+            },
+            {
+              "id": "n3-reto",
+              "tipo": "constructor",
+              "fase": "aplicar",
+              "titulo": "El reto: tu recomendación para doña Marta",
+              "consigna": "Prepara un análisis breve para recomendarle a doña Marta qué sector revisar primero. Conserva la fuente, justifica la limpieza, compara sectores con tasas y volúmenes, elige un gráfico y explica el alcance de tu recomendación. Quien te escuche debe poder reconstruir de dónde salen tus cifras.",
+              "rutas": [
+                {
+                  "id": "mapa",
+                  "nombre": "Ruta Mapa",
+                  "descripcion": "La pregunta y el criterio ya vienen dados. Te concentras en limpiar, calcular, graficar y recomendar.",
+                  "preguntaDada": "En las semanas 1 y 2 de octubre, ¿qué sector tiene la menor tasa de domicilios a tiempo y conviene revisar primero?"
+                },
+                {
+                  "id": "brujula",
+                  "nombre": "Ruta Brújula",
+                  "descripcion": "Declaras tu propio criterio de prioridad antes de calcular (por ejemplo, más pedidos tarde) y lo sostienes hasta el final."
+                },
+                {
+                  "id": "telescopio",
+                  "nombre": "Ruta Telescopio",
+                  "descripcion": "Además de recomendar, comparas tus resultados con y sin la copia de la fila 05, y explicas por qué un porcentaje igual no prueba que la base esté limpia.",
+                  "preguntaDada": "En las semanas 1 y 2 de octubre, ¿qué sector tiene la menor tasa de domicilios a tiempo, y qué cambia si no quito la copia?"
+                }
+              ],
+              "pasos": [
+                {
+                  "clave": "pregunta",
+                  "titulo": "1 · Mi pregunta y mi criterio",
+                  "ayuda": "«En las semanas 1 y 2 de octubre, ¿qué sector…?» y «Voy a priorizar el sector con…».",
+                  "pistas": [
+                    "Di qué se mide, en qué periodo y con qué criterio vas a priorizar.",
+                    "Criterios posibles: la menor tasa a tiempo o el mayor número de pedidos tarde. Elige uno ahora, no al final."
+                  ]
+                },
+                {
+                  "clave": "limpieza",
+                  "titulo": "2 · Cómo limpié",
+                  "ayuda": "Usa la forma «cambié… porque…». Di también qué conservaste.",
+                  "pistas": [
+                    "¿Qué fila excluiste y qué regla del caso lo permite?",
+                    "¿Qué nombre unificaste? ¿Cuántos registros válidos y cuántos sectores te quedaron?"
+                  ]
+                },
+                {
+                  "clave": "calculos",
+                  "titulo": "3 · Cómo agrupé y calculé",
+                  "ayuda": "Para cada sector: pedidos, a tiempo, tasa y pedidos tarde. Y el total. Puedes marcar las filas de un sector y agregarlas aquí.",
+                  "pistas": [
+                    "Suma pedidos y a tiempo de cada sector antes de dividir.",
+                    "Escribe el numerador y el denominador, por ejemplo: «La Loma: 30 ÷ 40 = 75 %, 10 tarde».",
+                    "Para la global, suma todo: 82 ÷ 100. No promedies las tres tasas."
+                  ],
+                  "permiteFilas": true
+                },
+                {
+                  "clave": "grafico",
+                  "titulo": "4 · Mi gráfico",
+                  "ayuda": "¿Qué gráfico eliges? Escribe su título, la unidad, desde dónde empieza el eje y la fuente.",
+                  "pistas": [
+                    "Si tu pregunta es por tasas, el gráfico debe mostrar tasas.",
+                    "Barras desde 0 %, con la tabla de cantidades al lado."
+                  ]
+                },
+                {
+                  "clave": "recomendacion",
+                  "titulo": "5 · Mi recomendación y su límite",
+                  "ayuda": "«Conviene revisar primero… porque…; todavía no sabemos…».",
+                  "pistas": [
+                    "Cita una cifra y tu criterio.",
+                    "Separa la evidencia de las suposiciones: ¿qué no dice la tabla sobre las causas o sobre lo que funcionaría?"
+                  ]
+                }
+              ],
+              "verificacion": [
+                "¿Escribí la pregunta y el criterio antes de calcular?",
+                "¿Excluí solo la copia confirmada y anoté por qué?",
+                "¿Sumé por sector antes de dividir, con numerador y denominador?",
+                "¿Mi gráfico muestra tasas desde cero, con título, unidad y fuente?",
+                "¿Mi recomendación cita una cifra, un criterio y un límite?"
+              ],
+              "ejemplo": "«En las semanas 1 y 2 de octubre, ¿qué sector tiene la menor tasa de domicilios a tiempo y conviene revisar primero? Criterio: la menor tasa a tiempo. Guardé la hoja original y trabajé en una copia: excluí la fila 05 porque doña Marta confirmó que es una copia de la 04, y cambié «el parque» por «El Parque» porque es el mismo sector. Quedaron 6 registros válidos y 3 sectores. Sumé antes de dividir: La Loma 30 ÷ 40 = 75 % (10 tarde), El Parque 36 ÷ 40 = 90 % (4 tarde), La Cancha 16 ÷ 20 = 80 % (4 tarde); global 82 ÷ 100 = 82 %. Gráfico: barras de tasa a tiempo por sector, eje desde 0 %, fuente: hoja de domicilios de doña Marta, con la tabla de cantidades al lado. Conviene revisar primero la ruta a La Loma, porque tiene la menor tasa (75 %) y además 10 de los 18 pedidos tarde. Todavía no sabemos por qué llegan tarde ni si un segundo domiciliario lo resolvería; son solo dos semanas.»",
+              "explicacion": "No se busca un texto largo: sirve si otra persona puede seguir cada paso y llegar a las mismas cifras.",
+              "tema": "recomendacion-proporcionada"
+            },
+            {
+              "id": "n3-cierre",
+              "tipo": "escritura",
+              "fase": "observar",
+              "titulo": "Cierre del recorrido",
+              "consigna": "Esta es la última misión. Completa estas frases: quedan guardadas en tu cuaderno (solo en este navegador).",
+              "frases": [
+                {
+                  "clave": "cierre-comprobar",
+                  "inicio": "Ahora puedo comprobar…"
+                },
+                {
+                  "clave": "cierre-practicar",
+                  "inicio": "Necesito seguir practicando…"
+                },
+                {
+                  "clave": "cierre-vida",
+                  "inicio": "Una decisión de mi día a día en la que usaría este ciclo es…"
+                }
+              ],
+              "explicacion": "El ciclo completo en una línea: **pregunta y criterio → limpieza con motivos → medidas y tasas (sumar antes de dividir) → gráfico fiel → recomendación con límite.** Ya lo haces todos los días; ahora con más cuidado.",
+              "tema": "ciclo-del-analisis"
+            }
+          ]
+        }
+      ],
+      "conceptos": [
+        {
+          "termino": "Ciclo del análisis",
+          "definicion": "Preguntar, recopilar, limpiar, analizar y comunicar. Cada paso depende del anterior.",
+          "ejemplo": "Pregunta sobre los domicilios → hoja de doña Marta → quitar la copia y unificar nombres → tasas → gráfico y recomendación."
+        },
+        {
+          "termino": "Criterio de prioridad",
+          "definicion": "La regla con la que decides qué revisar primero. Se declara al comienzo y no se cambia al final.",
+          "ejemplo": "«Voy a priorizar el sector con la menor tasa de domicilios a tiempo»."
+        },
+        {
+          "termino": "Copia confirmada",
+          "definicion": "Un registro anotado dos veces por error, cuando el caso lo confirma. Es lo único que se excluye.",
+          "ejemplo": "La fila 05 es una copia de la 04. Las filas 03 y 07 tienen los mismos números, pero son semanas distintas."
+        },
+        {
+          "termino": "Unificar una categoría",
+          "definicion": "Escribir igual los nombres que describen lo mismo, en la copia de trabajo y anotando el cambio.",
+          "ejemplo": "«el parque» pasa a «El Parque»: si no, aparecería un cuarto sector."
+        },
+        {
+          "termino": "Agregar antes de dividir",
+          "definicion": "Para la tasa de un grupo, primero sumas sus cantidades y después divides. Promediar tasas no da la tasa conjunta.",
+          "ejemplo": "El Parque: 36 ÷ 40 = 90 %, no el promedio de 92,9 % y 83,3 % (88,1 %)."
+        },
+        {
+          "termino": "Tasa y volumen",
+          "definicion": "La tasa dice qué proporción llegó a tiempo; el volumen dice cuántos pedidos llegaron tarde.",
+          "ejemplo": "La Loma: 75 % a tiempo y 10 pedidos tarde."
+        },
+        {
+          "termino": "Tasa global",
+          "definicion": "Todos los casos favorables entre todos los casos, sumando antes de dividir.",
+          "ejemplo": "82 ÷ 100 = 82 %, no el promedio de las tres tasas (81,7 %)."
+        },
+        {
+          "termino": "Figura fiel",
+          "definicion": "Un gráfico que responde la pregunta sin exagerar: eje desde cero, título, unidad y fuente.",
+          "ejemplo": "Barras de tasa a tiempo por sector, desde 0 %, con la tabla de cantidades al lado."
+        },
+        {
+          "termino": "Recomendación proporcionada",
+          "definicion": "Dice dónde revisar con una cifra, un criterio y un límite, sin afirmar causas ni prometer resultados.",
+          "ejemplo": "«Conviene revisar primero La Loma (75 %, 10 tarde); todavía no sabemos por qué llegan tarde»."
+        }
+      ],
+      "fraseClave": "Un buen análisis se puede reconstruir: pregunta y criterio claros, limpieza con motivos, cifras con unidades y una recomendación que dice lo que todavía no sabemos.",
+      "paraLlevar": {
+        "consigna": "Prepara un análisis breve para recomendarle a doña Marta qué sector revisar primero. Conserva la fuente, justifica la limpieza, compara sectores con tasas y volúmenes, elige un gráfico y explica el alcance de tu recomendación.",
+        "pasos": [
+          "Escribe la pregunta y el criterio de prioridad, y guarda la hoja original sin cambios.",
+          "Limpia en una copia: excluye solo la copia confirmada, unifica nombres y anota «cambié… porque…».",
+          "Agrupa por sector (suma antes de dividir): tasa a tiempo, pedidos tarde y tasa global.",
+          "Compara los resultados con y sin la copia.",
+          "Elige un gráfico de tasas desde cero, con título, unidad y fuente, y la tabla de cantidades al lado.",
+          "Recomienda con cifra, criterio y límite: «conviene revisar primero… porque…; todavía no sabemos…»."
+        ],
+        "lupa": [
+          "Dice qué se mide, en qué periodo y con qué criterio se prioriza.",
+          "Se responde con una copia limpia y decisiones anotadas.",
+          "Se comprueba con cifras que otra persona puede reconstruir.",
+          "Termina en una recomendación que dice lo que todavía no sabemos."
+        ]
+      }
+    },
+    "guia": {
+      "nombre": "Guía: asesorías en tres sedes",
+      "titulo": "Asesorías en tres sedes",
+      "caso": "Reservas y asistencias de un programa de asesorías en tres sedes",
+      "historia": "Un programa ficticio ofrece asesorías gratuitas en tres sedes: Norte, Centro y Sur. Algunas personas reservan y no llegan, y el programa quiere decidir dónde revisar primero el seguimiento a esas reservas. Alguien propuso enviar recordatorios, pero eso es una idea por estudiar, no una solución probada. La tabla llegó con un par de imperfecciones. Esta vez haces el análisis completo: limpiar, medir, comparar, graficar y recomendar, sin prometer más de lo que dicen los datos.",
+      "datos": {
+        "titulo": "Reservas y asistencias por lote, tres sedes",
+        "unidad": [
+          "lote",
+          "lotes"
+        ],
+        "columnas": [
+          "Fila",
+          "Lote",
+          "Sede",
+          "Reservas",
+          "Asistencias"
+        ],
+        "filas": [
+          [
+            "01",
+            "R01",
+            "Norte",
+            "40",
+            "28"
+          ],
+          [
+            "02",
+            "R02",
+            "Centro",
+            "30",
+            "27"
+          ],
+          [
+            "03",
+            "R03",
+            "Sur",
+            "40",
+            "24"
+          ],
+          [
+            "04",
+            "R04",
+            "sur",
+            "10",
+            "6"
+          ],
+          [
+            "05",
+            "R04",
+            "sur",
+            "10",
+            "6"
+          ]
+        ],
+        "definiciones": [
+          "Cada **lote** reúne las reservas de una sede en el periodo. Las cantidades son **acumuladas del lote**: una fila no es una persona.",
+          "Los lotes no se superponen y todos son del mismo periodo. Dentro de cada lote, **Asistencias** nunca supera **Reservas**.",
+          "El caso **confirma** que las dos filas **R04** son el mismo lote copiado dos veces por accidente.",
+          "**No hay** información sobre los motivos de ausencia ni sobre si se enviaron recordatorios.",
+          "La columna **Fila** solo numera los renglones de la tabla; el identificador del lote es **Lote**."
+        ],
+        "aviso": "Datos ficticios, solo para practicar."
+      },
+      "niveles": [
+        {
+          "numero": 1,
+          "titulo": "Preguntar y limpiar",
+          "objetivo": "Fijar la pregunta y el criterio desde el inicio, y limpiar la tabla anotando cada decisión.",
+          "cierre": "Nivel 1 listo: tienes pregunta, criterio y una copia limpia con sus motivos.",
+          "actividades": [
+            {
+              "id": "n1-toca-fila",
+              "tipo": "leer-filas",
+              "fase": "hacer",
+              "titulo": "Toca una fila",
+              "consigna": "Antes de calcular nada, mira qué cuenta cada fila. Lee al menos **3 filas** para continuar.",
+              "minimo": 3,
+              "lecturas": {
+                "01": "La fila 01 es el lote R01: en la sede Norte hubo 40 reservas y 28 terminaron en asistencia. O sea, 12 reservas no asistidas.",
+                "02": "La fila 02 es el lote R02: en la sede Centro hubo 30 reservas y 27 asistencias (3 no asistidas).",
+                "03": "La fila 03 es el lote R03: en la sede Sur hubo 40 reservas y 24 asistencias (16 no asistidas).",
+                "04": "La fila 04 es el lote R04: en la sede «sur» hubo 10 reservas y 6 asistencias (4 no asistidas). Fíjate cómo está escrita la sede.",
+                "05": "La fila 05 tiene el mismo lote que la 04 (R04) y los mismos datos. El caso confirma que es una copia accidental."
+              },
+              "explicacion": "Cada fila es **un lote de reservas**, con cantidades acumuladas: no es una persona ni una sede. Por eso tiene sentido sumar los lotes de una misma sede.",
+              "tema": "ciclo-del-analisis"
+            },
+            {
+              "id": "n1-pregunta",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "La pregunta y el criterio",
+              "consigna": "El programa quiere saber dónde revisar primero el seguimiento a las reservas no asistidas. ¿Cuál es la mejor forma de empezar?",
+              "opciones": [
+                {
+                  "texto": "«En este periodo, ¿qué sede presenta **menor tasa de asistencia sobre reservas** y conviene revisar primero?»",
+                  "correcta": true
+                },
+                {
+                  "texto": "«¿Por qué la gente no llega a las asesorías?»",
+                  "feedback": "Es una pregunta valiosa, pero la tabla no tiene datos de motivos de ausencia. Con estos datos puedes priorizar dónde revisar, no explicar por qué pasa."
+                },
+                {
+                  "texto": "«¿Los recordatorios harán que la gente asista?»",
+                  "feedback": "La tabla no dice si se enviaron recordatorios ni qué efecto tendrían. Es una posible acción por estudiar, no algo que estos datos puedan responder."
+                },
+                {
+                  "texto": "«¿Qué sede tiene más reservas no asistidas? Si no sale lo que espero, cambio a la tasa.»",
+                  "feedback": "Priorizar por volumen no asistido es un criterio válido. Lo que no vale es cambiarlo al final para que coincida con lo que esperabas: el criterio se declara al comienzo y se sostiene."
+                }
+              ],
+              "pistas": [
+                "Una buena pregunta dice qué se mide, en qué conjunto y en qué periodo.",
+                "Busca la opción que además diga con qué criterio se va a priorizar."
+              ],
+              "explicacion": "La pregunta dice **qué se mide** (asistencia sobre reservas), **en qué conjunto y periodo** (este periodo, las tres sedes) y **el criterio** (la menor tasa). El denominador son las **reservas**.",
+              "tema": "pregunta-y-criterio"
+            },
+            {
+              "id": "n1-problemas",
+              "tipo": "seleccion",
+              "multiple": true,
+              "fase": "observar",
+              "titulo": "¿Qué hay que limpiar?",
+              "consigna": "Revisa la tabla y las definiciones. **Marca todos los problemas reales** que hay que resolver antes de agrupar por sede.",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "El lote R04 aparece dos veces, y el caso confirma que es una copia accidental",
+                  "correcta": true,
+                  "siFalta": "Compara todos los campos de las filas 04 y 05, y lee qué dicen las definiciones sobre R04."
+                },
+                {
+                  "texto": "«sur» y «Sur» están escritos distinto, pero son la misma sede",
+                  "correcta": true,
+                  "siFalta": "Recorre la columna Sede de arriba abajo: ¿todos los nombres están escritos igual?"
+                },
+                {
+                  "texto": "Sur aparece en varias filas, así que hay que dejar solo una",
+                  "feedback": "Que una sede tenga varios lotes es normal. De las filas de Sur, solo la segunda R04 es una copia confirmada."
+                },
+                {
+                  "texto": "Centro tiene un solo lote, así que le faltan datos",
+                  "feedback": "Cada sede puede tener uno o varios lotes. Un solo lote no es un error."
+                },
+                {
+                  "texto": "En todas las filas, Asistencias es menor que Reservas",
+                  "feedback": "Eso no es un error: las asistencias son una parte de las reservas. Sería raro si fueran más."
+                }
+              ],
+              "explicacion": "Hay dos problemas: una **copia confirmada** (la segunda R04) y una **categoría escrita distinto** («sur»). Una sede repetida **no** es un duplicado: hay que revisar el ID, todos los campos y la regla del caso.",
+              "tema": "limpieza-documentada"
+            },
+            {
+              "id": "n1-quitar",
+              "tipo": "seleccionar-filas",
+              "fase": "aplicar",
+              "titulo": "Limpia tu copia de trabajo",
+              "consigna": "La tabla original se guarda sin cambios. En tu **copia de trabajo**, marca la fila (o las filas) que vas a **excluir**. Conserva la primera R04 y excluye la segunda.",
+              "esperadas": [
+                "05"
+              ],
+              "feedback": {
+                "sobran": "Excluye solo lo que el caso confirma. Una fila de Sur o con la sede mal escrita no se borra: se conserva y, si hace falta, se corrige.",
+                "faltan": "Todavía no marcas la copia confirmada. Lee de nuevo las definiciones."
+              },
+              "pistas": [
+                "¿Qué lote confirma el caso que está copiado?",
+                "Las filas 04 y 05 son el mismo lote: si quitas las dos, pierdes un lote real de Sur."
+              ],
+              "explicacion": "Solo se excluye la **fila 05**. La 04 se conserva y se corrige la sede. Así quedan **4 lotes válidos** de **3 sedes**. Cuatro lotes no son cuatro personas ni cuatro sedes.",
+              "tema": "limpieza-documentada"
+            },
+            {
+              "id": "n1-registro",
+              "tipo": "completar",
+              "fase": "entender",
+              "titulo": "Anota tus decisiones",
+              "consigna": "Una limpieza sin motivos no se puede revisar. Completa tu registro de cambios.",
+              "frase": "En mi copia de trabajo excluí {0} porque {1}, y cambié «sur» por «Sur» porque {2}.",
+              "huecos": [
+                {
+                  "opciones": [
+                    {
+                      "texto": "la segunda fila R04",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "las dos filas R04",
+                      "feedback": "Así perderías un lote real de Sur: solo una de las dos es la copia."
+                    },
+                    {
+                      "texto": "todas las filas de Sur",
+                      "feedback": "Que una sede se repita es normal. Solo sobra la copia confirmada."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "el caso confirma que es una copia accidental",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "tiene la misma sede que otra fila",
+                      "feedback": "Repetir la sede no basta: R03 y R04 también son de Sur y las dos son válidas. Lo que justifica excluirla es la confirmación del caso."
+                    },
+                    {
+                      "texto": "Sur tiene demasiadas filas",
+                      "feedback": "Que una sede tenga varios lotes es normal. El motivo tiene que ser que esa fila es una copia confirmada."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "los dos nombres describen la misma sede",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "así se ve más ordenado",
+                      "feedback": "El motivo no es de presentación: si no los unes, al agrupar tendrías una cuarta sede que no existe."
+                    },
+                    {
+                      "texto": "«sur» tiene menos reservas",
+                      "feedback": "El número de reservas no tiene que ver: se unifica porque es la misma sede escrita de otra forma."
+                    }
+                  ]
+                }
+              ],
+              "textoLibre": {
+                "etiqueta": "Si quieres, escribe tu registro con tus palabras: «cambié… porque…» (opcional, queda en tu cuaderno):",
+                "clave": "registro-limpieza"
+              },
+              "explicacion": "Cada cambio va con su **motivo**. Así otra persona puede reconstruir de dónde salen tus cifras, y tú puedes volver atrás si algo no cuadra.",
+              "tema": "limpieza-documentada"
+            }
+          ]
+        },
+        {
+          "numero": 2,
+          "titulo": "Medir, agrupar y comparar",
+          "objetivo": "Describir con una medida, agrupar por sede antes de dividir y comprobar qué cambia con la copia.",
+          "cierre": "Nivel 2 listo: tus cifras salen de una base limpia y sabes reconstruirlas.",
+          "actividades": [
+            {
+              "id": "n2-mediana",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Un lote típico",
+              "consigna": "Con la copia limpia (4 lotes, sin la fila 05), ¿cuál es la **mediana** de reservas por lote?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "35 reservas",
+                  "correcta": true
+                },
+                {
+                  "texto": "30 reservas",
+                  "feedback": "30 sale de dos caminos con trampa: es la media de los 4 lotes (120 ÷ 4) y también la mediana si dejas la copia (5 filas). Ordena solo los 4 lotes válidos y busca el centro."
+                },
+                {
+                  "texto": "26 reservas",
+                  "feedback": "Esa es la media si dejas la copia: 130 ÷ 5. Usa la copia limpia."
+                },
+                {
+                  "texto": "40 reservas",
+                  "feedback": "40 es el valor que más se repite. La mediana es el valor del centro al ordenar."
+                }
+              ],
+              "pistas": [
+                "Ordena las reservas de las filas 01 a 04 de menor a mayor.",
+                "Quedan 10, 30, 40, 40. Con 4 valores, la mediana es el promedio de los dos del centro."
+              ],
+              "explicacion": "Ordenados: 10, **30, 40**, 40 → mediana = (30 + 40) ÷ 2 = **35**. La media es 30, jalada hacia abajo por el lote pequeño de 10. Y si dejas la copia, la mediana baja a 30 y la media a 26: limpiar también cambia las medidas.",
+              "tema": "limpieza-documentada"
+            },
+            {
+              "id": "n2-filtra-sur",
+              "tipo": "seleccionar-filas",
+              "fase": "hacer",
+              "titulo": "Filtra una sede",
+              "consigna": "Para agrupar, primero filtras. En tu copia limpia, marca **todas** las filas de la sede Sur, sin importar cómo esté escrita. Recuerda que la fila 05 ya no está en tu copia.",
+              "esperadas": [
+                "03",
+                "04"
+              ],
+              "feedback": {
+                "sobran": "Revisa: solo entran los lotes válidos de Sur. Si marcaste la 05, es la copia que ya excluiste.",
+                "faltan": "Vas bien. Te falta una: busca Sur escrita de otra forma."
+              },
+              "pistas": [
+                "Mira la columna Sede y deja por fuera la copia.",
+                "Son R03 («Sur») y la primera R04 («sur»)."
+              ],
+              "explicacion": "Las filas **03 y 04** son los lotes válidos de Sur. Si no unificas el nombre, el filtro deja por fuera R04 y Sur parece tener solo 40 reservas.",
+              "tema": "agregar-antes-de-dividir"
+            },
+            {
+              "id": "n2-agrupa",
+              "tipo": "conteo",
+              "fase": "aplicar",
+              "titulo": "Agrupa por sede",
+              "consigna": "Suma, para cada sede, las **reservas** y las **asistencias** de sus lotes válidos (las filas resaltadas). Puedes escribir el número o usar los botones.",
+              "usaDatos": true,
+              "resaltar": [
+                "01",
+                "02",
+                "03",
+                "04"
+              ],
+              "categorias": [
+                "Norte · reservas",
+                "Norte · asistencias",
+                "Centro · reservas",
+                "Centro · asistencias",
+                "Sur · reservas",
+                "Sur · asistencias"
+              ],
+              "esperado": {
+                "Norte · reservas": 40,
+                "Norte · asistencias": 28,
+                "Centro · reservas": 30,
+                "Centro · asistencias": 27,
+                "Sur · reservas": 50,
+                "Sur · asistencias": 30
+              },
+              "erroresComunes": [
+                {
+                  "valores": {
+                    "Norte · reservas": 40,
+                    "Norte · asistencias": 28,
+                    "Centro · reservas": 30,
+                    "Centro · asistencias": 27,
+                    "Sur · reservas": 60,
+                    "Sur · asistencias": 36
+                  },
+                  "mensaje": "Sur quedó con 60 y 36: sumaste también la segunda R04, que es la copia. Déjala por fuera."
+                },
+                {
+                  "valores": {
+                    "Norte · reservas": 40,
+                    "Norte · asistencias": 28,
+                    "Centro · reservas": 30,
+                    "Centro · asistencias": 27,
+                    "Sur · reservas": 40,
+                    "Sur · asistencias": 24
+                  },
+                  "mensaje": "A Sur le falta el lote R04, el que dice «sur». Es la misma sede: súmalo (una sola vez)."
+                }
+              ],
+              "mensajeGeneral": "Vas por buen camino. Revisa {categorias}: suma solo las filas resaltadas de cada sede.",
+              "pistas": [
+                "Norte: fila 01. Centro: fila 02. Sur: filas 03 y 04.",
+                "Sur: 40 + 10 reservas y 24 + 6 asistencias."
+              ],
+              "explicacion": "**Norte** 40 reservas y 28 asistencias · **Centro** 30 y 27 · **Sur** 50 y 30. En total, **120 reservas** y **85 asistencias**. Primero se agrupa; después se divide.",
+              "tema": "agregar-antes-de-dividir"
+            },
+            {
+              "id": "n2-tasa-sur",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "Numerador y denominador de Sur",
+              "consigna": "¿Qué cuenta usas para la **tasa de asistencia de Sur** con tu copia limpia?",
+              "opciones": [
+                {
+                  "texto": "30 ÷ 50 = 60 %",
+                  "correcta": true
+                },
+                {
+                  "texto": "36 ÷ 60 = 60 %",
+                  "feedback": "Da el mismo porcentaje, pero con la copia adentro: 60 reservas no existen. Un porcentaje igual no prueba que la base esté limpia."
+                },
+                {
+                  "texto": "24 ÷ 40 = 60 %",
+                  "feedback": "Da el mismo porcentaje, pero solo usa R03: dejaste por fuera el lote escrito «sur». La tasa de la sede junta todos sus lotes válidos."
+                },
+                {
+                  "texto": "50 ÷ 30 ≈ 166,7 %",
+                  "feedback": "Está al revés: el denominador son las **reservas** (50), y las asistencias (30) van arriba. Una tasa de asistencia no puede pasar de 100 %."
+                }
+              ],
+              "pistas": [
+                "El denominador son las reservas de los lotes válidos de Sur.",
+                "Suma R03 y la primera R04: 24 + 6 asistencias sobre 40 + 10 reservas."
+              ],
+              "explicacion": "Sur = (24 + 6) ÷ (40 + 10) = 30 ÷ 50 = **60 %**. Tres de las cuatro cuentas dan 60 %, pero solo una usa la base correcta. Por eso no basta mirar el porcentaje: hay que escribir **numerador y denominador**.",
+              "tema": "agregar-antes-de-dividir"
+            },
+            {
+              "id": "n2-global",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "La tasa global",
+              "consigna": "Las tasas por sede son: Norte 70 %, Centro 90 % y Sur 60 %. ¿Cuál es la **tasa global** de asistencia del periodo?",
+              "opciones": [
+                {
+                  "texto": "≈ 70,8 %",
+                  "correcta": true
+                },
+                {
+                  "texto": "≈ 73,3 %",
+                  "feedback": "Ese es el promedio de las tres tasas: (70 + 90 + 60) ÷ 3. Pero las sedes tienen distinto número de reservas. Suma todas las reservas y todas las asistencias, y divide al final."
+                },
+                {
+                  "texto": "70 %",
+                  "feedback": "Eso da si dejas la copia: 91 ÷ 130. Usa la copia limpia: 120 reservas en total."
+                },
+                {
+                  "texto": "60 %",
+                  "feedback": "Esa es la tasa de Sur, la más baja. La global junta las tres sedes."
+                }
+              ],
+              "pistas": [
+                "Total de reservas: 40 + 30 + 50. Total de asistencias: 28 + 27 + 30.",
+                "85 ÷ 120 = ?"
+              ],
+              "explicacion": "85 asistencias ÷ 120 reservas ≈ **70,83 %**. El promedio de tasas (73,3 %) no es la tasa global: **primero sumas y al final divides**.",
+              "tema": "agregar-antes-de-dividir"
+            },
+            {
+              "id": "n2-contraste",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "Con y sin la copia",
+              "consigna": "Mira lo que pasa si no quitas la segunda R04. La tasa de Sur es **60 % en los dos casos**. ¿Qué concluyes?",
+              "apoyo": {
+                "tipo": "comparacion",
+                "items": [
+                  {
+                    "etiqueta": "Con la copia",
+                    "texto": "Sur: 60 reservas, 36 asistencias → **60 %**, 24 no asistidas. Global: 91 ÷ 130 → **70 %**."
+                  },
+                  {
+                    "etiqueta": "Sin la copia",
+                    "texto": "Sur: 50 reservas, 30 asistencias → **60 %**, 20 no asistidas. Global: 85 ÷ 120 → **≈ 70,8 %**."
+                  }
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Que la limpieza no importaba: la tasa de Sur no cambió",
+                  "feedback": "La tasa no cambió, pero cambiaron las reservas, las no asistidas (24 frente a 20) y la tasa global. Un porcentaje igual no garantiza una base limpia."
+                },
+                {
+                  "texto": "Que una tasa igual no prueba que la base esté limpia: cambian las cantidades y la tasa global",
+                  "correcta": true
+                },
+                {
+                  "texto": "Que la copia ayuda, porque con más filas el análisis es más confiable",
+                  "feedback": "Más filas no es más información si son copias: el lote R04 quedaría contado dos veces."
+                },
+                {
+                  "texto": "Que lo más seguro es quitar las dos filas R04",
+                  "feedback": "Así perderías un lote real de Sur: quedaría con 40 reservas y el total con 110. Solo se excluye la copia confirmada."
+                }
+              ],
+              "explicacion": "La copia tiene la misma tasa que el resto de Sur (60 %), por eso el porcentaje de la sede no se mueve. Pero las **no asistidas** (24 frente a 20) y la **tasa global** (70 % frente a 70,8 %) sí cambian. Comparar con y sin la copia es una buena prueba de tu limpieza.",
+              "tema": "tasa-y-volumen"
+            }
+          ]
+        },
+        {
+          "numero": 3,
+          "titulo": "Graficar y recomendar",
+          "objetivo": "Elegir un gráfico fiel y recomendar con cifra, criterio y límite. Es el reto de la clase, en versión autoguiada.",
+          "cierre": "Nivel 3 listo: recorriste el ciclo completo, de la tabla imperfecta a una recomendación honesta.",
+          "actividades": [
+            {
+              "id": "n3-prioridad",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "Tasa y volumen",
+              "consigna": "Tu criterio declarado es **la menor tasa de asistencia**. ¿Qué sede conviene revisar primero? Y si alguien hubiera declarado desde el inicio **más reservas no asistidas**, ¿cambiaría la respuesta?",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Copia limpia, mismo periodo",
+                "columnas": [
+                  "Sede",
+                  "Reservas",
+                  "Asistencias",
+                  "Tasa",
+                  "No asistidas"
+                ],
+                "filas": [
+                  [
+                    "Norte",
+                    "40",
+                    "28",
+                    "70 %",
+                    "12"
+                  ],
+                  [
+                    "Centro",
+                    "30",
+                    "27",
+                    "90 %",
+                    "3"
+                  ],
+                  [
+                    "Sur",
+                    "50",
+                    "30",
+                    "60 %",
+                    "20"
+                  ],
+                  [
+                    "Total",
+                    "120",
+                    "85",
+                    "≈ 70,8 %",
+                    "35"
+                  ]
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Sur con los dos criterios: menor tasa (60 %) y más reservas no asistidas (20)",
+                  "correcta": true
+                },
+                {
+                  "texto": "Sur por tasa, pero Norte por volumen, porque tiene muchas reservas",
+                  "feedback": "Norte tiene 40 reservas y 12 no asistidas; Sur tiene 50 reservas y 20 no asistidas. El volumen que importa aquí es el de **no asistidas**: Reservas − Asistencias."
+                },
+                {
+                  "texto": "Centro, porque tiene menos reservas y será más fácil de mejorar",
+                  "feedback": "Ese no es ninguno de los dos criterios declarados, y «más fácil de mejorar» no está en la tabla. El criterio se elige al comienzo, no al final."
+                },
+                {
+                  "texto": "No se puede decidir, porque las sedes tienen distinto número de reservas",
+                  "feedback": "Justo para eso sirve la tasa: compara sedes de distinto tamaño. Y el volumen no asistido da la otra mirada."
+                }
+              ],
+              "explicacion": "En este caso los dos criterios coinciden: **Sur** tiene la menor tasa (60 %) y el mayor volumen no asistido (20 de 35). Si no coincidieran, valdría cualquiera de los dos **siempre que se declare al inicio** y se justifique.",
+              "tema": "tasa-y-volumen"
+            },
+            {
+              "id": "n3-grafico",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "Elige el gráfico",
+              "consigna": "Tu pregunta es por la **tasa de asistencia** de cada sede. ¿Cuál de estos gráficos la muestra de forma fiel?",
+              "apoyo": {
+                "tipo": "comparacion",
+                "items": [
+                  {
+                    "etiqueta": "A",
+                    "grafico": {
+                      "tipo": "grafico",
+                      "forma": "barras",
+                      "titulo": "Reservas por sede",
+                      "etiquetas": [
+                        "Norte",
+                        "Centro",
+                        "Sur"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Reservas",
+                          "valores": [
+                            40,
+                            30,
+                            50
+                          ]
+                        }
+                      ],
+                      "unidad": "reservas"
+                    }
+                  },
+                  {
+                    "etiqueta": "B",
+                    "grafico": {
+                      "tipo": "grafico",
+                      "forma": "barras",
+                      "titulo": "Tasa de asistencia por sede",
+                      "etiquetas": [
+                        "Norte",
+                        "Centro",
+                        "Sur"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Tasa de asistencia",
+                          "valores": [
+                            70,
+                            90,
+                            60
+                          ]
+                        }
+                      ],
+                      "ejeDesde": 50,
+                      "unidad": "%"
+                    }
+                  },
+                  {
+                    "etiqueta": "C",
+                    "grafico": {
+                      "tipo": "grafico",
+                      "forma": "barras",
+                      "titulo": "Tasa de asistencia por sede",
+                      "etiquetas": [
+                        "Norte",
+                        "Centro",
+                        "Sur"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Tasa de asistencia",
+                          "valores": [
+                            70,
+                            90,
+                            60
+                          ]
+                        }
+                      ],
+                      "unidad": "%",
+                      "nota": "Fuente: tabla de lotes del programa (datos ficticios), mismo periodo, sin la copia de R04."
+                    }
+                  }
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "A",
+                  "feedback": "A muestra datos reales, pero responde otra pregunta: cuántas reservas hubo, no qué proporción asistió. Puede ir como tabla de apoyo."
+                },
+                {
+                  "texto": "B",
+                  "feedback": "B muestra las tasas, pero el eje empieza en 50 %: la barra de Centro parece cuatro veces la de Sur, cuando la diferencia real es de 30 puntos. Y no dice la fuente."
+                },
+                {
+                  "texto": "C",
+                  "correcta": true
+                }
+              ],
+              "pistas": [
+                "Primero descarta el que no muestra tasas.",
+                "Entre los que quedan, mira dónde empieza el eje y si dicen de dónde salen los datos."
+              ],
+              "explicacion": "**C**: barras de tasas, eje desde 0 %, con título, unidad y fuente. Al lado puedes dejar la tabla de cantidades (reservas, asistencias y no asistidas) que la respalda.",
+              "tema": "figura-fiel"
+            },
+            {
+              "id": "n3-limites",
+              "tipo": "tarjetas",
+              "fase": "entender",
+              "titulo": "¿Lo dicen los datos?",
+              "consigna": "Para cada frase, decide si **la respaldan los datos** o si **va más allá** de lo que muestran.",
+              "botones": {
+                "si": "Lo respaldan los datos",
+                "no": "Va más allá de los datos"
+              },
+              "tarjetas": [
+                {
+                  "texto": "En este periodo, Sur tuvo la menor tasa de asistencia: 60 %.",
+                  "respuesta": "si",
+                  "explicacion": "Sale de 30 ÷ 50, con la copia limpia, y dice el periodo."
+                },
+                {
+                  "texto": "En Sur faltaron porque las personas olvidaron la cita.",
+                  "respuesta": "no",
+                  "explicacion": "La tabla no tiene datos de motivos de ausencia. El olvido es una hipótesis por revisar, no una conclusión."
+                },
+                {
+                  "texto": "De las 35 reservas no asistidas, 20 fueron de Sur.",
+                  "respuesta": "si",
+                  "explicacion": "Sur: 50 − 30 = 20. Total: 120 − 85 = 35."
+                },
+                {
+                  "texto": "Si se envían recordatorios, Sur va a llegar al 90 %, como Centro.",
+                  "respuesta": "no",
+                  "explicacion": "Es una posible acción por estudiar. La tabla no dice si se enviaron ni qué efecto tendrían: para eso habría que probarlos y medir otra vez."
+                },
+                {
+                  "texto": "En Centro asiste más gente porque sus asesorías son mejores.",
+                  "respuesta": "no",
+                  "explicacion": "La tabla no mide la calidad de las asesorías. Una tasa alta no explica su causa."
+                },
+                {
+                  "texto": "Conviene revisar primero el seguimiento en Sur.",
+                  "respuesta": "si",
+                  "explicacion": "Es una prioridad de revisión apoyada en la tasa y en el volumen. No afirma la causa ni promete un resultado."
+                }
+              ],
+              "explicacion": "Priorizar dónde revisar **no prueba** por qué faltó la gente ni que los recordatorios vayan a funcionar. La fórmula: **«conviene revisar primero… porque…; todavía no sabemos…»**.",
+              "tema": "recomendacion-proporcionada"
+            },
+            {
+              "id": "n3-reto",
+              "tipo": "constructor",
+              "fase": "aplicar",
+              "titulo": "El reto: tu recomendación para el programa",
+              "consigna": "Prepara un análisis breve para recomendar dónde revisar primero el seguimiento de asistencia. Conserva la fuente, justifica la limpieza, compara sedes con tasas y volúmenes, construye una figura y explica el alcance de tu recomendación. Quien te escuche debe poder reconstruir de dónde salen tus cifras.",
+              "rutas": [
+                {
+                  "id": "mapa",
+                  "nombre": "Ruta Mapa",
+                  "descripcion": "La pregunta y el criterio ya vienen dados. Te concentras en limpiar, calcular, graficar y recomendar.",
+                  "preguntaDada": "En este periodo, ¿qué sede presenta menor tasa de asistencia sobre reservas y conviene revisar primero?"
+                },
+                {
+                  "id": "brujula",
+                  "nombre": "Ruta Brújula",
+                  "descripcion": "Declaras tu propio criterio de prioridad antes de calcular (por ejemplo, más reservas no asistidas) y lo sostienes hasta el final."
+                },
+                {
+                  "id": "telescopio",
+                  "nombre": "Ruta Telescopio",
+                  "descripcion": "Además de recomendar, comparas tus resultados con y sin la copia de R04, y propones qué información permitiría evaluar los recordatorios sin afirmar que funcionan.",
+                  "preguntaDada": "En este periodo, ¿qué sede presenta menor tasa de asistencia sobre reservas, y qué cambia si no quito la copia de R04?"
+                }
+              ],
+              "pasos": [
+                {
+                  "clave": "pregunta",
+                  "titulo": "1 · Mi pregunta y mi criterio",
+                  "ayuda": "«En este periodo, ¿qué sede…?» y «Voy a priorizar la sede con…».",
+                  "pistas": [
+                    "Di qué se mide, en qué periodo y con qué criterio vas a priorizar.",
+                    "Criterios posibles: la menor tasa de asistencia o el mayor número de reservas no asistidas. Elige uno ahora, no al final."
+                  ]
+                },
+                {
+                  "clave": "limpieza",
+                  "titulo": "2 · Cómo limpié",
+                  "ayuda": "Usa la forma «cambié… porque…». Di también qué conservaste.",
+                  "pistas": [
+                    "¿Qué fila excluiste y qué regla del caso lo permite?",
+                    "¿Qué nombre unificaste? ¿Cuántos lotes válidos y cuántas sedes te quedaron?"
+                  ]
+                },
+                {
+                  "clave": "calculos",
+                  "titulo": "3 · Cómo agrupé y calculé",
+                  "ayuda": "Para cada sede: reservas, asistencias, tasa y no asistidas. Y el total. Puedes marcar las filas de una sede y agregarlas aquí.",
+                  "pistas": [
+                    "Suma reservas y asistencias de cada sede antes de dividir.",
+                    "Escribe el numerador y el denominador, por ejemplo: «Norte: 28 ÷ 40 = 70 %, 12 no asistidas».",
+                    "Para la global, suma todo: 85 ÷ 120. No promedies las tres tasas."
+                  ],
+                  "permiteFilas": true
+                },
+                {
+                  "clave": "grafico",
+                  "titulo": "4 · Mi gráfico",
+                  "ayuda": "¿Qué gráfico eliges? Escribe su título, la unidad, desde dónde empieza el eje y la fuente.",
+                  "pistas": [
+                    "Si tu pregunta es por tasas, el gráfico debe mostrar tasas.",
+                    "Barras desde 0 %, con la tabla de cantidades al lado."
+                  ]
+                },
+                {
+                  "clave": "recomendacion",
+                  "titulo": "5 · Mi recomendación y su límite",
+                  "ayuda": "«Conviene revisar primero… porque…; todavía no sabemos…».",
+                  "pistas": [
+                    "Cita una cifra y tu criterio.",
+                    "Separa la evidencia de las suposiciones: ¿qué no dice la tabla sobre el olvido o sobre los recordatorios?"
+                  ]
+                }
+              ],
+              "verificacion": [
+                "¿Escribí la pregunta y el criterio antes de calcular?",
+                "¿Excluí solo la copia confirmada y anoté por qué?",
+                "¿Sumé por sede antes de dividir, con numerador y denominador?",
+                "¿Mi gráfico muestra tasas desde cero, con título, unidad y fuente?",
+                "¿Mi recomendación cita una cifra, un criterio y un límite?"
+              ],
+              "ejemplo": "«En este periodo, ¿qué sede presenta menor tasa de asistencia sobre reservas y conviene revisar primero? Criterio: la menor tasa de asistencia. Guardé la tabla original y trabajé en una copia: excluí la segunda fila R04 porque el caso confirma que es una copia accidental, y cambié «sur» por «Sur» porque es la misma sede. Quedaron 4 lotes válidos y 3 sedes. Sumé antes de dividir: Norte 28 ÷ 40 = 70 % (12 no asistidas), Centro 27 ÷ 30 = 90 % (3), Sur 30 ÷ 50 = 60 % (20); global 85 ÷ 120 ≈ 70,83 %. Gráfico: barras de tasa de asistencia por sede, eje desde 0 %, fuente: tabla de lotes del programa, con la tabla de cantidades al lado. Conviene revisar primero el seguimiento en Sur, porque tiene la menor tasa (60 %) y además 20 de las 35 reservas no asistidas. Todavía no sabemos por qué faltaron las personas ni si los recordatorios ayudarían.»",
+              "explicacion": "No se busca un texto largo: sirve si otra persona puede seguir cada paso y llegar a las mismas cifras.",
+              "tema": "recomendacion-proporcionada"
+            },
+            {
+              "id": "n3-cierre",
+              "tipo": "escritura",
+              "fase": "observar",
+              "titulo": "Cierre del recorrido",
+              "consigna": "Esta es la última misión. Completa estas frases: quedan guardadas en tu cuaderno (solo en este navegador).",
+              "frases": [
+                {
+                  "clave": "cierre-comprobar",
+                  "inicio": "Ahora puedo comprobar…"
+                },
+                {
+                  "clave": "cierre-practicar",
+                  "inicio": "Necesito seguir practicando…"
+                },
+                {
+                  "clave": "cierre-vida",
+                  "inicio": "Una decisión de mi día a día en la que usaría este ciclo es…"
+                }
+              ],
+              "explicacion": "El ciclo completo en una línea: **pregunta y criterio → limpieza con motivos → medidas y tasas (sumar antes de dividir) → gráfico fiel → recomendación con límite.** Ya lo haces todos los días; ahora con más cuidado.",
+              "tema": "ciclo-del-analisis"
+            }
+          ]
+        }
+      ],
+      "conceptos": [
+        {
+          "termino": "Ciclo del análisis",
+          "definicion": "Preguntar, recopilar, limpiar, analizar y comunicar. Cada paso depende del anterior.",
+          "ejemplo": "Pregunta sobre asistencia → tabla de lotes → quitar la copia y unificar nombres → tasas → gráfico y recomendación."
+        },
+        {
+          "termino": "Criterio de prioridad",
+          "definicion": "La regla con la que decides qué revisar primero. Se declara al comienzo y no se cambia al final.",
+          "ejemplo": "«Voy a priorizar la sede con la menor tasa de asistencia sobre reservas»."
+        },
+        {
+          "termino": "Copia confirmada",
+          "definicion": "Un registro anotado dos veces por error, cuando el caso lo confirma. Es lo único que se excluye.",
+          "ejemplo": "La segunda R04 es una copia accidental. R03 y R04 también son de Sur, pero son lotes distintos."
+        },
+        {
+          "termino": "Unificar una categoría",
+          "definicion": "Escribir igual los nombres que describen lo mismo, en la copia de trabajo y anotando el cambio.",
+          "ejemplo": "«sur» pasa a «Sur»: si no, aparecería una cuarta sede."
+        },
+        {
+          "termino": "Agregar antes de dividir",
+          "definicion": "Para la tasa de un grupo, primero sumas sus cantidades y después divides. Promediar tasas no da la tasa conjunta.",
+          "ejemplo": "Sur: (24 + 6) ÷ (40 + 10) = 30 ÷ 50 = 60 %."
+        },
+        {
+          "termino": "Tasa y volumen",
+          "definicion": "La tasa dice qué proporción asistió; el volumen dice cuántas reservas no se aprovecharon.",
+          "ejemplo": "Sur: 60 % de asistencia y 20 reservas no asistidas."
+        },
+        {
+          "termino": "Tasa global",
+          "definicion": "Todos los casos favorables entre todos los casos, sumando antes de dividir.",
+          "ejemplo": "85 ÷ 120 ≈ 70,83 %, no el promedio de las tres tasas (73,3 %)."
+        },
+        {
+          "termino": "Figura fiel",
+          "definicion": "Un gráfico que responde la pregunta sin exagerar: eje desde cero, título, unidad y fuente.",
+          "ejemplo": "Barras de tasa de asistencia por sede, desde 0 %, con la tabla de cantidades al lado."
+        },
+        {
+          "termino": "Recomendación proporcionada",
+          "definicion": "Dice dónde revisar con una cifra, un criterio y un límite, sin afirmar causas ni prometer resultados.",
+          "ejemplo": "«Conviene revisar primero Sur (60 %, 20 no asistidas); todavía no sabemos por qué faltaron»."
+        }
+      ],
+      "fraseClave": "Un buen análisis se puede reconstruir: pregunta y criterio claros, limpieza con motivos, cifras con unidades y una recomendación que dice lo que todavía no sabemos.",
+      "paraLlevar": {
+        "consigna": "Prepara un análisis breve para recomendar dónde revisar primero el seguimiento de asistencia. Conserva la fuente, justifica la limpieza, compara sedes con tasas y volúmenes, construye una figura y explica el alcance de tu recomendación.",
+        "pasos": [
+          "Escribe la pregunta y el criterio de prioridad, y guarda la tabla original sin cambios.",
+          "Limpia en una copia: excluye solo la copia confirmada de R04, unifica «sur» con «Sur» y anota «cambié… porque…».",
+          "Agrupa por sede (suma antes de dividir): tasa de asistencia, reservas no asistidas y tasa global.",
+          "Compara los resultados con y sin la copia.",
+          "Construye un gráfico de tasas desde cero, con título, unidad y fuente, y la tabla de cantidades al lado.",
+          "Recomienda con cifra, criterio y límite: «conviene revisar primero… porque…; todavía no sabemos…»."
+        ],
+        "lupa": [
+          "Dice qué se mide, en qué periodo y con qué criterio se prioriza.",
+          "Se responde con una copia limpia y decisiones anotadas.",
+          "Se comprueba con cifras que otra persona puede reconstruir.",
+          "Termina en una recomendación que dice lo que todavía no sabemos."
+        ]
+      }
+    }
+  },
   "teoria": {
     "intro": "Esta es la misión que lo junta todo: preguntar, limpiar, calcular, graficar y recomendar con honestidad. Es lo que haces cuando decides algo importante en tu casa: miras los datos que tienes, revisas que estén bien y decides sin prometer más de lo que sabes.",
     "platzi": [
@@ -130,7 +1914,7 @@
         "titulo": "Tasa y volumen: dos miradas",
         "idea": "La tasa dice qué proporción faltó; el volumen dice cuántas citas se perdieron.",
         "explicacion": "La **tasa de asistencia** (asistencias ÷ reservas) compara sedes de distinto tamaño. El **volumen no asistido** (reservas − asistencias) dice cuántas citas se perdieron en números. Mirar las dos ayuda a justificar una prioridad. Ojo: un porcentaje que se queda igual no prueba que la limpieza esté bien; compara también las cantidades con y sin el duplicado.",
-        "cotidiano": "Una tienda pequeña puede botar una proporción mayor de pan, pero una panadería grande puede botar más panes en total.",
+        "cotidiano": "Si un equipo cobra 10 penaltis y falla 4, falla una proporción mayor (40 %) que otro que cobra 40 y falla 8 (20 %). Pero el segundo falló más penaltis en total.",
         "ejemplo": "Punto ficticio: Robledo pierde 5 citas (25 − 20); Belén pierde 15 (40 − 25). Si no quitaras la copia de L03, Belén tendría 50 citas y 32 asistencias: 64 % y 18 perdidas.",
         "enElReto": "Calcula, para cada sede, la tasa y las reservas no asistidas, con sus unidades. Compara los resultados con y sin la copia accidental."
       },

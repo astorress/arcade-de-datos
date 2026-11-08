@@ -1,6 +1,8 @@
 import { h, md, anunciar, aviso, reducirMovimiento, rotulo } from '../util.js';
 import * as store from '../store.js';
 import { TIPOS } from '../actividades/index.js';
+import { apoyo } from '../actividades/apoyo.js';
+import { claveTexto } from '../content.js';
 import { tablaDatos } from '../components/tabla.js';
 import { kolb } from '../components/kolb.js';
 import { insignia } from '../components/insignia.js';
@@ -77,8 +79,8 @@ function actividad(c, m, nivel, i) {
     mision: m,
     hecho: hechoAntes,
     tabla: (op) => tablaDatos(m.datos, op),
-    texto: (k) => store.texto(m.numero, k),
-    guardar: (k, v) => store.guardarTexto(m.numero, k, v),
+    texto: (k) => store.texto(m.numero, claveTexto(m, k)),
+    guardar: (k, v) => store.guardarTexto(m.numero, claveTexto(m, k), v),
     pista: () => store.sumarPista(m.numero),
     bien: (msg) => {
       feedback.replaceChildren(dialogoGuia(msg || '', { nombre: guia(c).nombre, tono: 'bien', titulo: `✓ ${elegir(guia(c).bien)}`, compacto: true }));
@@ -133,6 +135,7 @@ function actividad(c, m, nivel, i) {
       h('h1', { tabindex: '-1', class: 'actividad__titulo' }, act.titulo),
       h('div', { class: 'consigna', html: md(act.consigna) }),
       hechoAntes ? h('p', { class: 'nota' }, '★ Ya completaste esta actividad. Puedes repetirla o continuar.') : null,
+      act.apoyo && act.tipo !== 'seleccion' ? apoyo(act.apoyo) : null,
       cuerpo,
       act.tema ? recordemos(m, act.tema) : null,
       pistas,

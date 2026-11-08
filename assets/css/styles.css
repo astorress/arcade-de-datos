@@ -978,3 +978,22 @@ body.modo-clase main { padding: 0; }
   .clase-escenario .datos { margin-top: 0; }
   .clase-escenario .clase-opciones { margin-top: 0; }
 }
+
+/* ---------- Gráficos de apoyo (M6, M7) ---------- */
+.apoyos { display: grid; gap: 0.8rem; margin: 1rem 0; }
+.grafico { position: relative; min-width: 0; margin: 1rem 0; padding: 0.8rem; background: var(--superficie); border: 3px solid var(--borde); }
+.grafico__titulo { font-weight: 700; margin-bottom: 0.4rem; }
+.grafico__svg { width: 100%; height: auto; display: block; }
+.grafico__guia { stroke: var(--borde); stroke-width: 1; opacity: 0.45; }
+.grafico__base { stroke: var(--texto); stroke-width: 2; }
+.grafico__eje { fill: var(--texto-suave); font-size: 15px; font-family: var(--cuerpo); }
+.grafico__valor { fill: var(--texto); font-size: 15px; font-weight: 700; font-family: var(--cuerpo); }
+.grafico__corte { fill: var(--magenta-texto); font-size: 22px; font-weight: 700; }
+.grafico__leyenda { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; list-style: none; padding: 0; margin: 0.4rem 0 0; font-size: 0.95rem; }
+.grafico__muestra { display: inline-block; width: 0.9rem; height: 0.9rem; margin-right: 0.35rem; vertical-align: -0.1rem; }
+.grafico__nota { margin: 0.4rem 0 0; font-size: 0.95rem; color: var(--texto-suave); }
+
+/* ---------- Vista previa del tutor ---------- */
+.banda-previa { margin: 0 0 1rem; padding: 0.6rem 0.9rem; border: 3px dashed var(--magenta); background: var(--superficie); font-size: 0.98rem; }
+.banda-previa .chips { margin-top: 0.4rem; }
+.banda-previa a { color: var(--magenta-texto); }

@@ -4,16 +4,1703 @@
   "titulo": "Limpiar para no equivocarnos",
   "sesion": "Limpiar datos para evitar conclusiones equivocadas",
   "habilidad": "Duplicados, faltantes, formatos y registro de cambios.",
-  "caso": "Préstamos de una biblioteca",
+  "caso": "Pedidos por WhatsApp de un emprendimiento",
   "color": "magenta",
-  "historia": "",
   "insignia": {
     "nombre": "Guardián de la limpieza",
-    "descripcion": "",
+    "descripcion": "Limpias una tabla sin borrar de más ni inventar: guardas la fuente, anotas cada cambio y dices qué dato todavía falta.",
     "simbolo": "escoba"
   },
-  "niveles": [],
-  "conceptos": [],
+  "casoActivo": "cotidiano",
+  "casos": {
+    "cotidiano": {
+      "nombre": "Cotidiano: pedidos por WhatsApp",
+      "titulo": "Los pedidos de Juan",
+      "caso": "Pedidos por WhatsApp de un emprendimiento de comida",
+      "historia": "Juan vende empanadas, arepas rellenas y jugos naturales desde su casa. Recibe los pedidos por WhatsApp y los pasa a una hoja de cálculo a la carrera, entre fritura y fritura. Quiere saber qué le piden más para comprar los ingredientes de la próxima semana. Pero su hoja tiene «manchas»: antes de sumar, toca revisarla. Tú le vas a ayudar, sin perder nada de lo que anotó.",
+      "datos": {
+        "titulo": "Pedidos por WhatsApp de Juan",
+        "unidad": [
+          "fila",
+          "filas"
+        ],
+        "columnas": [
+          "Fila",
+          "Pedido",
+          "Producto",
+          "Fecha",
+          "Cantidad",
+          "Entrega",
+          "Dirección"
+        ],
+        "filas": [
+          [
+            "1",
+            "W01",
+            "Empanada",
+            "01/10/2026",
+            "6",
+            "Domicilio",
+            "Cl 12 #4-30"
+          ],
+          [
+            "2",
+            "W02",
+            "empanadas",
+            "2026-10-01",
+            "4",
+            "Recoge",
+            "—"
+          ],
+          [
+            "3",
+            "W03",
+            "Arepa rellena",
+            "02/10/2026",
+            "3",
+            "Domicilio",
+            "Cra 70 #8-15"
+          ],
+          [
+            "4",
+            "W03",
+            "Arepa rellena",
+            "02/10/2026",
+            "3",
+            "Domicilio",
+            "Cra 70 #8-15"
+          ],
+          [
+            "5",
+            "W04",
+            "arepa rellena",
+            "3-oct",
+            "Sin dato",
+            "Recoge",
+            "—"
+          ],
+          [
+            "6",
+            "W05",
+            "EMPANADA",
+            "03/10/2026",
+            "10",
+            "Domicilio",
+            "Sin dato"
+          ],
+          [
+            "7",
+            "W06",
+            "Jugo natural",
+            "04/10/2026",
+            "2",
+            "Recoge",
+            "—"
+          ],
+          [
+            "8",
+            "W07",
+            "Jugo natural",
+            "04/10/2026",
+            "2",
+            "Recoge",
+            "—"
+          ]
+        ],
+        "definiciones": [
+          "**Fila** es el número de renglón en la hoja de Juan. No es parte del pedido: solo sirve para ubicarte.",
+          "Cada **pedido** de WhatsApp tiene su propio código (W01, W02…). Un pedido puede traer varias unidades: **Cantidad** dice cuántas.",
+          "**Fecha** es el día del pedido. Todos los pedidos son de **octubre de 2026**.",
+          "**Entrega**: Domicilio (Juan lo lleva) o Recoge (el cliente pasa por la casa de Juan). En **Dirección**, «—» significa que **no aplica**, porque el cliente recoge.",
+          "«**Sin dato**» marca una casilla que Juan dejó vacía. No es un número.",
+          "Juan confirmó que el pedido **W03** aparece dos veces porque pegó el mismo mensaje dos veces.",
+          "Precios de Juan, por unidad: empanada **$2.500**, arepa rellena **$6.000**, jugo natural **$4.000**."
+        ],
+        "aviso": "Datos ficticios, solo para practicar. Juan es un personaje."
+      },
+      "niveles": [
+        {
+          "numero": 1,
+          "titulo": "Mirar antes de sumar",
+          "objetivo": "Leer la hoja de Juan y encontrar sus problemas, sin cambiar nada todavía.",
+          "cierre": "Nivel 1 listo: ya sabes señalar una celda y decir qué le pasa.",
+          "actividades": [
+            {
+              "id": "n1-toca-fila",
+              "tipo": "leer-filas",
+              "fase": "hacer",
+              "titulo": "Toca una fila",
+              "consigna": "Toca una fila de la hoja de Juan y escucha lo que cuenta. Lee al menos **3 filas** para continuar. ¿Notas algo raro?",
+              "minimo": 3,
+              "lecturas": {
+                "1": "La fila 1 es el pedido W01: 6 empanadas, el 1 de octubre, a domicilio en la Cl 12 #4-30.",
+                "2": "La fila 2 es el pedido W02: 4 empanadas, también del 1 de octubre (aquí la fecha está escrita como 2026-10-01). El cliente recoge, por eso no hay dirección.",
+                "3": "La fila 3 es el pedido W03: 3 arepas rellenas, el 2 de octubre, a domicilio en la Cra 70 #8-15.",
+                "4": "La fila 4 dice exactamente lo mismo que la fila 3: pedido W03, 3 arepas rellenas, 2 de octubre, misma dirección. ¿Será otro pedido o el mismo copiado?",
+                "5": "La fila 5 es el pedido W04: arepas rellenas, el 3 de octubre, para recoger. Pero no dice cuántas: la cantidad quedó sin dato.",
+                "6": "La fila 6 es el pedido W05: 10 empanadas, el 3 de octubre, a domicilio… pero sin dirección. ¿A dónde las lleva Juan?",
+                "7": "La fila 7 es el pedido W06: 2 jugos naturales, el 4 de octubre, para recoger.",
+                "8": "La fila 8 es el pedido W07: 2 jugos naturales, el 4 de octubre, para recoger. Se parece mucho a la fila 7, pero el código del pedido es otro."
+              },
+              "explicacion": "Cada lectura habla de **un pedido**. Y ya aparecieron algunas «manchas»: palabras escritas distinto, fechas con otra forma, una fila que se repite y casillas vacías. Por ahora solo **míralas**: todavía no cambiamos nada.",
+              "tema": "datos-sucios"
+            },
+            {
+              "id": "n1-que-es-fila",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "¿Qué representa una fila?",
+              "consigna": "Igual que en la misión 1, empecemos por lo básico: ¿qué representa cada fila de la hoja de Juan?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Un cliente",
+                  "feedback": "Cada pedido lo hizo alguien, pero la hoja no tiene el nombre ni el número de quien pide. Lo que tiene código es el **pedido**."
+                },
+                {
+                  "texto": "Una unidad de producto (una empanada, una arepa)",
+                  "feedback": "Mira la fila 1: son 6 empanadas en una sola fila. Una fila puede traer varias unidades; eso lo dice la columna Cantidad."
+                },
+                {
+                  "texto": "Un pedido de WhatsApp",
+                  "correcta": true
+                },
+                {
+                  "texto": "Un día de trabajo",
+                  "feedback": "El 1 de octubre tiene dos filas (1 y 2). La fecha es una columna, una característica del pedido."
+                }
+              ],
+              "pistas": [
+                "Lee la segunda definición debajo de la tabla: ¿qué tiene su propio código?",
+                "La columna Pedido identifica lo que cuenta cada fila."
+              ],
+              "explicacion": "La unidad de análisis es el **pedido**. Ojo con un detalle: las filas 3 y 4 tienen el mismo código W03. Un renglón nuevo **no siempre** es un pedido nuevo; por eso el código importa tanto en esta misión.",
+              "tema": "datos-sucios"
+            },
+            {
+              "id": "n1-problemas",
+              "tipo": "seleccion",
+              "multiple": true,
+              "fase": "observar",
+              "titulo": "¿Qué problemas ves?",
+              "consigna": "Juan quiere saber qué le piden más para comprar ingredientes. Antes de sumar, recorre la tabla. **Marca todos los problemas reales** que encuentres.",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Un mismo producto escrito de varias formas",
+                  "correcta": true,
+                  "siFalta": "Mira otra vez la columna Producto: ¿«Empanada», «empanadas» y «EMPANADA» son productos distintos?"
+                },
+                {
+                  "texto": "Fechas escritas con formatos distintos",
+                  "correcta": true,
+                  "siFalta": "Mira otra vez la columna Fecha: ¿todas están escritas de la misma forma?"
+                },
+                {
+                  "texto": "Un pedido que aparece dos veces",
+                  "correcta": true,
+                  "siFalta": "Mira otra vez la columna Pedido: ¿algún código se repite?"
+                },
+                {
+                  "texto": "Casillas que quedaron vacías («Sin dato»)",
+                  "correcta": true,
+                  "siFalta": "Mira otra vez las columnas Cantidad y Dirección: ¿falta algo?"
+                },
+                {
+                  "texto": "Varios pedidos son del mismo producto",
+                  "feedback": "Que mucha gente pida empanada es una buena noticia para Juan, no un error. Una categoría puede repetirse todas las veces que quiera."
+                },
+                {
+                  "texto": "Algunas filas dicen «—» en Dirección",
+                  "feedback": "Ese «—» significa que **no aplica**: el cliente recoge, así que no hace falta dirección. No falta nada ahí."
+                }
+              ],
+              "explicacion": "Son cuatro problemas de calidad: **escritura**, **formato de fecha**, **duplicado** y **dato faltante**. Fíjate en lo que **no** es problema: que se repita un producto y que un pedido para recoger no tenga dirección. Limpiar empieza por **señalar una celda y decir qué le pasa**.",
+              "tema": "datos-sucios"
+            },
+            {
+              "id": "n1-filas-empanada",
+              "tipo": "seleccionar-filas",
+              "fase": "hacer",
+              "titulo": "Encuentra todas las empanadas",
+              "consigna": "Juan quiere ver todos sus pedidos de empanada. **Toca las filas de empanada**, sin importar cómo esté escrita la palabra.",
+              "esperadas": [
+                "1",
+                "2",
+                "6"
+              ],
+              "feedback": {
+                "sobran": "Revisa la columna Producto de las filas que marcaste: ¿todas son empanada?",
+                "faltan": "Vas bien. Busca empanada también en minúsculas, en plural o en MAYÚSCULAS."
+              },
+              "pistas": [
+                "Mira solo la columna Producto.",
+                "Son tres: «Empanada», «empanadas» y «EMPANADA»."
+              ],
+              "explicacion": "Las filas **1, 2 y 6** son empanada. Si un programa cuenta la palabra tal cual, solo encuentra la fila 1: con la tabla sucia, la empanada parece lo **menos** pedido (1 pedido), cuando en realidad es lo **más** pedido (3). Por eso se unifica la escritura **antes** de contar.",
+              "tema": "escritura-y-fechas"
+            },
+            {
+              "id": "n1-tipo-problema",
+              "tipo": "emparejar",
+              "fase": "entender",
+              "titulo": "Ponle nombre a cada mancha",
+              "consigna": "Para cada celda o pareja de filas, elige qué le pasa. Ojo: algunas **no** tienen problema.",
+              "usaDatos": true,
+              "tipos": [
+                {
+                  "id": "escritura",
+                  "texto": "Escritura distinta",
+                  "ayuda": "la misma categoría escrita de otra forma"
+                },
+                {
+                  "id": "fecha",
+                  "texto": "Formato de fecha",
+                  "ayuda": "el mismo tipo de dato escrito con otro formato"
+                },
+                {
+                  "id": "duplicado",
+                  "texto": "Duplicado exacto",
+                  "ayuda": "la misma operación copiada dos veces"
+                },
+                {
+                  "id": "faltante",
+                  "texto": "Dato faltante",
+                  "ayuda": "una casilla que quedó vacía"
+                },
+                {
+                  "id": "ok",
+                  "texto": "No es un problema",
+                  "ayuda": "se ve raro o se repite, pero está bien"
+                }
+              ],
+              "pares": [
+                {
+                  "item": "Fila 2 · Producto «empanadas»",
+                  "correcto": "escritura",
+                  "feedback": "«empanadas» es el mismo producto que «Empanada», escrito en minúscula y en plural."
+                },
+                {
+                  "item": "Fila 6 · Producto «EMPANADA»",
+                  "correcto": "escritura",
+                  "feedback": "Las mayúsculas no cambian el producto: sigue siendo empanada."
+                },
+                {
+                  "item": "Fila 5 · Fecha «3-oct»",
+                  "correcto": "fecha",
+                  "feedback": "«3-oct» es el 3 de octubre de 2026, escrito con otro formato."
+                },
+                {
+                  "item": "Fila 4 · W03 otra vez",
+                  "correcto": "duplicado",
+                  "feedback": "Es igual a la fila 3 en todos los campos, y Juan confirmó que pegó el mensaje dos veces."
+                },
+                {
+                  "item": "Fila 5 · Cantidad «Sin dato»",
+                  "correcto": "faltante",
+                  "feedback": "No sabemos cuántas arepas pidieron en W04: la casilla quedó vacía."
+                },
+                {
+                  "item": "Fila 6 · Dirección «Sin dato»",
+                  "correcto": "faltante",
+                  "feedback": "W05 es a domicilio y no tiene dirección: ahí sí falta un dato."
+                },
+                {
+                  "item": "Fila 2 · Dirección «—»",
+                  "correcto": "ok",
+                  "feedback": "W02 es para recoger: la dirección no aplica. «No aplica» no es lo mismo que «no sé»."
+                },
+                {
+                  "item": "Filas 7 y 8 · Jugo natural dos veces",
+                  "correcto": "ok",
+                  "feedback": "Se parecen mucho, pero son W06 y W07: dos pedidos distintos de dos personas que pidieron lo mismo."
+                }
+              ],
+              "pistas": [
+                "Antes de llamar «duplicado» a algo, mira la columna Pedido: ¿es el mismo código?",
+                "En Dirección hay dos cosas distintas: «—» (no aplica, recoge) y «Sin dato» (debía estar y no está)."
+              ],
+              "explicacion": "Ya tienes el mapa: **escritura** (filas 2, 5 y 6), **fecha** (filas 2 y 5), **duplicado** (fila 4) y **faltantes** (cantidad de W04 y dirección de W05). Y dos cosas que se ven raras pero están bien: el «—» de los pedidos para recoger y los dos pedidos de jugo.",
+              "tema": "duplicado-exacto"
+            }
+          ]
+        },
+        {
+          "numero": 2,
+          "titulo": "Una regla a la vez",
+          "objetivo": "Decidir qué hacer con cada problema, conservando la fuente y anotando el porqué.",
+          "cierre": "Nivel 2 listo: limpiaste sin borrar de más ni inventar.",
+          "actividades": [
+            {
+              "id": "n2-fuente",
+              "tipo": "completar",
+              "fase": "entender",
+              "titulo": "Primero, guarda la fuente",
+              "consigna": "Antes de cambiar una sola celda, acordemos cómo trabajar. Completa la regla.",
+              "frase": "Antes de cambiar algo, {0}. Los cambios los hago en {1} y, por cada uno, anoto {2}.",
+              "huecos": [
+                {
+                  "opciones": [
+                    {
+                      "texto": "guardo la hoja original de Juan sin tocarla",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "borro todo lo que se vea mal",
+                      "feedback": "Si borras sobre la original, nadie puede revisar después qué había. Primero se guarda la fuente."
+                    },
+                    {
+                      "texto": "ordeno la tabla por producto",
+                      "feedback": "Ordenar ayuda a mirar, pero no protege la información original. ¿Qué haces primero para no perder nada?"
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "una copia de trabajo",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "la misma hoja original",
+                      "feedback": "Si cambias la original, pierdes la evidencia de lo que llegó. Se trabaja en una copia."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "la fila, la decisión y el motivo",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "solo el resultado final",
+                      "feedback": "Con solo el resultado, nadie puede repetir lo que hiciste. Cada cambio necesita su «porque…»."
+                    },
+                    {
+                      "texto": "nada: la tabla limpia habla sola",
+                      "feedback": "Una tabla ordenada no explica qué cambió. El registro de cambios sí."
+                    }
+                  ]
+                }
+              ],
+              "textoLibre": {
+                "etiqueta": "Escribe tu primer cambio con la forma **«Fila __: cambié… porque…»** (opcional, queda en tu cuaderno):",
+                "clave": "primer-cambio"
+              },
+              "explicacion": "**Fuente** intacta, **copia de trabajo** y **registro de cambios** (fila · decisión · motivo). Por ejemplo: «Fila 2: empanadas pasa a Empanada, porque es el mismo producto». Cambió la forma de escribir, **no el pedido**.",
+              "tema": "fuente-y-copia"
+            },
+            {
+              "id": "n2-fechas",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Una sola forma para las fechas",
+              "consigna": "Vamos a dejar todas las fechas como día/mes/año. La fila 2 dice **«2026-10-01»** y la fila 5 dice **«3-oct»**. ¿Cómo quedan?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "01/10/2026 y 03/10/2026",
+                  "correcta": true
+                },
+                {
+                  "texto": "10/01/2026 y 03/10/2026",
+                  "feedback": "10/01/2026 sería el 10 de enero: ¡cambiaste el día sin querer! En «2026-10-01» el orden es año-mes-día, así que es el 1 de octubre."
+                },
+                {
+                  "texto": "01/10/2026 y 3/10",
+                  "feedback": "El día está bien, pero la segunda quedó con otra forma (sin año y sin el cero). La idea es una sola forma para todas."
+                },
+                {
+                  "texto": "No se pueden convertir sin preguntarle a Juan",
+                  "feedback": "Sí se puede: las definiciones dicen que todos los pedidos son de octubre de 2026. Distinto sería si dijera «ayer»: ahí sí habría que saber qué día se escribió."
+                }
+              ],
+              "pistas": [
+                "En «2026-10-01» el primer número es el año, el segundo el mes y el tercero el día.",
+                "Después de convertir, revisa: ¿el 1 sigue siendo 1 y el 3 sigue siendo 3?"
+              ],
+              "explicacion": "Quedan **01/10/2026** y **03/10/2026**. Cambia la forma de escribir, **no el día real**. Un detalle que importa: con las fechas sucias, el 2 de octubre parece empatado como el día con más pedidos (dos filas iguales); ya limpio, es el día con **menos** (solo W03).",
+              "tema": "escritura-y-fechas"
+            },
+            {
+              "id": "n2-duplicado-o-no",
+              "tipo": "tarjetas",
+              "fase": "entender",
+              "titulo": "¿Duplicado o no?",
+              "consigna": "Para cada pareja de filas, decide si es un **duplicado exacto** (se excluye una copia) o si **no** se excluye.",
+              "usaDatos": true,
+              "botones": {
+                "si": "Duplicado: excluyo una copia",
+                "no": "No lo excluyo (todavía)"
+              },
+              "tarjetas": [
+                {
+                  "texto": "Filas **3 y 4**: W03 en las dos, todos los campos iguales, y Juan confirmó que pegó el mensaje dos veces.",
+                  "respuesta": "si",
+                  "explicacion": "Mismo código, mismos valores en todo y una confirmación de Juan: es la misma operación copiada. Se excluye **una** copia y se conserva la otra."
+                },
+                {
+                  "texto": "Filas **7 y 8**: Jugo natural, 04/10/2026, 2, Recoge… pero una es W06 y la otra W07.",
+                  "respuesta": "no",
+                  "explicacion": "El código de pedido es distinto: son dos pedidos. Dos personas pueden pedir lo mismo el mismo día."
+                },
+                {
+                  "texto": "Filas **1 y 6**: las dos son de empanada.",
+                  "respuesta": "no",
+                  "explicacion": "Compartir el producto es normal: una categoría puede repetirse. Además cambian el código, la fecha y la cantidad."
+                },
+                {
+                  "texto": "Filas **1 y 2**: las dos son del 1 de octubre y las dos son de empanada.",
+                  "respuesta": "no",
+                  "explicacion": "Mismo día y mismo producto no bastan: son W01 y W02, con cantidades y entregas distintas."
+                },
+                {
+                  "texto": "Imagina dos filas **W08** idénticas, pero Juan todavía no ha dicho si fue una copia o si el cliente repitió el pedido.",
+                  "respuesta": "no",
+                  "explicacion": "Todavía no: primero se pregunta. Si el cliente pidió dos veces, borrar una fila haría desaparecer un pedido real. Se marca como «por confirmar»."
+                }
+              ],
+              "explicacion": "Un **duplicado exacto** necesita tres cosas: el **mismo código**, los **mismos valores en todos los campos** y que la **regla del caso** confirme que es una copia. Parecerse no basta.",
+              "tema": "duplicado-exacto"
+            },
+            {
+              "id": "n2-que-hago-w03",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "¿Qué hago con W03?",
+              "consigna": "Las filas 3 y 4 son el mismo pedido W03, copiado. ¿Qué haces en tu copia de trabajo?",
+              "opciones": [
+                {
+                  "texto": "Borro las dos filas de W03",
+                  "feedback": "Si borras las dos, desaparece también el pedido real: Juan sí vendió esas 3 arepas. Se excluye solo la copia."
+                },
+                {
+                  "texto": "Conservo una, excluyo la otra y lo anoto en el registro de cambios",
+                  "correcta": true
+                },
+                {
+                  "texto": "Dejo las dos, por si acaso",
+                  "feedback": "Así contarías 3 arepas que nadie pidió: la suma conocida subiría de 27 a 30. Juan ya confirmó que es una copia."
+                },
+                {
+                  "texto": "Le pongo 0 en Cantidad a la fila 4",
+                  "feedback": "Así la fila seguiría contando como un pedido más (de cero arepas). Lo honesto es excluir la copia y anotar por qué."
+                }
+              ],
+              "explicacion": "Se conserva la fila 3 y se excluye la fila 4. En el registro: **«Fila 4: excluyo la copia de W03, porque es igual en todo y Juan confirmó que pegó el mensaje dos veces; conservo la fila 3»**.",
+              "tema": "duplicado-exacto"
+            },
+            {
+              "id": "n2-faltante",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "La cantidad que falta",
+              "consigna": "En la fila 5, el pedido **W04** no dice cuántas arepas eran. ¿Qué es lo más responsable?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Escribir 0",
+                  "feedback": "Un 0 diría que pidieron cero arepas, y eso no pasó: el cliente sí pidió. Lo que no sabemos es **cuántas**. Vacío no es cero."
+                },
+                {
+                  "texto": "Escribir 3, como en W03",
+                  "feedback": "Eso es adivinar. Puede que fueran 1 o 10. Inventar un número para que la cuenta cierre esconde el problema."
+                },
+                {
+                  "texto": "Borrar la fila, porque está incompleta",
+                  "feedback": "El pedido existió: si borras la fila, Juan pierde un pedido de arepa y el conteo baja de 7 a 6 pedidos. Lo incompleto se marca, no se borra."
+                },
+                {
+                  "texto": "Dejar «Sin dato» visible y preguntarle a Juan cuántas eran",
+                  "correcta": true
+                }
+              ],
+              "pistas": [
+                "¿Qué sabemos de W04? ¿Qué no sabemos?",
+                "Piensa en la diferencia entre «no hubo» y «no sé»."
+              ],
+              "explicacion": "W04 se queda con la cantidad **desconocida** y se anota la pregunta: «¿Cuántas arepas eran en W04?». Lo mismo con la dirección de W05: Juan tendría que revisar el chat. Escribir «no sé» también es información.",
+              "tema": "dato-faltante"
+            }
+          ]
+        },
+        {
+          "numero": 3,
+          "titulo": "Antes y después",
+          "objetivo": "Comparar las cifras antes y después de limpiar, decir qué sigue faltando y armar el reto.",
+          "cierre": "Nivel 3 listo: tus cifras vienen con su advertencia.",
+          "actividades": [
+            {
+              "id": "n3-conteo",
+              "tipo": "conteo",
+              "fase": "hacer",
+              "titulo": "Cuenta en la tabla limpia",
+              "consigna": "Las filas resaltadas son las que quedan después de limpiar (la fila 4 salió). Con los nombres ya unificados, cuenta **cuántos pedidos** hay de cada producto.",
+              "usaDatos": true,
+              "resaltar": [
+                "1",
+                "2",
+                "3",
+                "5",
+                "6",
+                "7",
+                "8"
+              ],
+              "categorias": [
+                "Empanada",
+                "Arepa rellena",
+                "Jugo natural"
+              ],
+              "esperado": {
+                "Empanada": 3,
+                "Arepa rellena": 2,
+                "Jugo natural": 2
+              },
+              "erroresComunes": [
+                {
+                  "valores": {
+                    "Empanada": 1,
+                    "Arepa rellena": 2,
+                    "Jugo natural": 2
+                  },
+                  "mensaje": "Contaste la palabra tal como está escrita, y con la copia de W03 incluida. Unifica los nombres (empanadas y EMPANADA también son Empanada) y cuenta solo las filas resaltadas."
+                },
+                {
+                  "valores": {
+                    "Empanada": 1,
+                    "Arepa rellena": 1,
+                    "Jugo natural": 2
+                  },
+                  "mensaje": "Ya dejaste por fuera la copia, ¡bien! Pero contaste solo la escritura exacta. «empanadas», «EMPANADA» y «arepa rellena» también cuentan."
+                },
+                {
+                  "valores": {
+                    "Empanada": 3,
+                    "Arepa rellena": 3,
+                    "Jugo natural": 2
+                  },
+                  "mensaje": "Unificaste los nombres, ¡bien! Pero contaste la fila 4, que es la copia de W03. Cuenta solo las filas resaltadas."
+                },
+                {
+                  "valores": {
+                    "Empanada": 3,
+                    "Arepa rellena": 1,
+                    "Jugo natural": 2
+                  },
+                  "mensaje": "Te falta un pedido de arepa. ¿Dejaste por fuera W04 porque no tiene cantidad? El pedido sí existió: lo que falta es cuántas arepas eran."
+                },
+                {
+                  "valores": {
+                    "Empanada": 3,
+                    "Arepa rellena": 2,
+                    "Jugo natural": 1
+                  },
+                  "mensaje": "Las filas 7 y 8 son W06 y W07: dos pedidos distintos. Cuenta las dos."
+                }
+              ],
+              "mensajeGeneral": "Vas por buen camino. Revisa {categorias}: cuenta solo las filas resaltadas y unifica los nombres.",
+              "pistas": [
+                "Empanada está en las filas 1, 2 y 6.",
+                "Arepa rellena está en las filas 3 y 5 (la 4 ya salió). Jugo natural, en la 7 y la 8."
+              ],
+              "explicacion": "**Empanada 3 · Arepa rellena 2 · Jugo natural 2**. Con la tabla sucia y contando la palabra tal cual, salía Empanada 1, Arepa rellena 2 y Jugo natural 2: la conclusión se volteaba. La cuenta estaba bien hecha; lo que estaba mal era la tabla.",
+              "tema": "antes-y-despues"
+            },
+            {
+              "id": "n3-antes-despues",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Antes y después",
+              "consigna": "Compara la hoja original con tu copia limpia. Cuenta las **filas** y suma las **unidades conocidas** (columna Cantidad, sin las «Sin dato»). ¿Cuál resumen es correcto?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Filas: 8 → 7. Unidades conocidas: 30 → 27.",
+                  "correcta": true
+                },
+                {
+                  "texto": "Filas: 8 → 7. Juan vendió 27 unidades en total.",
+                  "feedback": "Las cifras están bien, ¡buen trabajo! Pero 27 no es el total: W04 no tiene cantidad. Es la **suma conocida**."
+                },
+                {
+                  "texto": "Filas: 8 → 6. Unidades conocidas: 30 → 24.",
+                  "feedback": "Borraste las dos filas de W03. Se excluye solo la copia: la fila 3 se queda."
+                },
+                {
+                  "texto": "Filas: 8 → 6. Unidades conocidas: 30 → 25.",
+                  "feedback": "Además de la copia, quitaste un pedido de jugo. Las filas 7 y 8 son W06 y W07: dos pedidos distintos."
+                }
+              ],
+              "pistas": [
+                "Solo sale una fila: la 4.",
+                "Suma conocida limpia: 6 + 4 + 3 + 10 + 2 + 2."
+              ],
+              "explicacion": "**8 → 7 filas** y **30 → 27 unidades conocidas**. Y la advertencia que no puede faltar: **27 es la suma conocida, no el total completo**, porque falta la cantidad de W04. Decir «Juan vendió 27 unidades» esconde ese hueco.",
+              "tema": "antes-y-despues"
+            },
+            {
+              "id": "n3-quien-gana",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "¿Qué le deja más plata?",
+              "consigna": "Con los precios de Juan, esta es la plata de los pedidos con cantidad conocida, ya limpios. **¿Qué producto le dejó más plata?**",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Pedidos limpios, con los precios de Juan",
+                "columnas": [
+                  "Producto",
+                  "Unidades conocidas",
+                  "Plata conocida",
+                  "Pedidos sin cantidad"
+                ],
+                "filas": [
+                  [
+                    "Empanada",
+                    "20",
+                    "$50.000",
+                    "0"
+                  ],
+                  [
+                    "Arepa rellena",
+                    "3",
+                    "$18.000",
+                    "1 (W04)"
+                  ],
+                  [
+                    "Jugo natural",
+                    "4",
+                    "$16.000",
+                    "0"
+                  ]
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Empanada, sin ninguna duda",
+                  "feedback": "Va adelante con lo conocido, ¡bien leído! Pero W04 no tiene cantidad: si fueran 6 arepas o más, la arepa sumaría $54.000 o más y pasaría a la empanada."
+                },
+                {
+                  "texto": "Con lo conocido va adelante Empanada ($50.000), pero no es seguro: falta la cantidad de W04",
+                  "correcta": true
+                },
+                {
+                  "texto": "Arepa rellena",
+                  "feedback": "Con lo conocido, la arepa va en $18.000. Podría subir si W04 fuera grande, pero hoy no lo sabemos."
+                },
+                {
+                  "texto": "No se puede decir nada",
+                  "feedback": "Sí se puede decir algo: lo que muestran los datos conocidos, con su advertencia. Una respuesta honesta no tiene que ser perfecta."
+                }
+              ],
+              "explicacion": "La respuesta honesta tiene dos partes: **lo que sé** (Empanada va adelante con $50.000 conocidos de $84.000) y **lo que falta** (W04). Si W04 tuviera 6 arepas o más, la arepa pasaría adelante. Un dato que falta puede cambiar una conclusión: por eso no se esconde.",
+              "tema": "antes-y-despues"
+            },
+            {
+              "id": "n3-contraste",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Juan revisa el chat",
+              "consigna": "Juan busca el mensaje y **confirma que W04 fueron 4 arepas**. En una copia de contraste, ¿cuántas unidades suman ahora los 7 pedidos limpios?",
+              "opciones": [
+                {
+                  "texto": "27",
+                  "feedback": "27 era la suma conocida sin W04. Ahora ya sabemos cuántas arepas eran: súmalas."
+                },
+                {
+                  "texto": "31",
+                  "correcta": true
+                },
+                {
+                  "texto": "34",
+                  "feedback": "Sumaste las 4 arepas a la hoja sucia (30 + 4), que todavía tenía la copia de W03. Parte de la tabla limpia: 27 + 4."
+                },
+                {
+                  "texto": "30",
+                  "feedback": "30 era la suma de la hoja original, con la copia de W03. Parte de la tabla limpia."
+                }
+              ],
+              "explicacion": "**27 + 4 = 31** unidades, y la arepa sube a 7 ($42.000): ahora sí podemos decir que la empanada ($50.000) le dejó más plata. Ojo: esta confirmación es un **dato nuevo** que trajo Juan, no algo que se dedujo de la casilla vacía. Si hubiéramos puesto 0, habríamos dicho 27 con total seguridad… y estaríamos equivocados por 4.",
+              "tema": "dato-faltante"
+            },
+            {
+              "id": "n3-reto",
+              "tipo": "constructor",
+              "fase": "aplicar",
+              "titulo": "El reto: la hoja limpia de Juan",
+              "consigna": "Prepara una versión revisada de los pedidos de Juan y una explicación que otra persona pueda seguir. Muestra **qué corregiste, qué conservaste y qué todavía no puedes calcular con certeza**. No basta con que la tabla se vea ordenada: cada cambio debe tener su porqué.",
+              "rutas": [
+                {
+                  "id": "mapa",
+                  "nombre": "Ruta Mapa",
+                  "descripcion": "Usas las reglas que ya acordamos (nombres, fechas, copia de W03, faltantes) y te concentras en explicar cada cambio.",
+                  "preguntaDada": "En la hoja de Juan, ¿cuántas filas y cuántas unidades conocidas hay antes y después de limpiar?"
+                },
+                {
+                  "id": "brujula",
+                  "nombre": "Ruta Brújula",
+                  "descripcion": "Eliges tú tres controles de calidad, decides en qué orden aplicarlos y justificas cada uno."
+                },
+                {
+                  "id": "telescopio",
+                  "nombre": "Ruta Telescopio",
+                  "descripcion": "Además de limpiar, comparas la hoja original, la limpia y la copia de contraste (W04 = 4 arepas), y explicas por qué «desconocido» y «cero» no eran lo mismo.",
+                  "preguntaDada": "¿Cómo cambian las cifras de Juan entre la hoja original, la hoja limpia y la copia de contraste?"
+                }
+              ],
+              "pasos": [
+                {
+                  "clave": "fuente",
+                  "titulo": "1 · Qué es una fila y qué guardé sin tocar",
+                  "ayuda": "«Cada fila representa… Guardé la hoja original y trabajé en una copia.»",
+                  "pistas": [
+                    "Recuerda el Nivel 1: ¿qué tiene su propio código?",
+                    "Escribe «Cada fila representa un pedido» y di dónde quedó la original."
+                  ]
+                },
+                {
+                  "clave": "cambios",
+                  "titulo": "2 · Mi registro de cambios",
+                  "ayuda": "Una línea por cambio: **«Fila __: cambié… porque…»**. Al menos tres controles. Puedes marcar filas en la tabla y agregarlas aquí.",
+                  "pistas": [
+                    "Empieza por la escritura: ¿qué filas tienen el producto escrito distinto?",
+                    "Sigue con las fechas: ¿cuáles cambian de forma? Revisa que el día no cambie.",
+                    "Termina con W03: ¿cuál fila conservas y cuál excluyes, y por qué?"
+                  ],
+                  "permiteFilas": true
+                },
+                {
+                  "clave": "conservado",
+                  "titulo": "3 · Lo que conservé y lo que sigue faltando",
+                  "ayuda": "Qué dejé tal cual a propósito, qué datos faltan y qué le preguntaría a Juan.",
+                  "pistas": [
+                    "¿Qué pasó con las filas 7 y 8? ¿Por qué no las tocaste?",
+                    "Hay dos casillas «Sin dato»: una cantidad y una dirección. ¿Qué pregunta harías para cada una?"
+                  ]
+                },
+                {
+                  "clave": "antes-despues",
+                  "titulo": "4 · Antes y después, con su advertencia",
+                  "ayuda": "«Filas: __ → __. Unidades conocidas: __ → __. Esto no es el total completo porque…»",
+                  "pistas": [
+                    "Cuenta las filas al inicio y al final.",
+                    "Suma solo las cantidades conocidas, antes y después. ¿Qué pedido no entra en la suma?"
+                  ]
+                }
+              ],
+              "verificacion": [
+                "¿Guardé la hoja original sin cambios?",
+                "¿Cada cambio tiene su «porque…»?",
+                "¿Excluí solo la copia confirmada, no todas las filas parecidas?",
+                "¿Dejé visibles los datos que faltan, sin ponerles cero?",
+                "¿Dije filas y suma conocida antes y después, con su advertencia?"
+              ],
+              "ejemplo": "«Cada fila representa un pedido de WhatsApp. Guardé la hoja original y trabajé en una copia. **Cambios:** Filas 2 y 6: «empanadas» y «EMPANADA» pasan a Empanada, porque es el mismo producto. Fila 5: «arepa rellena» pasa a Arepa rellena, por lo mismo. Filas 2 y 5: «2026-10-01» y «3-oct» pasan a 01/10/2026 y 03/10/2026; revisé que el día no cambiara. Fila 4: excluyo la copia de W03, porque es igual en todo y Juan confirmó que pegó el mensaje dos veces; conservo la fila 3. **Conservé** las filas 7 y 8 porque son dos pedidos distintos (W06 y W07). W04 sigue sin cantidad: le preguntaría a Juan cuántas arepas eran. W05 sigue sin dirección: le preguntaría a dónde se entregaron. **Filas: 8 → 7. Unidades conocidas: 30 → 27.** 27 no es el total completo, porque falta la cantidad de W04.»",
+              "explicacion": "No se busca un texto largo: se busca que otra persona pueda repetir tus pasos y llegar a lo mismo.",
+              "tema": "fuente-y-copia"
+            },
+            {
+              "id": "n3-cierre",
+              "tipo": "escritura",
+              "fase": "observar",
+              "titulo": "Cierre de la misión",
+              "consigna": "Completa estas dos frases. Quedan guardadas en tu cuaderno (solo en este navegador).",
+              "frases": [
+                {
+                  "clave": "cierre-cambio",
+                  "inicio": "Un cambio que hice y la evidencia que lo justifica es…"
+                },
+                {
+                  "clave": "cierre-falta",
+                  "inicio": "Un dato que todavía no conozco es… y para saberlo preguntaría…"
+                }
+              ],
+              "explicacion": "Limpiar puede cambiar un resultado, y por eso **toda exclusión se explica**. En la próxima misión vas a resumir datos con promedios y medianas: el hábito de hoy (revisar antes de resumir) va contigo."
+            }
+          ]
+        }
+      ],
+      "conceptos": [
+        {
+          "termino": "Datos sucios",
+          "definicion": "Registros con problemas de calidad: escrituras distintas, formatos mezclados, filas copiadas o casillas vacías.",
+          "ejemplo": "«Empanada», «empanadas» y «EMPANADA» en la misma columna."
+        },
+        {
+          "termino": "Fuente y copia de trabajo",
+          "definicion": "La fuente es la tabla original, que no se toca. Los cambios se hacen en una copia.",
+          "ejemplo": "La hoja original de Juan queda guardada; la limpieza se hace en otra pestaña."
+        },
+        {
+          "termino": "Registro de cambios",
+          "definicion": "Una lista con la fila, la decisión y el motivo de cada cambio, para que otra persona pueda repetirlo.",
+          "ejemplo": "«Fila 4: excluyo la copia de W03, porque Juan confirmó que la pegó dos veces»."
+        },
+        {
+          "termino": "Estandarizar",
+          "definicion": "Elegir una sola forma de escribir una categoría o una fecha y usarla en toda la tabla, sin cambiar el dato real.",
+          "ejemplo": "«2026-10-01» y «3-oct» pasan a 01/10/2026 y 03/10/2026."
+        },
+        {
+          "termino": "Duplicado exacto",
+          "definicion": "La misma operación copiada: mismo código, mismos valores en todo y una regla que confirma la copia. Se excluye solo una copia.",
+          "ejemplo": "Las filas 3 y 4 (W03) sí; las filas 7 y 8 (W06 y W07) no."
+        },
+        {
+          "termino": "Dato faltante",
+          "definicion": "Un dato que no se registró. Se deja visible como desconocido: vacío no es cero.",
+          "ejemplo": "La cantidad de W04 queda «Sin dato» hasta que Juan la confirme."
+        },
+        {
+          "termino": "No aplica ≠ sin dato",
+          "definicion": "Una casilla puede estar vacía porque ese dato no corresponde, o porque debía estar y falta.",
+          "ejemplo": "«—» en Dirección: el cliente recoge. «Sin dato» en W05: es domicilio y falta la dirección."
+        },
+        {
+          "termino": "Suma conocida ≠ total completo",
+          "definicion": "Si falta un dato, la suma solo incluye lo que sí se sabe y debe decirlo.",
+          "ejemplo": "27 unidades conocidas, sin contar las arepas de W04."
+        }
+      ],
+      "fraseClave": "Limpiar es tomar decisiones y poder explicarlas: guardo la fuente, aplico una regla a la vez y no convierto lo desconocido en cero.",
+      "paraLlevar": {
+        "consigna": "Prepara una versión revisada de los pedidos de Juan y una explicación que otra persona pueda seguir: qué corregiste, qué conservaste y qué todavía no puedes calcular con certeza.",
+        "pasos": [
+          "Qué representa una fila y dónde quedó la hoja original sin tocar.",
+          "Mi registro de cambios: «Fila __: cambié… porque…» (al menos tres controles).",
+          "Lo que conservé a propósito y los datos que siguen faltando (con la pregunta que le haría a Juan).",
+          "Filas y suma conocida antes y después, con la advertencia de lo que falta."
+        ],
+        "lupa": [
+          "¿Guardé la tabla original sin cambios?",
+          "¿Cada cambio tiene su «porque…»?",
+          "¿Excluí solo la copia confirmada?",
+          "¿Dejé visible lo que no sé, sin ponerle cero?",
+          "¿Dije qué cifra es conocida y cuál no es el total completo?"
+        ]
+      }
+    },
+    "guia": {
+      "nombre": "Guía oficial: préstamos de biblioteca",
+      "titulo": "Los préstamos de la biblioteca",
+      "caso": "Préstamos de una biblioteca",
+      "historia": "Una biblioteca ficticia quiere resumir cuántos préstamos registró por categoría durante una semana de octubre. Alguien pasó los registros a una tabla, pero con prisa: hay una categoría escrita de dos formas, fechas con formatos distintos, una fila repetida y una casilla vacía. Antes de resumir hay que revisar, y dejar escrito qué se cambió y por qué.",
+      "datos": {
+        "titulo": "Préstamos de la biblioteca",
+        "unidad": [
+          "fila",
+          "filas"
+        ],
+        "columnas": [
+          "Fila",
+          "ID",
+          "Categoría",
+          "Fecha",
+          "Cantidad"
+        ],
+        "filas": [
+          [
+            "1",
+            "P01",
+            "Lectura",
+            "01/10/2026",
+            "1"
+          ],
+          [
+            "2",
+            "P02",
+            "lectura",
+            "2026-10-02",
+            "1"
+          ],
+          [
+            "3",
+            "P03",
+            "Ciencia",
+            "03/10/2026",
+            "2"
+          ],
+          [
+            "4",
+            "P03",
+            "Ciencia",
+            "03/10/2026",
+            "2"
+          ],
+          [
+            "5",
+            "P04",
+            "Arte",
+            "04/10/2026",
+            "Sin dato"
+          ],
+          [
+            "6",
+            "P05",
+            "Lectura",
+            "05/10/2026",
+            "1"
+          ],
+          [
+            "7",
+            "P06",
+            "Ciencia",
+            "06/10/2026",
+            "1"
+          ]
+        ],
+        "definiciones": [
+          "**Fila** es el número de renglón en la hoja. No es parte del registro: solo sirve para ubicarte.",
+          "Cada fila corresponde a un **registro de préstamos**, identificado por su **ID** (P01, P02…).",
+          "**Cantidad** es el número de préstamos de ese registro; puede ser mayor que uno.",
+          "**Fecha**: todos los registros son de una semana de **octubre de 2026**.",
+          "«**Sin dato**» representa una celda que estaba vacía en el original. No es un número.",
+          "Para este ejercicio se confirmó que **P03** repetido es una copia accidental de la misma operación."
+        ],
+        "aviso": "Datos ficticios, solo para practicar. Caso de la guía oficial de la sesión 2."
+      },
+      "niveles": [
+        {
+          "numero": 1,
+          "titulo": "Mirar antes de sumar",
+          "objetivo": "Leer la tabla de préstamos y encontrar sus problemas, sin cambiar nada todavía.",
+          "cierre": "Nivel 1 listo: ya sabes señalar una celda y decir qué le pasa.",
+          "actividades": [
+            {
+              "id": "n1-toca-fila",
+              "tipo": "leer-filas",
+              "fase": "hacer",
+              "titulo": "Toca una fila",
+              "consigna": "Toca una fila de la tabla y escucha lo que cuenta. Lee al menos **3 filas** para continuar. ¿Notas algo raro?",
+              "minimo": 3,
+              "lecturas": {
+                "1": "La fila 1 es el registro P01: 1 préstamo de Lectura, el 1 de octubre.",
+                "2": "La fila 2 es el registro P02: 1 préstamo de «lectura» (con minúscula), el 2 de octubre. La fecha está escrita como 2026-10-02.",
+                "3": "La fila 3 es el registro P03: 2 préstamos de Ciencia, el 3 de octubre.",
+                "4": "La fila 4 dice exactamente lo mismo que la fila 3: P03, Ciencia, 3 de octubre, 2 préstamos. ¿Será otra operación o la misma copiada?",
+                "5": "La fila 5 es el registro P04: préstamos de Arte, el 4 de octubre. Pero no dice cuántos: la cantidad quedó sin dato.",
+                "6": "La fila 6 es el registro P05: 1 préstamo de Lectura, el 5 de octubre.",
+                "7": "La fila 7 es el registro P06: 1 préstamo de Ciencia, el 6 de octubre."
+              },
+              "explicacion": "Cada lectura habla de **un registro de préstamos**. Y ya aparecieron algunas «manchas»: una palabra escrita distinto, una fecha con otra forma, una fila que se repite y una casilla vacía. Por ahora solo **míralas**: todavía no cambiamos nada.",
+              "tema": "datos-sucios"
+            },
+            {
+              "id": "n1-que-es-fila",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "¿Qué representa una fila?",
+              "consigna": "Igual que en la misión 1, empecemos por lo básico: ¿qué representa cada fila de esta tabla?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Un préstamo",
+                  "feedback": "Casi. Mira la fila 3: Cantidad 2. Un registro puede tener más de un préstamo; por eso existe la columna Cantidad."
+                },
+                {
+                  "texto": "Un registro de préstamos, identificado por su ID",
+                  "correcta": true
+                },
+                {
+                  "texto": "Un libro",
+                  "feedback": "La tabla no dice qué libro se prestó: solo la categoría. Lo que tiene código es el registro."
+                },
+                {
+                  "texto": "Una persona usuaria",
+                  "feedback": "La tabla no tiene un dato de quién se llevó el préstamo. Lo que está identificado es el registro (ID)."
+                }
+              ],
+              "pistas": [
+                "Lee la segunda definición debajo de la tabla.",
+                "Mira la fila 3: ¿cuántos préstamos tiene?"
+              ],
+              "explicacion": "La unidad de análisis es el **registro de préstamos**, y un registro puede tener varios préstamos. Ojo con un detalle: las filas 3 y 4 tienen el mismo ID. Un renglón nuevo **no siempre** es un registro nuevo; por eso el ID importa tanto en esta misión.",
+              "tema": "datos-sucios"
+            },
+            {
+              "id": "n1-problemas",
+              "tipo": "seleccion",
+              "multiple": true,
+              "fase": "observar",
+              "titulo": "¿Qué problemas ves?",
+              "consigna": "La biblioteca quiere resumir cuántos préstamos registró por categoría en la semana. Antes de sumar, recorre la tabla. **Marca todos los problemas reales** que encuentres.",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Una categoría escrita de dos formas",
+                  "correcta": true,
+                  "siFalta": "Mira otra vez la columna Categoría: ¿«Lectura» y «lectura» son categorías distintas?"
+                },
+                {
+                  "texto": "Fechas escritas con formatos distintos",
+                  "correcta": true,
+                  "siFalta": "Mira otra vez la columna Fecha: ¿todas están escritas de la misma forma?"
+                },
+                {
+                  "texto": "Un registro que aparece dos veces",
+                  "correcta": true,
+                  "siFalta": "Mira otra vez la columna ID: ¿algún código se repite?"
+                },
+                {
+                  "texto": "Una casilla que quedó vacía («Sin dato»)",
+                  "correcta": true,
+                  "siFalta": "Mira otra vez la columna Cantidad: ¿falta algo?"
+                },
+                {
+                  "texto": "Ciencia aparece en varias filas",
+                  "feedback": "Que muchos préstamos sean de Ciencia es normal, no un error. Una categoría puede repetirse todas las veces que quiera."
+                },
+                {
+                  "texto": "Las cantidades no son todas iguales",
+                  "feedback": "Que un registro tenga 2 préstamos y otro 1 es normal: la definición dice que Cantidad puede ser mayor que uno."
+                }
+              ],
+              "explicacion": "Son cuatro problemas de calidad: **escritura**, **formato de fecha**, **duplicado** y **dato faltante**. Fíjate en lo que **no** es problema: que se repita una categoría y que las cantidades sean distintas. Limpiar empieza por **señalar una celda y decir qué le pasa**.",
+              "tema": "datos-sucios"
+            },
+            {
+              "id": "n1-filas-lectura",
+              "tipo": "seleccionar-filas",
+              "fase": "hacer",
+              "titulo": "Encuentra toda la Lectura",
+              "consigna": "La biblioteca quiere ver todos los registros de Lectura. **Toca las filas de Lectura**, sin importar cómo esté escrita la palabra.",
+              "esperadas": [
+                "1",
+                "2",
+                "6"
+              ],
+              "feedback": {
+                "sobran": "Revisa la columna Categoría de las filas que marcaste: ¿todas son Lectura?",
+                "faltan": "Vas bien. Busca Lectura también escrita con minúscula."
+              },
+              "pistas": [
+                "Mira solo la columna Categoría.",
+                "Son tres: dos «Lectura» y una «lectura»."
+              ],
+              "explicacion": "Las filas **1, 2 y 6** son Lectura. Si se cuenta la palabra tal cual, salen solo 2 registros de Lectura, y Ciencia (con la copia de P03) parece la categoría con más registros (3). Ya limpia, Lectura tiene 3 y Ciencia 2: **la conclusión se voltea**.",
+              "tema": "escritura-y-fechas"
+            },
+            {
+              "id": "n1-tipo-problema",
+              "tipo": "emparejar",
+              "fase": "entender",
+              "titulo": "Ponle nombre a cada mancha",
+              "consigna": "Para cada celda o pareja de filas, elige qué le pasa. Ojo: algunas **no** tienen problema.",
+              "usaDatos": true,
+              "tipos": [
+                {
+                  "id": "escritura",
+                  "texto": "Escritura distinta",
+                  "ayuda": "la misma categoría escrita de otra forma"
+                },
+                {
+                  "id": "fecha",
+                  "texto": "Formato de fecha",
+                  "ayuda": "el mismo tipo de dato escrito con otro formato"
+                },
+                {
+                  "id": "duplicado",
+                  "texto": "Duplicado exacto",
+                  "ayuda": "la misma operación copiada dos veces"
+                },
+                {
+                  "id": "faltante",
+                  "texto": "Dato faltante",
+                  "ayuda": "una casilla que quedó vacía"
+                },
+                {
+                  "id": "ok",
+                  "texto": "No es un problema",
+                  "ayuda": "se ve raro o se repite, pero está bien"
+                }
+              ],
+              "pares": [
+                {
+                  "item": "Fila 2 · Categoría «lectura»",
+                  "correcto": "escritura",
+                  "feedback": "«lectura» es la misma categoría que «Lectura»: solo cambia la mayúscula."
+                },
+                {
+                  "item": "Fila 2 · Fecha «2026-10-02»",
+                  "correcto": "fecha",
+                  "feedback": "«2026-10-02» es el 2 de octubre de 2026, escrito como año-mes-día."
+                },
+                {
+                  "item": "Fila 4 · P03 otra vez",
+                  "correcto": "duplicado",
+                  "feedback": "Es igual a la fila 3 en todos los campos, y el caso confirma que es una copia accidental."
+                },
+                {
+                  "item": "Fila 5 · Cantidad «Sin dato»",
+                  "correcto": "faltante",
+                  "feedback": "No sabemos cuántos préstamos tuvo P04: la casilla estaba vacía."
+                },
+                {
+                  "item": "Filas 3 y 7 · Ciencia dos veces",
+                  "correcto": "ok",
+                  "feedback": "Son P03 y P06: dos registros distintos de la misma categoría. Eso es normal."
+                },
+                {
+                  "item": "Filas 1 y 6 · Lectura con cantidad 1",
+                  "correcto": "ok",
+                  "feedback": "Se parecen, pero son P01 y P05, en días distintos. Dos registros válidos."
+                }
+              ],
+              "pistas": [
+                "Antes de llamar «duplicado» a algo, mira la columna ID: ¿es el mismo código?",
+                "Una categoría repetida no es un error: ¿cambia el ID?"
+              ],
+              "explicacion": "Ya tienes el mapa: **escritura** (fila 2), **fecha** (fila 2), **duplicado** (fila 4) y **faltante** (cantidad de P04). Y dos cosas que se ven repetidas pero están bien: varios registros de Ciencia y varios de Lectura.",
+              "tema": "duplicado-exacto"
+            }
+          ]
+        },
+        {
+          "numero": 2,
+          "titulo": "Una regla a la vez",
+          "objetivo": "Decidir qué hacer con cada problema, conservando la fuente y anotando el porqué.",
+          "cierre": "Nivel 2 listo: revisaste sin borrar de más ni inventar.",
+          "actividades": [
+            {
+              "id": "n2-fuente",
+              "tipo": "completar",
+              "fase": "entender",
+              "titulo": "Primero, guarda la fuente",
+              "consigna": "Antes de cambiar una sola celda, acordemos cómo trabajar. Completa la regla.",
+              "frase": "Antes de cambiar algo, {0}. Los cambios los hago en {1} y, por cada uno, anoto {2}.",
+              "huecos": [
+                {
+                  "opciones": [
+                    {
+                      "texto": "guardo la tabla original sin tocarla",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "borro todo lo que se vea mal",
+                      "feedback": "Si borras sobre la original, nadie puede revisar después qué había. Primero se guarda la fuente."
+                    },
+                    {
+                      "texto": "ordeno la tabla por categoría",
+                      "feedback": "Ordenar ayuda a mirar, pero no protege la información original. ¿Qué haces primero para no perder nada?"
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "una copia de trabajo",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "la misma tabla original",
+                      "feedback": "Si cambias la original, pierdes la evidencia de lo que llegó. Se trabaja en una copia."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "el registro, la decisión y el motivo",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "solo el resultado final",
+                      "feedback": "Con solo el resultado, nadie puede repetir lo que hiciste. Cada cambio necesita su «porque…»."
+                    },
+                    {
+                      "texto": "nada: la tabla limpia habla sola",
+                      "feedback": "Una tabla ordenada no explica qué cambió. El registro de cambios sí."
+                    }
+                  ]
+                }
+              ],
+              "textoLibre": {
+                "etiqueta": "Escribe tu primer cambio con la forma **«P__: cambié… porque…»** (opcional, queda en tu cuaderno):",
+                "clave": "primer-cambio"
+              },
+              "explicacion": "**Fuente** intacta, **copia de trabajo** y **registro de cambios** (registro · decisión · motivo). Por ejemplo: «P02: lectura pasa a Lectura; misma categoría». Cambió la forma de escribir la categoría, **no el préstamo registrado**.",
+              "tema": "fuente-y-copia"
+            },
+            {
+              "id": "n2-fechas",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Una sola forma para las fechas",
+              "consigna": "Vamos a dejar todas las fechas como día/mes/año. La fila 2 dice **«2026-10-02»**. ¿Cómo queda?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "02/10/2026",
+                  "correcta": true
+                },
+                {
+                  "texto": "10/02/2026",
+                  "feedback": "10/02/2026 sería el 10 de febrero: ¡cambiaste el día sin querer! En «2026-10-02» el orden es año-mes-día, así que es el 2 de octubre."
+                },
+                {
+                  "texto": "2/10",
+                  "feedback": "El día está bien, pero quedó con otra forma (sin año y sin el cero). La idea es que todas las fechas se escriban igual que las demás: 01/10/2026, 03/10/2026…"
+                },
+                {
+                  "texto": "No se puede convertir sin consultar a la biblioteca",
+                  "feedback": "Sí se puede: las definiciones dicen que todos los registros son de octubre de 2026. Distinto sería si dijera «ayer»: ahí sí habría que saber qué día se escribió."
+                }
+              ],
+              "pistas": [
+                "En «2026-10-02» el primer número es el año, el segundo el mes y el tercero el día.",
+                "Después de convertir, revisa: ¿el 2 sigue siendo 2?"
+              ],
+              "explicacion": "Queda **02/10/2026**. Cambia la forma de escribir, **no el día real**. Después de convertir, conviene revisar fila por fila que el día y el mes sigan siendo los mismos: la tabla debe ir del 1 al 6 de octubre, un registro por día.",
+              "tema": "escritura-y-fechas"
+            },
+            {
+              "id": "n2-duplicado-o-no",
+              "tipo": "tarjetas",
+              "fase": "entender",
+              "titulo": "¿Duplicado o no?",
+              "consigna": "Para cada pareja de filas, decide si es un **duplicado exacto** (se excluye una copia) o si **no** se excluye.",
+              "usaDatos": true,
+              "botones": {
+                "si": "Duplicado: excluyo una copia",
+                "no": "No lo excluyo (todavía)"
+              },
+              "tarjetas": [
+                {
+                  "texto": "Filas **3 y 4**: P03 en las dos, todos los campos iguales, y el caso confirma que es una copia accidental.",
+                  "respuesta": "si",
+                  "explicacion": "Mismo ID, mismos valores en todo y una regla que lo confirma: es la misma operación copiada. Se excluye **una** copia y se conserva la otra."
+                },
+                {
+                  "texto": "Filas **3 y 7**: las dos son de Ciencia.",
+                  "respuesta": "no",
+                  "explicacion": "Son P03 y P06, con fechas y cantidades distintas. Compartir categoría es normal."
+                },
+                {
+                  "texto": "Filas **1 y 6**: las dos son de Lectura y las dos tienen cantidad 1.",
+                  "respuesta": "no",
+                  "explicacion": "Se parecen, pero son P01 y P05, de días distintos. Parecerse no basta."
+                },
+                {
+                  "texto": "Filas **1 y 2**: Lectura y lectura, en días seguidos.",
+                  "respuesta": "no",
+                  "explicacion": "Son P01 y P02: dos registros. La diferencia de mayúscula se arregla unificando la escritura, no borrando."
+                },
+                {
+                  "texto": "Imagina dos filas **P07** idénticas, pero nadie ha confirmado si son una copia o dos operaciones distintas.",
+                  "respuesta": "no",
+                  "explicacion": "Todavía no: primero se consulta la regla de registro. Si fueran dos operaciones, borrar una haría desaparecer préstamos reales. Se marca como «por confirmar»."
+                }
+              ],
+              "explicacion": "Un **duplicado exacto** necesita tres cosas: el **mismo ID**, los **mismos valores en todos los campos** y que la **regla del caso** confirme que es una copia. Parecerse no basta.",
+              "tema": "duplicado-exacto"
+            },
+            {
+              "id": "n2-que-hago-p03",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "¿Qué hago con P03?",
+              "consigna": "Las filas 3 y 4 son el mismo registro P03, copiado. ¿Qué haces en tu copia de trabajo?",
+              "opciones": [
+                {
+                  "texto": "Borro las dos filas de P03",
+                  "feedback": "Si borras las dos, desaparece también la operación válida: esos 2 préstamos sí ocurrieron. Se excluye solo la copia."
+                },
+                {
+                  "texto": "Conservo una, excluyo la otra y lo anoto en el registro de cambios",
+                  "correcta": true
+                },
+                {
+                  "texto": "Dejo las dos, por si acaso",
+                  "feedback": "Así contarías 2 préstamos que no existen: la suma conocida quedaría en 8 en vez de 6. El caso ya confirmó que es una copia."
+                },
+                {
+                  "texto": "Le pongo 0 en Cantidad a la fila 4",
+                  "feedback": "Así la fila seguiría contando como un registro más (de cero préstamos). Lo honesto es excluir la copia y anotar por qué."
+                }
+              ],
+              "explicacion": "Se conserva una fila de P03 y se excluye la copia. En el registro: **«P03: excluyo la copia de la fila 4, porque es igual en todo y el caso confirma que es la misma operación; conservo la fila 3»**.",
+              "tema": "duplicado-exacto"
+            },
+            {
+              "id": "n2-faltante",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "La cantidad que falta",
+              "consigna": "En la fila 5, el registro **P04** (Arte) no dice cuántos préstamos tuvo. ¿Qué es lo más responsable?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Escribir 0",
+                  "feedback": "Un 0 diría que no hubo préstamos de Arte, y eso no lo sabemos: el registro existe. Lo que no sabemos es **cuántos**. Vacío no es cero."
+                },
+                {
+                  "texto": "Escribir 1, como la mayoría de registros",
+                  "feedback": "Eso es adivinar. Podrían ser 1, 2 o 5. Inventar un número para que la cuenta cierre esconde el problema."
+                },
+                {
+                  "texto": "Borrar la fila, porque está incompleta",
+                  "feedback": "El registro existió: si borras la fila, Arte desaparece de la tabla. Lo incompleto se marca, no se borra."
+                },
+                {
+                  "texto": "Dejar «Sin dato» visible y anotar qué le preguntaría a la biblioteca",
+                  "correcta": true
+                }
+              ],
+              "pistas": [
+                "¿Qué sabemos de P04? ¿Qué no sabemos?",
+                "Piensa en la diferencia entre «no hubo» y «no sé»."
+              ],
+              "explicacion": "P04 se queda con la cantidad **desconocida** y se anota la pregunta: «¿Cuántos préstamos tuvo el registro P04 de Arte el 4 de octubre?». Escribir «no sé» también es información.",
+              "tema": "dato-faltante"
+            }
+          ]
+        },
+        {
+          "numero": 3,
+          "titulo": "Antes y después",
+          "objetivo": "Comparar las cifras antes y después de revisar, decir qué sigue faltando y armar el reto.",
+          "cierre": "Nivel 3 listo: tus cifras vienen con su advertencia.",
+          "actividades": [
+            {
+              "id": "n3-conteo",
+              "tipo": "conteo",
+              "fase": "hacer",
+              "titulo": "Cuenta en la tabla limpia",
+              "consigna": "Las filas resaltadas son las que quedan después de limpiar (la fila 4 salió). Con las categorías ya unificadas, cuenta **cuántos registros** hay de cada categoría.",
+              "usaDatos": true,
+              "resaltar": [
+                "1",
+                "2",
+                "3",
+                "5",
+                "6",
+                "7"
+              ],
+              "categorias": [
+                "Lectura",
+                "Ciencia",
+                "Arte"
+              ],
+              "esperado": {
+                "Lectura": 3,
+                "Ciencia": 2,
+                "Arte": 1
+              },
+              "erroresComunes": [
+                {
+                  "valores": {
+                    "Lectura": 2,
+                    "Ciencia": 3,
+                    "Arte": 1
+                  },
+                  "mensaje": "Contaste la palabra tal como está escrita, y con la copia de P03 incluida. Unifica Lectura y cuenta solo las filas resaltadas."
+                },
+                {
+                  "valores": {
+                    "Lectura": 2,
+                    "Ciencia": 2,
+                    "Arte": 1
+                  },
+                  "mensaje": "Ya dejaste por fuera la copia, ¡bien! Pero «lectura» con minúscula también es Lectura."
+                },
+                {
+                  "valores": {
+                    "Lectura": 3,
+                    "Ciencia": 3,
+                    "Arte": 1
+                  },
+                  "mensaje": "Unificaste Lectura, ¡bien! Pero contaste la fila 4, que es la copia de P03. Cuenta solo las filas resaltadas."
+                },
+                {
+                  "valores": {
+                    "Lectura": 3,
+                    "Ciencia": 2,
+                    "Arte": 0
+                  },
+                  "mensaje": "P04 no tiene cantidad, pero el registro sí existe. Aquí estamos contando registros, no préstamos: Arte tiene uno."
+                },
+                {
+                  "valores": {
+                    "Lectura": 3,
+                    "Ciencia": 1,
+                    "Arte": 1
+                  },
+                  "mensaje": "Te falta un registro de Ciencia. ¿Borraste las dos filas de P03? Se excluye solo la copia."
+                }
+              ],
+              "mensajeGeneral": "Vas por buen camino. Revisa {categorias}: cuenta solo las filas resaltadas y unifica las categorías.",
+              "pistas": [
+                "Lectura está en las filas 1, 2 y 6.",
+                "Ciencia está en las filas 3 y 7 (la 4 ya salió). Arte, en la 5."
+              ],
+              "explicacion": "**Lectura 3 · Ciencia 2 · Arte 1**. Con la tabla sucia y contando la palabra tal cual, salía Lectura 2 y Ciencia 3: la conclusión se volteaba. La cuenta estaba bien hecha; lo que estaba mal era la tabla.",
+              "tema": "antes-y-despues"
+            },
+            {
+              "id": "n3-antes-despues",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Antes y después",
+              "consigna": "Compara la tabla original con tu copia limpia. Cuenta las **filas** y suma los **préstamos conocidos** (columna Cantidad, sin «Sin dato»). ¿Cuál resumen es correcto?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Filas: 7 → 6. Préstamos conocidos: 8 → 6.",
+                  "correcta": true
+                },
+                {
+                  "texto": "Filas: 7 → 6. La biblioteca tuvo 6 préstamos.",
+                  "feedback": "Las cifras están bien, ¡buen trabajo! Pero 6 no es el total: P04 no tiene cantidad. Es la **suma conocida**."
+                },
+                {
+                  "texto": "Filas: 7 → 5. Préstamos conocidos: 8 → 4.",
+                  "feedback": "Borraste las dos filas de P03. Se excluye solo la copia: una fila de P03 se queda."
+                },
+                {
+                  "texto": "Filas: 7 → 7. Préstamos conocidos: 8 → 8.",
+                  "feedback": "Unificaste escritura y fechas, ¡bien! Pero la copia de P03 sigue ahí. ¿Qué fila sale?"
+                }
+              ],
+              "pistas": [
+                "Solo sale una fila: la copia de P03.",
+                "Suma conocida limpia: 1 + 1 + 2 + 1 + 1."
+              ],
+              "explicacion": "**7 → 6 filas** y **8 → 6 préstamos conocidos**. Y la advertencia que no puede faltar: **6 es la suma conocida, no el total completo**, porque falta la cantidad de P04. La frase «la biblioteca tuvo seis préstamos» esconde ese hueco.",
+              "tema": "antes-y-despues"
+            },
+            {
+              "id": "n3-quien-gana",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "¿Qué categoría tuvo más préstamos?",
+              "consigna": "Esta es la tabla limpia resumida por categoría. **¿Qué categoría tuvo más préstamos en la semana?**",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Préstamos limpios por categoría",
+                "columnas": [
+                  "Categoría",
+                  "Registros",
+                  "Préstamos conocidos",
+                  "Registros sin cantidad"
+                ],
+                "filas": [
+                  [
+                    "Lectura",
+                    "3",
+                    "3",
+                    "0"
+                  ],
+                  [
+                    "Ciencia",
+                    "2",
+                    "3",
+                    "0"
+                  ],
+                  [
+                    "Arte",
+                    "1",
+                    "—",
+                    "1 (P04)"
+                  ]
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Ciencia, con 5",
+                  "feedback": "5 sale de la tabla sucia, con la copia de P03. Ya limpia, Ciencia tiene 3 préstamos conocidos."
+                },
+                {
+                  "texto": "Lectura, porque tiene más registros",
+                  "feedback": "Lectura sí tiene más **registros** (3), pero la pregunta es por **préstamos**: un registro de Ciencia trae 2. Otra pregunta, otra respuesta."
+                },
+                {
+                  "texto": "Con lo conocido empatan Lectura y Ciencia (3 y 3), pero Arte no se sabe",
+                  "correcta": true
+                },
+                {
+                  "texto": "Arte",
+                  "feedback": "De Arte no sabemos la cantidad. Podría ser cualquier número: no se puede afirmar que gane ni que pierda."
+                }
+              ],
+              "explicacion": "La respuesta honesta tiene dos partes: **lo que sé** (Lectura y Ciencia empatan con 3 préstamos conocidos) y **lo que falta** (P04). Si P04 tuviera 4 préstamos o más, Arte quedaría primera. Un dato que falta puede cambiar una conclusión: por eso no se esconde.",
+              "tema": "antes-y-despues"
+            },
+            {
+              "id": "n3-contraste",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "La biblioteca confirma",
+              "consigna": "La biblioteca revisa y **confirma que P04 tuvo 2 préstamos**. En una copia de contraste, ¿cuántos préstamos suman ahora los 6 registros?",
+              "opciones": [
+                {
+                  "texto": "6",
+                  "feedback": "6 era la suma conocida sin P04. Ahora ya sabemos su cantidad: súmala."
+                },
+                {
+                  "texto": "8",
+                  "correcta": true
+                },
+                {
+                  "texto": "10",
+                  "feedback": "Sumaste los 2 préstamos a la tabla sucia (8 + 2), que todavía tenía la copia de P03. Parte de la tabla limpia: 6 + 2."
+                }
+              ],
+              "explicacion": "**6 + 2 = 8** préstamos, ahora con las seis filas completas. Arte queda con 2, detrás de Lectura y Ciencia (3 y 3). Ojo: esta confirmación es un **dato adicional** del ejercicio, no algo que se dedujo de la celda vacía. Si hubiéramos puesto 0, habríamos dicho 6 con total seguridad… y estaríamos equivocados por 2.",
+              "tema": "dato-faltante"
+            },
+            {
+              "id": "n3-reto",
+              "tipo": "constructor",
+              "fase": "aplicar",
+              "titulo": "El reto: la versión revisada",
+              "consigna": "Prepara una versión revisada de los préstamos de la biblioteca y una explicación que otra persona pueda seguir. Muestra **qué corregiste, qué conservaste y qué todavía no puedes calcular con certeza**. No basta con que la tabla se vea ordenada: los cambios deben estar justificados.",
+              "rutas": [
+                {
+                  "id": "mapa",
+                  "nombre": "Ruta Mapa",
+                  "descripcion": "Usas las reglas que ya acordamos (Lectura, fechas, copia de P03, P04) y te concentras en explicar cada cambio.",
+                  "preguntaDada": "En la tabla de la biblioteca, ¿cuántas filas y cuántos préstamos conocidos hay antes y después de revisar?"
+                },
+                {
+                  "id": "brujula",
+                  "nombre": "Ruta Brújula",
+                  "descripcion": "Eliges tú tres controles de calidad, decides en qué orden aplicarlos y justificas cada uno."
+                },
+                {
+                  "id": "telescopio",
+                  "nombre": "Ruta Telescopio",
+                  "descripcion": "Además de revisar, comparas la tabla original, la revisada y la copia de contraste (P04 = 2), y explicas qué pasaría si P03 fueran dos operaciones distintas.",
+                  "preguntaDada": "¿Cómo cambian las cifras de la biblioteca entre la tabla original, la revisada y la copia de contraste?"
+                }
+              ],
+              "pasos": [
+                {
+                  "clave": "fuente",
+                  "titulo": "1 · Qué es una fila y qué guardé sin tocar",
+                  "ayuda": "«Cada fila representa… Guardé la tabla original y trabajé en una copia.»",
+                  "pistas": [
+                    "Recuerda el Nivel 1: ¿qué identifica el ID?",
+                    "Escribe «Cada fila representa un registro de préstamos» y di dónde quedó la original."
+                  ]
+                },
+                {
+                  "clave": "cambios",
+                  "titulo": "2 · Mi registro de cambios",
+                  "ayuda": "Una línea por cambio: **«P__: cambié… porque…»**. Al menos tres controles. Puedes marcar filas en la tabla y agregarlas aquí.",
+                  "pistas": [
+                    "Empieza por la escritura: ¿qué fila tiene la categoría escrita distinto?",
+                    "Sigue con las fechas: ¿cuál cambia de forma? Revisa que el día no cambie.",
+                    "Termina con P03: ¿cuál fila conservas y cuál excluyes, y por qué?"
+                  ],
+                  "permiteFilas": true
+                },
+                {
+                  "clave": "conservado",
+                  "titulo": "3 · Lo que conservé y lo que sigue faltando",
+                  "ayuda": "Qué dejé tal cual a propósito, qué dato falta y qué le preguntaría a la biblioteca.",
+                  "pistas": [
+                    "¿Qué pasó con los otros registros de Ciencia y de Lectura? ¿Por qué no los tocaste?",
+                    "¿Qué pregunta harías para completar P04?"
+                  ]
+                },
+                {
+                  "clave": "antes-despues",
+                  "titulo": "4 · Antes y después, con su advertencia",
+                  "ayuda": "«Filas: __ → __. Préstamos conocidos: __ → __. Esto no es el total completo porque…»",
+                  "pistas": [
+                    "Cuenta las filas al inicio y al final.",
+                    "Suma solo las cantidades conocidas, antes y después. ¿Qué registro no entra en la suma?"
+                  ]
+                }
+              ],
+              "verificacion": [
+                "¿Guardé la tabla original sin cambios?",
+                "¿Cada cambio tiene su «porque…»?",
+                "¿Excluí solo la copia confirmada, no todas las filas parecidas?",
+                "¿Dejé visible el dato que falta, sin ponerle cero?",
+                "¿Dije filas y suma conocida antes y después, con su advertencia?"
+              ],
+              "ejemplo": "«Cada fila representa un registro de préstamos. Guardé la tabla original y trabajé en una copia. **Cambios:** P02: «lectura» pasa a Lectura, porque es la misma categoría. P02: «2026-10-02» pasa a 02/10/2026; revisé que siga siendo el 2 de octubre. P03: excluyo la copia de la fila 4, porque es igual en todo y el caso confirma que es la misma operación; conservo la fila 3. **Conservé** P01 a P06 una vez cada uno, incluidos los demás registros de Ciencia y Lectura. P04 sigue sin cantidad: le preguntaría a la biblioteca cuántos préstamos tuvo. **Filas: 7 → 6. Préstamos conocidos: 8 → 6.** 6 no es el total completo, porque falta la cantidad de P04.»",
+              "explicacion": "No se busca un texto largo: se busca que otra persona pueda repetir tus pasos y llegar a lo mismo.",
+              "tema": "fuente-y-copia"
+            },
+            {
+              "id": "n3-cierre",
+              "tipo": "escritura",
+              "fase": "observar",
+              "titulo": "Cierre de la misión",
+              "consigna": "Completa estas dos frases. Quedan guardadas en tu cuaderno (solo en este navegador).",
+              "frases": [
+                {
+                  "clave": "cierre-cambio",
+                  "inicio": "Un cambio que hice y la evidencia que lo justifica es…"
+                },
+                {
+                  "clave": "cierre-falta",
+                  "inicio": "Un dato que todavía no conozco es… y para saberlo preguntaría…"
+                }
+              ],
+              "explicacion": "Limpiar puede cambiar un resultado, y por eso **toda exclusión se explica**. En la próxima misión vas a resumir datos con promedios y medianas: el hábito de hoy (revisar antes de resumir) va contigo."
+            }
+          ]
+        }
+      ],
+      "conceptos": [
+        {
+          "termino": "Datos sucios",
+          "definicion": "Registros con problemas de calidad: escrituras distintas, formatos mezclados, filas copiadas o casillas vacías.",
+          "ejemplo": "«Lectura» y «lectura» en la misma columna."
+        },
+        {
+          "termino": "Fuente y copia de trabajo",
+          "definicion": "La fuente es la tabla original, que no se toca. Los cambios se hacen en una copia.",
+          "ejemplo": "La tabla de préstamos queda guardada tal como llegó; la revisión se hace en otra hoja."
+        },
+        {
+          "termino": "Registro de cambios",
+          "definicion": "Una lista con el registro, la decisión y el motivo de cada cambio, para que otra persona pueda repetirlo.",
+          "ejemplo": "«P02: lectura pasa a Lectura; misma categoría»."
+        },
+        {
+          "termino": "Estandarizar",
+          "definicion": "Elegir una sola forma de escribir una categoría o una fecha y usarla en toda la tabla, sin cambiar el dato real.",
+          "ejemplo": "«2026-10-02» pasa a 02/10/2026: sigue siendo el 2 de octubre."
+        },
+        {
+          "termino": "Duplicado exacto",
+          "definicion": "La misma operación copiada: mismo ID, mismos valores en todo y una regla que confirma la copia. Se excluye solo una copia.",
+          "ejemplo": "Las dos filas de P03 sí; P03 y P06 (ambas Ciencia) no."
+        },
+        {
+          "termino": "Dato faltante",
+          "definicion": "Un dato que no se registró. Se deja visible como desconocido: vacío no es cero.",
+          "ejemplo": "La cantidad de P04 queda «Sin dato» hasta que la biblioteca la confirme."
+        },
+        {
+          "termino": "Suma conocida ≠ total completo",
+          "definicion": "Si falta un dato, la suma solo incluye lo que sí se sabe y debe decirlo.",
+          "ejemplo": "6 préstamos conocidos, sin contar P04."
+        }
+      ],
+      "fraseClave": "Limpiar es tomar decisiones y poder explicarlas: guardo la fuente, aplico una regla a la vez y no convierto lo desconocido en cero.",
+      "paraLlevar": {
+        "consigna": "Prepara una versión revisada de los préstamos de la biblioteca y una explicación que otra persona pueda seguir: qué corregiste, qué conservaste y qué todavía no puedes calcular con certeza.",
+        "pasos": [
+          "Qué representa una fila y dónde quedó la tabla original sin tocar.",
+          "Mi registro de cambios: «P__: cambié… porque…» (al menos tres controles).",
+          "Lo que conservé a propósito y el dato que sigue faltando (con la pregunta que le haría a la biblioteca).",
+          "Filas y suma conocida antes y después, con la advertencia sobre P04."
+        ],
+        "lupa": [
+          "¿Guardé la tabla original sin cambios?",
+          "¿Cada cambio tiene su «porque…»?",
+          "¿Excluí solo la copia confirmada?",
+          "¿Dejé visible lo que no sé, sin ponerle cero?",
+          "¿Dije qué cifra es conocida y cuál no es el total completo?"
+        ]
+      }
+    }
+  },
   "teoria": {
     "intro": "Antes de sacar cuentas, hay que mirar si los datos están bien anotados. Una palabra escrita de dos formas, una fila copiada o una casilla vacía pueden cambiar el resultado, igual que cuando revisas la cuenta de la tienda antes de pagar.",
     "platzi": [
@@ -100,7 +1787,7 @@
         "explicacion": "Un **valor faltante** es un dato que no se registró. Si lo cambias por cero, estás inventando que no pasó nada, y eso puede ser falso. Lo responsable es **dejarlo visible** como desconocido y anotar qué preguntarías para completarlo. Tampoco se vale adivinar un número para que la cuenta cierre.",
         "cotidiano": "Si no sabes cuánto te costó el pasaje de ayer, no escribes «$0»: escribes «no me acuerdo» y lo averiguas.",
         "ejemplo": "En la ludoteca ficticia, J04 (Parqués) tiene la cantidad vacía. No sabemos si se prestó uno, tres o ninguno: queda marcado como «sin dato».",
-        "enElReto": "Identifica qué fila no tiene cantidad, déjala marcada y escribe qué le preguntarías a la biblioteca para completarla."
+        "enElReto": "Identifica qué fila no tiene cantidad, déjala marcada y escribe qué le preguntarías a quien lleva el registro para completarla."
       },
       {
         "id": "antes-y-despues",

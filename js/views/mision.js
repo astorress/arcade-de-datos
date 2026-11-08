@@ -1,6 +1,6 @@
 import { h, md, pad2, rotulo } from '../util.js';
 import * as store from '../store.js';
-import { disponible } from '../content.js';
+import { disponible, enPrevia, verCasoEnPrevia } from '../content.js';
 import { insignia } from '../components/insignia.js';
 import { leyendaKolb } from '../components/kolb.js';
 import { dialogoGuia } from '../components/guia.js';
@@ -12,7 +12,7 @@ export function vistaMision(c, m) {
     h('p', { class: 'cabecera-mision__sesion' }, m.sesion));
 
   if (!disponible(m)) {
-    return h('div', { class: 'vista' }, migas(m), cabecera,
+    return h('div', { class: 'vista' }, migas(m), bandaPrevia(m), cabecera,
       h('section', { class: 'panel panel--pronto' },
         h('p', { class: 'pixel pronto' }, rotulo('Próximamente')),
         h('p', {}, 'Esta misión se publicará después de la sesión en vivo.'),
@@ -39,7 +39,7 @@ export function vistaMision(c, m) {
         h('span', { class: 'nivel-item__estado' }, hecho ? '★ Completado · repetir' : hechas ? `▶ Continuar (${hechas}/${n.actividades.length})` : '▶ Jugar')));
   }));
 
-  return h('div', { class: 'vista' }, migas(m), cabecera,
+  return h('div', { class: 'vista' }, migas(m), bandaPrevia(m), cabecera,
     h('section', { 'aria-label': 'La historia' },
       m.numero === 1 && c.sitio.guia?.presentacion ? dialogoGuia(c.sitio.guia.presentacion, { nombre: c.sitio.guia.nombre, animado: false }) : null,
       dialogoGuia(m.historia, { nombre: c.sitio.guia?.nombre })),
@@ -68,6 +68,22 @@ export function vistaMision(c, m) {
       h('summary', {}, '🔄 ¿Cómo está armada cada misión?'),
       h('p', {}, 'Cada actividad está en una fase del ciclo de aprendizaje. Verás el indicador arriba de cada actividad:'),
       leyendaKolb(c.sitio.fases)));
+}
+
+/** Solo visible con ?previa: estado real de la misión y selector de caso. */
+export function bandaPrevia(m) {
+  if (!enPrevia()) return null;
+  const casos = m.casosDisponibles || [];
+  return h('aside', { class: 'banda-previa', 'aria-label': 'Vista previa del tutor' },
+    h('strong', {}, '👀 Vista previa del tutor. '),
+    m.estado === 'disponible' ? 'Los estudiantes ya ven esta misión.' : 'Los estudiantes todavía la ven bloqueada («Próximamente»).',
+    casos.length > 1 ? h('div', { class: 'chips', role: 'group', 'aria-label': 'Caso que estás viendo' },
+      casos.map((c) => h('button', {
+        type: 'button', class: `btn ${c.clave === m.casoClave ? 'btn--primario' : ''}`, 'aria-pressed': String(c.clave === m.casoClave),
+        onclick: () => verCasoEnPrevia(m.numero, c.clave),
+      }, `${c.clave === m.casoActivo ? '● ' : ''}${c.nombre}`))) : null,
+    casos.length > 1 ? h('p', { class: 'nota' }, `● = caso activo para los estudiantes ("casoActivo": "${m.casoActivo}").`) : null,
+    h('p', { class: 'nota' }, h('a', { href: '?previa=0#/' }, 'Salir de la vista previa')));
 }
 
 function herramienta(href, icono, titulo, texto) {

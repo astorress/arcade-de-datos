@@ -4,16 +4,2083 @@
   "titulo": "Mi primer tablero",
   "sesion": "Diseñar un tablero y narrar hallazgos",
   "habilidad": "Dos indicadores (KPI), dos gráficos y una narrativa; cantidad frente a tasa.",
-  "caso": "Biblioteca, 3 meses",
+  "caso": "Pedidos por WhatsApp del emprendimiento de Juan, agosto a octubre de 2026",
   "color": "naranja",
-  "historia": "",
   "insignia": {
     "nombre": "Narrador de tableros",
-    "descripcion": "",
+    "descripcion": "Armas una vista que responde una pregunta: indicadores con unidad y denominador, cantidad separada de la tasa y un relato que no inventa causas.",
     "simbolo": "tablero"
   },
-  "niveles": [],
-  "conceptos": [],
+  "casoActivo": "cotidiano",
+  "casos": {
+    "cotidiano": {
+      "nombre": "Cotidiano: pedidos de Juan por WhatsApp",
+      "titulo": "El tablero de Juan",
+      "caso": "Pedidos por WhatsApp del emprendimiento de Juan, agosto a octubre de 2026",
+      "historia": "Juan, un personaje ficticio, vende comida desde su casa por WhatsApp: empanadas, arepas rellenas y jugos naturales. Unos clientes piden domicilio y otros pasan a recoger. Ya tiene sus pedidos de agosto, septiembre y octubre limpios y resumidos por mes. Ahora quiere verlos en una sola vista para saber cómo le fue, pero no quiere un montón de números: quiere un tablero sencillo que responda una pregunta. Tú le vas a ayudar a armarlo, y a contarlo sin inventar lo que los datos no dicen.",
+      "datos": {
+        "titulo": "Pedidos de Juan por mes y modalidad (2026)",
+        "unidad": [
+          "fila",
+          "filas"
+        ],
+        "columnas": [
+          "Código",
+          "Mes",
+          "Modalidad",
+          "Pedidos",
+          "Cancelados",
+          "Plata cobrada"
+        ],
+        "filas": [
+          [
+            "01",
+            "Ago",
+            "Domicilio",
+            "50",
+            "9",
+            "$602.000"
+          ],
+          [
+            "02",
+            "Ago",
+            "Recoge",
+            "30",
+            "3",
+            "$318.000"
+          ],
+          [
+            "03",
+            "Sep",
+            "Domicilio",
+            "75",
+            "9",
+            "$1.005.000"
+          ],
+          [
+            "04",
+            "Sep",
+            "Recoge",
+            "25",
+            "1",
+            "$285.000"
+          ],
+          [
+            "05",
+            "Oct",
+            "Domicilio",
+            "100",
+            "14",
+            "$1.360.000"
+          ],
+          [
+            "06",
+            "Oct",
+            "Recoge",
+            "25",
+            "1",
+            "$290.000"
+          ]
+        ],
+        "definiciones": [
+          "Cada **código** identifica un **resumen**: todos los pedidos de un mes con una modalidad. No es un pedido suelto.",
+          "**Mes**: agosto, septiembre u octubre de 2026. **Modalidad**: Domicilio (Juan lo manda a la casa) o Recoge (el cliente pasa por él).",
+          "**Pedidos**: pedidos que llegaron por WhatsApp, **incluidos los cancelados**. **Cancelados**: los que se cancelaron antes de entregarse. Entregados = Pedidos − Cancelados.",
+          "**Plata cobrada**: pesos que pagaron los pedidos **entregados** (los cancelados no pagan). No incluye el valor del domicilio.",
+          "**No hay** datos de clientes, ni del motivo de cada cancelación, ni de qué productos llevaban los pedidos cancelados."
+        ],
+        "aviso": "Datos ficticios, solo para practicar."
+      },
+      "niveles": [
+        {
+          "numero": 1,
+          "titulo": "La pregunta y los indicadores",
+          "objetivo": "Leer las filas resumen, elegir la pregunta del tablero y calcular dos indicadores de octubre con unidad y denominador.",
+          "cierre": "Nivel 1 listo: tu tablero ya tiene pregunta y dos indicadores bien rotulados.",
+          "actividades": [
+            {
+              "id": "n1-toca-fila",
+              "tipo": "leer-filas",
+              "fase": "hacer",
+              "titulo": "Toca una fila",
+              "consigna": "Toca una fila de la tabla y escucha lo que nos cuenta. Lee al menos **2 filas** para continuar.",
+              "minimo": 2,
+              "lecturas": {
+                "01": "La fila 01 resume los pedidos a domicilio de agosto: llegaron 50, se cancelaron 9 y los 41 entregados pagaron $602.000.",
+                "02": "La fila 02 resume los pedidos para recoger de agosto: llegaron 30, se cancelaron 3 y los 27 entregados pagaron $318.000.",
+                "03": "La fila 03 resume los pedidos a domicilio de septiembre: llegaron 75, se cancelaron 9 y los 66 entregados pagaron $1.005.000.",
+                "04": "La fila 04 resume los pedidos para recoger de septiembre: llegaron 25, se canceló 1 y los 24 entregados pagaron $285.000.",
+                "05": "La fila 05 resume los pedidos a domicilio de octubre: llegaron 100, se cancelaron 14 y los 86 entregados pagaron $1.360.000.",
+                "06": "La fila 06 resume los pedidos para recoger de octubre: llegaron 25, se canceló 1 y los 24 entregados pagaron $290.000."
+              },
+              "explicacion": "Cada lectura empieza igual: **«resume los pedidos de…»**. Aquí una fila no es un pedido: es un **resumen** de muchos pedidos de un mes y una modalidad.",
+              "tema": "tablero"
+            },
+            {
+              "id": "n1-que-es-fila",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "¿Qué representa una fila?",
+              "consigna": "Después de leer algunas filas, ¿qué representa cada fila de esta tabla?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Un pedido",
+                  "feedback": "Cada fila tiene decenas de pedidos adentro: la fila 05 sola tiene 100. Mira la columna Pedidos: ¿una fila puede ser un solo pedido?"
+                },
+                {
+                  "texto": "Un cliente",
+                  "feedback": "La tabla no tiene ningún dato de clientes. Mira qué columnas ubican cada fila: Mes y Modalidad."
+                },
+                {
+                  "texto": "Todos los pedidos de un mes con una modalidad",
+                  "correcta": true
+                },
+                {
+                  "texto": "Un producto",
+                  "feedback": "Los productos no aparecen en esta tabla; van en otra, solo de octubre. Aquí cada fila se ubica por Mes y Modalidad."
+                }
+              ],
+              "pistas": [
+                "Lee la definición del código, debajo de la tabla.",
+                "Mira las columnas Mes y Modalidad: ¿cuántas combinaciones hay?"
+              ],
+              "explicacion": "Cada fila es un **resumen**: los pedidos de **un mes** con **una modalidad**. Por eso, para saber cuántos pedidos hubo en octubre, hay que **sumar dos filas** (domicilio y recoger).",
+              "tema": "tablero"
+            },
+            {
+              "id": "n1-pregunta",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "La pregunta del tablero",
+              "consigna": "Antes de poner gráficos, un tablero necesita **una pregunta**. ¿Cuál de estas le sirve a Juan para armar su tablero con estos datos?",
+              "opciones": [
+                {
+                  "texto": "¿Le está yendo bien al negocio de Juan?",
+                  "feedback": "Es una buena inquietud, pero «bien» no dice qué se mide ni en qué periodo. ¿Bien en pedidos, en plata, en cancelaciones?"
+                },
+                {
+                  "texto": "¿Cómo cambiaron los pedidos y la proporción de pedidos cancelados de agosto a octubre de 2026, y qué productos concentraron los pedidos entregados en octubre?",
+                  "correcta": true
+                },
+                {
+                  "texto": "¿Qué piensan los clientes de las empanadas de Juan?",
+                  "feedback": "Sería muy útil saberlo, pero la tabla no tiene opiniones de clientes. Se necesitaría otra fuente, por ejemplo una encuesta."
+                },
+                {
+                  "texto": "¿Cuántos pedidos va a tener Juan en diciembre?",
+                  "feedback": "La tabla llega hasta octubre. Con tres meses no se puede asegurar lo que pasará en diciembre: eso sería adivinar, no leer el tablero."
+                }
+              ],
+              "pistas": [
+                "Busca la pregunta que dice **qué se mide** y **qué periodo** cubre.",
+                "Revisa que cada parte de la pregunta tenga una columna o una tabla que la responda."
+              ],
+              "explicacion": "La pregunta elegida dice **qué se mide** (pedidos y proporción de cancelados), **qué periodos** (agosto a octubre; productos solo en octubre) y **se responde** con las dos tablas. El tablero es **para Juan**. Con esa pregunta, cada bloque del tablero tiene una tarea.",
+              "tema": "tablero"
+            },
+            {
+              "id": "n1-kpi-rotulado",
+              "tipo": "seleccion",
+              "multiple": true,
+              "fase": "entender",
+              "titulo": "¿Se entiende la cifra?",
+              "consigna": "Un KPI (indicador clave) se debe entender solo. **Marca todas las cifras que están bien rotuladas** para el tablero de Juan.",
+              "opciones": [
+                {
+                  "texto": "125 pedidos recibidos en octubre de 2026",
+                  "correcta": true,
+                  "siFalta": "Mira otra vez «125 pedidos recibidos en octubre de 2026»: dice qué se cuenta, cuántos y cuándo."
+                },
+                {
+                  "texto": "12 % de pedidos cancelados en octubre de 2026 (15 de 125)",
+                  "correcta": true,
+                  "siFalta": "Mira otra vez la del 12 %: tiene unidad, periodo y deja ver su denominador (15 de 125)."
+                },
+                {
+                  "texto": "$1.650.000 cobrados en octubre de 2026 (pedidos entregados)",
+                  "correcta": true,
+                  "siFalta": "Mira otra vez la de la plata: dice pesos, mes y de qué pedidos sale."
+                },
+                {
+                  "texto": "125",
+                  "feedback": "«125» solo, ¿125 qué? ¿Pedidos, pesos, clientes? ¿De qué mes? Sin unidad ni periodo, la cifra no se entiende."
+                },
+                {
+                  "texto": "Cancelados: 12",
+                  "feedback": "¿12 pedidos o 12 %? Y ¿de qué mes? En agosto hubo 12 cancelados y en octubre la tasa fue 12 %. Por eso hay que escribir la unidad y el periodo."
+                }
+              ],
+              "explicacion": "Un KPI necesita **unidad**, **periodo** y, si es un porcentaje, **su denominador a la vista**. «Cancelados: 12» es la trampa: el mismo número sirve para una cantidad (12 cancelados en agosto) y para una tasa (12 % en octubre).",
+              "tema": "kpi"
+            },
+            {
+              "id": "n1-pedidos-oct",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Primer indicador: pedidos de octubre",
+              "consigna": "¿Cuántos pedidos recibió Juan en **octubre**?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "100",
+                  "feedback": "100 son solo los pedidos a domicilio (fila 05). Octubre tiene dos filas: suma también la de recoger."
+                },
+                {
+                  "texto": "110",
+                  "feedback": "110 son los pedidos **entregados** de octubre (125 − 15). La pregunta es por los pedidos **recibidos**, incluidos los cancelados."
+                },
+                {
+                  "texto": "125",
+                  "correcta": true
+                },
+                {
+                  "texto": "305",
+                  "feedback": "305 son los pedidos de los tres meses juntos. El indicador es solo de octubre."
+                }
+              ],
+              "pistas": [
+                "Octubre está en las filas 05 y 06.",
+                "Suma la columna Pedidos de esas dos filas: 100 + 25."
+              ],
+              "explicacion": "**125 pedidos recibidos en octubre de 2026** (100 a domicilio + 25 para recoger). Fíjate en el rótulo completo: cantidad, unidad y periodo.",
+              "tema": "kpi"
+            },
+            {
+              "id": "n1-tasa-oct",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Segundo indicador: tasa de cancelados",
+              "consigna": "En octubre se cancelaron 14 + 1 = **15** pedidos. ¿Cuál es la **tasa de pedidos cancelados** de octubre?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "12 % (15 de 125)",
+                  "correcta": true
+                },
+                {
+                  "texto": "8,3 (125 ÷ 15)",
+                  "feedback": "Dividiste al revés. Pregúntate: ¿qué parte de los pedidos se canceló? Los pedidos recibidos son la base y van abajo: 15 ÷ 125."
+                },
+                {
+                  "texto": "13,6 % (15 de 110)",
+                  "feedback": "Usaste los entregados como base. Pero los cancelados no están dentro de los entregados: la base son **todos** los pedidos que llegaron (125)."
+                },
+                {
+                  "texto": "15 %",
+                  "feedback": "15 es la **cantidad** de cancelados de octubre, no un porcentaje. Y, por casualidad, 15 % fue la tasa de agosto. Divide 15 entre 125."
+                }
+              ],
+              "pistas": [
+                "Tasa = cancelados ÷ pedidos recibidos.",
+                "15 ÷ 125 = 0,12. Multiplica por 100."
+              ],
+              "explicacion": "**12 % de pedidos cancelados en octubre de 2026 (15 de 125).** De cada 100 pedidos que llegaron, se cancelaron 12. En el tablero, deja ver el **15 de 125** para que cualquiera pueda comprobarlo.",
+              "tema": "kpi"
+            }
+          ]
+        },
+        {
+          "numero": 2,
+          "titulo": "Cantidad frente a tasa",
+          "objetivo": "Calcular las tasas de los tres meses y distinguir el cambio en pedidos del cambio en puntos porcentuales.",
+          "cierre": "Nivel 2 listo: ya no confundes cuántos con qué parte.",
+          "actividades": [
+            {
+              "id": "n2-conteo-cancelados",
+              "tipo": "conteo",
+              "fase": "aplicar",
+              "titulo": "Cancelados de cada mes",
+              "consigna": "Para la línea del tablero necesitas los totales de cada mes. Cuenta los **pedidos cancelados de cada mes**, sumando domicilio y recoger.",
+              "usaDatos": true,
+              "categorias": [
+                "Agosto",
+                "Septiembre",
+                "Octubre"
+              ],
+              "esperado": {
+                "Agosto": 12,
+                "Septiembre": 10,
+                "Octubre": 15
+              },
+              "erroresComunes": [
+                {
+                  "valores": {
+                    "Agosto": 9,
+                    "Septiembre": 9,
+                    "Octubre": 14
+                  },
+                  "mensaje": "Esos son solo los cancelados a domicilio. Cada mes tiene dos filas: suma también la de recoger."
+                },
+                {
+                  "valores": {
+                    "Agosto": 3,
+                    "Septiembre": 1,
+                    "Octubre": 1
+                  },
+                  "mensaje": "Esos son solo los cancelados para recoger. Suma también la fila de domicilio de cada mes."
+                },
+                {
+                  "valores": {
+                    "Agosto": 80,
+                    "Septiembre": 100,
+                    "Octubre": 125
+                  },
+                  "mensaje": "Esos son los pedidos recibidos. Aquí se cuentan solo los **cancelados**."
+                }
+              ],
+              "mensajeGeneral": "Vas por buen camino. Revisa {categorias}: suma la columna Cancelados de las dos filas de ese mes.",
+              "pistas": [
+                "Agosto: filas 01 y 02. Septiembre: 03 y 04. Octubre: 05 y 06.",
+                "Agosto: 9 + 3. Septiembre: 9 + 1. Octubre: 14 + 1."
+              ],
+              "explicacion": "Cancelados: **agosto 12 · septiembre 10 · octubre 15**. Y los pedidos recibidos: 80, 100 y 125. Con esas dos columnas ya puedes calcular las tasas.",
+              "tema": "cantidad-vs-tasa"
+            },
+            {
+              "id": "n2-tasas-mes",
+              "tipo": "completar",
+              "fase": "aplicar",
+              "titulo": "La tasa de cada mes",
+              "consigna": "Con los totales de cada mes, calcula **cancelados ÷ pedidos** y elige la tasa correcta para cada espacio.",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Totales por mes (suma de domicilio y recoger)",
+                "columnas": [
+                  "Mes (2026)",
+                  "Pedidos",
+                  "Cancelados"
+                ],
+                "filas": [
+                  [
+                    "Agosto",
+                    "80",
+                    "12"
+                  ],
+                  [
+                    "Septiembre",
+                    "100",
+                    "10"
+                  ],
+                  [
+                    "Octubre",
+                    "125",
+                    "15"
+                  ]
+                ]
+              },
+              "frase": "Tasa de pedidos cancelados: agosto {0}, septiembre {1} y octubre {2}.",
+              "huecos": [
+                {
+                  "opciones": [
+                    {
+                      "texto": "15 %",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "12 %",
+                      "feedback": "12 es la cantidad de cancelados de agosto. Para la tasa, divide 12 entre 80."
+                    },
+                    {
+                      "texto": "6,7",
+                      "feedback": "Dividiste al revés (80 ÷ 12). Los pedidos son la base: 12 ÷ 80."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "10 %",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "11,1 %",
+                      "feedback": "Dividiste 10 entre los 90 entregados. La base son los 100 pedidos que llegaron."
+                    },
+                    {
+                      "texto": "100 %",
+                      "feedback": "100 son los pedidos de septiembre, no una tasa. Divide los 10 cancelados entre 100."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "12 %",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "15 %",
+                      "feedback": "15 es la cantidad de cancelados de octubre. Divide 15 entre 125."
+                    },
+                    {
+                      "texto": "13,6 %",
+                      "feedback": "Dividiste entre los 110 entregados. La base son los 125 pedidos recibidos."
+                    }
+                  ]
+                }
+              ],
+              "explicacion": "Agosto 12 ÷ 80 = **15 %** · septiembre 10 ÷ 100 = **10 %** · octubre 15 ÷ 125 = **12 %**. Ojo con septiembre: «10 cancelados» y «10 %» coinciden en número solo porque hubo justo 100 pedidos.",
+              "tema": "cantidad-vs-tasa"
+            },
+            {
+              "id": "n2-dos-graficos",
+              "tipo": "seleccion",
+              "multiple": true,
+              "fase": "observar",
+              "titulo": "Dos gráficos, dos lecturas",
+              "consigna": "Mira las cantidades y la tasa lado a lado. **Marca todo lo que es cierto.**",
+              "apoyo": {
+                "tipo": "comparacion",
+                "items": [
+                  {
+                    "etiqueta": "Cantidades",
+                    "grafico": {
+                      "tipo": "grafico",
+                      "forma": "barras",
+                      "titulo": "Pedidos recibidos y cancelados por mes, 2026",
+                      "unidad": "pedidos",
+                      "etiquetas": [
+                        "Agosto",
+                        "Septiembre",
+                        "Octubre"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Pedidos recibidos",
+                          "valores": [
+                            80,
+                            100,
+                            125
+                          ]
+                        },
+                        {
+                          "nombre": "Cancelados",
+                          "valores": [
+                            12,
+                            10,
+                            15
+                          ]
+                        }
+                      ],
+                      "nota": "Cantidades: cuántos pedidos, no qué parte."
+                    }
+                  },
+                  {
+                    "etiqueta": "Tasa",
+                    "grafico": {
+                      "tipo": "grafico",
+                      "forma": "lineas",
+                      "titulo": "Pedidos cancelados de cada 100 recibidos, agosto a octubre de 2026",
+                      "unidad": "%",
+                      "etiquetas": [
+                        "Agosto",
+                        "Septiembre",
+                        "Octubre"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Tasa de cancelados",
+                          "valores": [
+                            15,
+                            10,
+                            12
+                          ]
+                        }
+                      ],
+                      "ejeDesde": 0,
+                      "nota": "Tasa = cancelados ÷ pedidos del mes. Agosto 12 de 80 · septiembre 10 de 100 · octubre 15 de 125."
+                    }
+                  }
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Los pedidos cancelados subieron de agosto a octubre (de 12 a 15).",
+                  "correcta": true,
+                  "siFalta": "Mira las barras de cancelados: agosto 12 y octubre 15. ¿Subieron o bajaron?"
+                },
+                {
+                  "texto": "La tasa de cancelados bajó de agosto a octubre (de 15 % a 12 %).",
+                  "correcta": true,
+                  "siFalta": "Mira la línea: agosto 15 % y octubre 12 %. ¿Qué pasó con la tasa?"
+                },
+                {
+                  "texto": "Septiembre tuvo la tasa de cancelados más baja de los tres meses.",
+                  "correcta": true,
+                  "siFalta": "Busca el punto más bajo de la línea."
+                },
+                {
+                  "texto": "Como crecieron los pedidos, cada mes se canceló una parte menor.",
+                  "feedback": "Los pedidos sí crecieron cada mes, pero la tasa no bajó cada mes: de septiembre a octubre subió (10 % → 12 %). Más pedidos no garantiza menos cancelaciones."
+                },
+                {
+                  "texto": "Octubre fue el peor mes en todo.",
+                  "feedback": "Octubre tuvo más cancelados en **cantidad** (15), pero en **tasa** agosto estuvo peor (15 % frente a 12 %). «Peor» depende de qué mires."
+                }
+              ],
+              "explicacion": "Cantidad y tasa pueden ir en **direcciones distintas**: de agosto a octubre hubo **más cancelados** (12 → 15) pero **una parte menor** de los pedidos se canceló (15 % → 12 %), porque los pedidos crecieron mucho (80 → 125).",
+              "tema": "cantidad-vs-tasa"
+            },
+            {
+              "id": "n2-puntos",
+              "tipo": "tarjetas",
+              "fase": "entender",
+              "titulo": "¿Cierto o no?",
+              "consigna": "Para cada frase sobre el tablero de Juan, decide si es cierta.",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Totales por mes (suma de domicilio y recoger)",
+                "columnas": [
+                  "Mes (2026)",
+                  "Pedidos",
+                  "Cancelados"
+                ],
+                "filas": [
+                  [
+                    "Agosto",
+                    "80",
+                    "12"
+                  ],
+                  [
+                    "Septiembre",
+                    "100",
+                    "10"
+                  ],
+                  [
+                    "Octubre",
+                    "125",
+                    "15"
+                  ]
+                ]
+              },
+              "botones": {
+                "si": "Es cierto",
+                "no": "No es cierto"
+              },
+              "tarjetas": [
+                {
+                  "texto": "De septiembre a octubre, la tasa de cancelados subió **2 puntos porcentuales** (de 10 % a 12 %).",
+                  "respuesta": "si",
+                  "explicacion": "12 − 10 = 2. Entre dos tasas, la diferencia se dice en puntos porcentuales."
+                },
+                {
+                  "texto": "De septiembre a octubre hubo **2 pedidos cancelados más**.",
+                  "respuesta": "no",
+                  "explicacion": "Hubo **5** cancelados más (de 10 a 15). El 2 es el cambio de la tasa, en puntos porcentuales, no en pedidos."
+                },
+                {
+                  "texto": "En septiembre, «10 cancelados» y «10 % de cancelados» son la misma cifra.",
+                  "respuesta": "no",
+                  "explicacion": "Coinciden en número solo porque septiembre tuvo justo 100 pedidos. Una es una cantidad y la otra una tasa; en octubre ya no coinciden (15 y 12 %)."
+                },
+                {
+                  "texto": "Agosto tuvo menos cancelados que octubre, así que en agosto se canceló una parte menor de los pedidos.",
+                  "respuesta": "no",
+                  "explicacion": "Agosto tuvo menos cancelados (12 frente a 15), pero también muchos menos pedidos (80). 12 de 80 es 15 %: una parte **mayor** que el 12 % de octubre."
+                },
+                {
+                  "texto": "Para comparar meses con distinto número de pedidos, la tasa es más justa que la cantidad de cancelados.",
+                  "respuesta": "si",
+                  "explicacion": "La tasa pone a todos los meses sobre la misma base: de cada 100 pedidos, cuántos se cancelaron."
+                }
+              ],
+              "explicacion": "**Cantidad** responde «¿cuántos?»; **tasa** responde «¿qué parte?». Y el cambio entre dos tasas se dice en **puntos porcentuales**, aparte del cambio en pedidos.",
+              "tema": "puntos-porcentuales"
+            },
+            {
+              "id": "n2-frase-cambio",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Dilo bien en el tablero",
+              "consigna": "Juan quiere una frase que compare septiembre con octubre. ¿Cuál es la más precisa?",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Totales por mes (suma de domicilio y recoger)",
+                "columnas": [
+                  "Mes (2026)",
+                  "Pedidos",
+                  "Cancelados"
+                ],
+                "filas": [
+                  [
+                    "Agosto",
+                    "80",
+                    "12"
+                  ],
+                  [
+                    "Septiembre",
+                    "100",
+                    "10"
+                  ],
+                  [
+                    "Octubre",
+                    "125",
+                    "15"
+                  ]
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "De septiembre a octubre la tasa de cancelados subió 2 pedidos.",
+                  "feedback": "Una tasa no se mide en pedidos. Los pedidos cancelados subieron 5 (10 → 15) y la tasa subió 2 puntos porcentuales."
+                },
+                {
+                  "texto": "De septiembre a octubre hubo 5 cancelados más (10 → 15) y la tasa subió 2 puntos porcentuales (10 % → 12 %).",
+                  "correcta": true
+                },
+                {
+                  "texto": "De septiembre a octubre las cancelaciones subieron 2 %.",
+                  "feedback": "Casi. Entre dos tasas la diferencia se dice en **puntos porcentuales**: «2 %» se puede confundir con el 2 % de algo. Y falta decir cuántos pedidos cambiaron."
+                },
+                {
+                  "texto": "En octubre a Juan le fue peor porque los clientes ya no confían en él.",
+                  "feedback": "La tabla no dice por qué se cancelaron los pedidos. Esa es una causa supuesta, no un hallazgo. Además, en octubre Juan tuvo más pedidos que nunca."
+                }
+              ],
+              "pistas": [
+                "Busca la frase que dice **por separado** el cambio en pedidos y el cambio en la tasa."
+              ],
+              "explicacion": "La frase precisa dice **dos cosas por separado**: el cambio en **cantidad** (+5 cancelados) y el cambio en **tasa** (+2 puntos porcentuales). Así nadie confunde una con otra.",
+              "tema": "puntos-porcentuales"
+            }
+          ]
+        },
+        {
+          "numero": 3,
+          "titulo": "Armar el tablero y contarlo",
+          "objetivo": "Decidir qué entra y qué no, reconocer cuándo no hay tasa posible y escribir un relato que separe hallazgo de hipótesis.",
+          "cierre": "Nivel 3 listo: armaste un tablero que responde una pregunta y dice lo que todavía no sabe.",
+          "actividades": [
+            {
+              "id": "n3-sin-denominador",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "¿Qué producto se cancela más?",
+              "consigna": "Juan tiene otra tabla, solo de **octubre**: los pedidos **entregados** según su producto principal. Juan pregunta: «¿Qué producto se cancela más?». ¿Se puede responder?",
+              "apoyo": [
+                {
+                  "tipo": "tabla",
+                  "titulo": "Octubre de 2026 · pedidos entregados por producto principal",
+                  "columnas": [
+                    "Producto principal",
+                    "Pedidos entregados"
+                  ],
+                  "filas": [
+                    [
+                      "Empanadas",
+                      "50"
+                    ],
+                    [
+                      "Arepas rellenas",
+                      "35"
+                    ],
+                    [
+                      "Jugos naturales",
+                      "25"
+                    ],
+                    [
+                      "Total",
+                      "110"
+                    ]
+                  ]
+                },
+                {
+                  "tipo": "grafico",
+                  "forma": "barras",
+                  "titulo": "Pedidos entregados en octubre de 2026, por producto principal",
+                  "unidad": "pedidos",
+                  "etiquetas": [
+                    "Empanadas",
+                    "Arepas rellenas",
+                    "Jugos naturales"
+                  ],
+                  "series": [
+                    {
+                      "nombre": "Pedidos entregados",
+                      "valores": [
+                        50,
+                        35,
+                        25
+                      ]
+                    }
+                  ],
+                  "nota": "Solo octubre. 50 + 35 + 25 = 110 pedidos entregados. Son cantidades, no tasas."
+                }
+              ],
+              "opciones": [
+                {
+                  "texto": "Sí: las empanadas, 50 de 125 = 40 %.",
+                  "feedback": "50 de 125 mezcla dos tablas: 50 son entregados de empanadas y 125 son todos los pedidos de octubre. Ese 40 % no es una tasa de cancelación de nada."
+                },
+                {
+                  "texto": "Sí: 15 cancelados ÷ 50 empanadas = 30 %.",
+                  "feedback": "Los 15 cancelados son de todos los productos juntos: no sabemos cuántos eran de empanadas. Usar ese total para un solo producto da un número sin sentido."
+                },
+                {
+                  "texto": "Sí: los jugos, porque tienen menos pedidos entregados.",
+                  "feedback": "Tener menos entregados no dice cuántos se cancelaron: quizás simplemente se piden menos jugos como producto principal."
+                },
+                {
+                  "texto": "No: los cancelados no dicen qué producto llevaban, así que no hay tasa por producto.",
+                  "correcta": true
+                }
+              ],
+              "pistas": [
+                "Para una tasa de cancelación de empanadas necesitas dos cosas: pedidos de empanadas cancelados y pedidos de empanadas recibidos.",
+                "Lee la última definición debajo de la tabla principal."
+              ],
+              "explicacion": "**Sin denominador no hay tasa.** Las barras de productos muestran **cantidades** de octubre (50, 35 y 25, que suman 110 entregados) y así hay que decirlo. Si quieres saber qué producto se cancela más, Juan tendría que anotar el producto de cada pedido cancelado.",
+              "tema": "sin-denominador"
+            },
+            {
+              "id": "n3-que-incluir",
+              "tipo": "tarjetas",
+              "fase": "aplicar",
+              "titulo": "¿Entra o no entra?",
+              "consigna": "La pregunta del tablero es: «¿Cómo cambiaron los pedidos y la proporción de pedidos cancelados de agosto a octubre de 2026, y qué productos concentraron los pedidos entregados en octubre?». Para cada bloque, decide si lo incluyes.",
+              "botones": {
+                "si": "Lo incluyo",
+                "no": "Lo dejo por fuera"
+              },
+              "tarjetas": [
+                {
+                  "texto": "Dos indicadores de octubre: **125 pedidos** y **12 % cancelados (15 de 125)**.",
+                  "respuesta": "si",
+                  "explicacion": "Responden la parte de «cómo le fue en octubre», con unidad, periodo y denominador."
+                },
+                {
+                  "texto": "Una línea con la **tasa de cancelados** de agosto, septiembre y octubre.",
+                  "respuesta": "si",
+                  "explicacion": "Muestra el cambio en la proporción de cancelados mes a mes, con el eje en porcentaje."
+                },
+                {
+                  "texto": "Barras de **pedidos entregados por producto** en octubre, desde cero.",
+                  "respuesta": "si",
+                  "explicacion": "Responde «qué productos concentraron los pedidos entregados en octubre». El título debe decir que es solo octubre."
+                },
+                {
+                  "texto": "Barras de «**tasa de cancelación por producto**».",
+                  "respuesta": "no",
+                  "explicacion": "No hay cancelados por producto: ese número no se puede calcular bien. Si lo inventas con el total, engañas al lector."
+                },
+                {
+                  "texto": "La lista de clientes con su nombre, dirección y celular.",
+                  "respuesta": "no",
+                  "explicacion": "No responde la pregunta y expone datos personales. Usar datos con responsabilidad también es saber qué **no** mostrar."
+                },
+                {
+                  "texto": "La plata cobrada en octubre: **$1.650.000**.",
+                  "respuesta": "no",
+                  "explicacion": "Es una cifra valiosa para Juan, pero esta pregunta es por pedidos y cancelaciones. Si Juan pregunta por la plata, cambia la pregunta y ahí sí entra. Cada bloque responde una parte de la pregunta; si no, sobra."
+                }
+              ],
+              "explicacion": "Un tablero no es «todo lo que tengo»: son **pocas piezas** que responden **una pregunta**. Lo que no ayuda a responderla, o lo que expone a personas, se queda por fuera.",
+              "tema": "tablero"
+            },
+            {
+              "id": "n3-relato",
+              "tipo": "emparejar",
+              "fase": "entender",
+              "titulo": "Hallazgo, hipótesis o pregunta",
+              "consigna": "Este es el tablero de Juan. Para cada frase que alguien propuso para el texto, toca qué tipo de frase es.",
+              "apoyo": [
+                {
+                  "tipo": "texto",
+                  "texto": "**Tablero de los pedidos de Juan · agosto a octubre de 2026.** Indicadores de octubre: **125 pedidos** recibidos · **12 % de pedidos cancelados** (15 de 125)."
+                },
+                {
+                  "tipo": "grafico",
+                  "forma": "lineas",
+                  "titulo": "Pedidos cancelados de cada 100 recibidos, agosto a octubre de 2026",
+                  "unidad": "%",
+                  "etiquetas": [
+                    "Agosto",
+                    "Septiembre",
+                    "Octubre"
+                  ],
+                  "series": [
+                    {
+                      "nombre": "Tasa de cancelados",
+                      "valores": [
+                        15,
+                        10,
+                        12
+                      ]
+                    }
+                  ],
+                  "ejeDesde": 0,
+                  "nota": "Tasa = cancelados ÷ pedidos del mes. Agosto 12 de 80 · septiembre 10 de 100 · octubre 15 de 125."
+                },
+                {
+                  "tipo": "grafico",
+                  "forma": "barras",
+                  "titulo": "Pedidos entregados en octubre de 2026, por producto principal",
+                  "unidad": "pedidos",
+                  "etiquetas": [
+                    "Empanadas",
+                    "Arepas rellenas",
+                    "Jugos naturales"
+                  ],
+                  "series": [
+                    {
+                      "nombre": "Pedidos entregados",
+                      "valores": [
+                        50,
+                        35,
+                        25
+                      ]
+                    }
+                  ],
+                  "nota": "Solo octubre. 50 + 35 + 25 = 110 pedidos entregados. Son cantidades, no tasas."
+                }
+              ],
+              "tipos": [
+                {
+                  "id": "hallazgo",
+                  "texto": "Hallazgo",
+                  "ayuda": "lo que muestran los datos, con cifras"
+                },
+                {
+                  "id": "hipotesis",
+                  "texto": "Hipótesis",
+                  "ayuda": "una posible causa que aún no está comprobada"
+                },
+                {
+                  "id": "recomendacion",
+                  "texto": "Recomendación prudente",
+                  "ayuda": "qué revisar, sin culpar a nadie"
+                },
+                {
+                  "id": "pendiente",
+                  "texto": "Pregunta pendiente",
+                  "ayuda": "algo que necesita datos nuevos"
+                }
+              ],
+              "pares": [
+                {
+                  "item": "«En octubre se cancelaron 15 de 125 pedidos (12 %), 2 puntos porcentuales más que en septiembre.»",
+                  "correcto": "hallazgo",
+                  "feedback": "Dice lo que muestran las tablas, con cifras que se pueden comprobar: es un hallazgo."
+                },
+                {
+                  "item": "«Los clientes cancelaron porque los domicilios llegaron tarde.»",
+                  "correcto": "hipotesis",
+                  "feedback": "La tabla no tiene horas de entrega ni motivos de cancelación. Puede ser verdad, pero todavía es una suposición: una hipótesis."
+                },
+                {
+                  "item": "«Revisar con Juan qué pasó con los pedidos cancelados de octubre antes de cambiar algo.»",
+                  "correcto": "recomendacion",
+                  "feedback": "Propone qué revisar, sin culpar a nadie ni dar una causa por segura: es una recomendación prudente."
+                },
+                {
+                  "item": "«¿Por qué se cancelan los pedidos? Haría falta anotar el motivo de cada cancelación.»",
+                  "correcto": "pendiente",
+                  "feedback": "Pide datos que la tabla no tiene: es una pregunta pendiente."
+                },
+                {
+                  "item": "«En octubre, las empanadas fueron el producto principal en 50 de los 110 pedidos entregados.»",
+                  "correcto": "hallazgo",
+                  "feedback": "Sale directo de la tabla de productos de octubre, con cifras: es un hallazgo."
+                }
+              ],
+              "pistas": [
+                "Pregúntate: ¿esta frase se puede comprobar con las tablas?",
+                "Si da una causa que la tabla no muestra, es una hipótesis."
+              ],
+              "explicacion": "Un buen texto de tablero tiene un **hallazgo** con cifras, una **recomendación prudente** y una **pregunta pendiente**. Las hipótesis no se esconden: se convierten en preguntas para investigar.",
+              "tema": "hallazgo-hipotesis-limite"
+            },
+            {
+              "id": "n3-reto",
+              "tipo": "constructor",
+              "fase": "aplicar",
+              "titulo": "El reto: el tablero de Juan",
+              "consigna": "Prepara un tablero de una sola vista para Juan. Debe mostrar **dos indicadores de octubre**, la **tendencia mensual de la tasa de cancelados** y la **distribución de pedidos entregados por producto en octubre**. Añade un texto corto que ayude a leerlo y diga lo que todavía no se puede concluir.",
+              "rutas": [
+                {
+                  "id": "mapa",
+                  "nombre": "Ruta Mapa",
+                  "descripcion": "La pregunta ya viene dada. Te concentras en los indicadores, los dos gráficos y el texto.",
+                  "preguntaDada": "¿Cómo cambiaron los pedidos y la proporción de pedidos cancelados de agosto a octubre de 2026, y qué productos concentraron los pedidos entregados en octubre?"
+                },
+                {
+                  "id": "brujula",
+                  "nombre": "Ruta Brújula",
+                  "descripcion": "Formulas tu propia pregunta para el tablero de Juan (por ejemplo, sobre domicilio y recoger) y eliges tus dos indicadores y tus dos gráficos."
+                },
+                {
+                  "id": "telescopio",
+                  "nombre": "Ruta Telescopio",
+                  "descripcion": "Haces el tablero de la Ruta Mapa y le agregas un tercer indicador: la plata promedio por pedido entregado en octubre. Explicas por qué el denominador son los entregados.",
+                  "preguntaDada": "¿Cómo cambiaron los pedidos y la proporción de cancelados de agosto a octubre de 2026, qué productos concentraron los pedidos entregados en octubre y cuánta plata dejó, en promedio, cada pedido entregado en octubre?"
+                }
+              ],
+              "pasos": [
+                {
+                  "clave": "pregunta",
+                  "titulo": "1 · Mi pregunta, para quién es y qué periodos usa",
+                  "ayuda": "Escribe la pregunta, para quién es el tablero y qué meses cubre cada bloque.",
+                  "pistas": [
+                    "El tablero es para Juan.",
+                    "La línea usa agosto a octubre de 2026; los indicadores y las barras, solo octubre."
+                  ]
+                },
+                {
+                  "clave": "indicadores",
+                  "titulo": "2 · Mis dos indicadores",
+                  "ayuda": "Cada uno con **unidad**, **periodo** y, si es porcentaje, su **denominador** a la vista. Puedes marcar las filas que usaste.",
+                  "pistas": [
+                    "Octubre está en las filas 05 y 06.",
+                    "Pedidos: 100 + 25. Cancelados: 14 + 1.",
+                    "Tasa: 15 ÷ 125 = 0,12 → 12 %. Escribe «15 de 125» al lado."
+                  ],
+                  "permiteFilas": true
+                },
+                {
+                  "clave": "graficos",
+                  "titulo": "3 · Mis dos gráficos",
+                  "ayuda": "Describe cada gráfico: tipo, título con periodo, qué va en cada eje y desde dónde arranca.",
+                  "pistas": [
+                    "Línea: tasa de cancelados por mes (15 %, 10 %, 12 %), con el eje en porcentaje.",
+                    "Barras: pedidos entregados por producto en octubre (50, 35, 25), desde cero. Son cantidades, no tasas."
+                  ]
+                },
+                {
+                  "clave": "relato",
+                  "titulo": "4 · Hallazgo, recomendación y pregunta pendiente",
+                  "ayuda": "Tres frases cortas. Agrega la fuente (ficticia) y una limitación.",
+                  "pistas": [
+                    "Hallazgo: una frase con cifras que se pueda comprobar en las tablas.",
+                    "Recomendación: qué revisar, sin culpar a nadie.",
+                    "Pregunta pendiente: algo que necesita datos nuevos, como el motivo de las cancelaciones."
+                  ]
+                }
+              ],
+              "verificacion": [
+                "Mi pregunta dice para quién es el tablero y qué periodos usa.",
+                "Cada indicador tiene unidad, periodo y, si es tasa, su denominador.",
+                "La línea muestra tasas (%) y las barras muestran cantidades desde cero.",
+                "No calculé una tasa por producto.",
+                "Mi texto separa hallazgo, recomendación y pregunta pendiente, sin culpar a nadie.",
+                "Texto y gráficos hablan del mismo periodo, y anoté la fuente y una limitación."
+              ],
+              "ejemplo": "«Pregunta: ¿cómo cambiaron los pedidos y la proporción de cancelados de agosto a octubre de 2026, y qué productos concentraron los pedidos entregados en octubre? Tablero para Juan. Indicadores de octubre (filas 05 y 06): **125 pedidos recibidos** y **12 % de pedidos cancelados (15 de 125)**. Gráfico 1: línea «Pedidos cancelados de cada 100 recibidos, agosto a octubre de 2026», con 15 %, 10 % y 12 %. Gráfico 2: barras desde cero «Pedidos entregados en octubre de 2026 por producto principal»: empanadas 50, arepas rellenas 35, jugos naturales 25 (total 110). Hallazgo: los pedidos crecieron de 80 a 125; la tasa de cancelados bajó de agosto a septiembre y en octubre subió 2 puntos porcentuales (5 cancelados más). Recomendación: revisar con Juan qué pasó con los cancelados de octubre antes de cambiar algo. Pregunta pendiente: ¿por qué se cancelan? Haría falta anotar el motivo. Fuente: registro ficticio de pedidos de Juan. Limitación: no hay cancelados por producto, así que las barras no dicen qué producto se cancela más.»",
+              "explicacion": "No se busca un tablero bonito: se busca uno que **otra persona pueda leer y comprobar** desde las tablas.",
+              "tema": "hallazgo-hipotesis-limite"
+            },
+            {
+              "id": "n3-cierre",
+              "tipo": "escritura",
+              "fase": "observar",
+              "titulo": "Cierre de la misión",
+              "consigna": "Completa estas dos frases. Quedan guardadas en tu cuaderno (solo en este navegador).",
+              "frases": [
+                {
+                  "clave": "cierre-ayuda",
+                  "inicio": "Mi tablero le ayuda a Juan a saber…"
+                },
+                {
+                  "clave": "cierre-falta",
+                  "inicio": "Todavía necesitamos averiguar…"
+                }
+              ],
+              "explicacion": "El procedimiento en una línea: **pregunta y periodo → indicadores con unidad y denominador → cantidad y tasa por separado → gráficos que responden → relato con límites.**"
+            }
+          ]
+        }
+      ],
+      "conceptos": [
+        {
+          "termino": "Tablero",
+          "definicion": "Una sola vista con pocos indicadores, gráficos y un texto corto que responden **una pregunta**.",
+          "ejemplo": "El tablero de Juan: dos indicadores de octubre, una línea de tasas y barras por producto."
+        },
+        {
+          "termino": "Indicador clave (KPI)",
+          "definicion": "Una cifra importante para la pregunta, con unidad, periodo y, si es porcentaje, su denominador.",
+          "ejemplo": "«12 % de pedidos cancelados en octubre de 2026 (15 de 125)»."
+        },
+        {
+          "termino": "Cantidad",
+          "definicion": "Cuántos hubo. Responde «¿cuántos?».",
+          "ejemplo": "15 pedidos cancelados en octubre."
+        },
+        {
+          "termino": "Tasa",
+          "definicion": "Qué parte del total: la parte ÷ la base. Responde «¿de cada 100, cuántos?».",
+          "ejemplo": "15 ÷ 125 = 12 % de pedidos cancelados."
+        },
+        {
+          "termino": "Denominador",
+          "definicion": "La base de una tasa: va abajo en la división.",
+          "ejemplo": "Para los cancelados, la base son los 125 pedidos recibidos, no los 110 entregados."
+        },
+        {
+          "termino": "Puntos porcentuales",
+          "definicion": "La diferencia entre dos tasas.",
+          "ejemplo": "De 10 % a 12 % hay 2 puntos porcentuales, aunque fueron 5 cancelados más."
+        },
+        {
+          "termino": "Sin denominador no hay tasa",
+          "definicion": "Si no tienes la base de una categoría, solo puedes mostrar cantidades.",
+          "ejemplo": "No hay cancelados por producto: las barras por producto son cantidades."
+        },
+        {
+          "termino": "Hallazgo e hipótesis",
+          "definicion": "El hallazgo es lo que muestran los datos; la hipótesis, una posible causa aún sin comprobar.",
+          "ejemplo": "Hallazgo: «la tasa subió 2 puntos». Hipótesis: «los domicilios llegaron tarde»."
+        }
+      ],
+      "fraseClave": "Un tablero responde una pregunta: cada cifra con su unidad, su periodo y su denominador, y un texto que no inventa causas.",
+      "paraLlevar": {
+        "consigna": "Prepara un tablero de una sola vista para Juan: dos indicadores de octubre, la tendencia mensual de la tasa de cancelados y la distribución de pedidos entregados por producto en octubre, con un texto corto que diga lo que todavía no se puede concluir.",
+        "pasos": [
+          "Escribe la pregunta, para quién es el tablero y qué periodos usa.",
+          "Calcula y rotula dos indicadores de octubre con unidad, periodo y denominador.",
+          "Haz una línea de la tasa de cancelados por mes, con el eje en porcentaje.",
+          "Haz barras de pedidos entregados por producto en octubre, desde cero (cantidades, no tasas).",
+          "Escribe un hallazgo con cifras, una recomendación prudente y una pregunta pendiente, con fuente y una limitación."
+        ],
+        "lupa": [
+          "Dice para quién es y qué periodo cubre.",
+          "Se responde con indicadores que tienen unidad y denominador.",
+          "Separa cantidades de tasas.",
+          "Dice qué no se puede concluir todavía."
+        ]
+      }
+    },
+    "guia": {
+      "nombre": "Guía oficial: biblioteca, 3 meses",
+      "titulo": "El tablero de la biblioteca",
+      "caso": "Talleres de alfabetización digital de una biblioteca, julio a septiembre de 2026",
+      "historia": "La coordinación de una biblioteca, ficticia, ofrece talleres de alfabetización digital en la mañana y en la tarde. Anotó cuántas personas se inscribieron y cuántas asistieron de julio a septiembre, y aparte, las asistencias de septiembre por tema. Quiere revisar cómo le fue antes de ajustar la convocatoria, y necesita una sola vista que responda una pregunta. Tú le vas a ayudar a armar ese tablero, y a contarlo sin culpar a nadie ni inventar causas.",
+      "datos": {
+        "titulo": "Talleres de la biblioteca por mes y jornada (2026)",
+        "unidad": [
+          "fila",
+          "filas"
+        ],
+        "columnas": [
+          "Código",
+          "Mes",
+          "Jornada",
+          "Inscritos",
+          "Asistentes"
+        ],
+        "filas": [
+          [
+            "01",
+            "Jul",
+            "Mañana",
+            "40",
+            "30"
+          ],
+          [
+            "02",
+            "Jul",
+            "Tarde",
+            "40",
+            "26"
+          ],
+          [
+            "03",
+            "Ago",
+            "Mañana",
+            "50",
+            "42"
+          ],
+          [
+            "04",
+            "Ago",
+            "Tarde",
+            "40",
+            "30"
+          ],
+          [
+            "05",
+            "Sep",
+            "Mañana",
+            "50",
+            "38"
+          ],
+          [
+            "06",
+            "Sep",
+            "Tarde",
+            "50",
+            "32"
+          ]
+        ],
+        "definiciones": [
+          "Cada **código** identifica un **resumen**: los talleres de un mes en una jornada. No es una persona ni un taller suelto.",
+          "**Mes**: julio, agosto o septiembre de 2026. **Jornada**: Mañana o Tarde. Todas las filas son del mismo programa de alfabetización digital.",
+          "**Inscritos**: personas inscritas ese mes en esa jornada. **Asistentes**: cuántas de ellas asistieron.",
+          "Las cifras **no identifican personas**: no se sabe si alguien se inscribió en varios meses.",
+          "Hay una tabla aparte, **solo de septiembre**, con las asistencias por tema (cada asistencia tiene un solo tema). **No hay** inscritos por tema."
+        ],
+        "aviso": "Datos ficticios, solo para practicar. Adaptados de la guía de la sesión 7."
+      },
+      "niveles": [
+        {
+          "numero": 1,
+          "titulo": "La pregunta y los indicadores",
+          "objetivo": "Leer las filas resumen, elegir la pregunta del tablero y calcular dos indicadores de septiembre con unidad y denominador.",
+          "cierre": "Nivel 1 listo: tu tablero ya tiene pregunta y dos indicadores bien rotulados.",
+          "actividades": [
+            {
+              "id": "n1-toca-fila",
+              "tipo": "leer-filas",
+              "fase": "hacer",
+              "titulo": "Toca una fila",
+              "consigna": "Toca una fila de la tabla y escucha lo que nos cuenta. Lee al menos **2 filas** para continuar.",
+              "minimo": 2,
+              "lecturas": {
+                "01": "La fila 01 resume los talleres de la mañana en julio: se inscribieron 40 personas y asistieron 30.",
+                "02": "La fila 02 resume los talleres de la tarde en julio: se inscribieron 40 personas y asistieron 26.",
+                "03": "La fila 03 resume los talleres de la mañana en agosto: se inscribieron 50 personas y asistieron 42.",
+                "04": "La fila 04 resume los talleres de la tarde en agosto: se inscribieron 40 personas y asistieron 30.",
+                "05": "La fila 05 resume los talleres de la mañana en septiembre: se inscribieron 50 personas y asistieron 38.",
+                "06": "La fila 06 resume los talleres de la tarde en septiembre: se inscribieron 50 personas y asistieron 32."
+              },
+              "explicacion": "Cada lectura empieza igual: **«resume los talleres de…»**. Aquí una fila no es una persona: es un **resumen** de un mes en una jornada.",
+              "tema": "tablero"
+            },
+            {
+              "id": "n1-que-es-fila",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "¿Qué representa una fila?",
+              "consigna": "Después de leer algunas filas, ¿qué representa cada fila de esta tabla?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Una persona inscrita",
+                  "feedback": "Cada fila tiene decenas de personas adentro: la fila 05 tiene 50 inscritos. ¿Una fila puede ser una sola persona?"
+                },
+                {
+                  "texto": "Un taller de un solo día",
+                  "feedback": "La tabla no tiene fechas de cada taller. Mira qué columnas ubican cada fila: Mes y Jornada."
+                },
+                {
+                  "texto": "Los talleres de un mes en una jornada",
+                  "correcta": true
+                },
+                {
+                  "texto": "Un tema",
+                  "feedback": "Los temas no aparecen en esta tabla; van en otra, solo de septiembre. Aquí cada fila se ubica por Mes y Jornada."
+                }
+              ],
+              "pistas": [
+                "Lee la definición del código, debajo de la tabla.",
+                "Mira las columnas Mes y Jornada: ¿cuántas combinaciones hay?"
+              ],
+              "explicacion": "Cada fila es un **resumen**: los talleres de **un mes** en **una jornada**. Por eso, para saber cuántos asistieron en septiembre, hay que **sumar dos filas** (mañana y tarde).",
+              "tema": "tablero"
+            },
+            {
+              "id": "n1-pregunta",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "La pregunta del tablero",
+              "consigna": "Antes de poner gráficos, un tablero necesita **una pregunta**. ¿Cuál le sirve a la coordinación para armar su tablero con estos datos?",
+              "opciones": [
+                {
+                  "texto": "¿Funcionan bien los talleres de la biblioteca?",
+                  "feedback": "Es una buena inquietud, pero «bien» no dice qué se mide ni en qué periodo. ¿Bien en inscritos, en asistencia, en aprendizaje?"
+                },
+                {
+                  "texto": "¿Cómo cambió la asistencia de julio a septiembre de 2026 y qué temas concentraron asistencias en septiembre?",
+                  "correcta": true
+                },
+                {
+                  "texto": "¿Qué tanto aprendieron las personas en los talleres?",
+                  "feedback": "Sería muy útil saberlo, pero la tabla no tiene notas ni evaluaciones. Se necesitaría otra fuente."
+                },
+                {
+                  "texto": "¿Cuántos inscritos habrá en diciembre?",
+                  "feedback": "La tabla llega hasta septiembre. Con tres meses no se puede asegurar lo que pasará en diciembre: eso sería adivinar, no leer el tablero."
+                }
+              ],
+              "pistas": [
+                "Busca la pregunta que dice **qué se mide** y **qué periodo** cubre.",
+                "Revisa que cada parte de la pregunta tenga una columna o una tabla que la responda."
+              ],
+              "explicacion": "La pregunta elegida dice **qué se mide** (asistencia), **qué periodos** (julio a septiembre; temas solo en septiembre) y **se responde** con las dos tablas. El tablero es **para la coordinación**. Con esa pregunta, cada bloque tiene una tarea.",
+              "tema": "tablero"
+            },
+            {
+              "id": "n1-kpi-rotulado",
+              "tipo": "seleccion",
+              "multiple": true,
+              "fase": "entender",
+              "titulo": "¿Se entiende la cifra?",
+              "consigna": "Un KPI (indicador clave) se debe entender solo. **Marca todas las cifras que están bien rotuladas** para el tablero de la biblioteca.",
+              "opciones": [
+                {
+                  "texto": "70 asistentes en septiembre de 2026",
+                  "correcta": true,
+                  "siFalta": "Mira otra vez «70 asistentes en septiembre de 2026»: dice qué se cuenta, cuántos y cuándo."
+                },
+                {
+                  "texto": "70 % de asistencia en septiembre de 2026 (70 de 100 inscritos)",
+                  "correcta": true,
+                  "siFalta": "Mira otra vez la del 70 %: tiene unidad, periodo y deja ver su denominador (70 de 100)."
+                },
+                {
+                  "texto": "100 inscritos en septiembre de 2026",
+                  "correcta": true,
+                  "siFalta": "Mira otra vez la de los inscritos: dice qué se cuenta y de qué mes."
+                },
+                {
+                  "texto": "70",
+                  "feedback": "«70» solo, ¿70 qué? ¿Asistentes o porcentaje? ¿De qué mes? Sin unidad ni periodo, la cifra no se entiende."
+                },
+                {
+                  "texto": "Asistencia: 70",
+                  "feedback": "¿70 asistentes o 70 %? En septiembre las dos dan 70. Por eso hay que escribir la unidad, aunque los números coincidan."
+                }
+              ],
+              "explicacion": "Un KPI necesita **unidad**, **periodo** y, si es un porcentaje, **su denominador a la vista**. «Asistencia: 70» es la trampa: en septiembre, 70 asistentes y 70 % coinciden en número, pero son cosas distintas.",
+              "tema": "kpi"
+            },
+            {
+              "id": "n1-asistentes-sep",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Primer indicador: asistentes de septiembre",
+              "consigna": "¿Cuántas personas asistieron en **septiembre**?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "38",
+                  "feedback": "38 son solo los asistentes de la mañana (fila 05). Septiembre tiene dos filas: suma también la de la tarde."
+                },
+                {
+                  "texto": "100",
+                  "feedback": "100 son los **inscritos** de septiembre. La pregunta es por los que **asistieron**."
+                },
+                {
+                  "texto": "70",
+                  "correcta": true
+                },
+                {
+                  "texto": "198",
+                  "feedback": "198 son los asistentes de los tres meses juntos. El indicador es solo de septiembre."
+                }
+              ],
+              "pistas": [
+                "Septiembre está en las filas 05 y 06.",
+                "Suma la columna Asistentes de esas dos filas: 38 + 32."
+              ],
+              "explicacion": "**70 asistentes en septiembre de 2026** (38 en la mañana + 32 en la tarde). Fíjate en el rótulo completo: cantidad, unidad y periodo.",
+              "tema": "kpi"
+            },
+            {
+              "id": "n1-tasa-sep",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Segundo indicador: tasa de asistencia",
+              "consigna": "En septiembre se inscribieron 50 + 50 = **100** personas y asistieron **70**. ¿Cuál es la **tasa de asistencia** de septiembre?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "70 % (70 de 100)",
+                  "correcta": true
+                },
+                {
+                  "texto": "143 % (100 ÷ 70)",
+                  "feedback": "Dividiste al revés. Pregúntate: ¿qué parte de los inscritos llegó a asistir? Los inscritos son la base y van abajo: 70 ÷ 100."
+                },
+                {
+                  "texto": "76 % (38 de 50)",
+                  "feedback": "Esa es solo la jornada de la mañana. El indicador es de todo septiembre: 70 de 100."
+                },
+                {
+                  "texto": "80 %",
+                  "feedback": "80 % fue la tasa de **agosto** (72 de 90). El indicador es de septiembre."
+                }
+              ],
+              "pistas": [
+                "Tasa = asistentes ÷ inscritos.",
+                "70 ÷ 100 = 0,70. Multiplica por 100."
+              ],
+              "explicacion": "**70 % de asistencia en septiembre de 2026 (70 de 100 inscritos).** De cada 100 inscritos, asistieron 70. En el tablero, deja ver el **70 de 100** y escribe «asistentes» o «%» al lado de cada 70.",
+              "tema": "kpi"
+            }
+          ]
+        },
+        {
+          "numero": 2,
+          "titulo": "Cantidad frente a tasa",
+          "objetivo": "Calcular las tasas de los tres meses y distinguir el cambio en asistentes del cambio en puntos porcentuales.",
+          "cierre": "Nivel 2 listo: ya no confundes cuántos con qué parte.",
+          "actividades": [
+            {
+              "id": "n2-conteo-asistentes",
+              "tipo": "conteo",
+              "fase": "aplicar",
+              "titulo": "Asistentes de cada mes",
+              "consigna": "Para la línea del tablero necesitas los totales de cada mes. Cuenta los **asistentes de cada mes**, sumando mañana y tarde.",
+              "usaDatos": true,
+              "categorias": [
+                "Julio",
+                "Agosto",
+                "Septiembre"
+              ],
+              "esperado": {
+                "Julio": 56,
+                "Agosto": 72,
+                "Septiembre": 70
+              },
+              "erroresComunes": [
+                {
+                  "valores": {
+                    "Julio": 30,
+                    "Agosto": 42,
+                    "Septiembre": 38
+                  },
+                  "mensaje": "Esos son solo los asistentes de la mañana. Cada mes tiene dos filas: suma también la de la tarde."
+                },
+                {
+                  "valores": {
+                    "Julio": 26,
+                    "Agosto": 30,
+                    "Septiembre": 32
+                  },
+                  "mensaje": "Esos son solo los asistentes de la tarde. Suma también la fila de la mañana de cada mes."
+                },
+                {
+                  "valores": {
+                    "Julio": 80,
+                    "Agosto": 90,
+                    "Septiembre": 100
+                  },
+                  "mensaje": "Esos son los inscritos. Aquí se cuentan solo los que **asistieron**."
+                }
+              ],
+              "mensajeGeneral": "Vas por buen camino. Revisa {categorias}: suma la columna Asistentes de las dos filas de ese mes.",
+              "pistas": [
+                "Julio: filas 01 y 02. Agosto: 03 y 04. Septiembre: 05 y 06.",
+                "Julio: 30 + 26. Agosto: 42 + 30. Septiembre: 38 + 32."
+              ],
+              "explicacion": "Asistentes: **julio 56 · agosto 72 · septiembre 70**. Y los inscritos: 80, 90 y 100. Con esas dos columnas ya puedes calcular las tasas.",
+              "tema": "cantidad-vs-tasa"
+            },
+            {
+              "id": "n2-tasas-mes",
+              "tipo": "completar",
+              "fase": "aplicar",
+              "titulo": "La tasa de cada mes",
+              "consigna": "Con los totales de cada mes, calcula **asistentes ÷ inscritos** y elige la tasa correcta para cada espacio.",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Totales por mes (suma de mañana y tarde)",
+                "columnas": [
+                  "Mes (2026)",
+                  "Inscritos",
+                  "Asistentes"
+                ],
+                "filas": [
+                  [
+                    "Julio",
+                    "80",
+                    "56"
+                  ],
+                  [
+                    "Agosto",
+                    "90",
+                    "72"
+                  ],
+                  [
+                    "Septiembre",
+                    "100",
+                    "70"
+                  ]
+                ]
+              },
+              "frase": "Tasa de asistencia: julio {0}, agosto {1} y septiembre {2}.",
+              "huecos": [
+                {
+                  "opciones": [
+                    {
+                      "texto": "70 %",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "56 %",
+                      "feedback": "56 es la cantidad de asistentes de julio. Para la tasa, divide 56 entre 80."
+                    },
+                    {
+                      "texto": "143 %",
+                      "feedback": "Dividiste al revés (80 ÷ 56). Los inscritos son la base: 56 ÷ 80."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "80 %",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "72 %",
+                      "feedback": "72 es la cantidad de asistentes de agosto. Divide 72 entre 90."
+                    },
+                    {
+                      "texto": "125 %",
+                      "feedback": "Dividiste al revés (90 ÷ 72). Una tasa de asistencia no puede pasar de 100 %."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "70 %",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "70 asistentes",
+                      "feedback": "Ese es el número de asistentes, una cantidad. La tasa también da 70, pero en %: 70 de cada 100 inscritos."
+                    },
+                    {
+                      "texto": "143 %",
+                      "feedback": "Dividiste al revés (100 ÷ 70). La base son los 100 inscritos."
+                    }
+                  ]
+                }
+              ],
+              "explicacion": "Julio 56 ÷ 80 = **70 %** · agosto 72 ÷ 90 = **80 %** · septiembre 70 ÷ 100 = **70 %**. Ojo con septiembre: «70 asistentes» y «70 %» coinciden en número solo porque hubo justo 100 inscritos.",
+              "tema": "cantidad-vs-tasa"
+            },
+            {
+              "id": "n2-dos-graficos",
+              "tipo": "seleccion",
+              "multiple": true,
+              "fase": "observar",
+              "titulo": "Dos gráficos, dos lecturas",
+              "consigna": "Mira las cantidades y la tasa lado a lado. **Marca todo lo que es cierto.**",
+              "apoyo": {
+                "tipo": "comparacion",
+                "items": [
+                  {
+                    "etiqueta": "Cantidades",
+                    "grafico": {
+                      "tipo": "grafico",
+                      "forma": "barras",
+                      "titulo": "Inscritos y asistentes por mes, 2026",
+                      "unidad": "personas",
+                      "etiquetas": [
+                        "Julio",
+                        "Agosto",
+                        "Septiembre"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Inscritos",
+                          "valores": [
+                            80,
+                            90,
+                            100
+                          ]
+                        },
+                        {
+                          "nombre": "Asistentes",
+                          "valores": [
+                            56,
+                            72,
+                            70
+                          ]
+                        }
+                      ],
+                      "nota": "Cantidades: cuántos, no qué parte."
+                    }
+                  },
+                  {
+                    "etiqueta": "Tasa",
+                    "grafico": {
+                      "tipo": "grafico",
+                      "forma": "lineas",
+                      "titulo": "Tasa de asistencia por mes, julio a septiembre de 2026",
+                      "unidad": "%",
+                      "etiquetas": [
+                        "Julio",
+                        "Agosto",
+                        "Septiembre"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Tasa de asistencia",
+                          "valores": [
+                            70,
+                            80,
+                            70
+                          ]
+                        }
+                      ],
+                      "ejeDesde": 0,
+                      "nota": "Tasa = asistentes ÷ inscritos. Julio 56 de 80 · agosto 72 de 90 · septiembre 70 de 100."
+                    }
+                  }
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Los inscritos subieron cada mes (80, 90, 100).",
+                  "correcta": true,
+                  "siFalta": "Mira las barras de inscritos: ¿qué pasa de un mes a otro?"
+                },
+                {
+                  "texto": "Julio y septiembre tienen la misma tasa (70 %), aunque tuvieron distinto número de asistentes (56 y 70).",
+                  "correcta": true,
+                  "siFalta": "Compara los puntos de julio y septiembre en la línea, y sus barras de asistentes."
+                },
+                {
+                  "texto": "Agosto tuvo la tasa de asistencia más alta de los tres meses.",
+                  "correcta": true,
+                  "siFalta": "Busca el punto más alto de la línea."
+                },
+                {
+                  "texto": "Como crecieron las inscripciones, mejoró la asistencia.",
+                  "feedback": "Los inscritos sí crecieron cada mes, pero la tasa subió y luego bajó (70 % → 80 % → 70 %). Más inscritos no garantiza mejor asistencia."
+                },
+                {
+                  "texto": "Septiembre fue el mes con menos asistentes.",
+                  "feedback": "En cantidad, el mes con menos asistentes fue julio (56). Septiembre tuvo 70: lo que bajó en septiembre fue la **tasa**."
+                }
+              ],
+              "explicacion": "Cantidad y tasa cuentan cosas distintas: julio y septiembre tienen **la misma tasa** (70 %) con **cantidades distintas** (56 y 70). Y de agosto a septiembre hubo **más inscritos** pero **una parte menor** asistió.",
+              "tema": "cantidad-vs-tasa"
+            },
+            {
+              "id": "n2-puntos",
+              "tipo": "tarjetas",
+              "fase": "entender",
+              "titulo": "¿Cierto o no?",
+              "consigna": "Para cada frase sobre el tablero de la biblioteca, decide si es cierta.",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Totales por mes (suma de mañana y tarde)",
+                "columnas": [
+                  "Mes (2026)",
+                  "Inscritos",
+                  "Asistentes"
+                ],
+                "filas": [
+                  [
+                    "Julio",
+                    "80",
+                    "56"
+                  ],
+                  [
+                    "Agosto",
+                    "90",
+                    "72"
+                  ],
+                  [
+                    "Septiembre",
+                    "100",
+                    "70"
+                  ]
+                ]
+              },
+              "botones": {
+                "si": "Es cierto",
+                "no": "No es cierto"
+              },
+              "tarjetas": [
+                {
+                  "texto": "De agosto a septiembre, la tasa de asistencia bajó **10 puntos porcentuales** (de 80 % a 70 %).",
+                  "respuesta": "si",
+                  "explicacion": "80 − 70 = 10. Entre dos tasas, la diferencia se dice en puntos porcentuales."
+                },
+                {
+                  "texto": "De agosto a septiembre asistieron **10 personas menos**.",
+                  "respuesta": "no",
+                  "explicacion": "Fueron **2** asistentes menos (de 72 a 70). El 10 es el cambio de la tasa, en puntos porcentuales, no en personas."
+                },
+                {
+                  "texto": "En septiembre, «70 asistentes» y «70 % de asistencia» son la misma cifra.",
+                  "respuesta": "no",
+                  "explicacion": "Coinciden en número solo porque septiembre tuvo justo 100 inscritos. Una es una cantidad y la otra una tasa; en agosto no coinciden (72 y 80 %)."
+                },
+                {
+                  "texto": "Julio tuvo menos asistentes que septiembre, así que en julio asistió una parte menor de los inscritos.",
+                  "respuesta": "no",
+                  "explicacion": "Julio tuvo menos asistentes (56 frente a 70), pero también menos inscritos (80). 56 de 80 es 70 %: la **misma** parte que en septiembre."
+                },
+                {
+                  "texto": "Para comparar meses con distinto número de inscritos, la tasa es más justa que la cantidad de asistentes.",
+                  "respuesta": "si",
+                  "explicacion": "La tasa pone a todos los meses sobre la misma base: de cada 100 inscritos, cuántos asistieron."
+                }
+              ],
+              "explicacion": "**Cantidad** responde «¿cuántos?»; **tasa** responde «¿qué parte?». Y el cambio entre dos tasas se dice en **puntos porcentuales**, aparte del cambio en asistentes.",
+              "tema": "puntos-porcentuales"
+            },
+            {
+              "id": "n2-frase-cambio",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Dilo bien en el tablero",
+              "consigna": "La coordinación quiere una frase que compare agosto con septiembre. ¿Cuál es la más precisa?",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Totales por mes (suma de mañana y tarde)",
+                "columnas": [
+                  "Mes (2026)",
+                  "Inscritos",
+                  "Asistentes"
+                ],
+                "filas": [
+                  [
+                    "Julio",
+                    "80",
+                    "56"
+                  ],
+                  [
+                    "Agosto",
+                    "90",
+                    "72"
+                  ],
+                  [
+                    "Septiembre",
+                    "100",
+                    "70"
+                  ]
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "De agosto a septiembre la asistencia bajó diez personas.",
+                  "feedback": "Vuelve a las columnas: los asistentes pasaron de 72 a 70, son 2 menos. Lo que bajó 10 fue la tasa, en puntos porcentuales."
+                },
+                {
+                  "texto": "De agosto a septiembre hubo 2 asistentes menos (72 → 70) y la tasa bajó 10 puntos porcentuales (80 % → 70 %).",
+                  "correcta": true
+                },
+                {
+                  "texto": "De agosto a septiembre la asistencia bajó 10 %.",
+                  "feedback": "Casi. Entre dos tasas la diferencia se dice en **puntos porcentuales**: «10 %» se puede confundir con el 10 % de algo. Y falta decir cuántos asistentes cambiaron."
+                },
+                {
+                  "texto": "La campaña de septiembre falló.",
+                  "feedback": "La tabla no dice nada de una campaña ni de por qué cambió la asistencia. Esa es una causa supuesta, no un hallazgo. Además, septiembre tuvo más inscritos que nunca."
+                }
+              ],
+              "pistas": [
+                "Busca la frase que dice **por separado** el cambio en asistentes y el cambio en la tasa."
+              ],
+              "explicacion": "La frase precisa dice **dos cosas por separado**: el cambio en **cantidad** (2 asistentes menos) y el cambio en **tasa** (10 puntos porcentuales menos). Así nadie confunde una con otra.",
+              "tema": "puntos-porcentuales"
+            }
+          ]
+        },
+        {
+          "numero": 3,
+          "titulo": "Armar el tablero y contarlo",
+          "objetivo": "Decidir qué entra y qué no, reconocer cuándo no hay tasa posible y escribir un relato que separe hallazgo de hipótesis.",
+          "cierre": "Nivel 3 listo: armaste un tablero que responde una pregunta y dice lo que todavía no sabe.",
+          "actividades": [
+            {
+              "id": "n3-sin-denominador",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "¿Qué tema tiene mejor asistencia?",
+              "consigna": "La biblioteca tiene otra tabla, solo de **septiembre**: las asistencias registradas por tema. La coordinación pregunta: «¿Qué tema tiene la mejor **tasa** de asistencia?». ¿Se puede responder?",
+              "apoyo": [
+                {
+                  "tipo": "tabla",
+                  "titulo": "Septiembre de 2026 · asistencias registradas por tema",
+                  "columnas": [
+                    "Tema",
+                    "Asistencias registradas"
+                  ],
+                  "filas": [
+                    [
+                      "Datos",
+                      "30"
+                    ],
+                    [
+                      "Seguridad",
+                      "25"
+                    ],
+                    [
+                      "Programación",
+                      "15"
+                    ],
+                    [
+                      "Total",
+                      "70"
+                    ]
+                  ]
+                },
+                {
+                  "tipo": "grafico",
+                  "forma": "barras",
+                  "titulo": "Asistencias registradas en septiembre de 2026, por tema",
+                  "unidad": "asistencias",
+                  "etiquetas": [
+                    "Datos",
+                    "Seguridad",
+                    "Programación"
+                  ],
+                  "series": [
+                    {
+                      "nombre": "Asistencias",
+                      "valores": [
+                        30,
+                        25,
+                        15
+                      ]
+                    }
+                  ],
+                  "nota": "Solo septiembre. 30 + 25 + 15 = 70 asistencias. Son cantidades, no tasas."
+                }
+              ],
+              "opciones": [
+                {
+                  "texto": "Sí: Datos, con 30 de 100 = 30 %.",
+                  "feedback": "Usaste los 100 inscritos de todo septiembre como si fueran los inscritos de Datos. Ese denominador no está desglosado por tema."
+                },
+                {
+                  "texto": "Sí: Datos, con 30 de 70 = 43 %.",
+                  "feedback": "30 de 70 dice qué parte de las asistencias fue de Datos. Sirve para describir, pero no es una tasa de asistencia: para eso faltan los inscritos de Datos."
+                },
+                {
+                  "texto": "Sí: Programación, porque tiene menos asistencias y es más exigente.",
+                  "feedback": "La tabla no dice nada de qué tan exigente es un tema. Y tener menos asistencias no dice qué parte de sus inscritos asistió."
+                },
+                {
+                  "texto": "No: no hay inscritos por tema, así que no hay tasa por tema.",
+                  "correcta": true
+                }
+              ],
+              "pistas": [
+                "Para la tasa de asistencia de Datos necesitas dos cosas: asistentes de Datos e inscritos de Datos.",
+                "Lee la última definición debajo de la tabla principal."
+              ],
+              "explicacion": "**Sin denominador no hay tasa.** Las barras por tema muestran **cantidades** de septiembre (30, 25 y 15, que suman 70) y así hay que decirlo en una nota. Para comparar tasas por tema harían falta los inscritos de cada tema.",
+              "tema": "sin-denominador"
+            },
+            {
+              "id": "n3-que-incluir",
+              "tipo": "tarjetas",
+              "fase": "aplicar",
+              "titulo": "¿Entra o no entra?",
+              "consigna": "La pregunta del tablero es: «¿Cómo cambió la asistencia de julio a septiembre de 2026 y qué temas concentraron asistencias en septiembre?». Para cada bloque, decide si lo incluyes.",
+              "botones": {
+                "si": "Lo incluyo",
+                "no": "Lo dejo por fuera"
+              },
+              "tarjetas": [
+                {
+                  "texto": "Dos indicadores de septiembre: **70 asistentes** y **70 % de asistencia (70 de 100)**.",
+                  "respuesta": "si",
+                  "explicacion": "Responden cómo le fue a septiembre, con unidad, periodo y denominador."
+                },
+                {
+                  "texto": "Una línea con la **tasa de asistencia** de julio, agosto y septiembre.",
+                  "respuesta": "si",
+                  "explicacion": "Muestra cómo cambió la asistencia mes a mes, con el eje en porcentaje."
+                },
+                {
+                  "texto": "Barras de **asistencias por tema** en septiembre, desde cero.",
+                  "respuesta": "si",
+                  "explicacion": "Responde «qué temas concentraron asistencias en septiembre». El título debe decir que es solo septiembre."
+                },
+                {
+                  "texto": "Barras de «**tasa de asistencia por tema**» usando los 100 inscritos.",
+                  "respuesta": "no",
+                  "explicacion": "No hay inscritos por tema: ese número no tiene sentido. Si lo pones, engañas al lector."
+                },
+                {
+                  "texto": "La lista de asistentes con nombre y número de documento.",
+                  "respuesta": "no",
+                  "explicacion": "No responde la pregunta y expone datos personales. Usar datos con responsabilidad también es saber qué **no** mostrar."
+                },
+                {
+                  "texto": "El número de libros prestados en septiembre.",
+                  "respuesta": "no",
+                  "explicacion": "Puede interesarle a la biblioteca, pero no responde esta pregunta (y no está en estas tablas). Cada bloque responde una parte de la pregunta; si no, sobra."
+                }
+              ],
+              "explicacion": "Un tablero no es «todo lo que tengo»: son **pocas piezas** que responden **una pregunta**. Lo que no ayuda a responderla, o lo que expone a personas, se queda por fuera.",
+              "tema": "tablero"
+            },
+            {
+              "id": "n3-relato",
+              "tipo": "emparejar",
+              "fase": "entender",
+              "titulo": "Hallazgo, hipótesis o pregunta",
+              "consigna": "Este es el tablero de la biblioteca. Para cada frase que alguien propuso para el texto, toca qué tipo de frase es.",
+              "apoyo": [
+                {
+                  "tipo": "texto",
+                  "texto": "**Tablero de los talleres de alfabetización digital · julio a septiembre de 2026.** Indicadores de septiembre: **70 asistentes** · **70 % de asistencia** (70 de 100 inscritos)."
+                },
+                {
+                  "tipo": "grafico",
+                  "forma": "lineas",
+                  "titulo": "Tasa de asistencia por mes, julio a septiembre de 2026",
+                  "unidad": "%",
+                  "etiquetas": [
+                    "Julio",
+                    "Agosto",
+                    "Septiembre"
+                  ],
+                  "series": [
+                    {
+                      "nombre": "Tasa de asistencia",
+                      "valores": [
+                        70,
+                        80,
+                        70
+                      ]
+                    }
+                  ],
+                  "ejeDesde": 0,
+                  "nota": "Tasa = asistentes ÷ inscritos. Julio 56 de 80 · agosto 72 de 90 · septiembre 70 de 100."
+                },
+                {
+                  "tipo": "grafico",
+                  "forma": "barras",
+                  "titulo": "Asistencias registradas en septiembre de 2026, por tema",
+                  "unidad": "asistencias",
+                  "etiquetas": [
+                    "Datos",
+                    "Seguridad",
+                    "Programación"
+                  ],
+                  "series": [
+                    {
+                      "nombre": "Asistencias",
+                      "valores": [
+                        30,
+                        25,
+                        15
+                      ]
+                    }
+                  ],
+                  "nota": "Solo septiembre. 30 + 25 + 15 = 70 asistencias. Son cantidades, no tasas."
+                }
+              ],
+              "tipos": [
+                {
+                  "id": "hallazgo",
+                  "texto": "Hallazgo",
+                  "ayuda": "lo que muestran los datos, con cifras"
+                },
+                {
+                  "id": "hipotesis",
+                  "texto": "Hipótesis",
+                  "ayuda": "una posible causa que aún no está comprobada"
+                },
+                {
+                  "id": "recomendacion",
+                  "texto": "Recomendación prudente",
+                  "ayuda": "qué revisar, sin culpar a nadie"
+                },
+                {
+                  "id": "pendiente",
+                  "texto": "Pregunta pendiente",
+                  "ayuda": "algo que necesita datos nuevos"
+                }
+              ],
+              "pares": [
+                {
+                  "item": "«En septiembre asistió el 70 % de los inscritos (70 de 100), 10 puntos porcentuales menos que en agosto.»",
+                  "correcto": "hallazgo",
+                  "feedback": "Dice lo que muestran las tablas, con cifras que se pueden comprobar: es un hallazgo."
+                },
+                {
+                  "item": "«La campaña de septiembre falló.»",
+                  "correcto": "hipotesis",
+                  "feedback": "La tabla no dice nada de una campaña. Puede ser una explicación, pero todavía es una suposición: una hipótesis."
+                },
+                {
+                  "item": "«Revisar con el equipo qué pudo cambiar entre agosto y septiembre antes de ajustar la convocatoria.»",
+                  "correcto": "recomendacion",
+                  "feedback": "Propone qué revisar, sin culpar a nadie ni dar una causa por segura: es una recomendación prudente."
+                },
+                {
+                  "item": "«¿Cambiaron los horarios o la forma de convocar? Faltan datos para saberlo.»",
+                  "correcto": "pendiente",
+                  "feedback": "Pide datos que la tabla no tiene: es una pregunta pendiente."
+                },
+                {
+                  "item": "«Datos fue el tema con más asistencias en septiembre: 30 de 70.»",
+                  "correcto": "hallazgo",
+                  "feedback": "Sale directo de la tabla por tema de septiembre, con cifras: es un hallazgo."
+                }
+              ],
+              "pistas": [
+                "Pregúntate: ¿esta frase se puede comprobar con las tablas?",
+                "Si da una causa que la tabla no muestra, es una hipótesis."
+              ],
+              "explicacion": "Un buen texto de tablero tiene un **hallazgo** con cifras, una **recomendación prudente** y una **pregunta pendiente**. Las hipótesis no se esconden: se convierten en preguntas para investigar.",
+              "tema": "hallazgo-hipotesis-limite"
+            },
+            {
+              "id": "n3-reto",
+              "tipo": "constructor",
+              "fase": "aplicar",
+              "titulo": "El reto: el tablero de la biblioteca",
+              "consigna": "Prepara un tablero de una sola vista para la coordinación de la biblioteca. Debe mostrar **dos indicadores de septiembre**, la **tendencia mensual de tasas** y la **distribución de asistencias por tema**. Añade un texto corto que ayude a interpretarlo y haga visible lo que todavía no puede concluirse.",
+              "rutas": [
+                {
+                  "id": "mapa",
+                  "nombre": "Ruta Mapa",
+                  "descripcion": "La pregunta ya viene dada. Te concentras en los indicadores, los dos gráficos y el texto.",
+                  "preguntaDada": "¿Cómo cambió la asistencia de julio a septiembre de 2026 y qué temas concentraron asistencias en septiembre?"
+                },
+                {
+                  "id": "brujula",
+                  "nombre": "Ruta Brújula",
+                  "descripcion": "Formulas tu propia pregunta para el tablero de la biblioteca (por ejemplo, sobre la mañana y la tarde) y eliges tus dos indicadores y tus dos gráficos."
+                },
+                {
+                  "id": "telescopio",
+                  "nombre": "Ruta Telescopio",
+                  "descripcion": "Haces el tablero de la Ruta Mapa y comparas además la tasa de la mañana y la de la tarde en septiembre, diciendo qué no permite concluir esa diferencia.",
+                  "preguntaDada": "¿Cómo cambió la asistencia de julio a septiembre de 2026, qué temas concentraron asistencias en septiembre y cómo se compara la asistencia de la mañana y la tarde en septiembre?"
+                }
+              ],
+              "pasos": [
+                {
+                  "clave": "pregunta",
+                  "titulo": "1 · Mi pregunta, para quién es y qué periodos usa",
+                  "ayuda": "Escribe la pregunta, para quién es el tablero y qué meses cubre cada bloque.",
+                  "pistas": [
+                    "El tablero es para la coordinación de la biblioteca.",
+                    "La línea usa julio a septiembre de 2026; los indicadores y las barras, solo septiembre."
+                  ]
+                },
+                {
+                  "clave": "indicadores",
+                  "titulo": "2 · Mis dos indicadores",
+                  "ayuda": "Cada uno con **unidad**, **periodo** y, si es porcentaje, su **denominador** a la vista. Puedes marcar las filas que usaste.",
+                  "pistas": [
+                    "Septiembre está en las filas 05 y 06.",
+                    "Asistentes: 38 + 32. Inscritos: 50 + 50.",
+                    "Tasa: 70 ÷ 100 = 0,70 → 70 %. Escribe «70 de 100» al lado, y «asistentes» o «%» junto a cada 70."
+                  ],
+                  "permiteFilas": true
+                },
+                {
+                  "clave": "graficos",
+                  "titulo": "3 · Mis dos gráficos",
+                  "ayuda": "Describe cada gráfico: tipo, título con periodo, qué va en cada eje y desde dónde arranca.",
+                  "pistas": [
+                    "Línea: tasa de asistencia por mes (70 %, 80 %, 70 %), con el eje en porcentaje y los meses en orden.",
+                    "Barras: asistencias por tema en septiembre (30, 25, 15), desde cero. Son cantidades, no tasas."
+                  ]
+                },
+                {
+                  "clave": "relato",
+                  "titulo": "4 · Hallazgo, recomendación y pregunta pendiente",
+                  "ayuda": "Tres frases cortas. Agrega la fuente (ficticia) y una limitación.",
+                  "pistas": [
+                    "Hallazgo: una frase con cifras que se pueda comprobar en las tablas.",
+                    "Recomendación: qué revisar con el equipo, sin culpar a una campaña.",
+                    "Pregunta pendiente: algo que necesita datos nuevos, como los horarios o la convocatoria."
+                  ]
+                }
+              ],
+              "verificacion": [
+                "Mi pregunta dice para quién es el tablero y qué periodos usa.",
+                "Cada indicador tiene unidad, periodo y, si es tasa, su denominador.",
+                "La línea muestra tasas (%) y las barras muestran cantidades desde cero.",
+                "No calculé una tasa por tema.",
+                "Mi texto separa hallazgo, recomendación y pregunta pendiente, sin culpar a nadie.",
+                "Texto y gráficos hablan del mismo periodo, y anoté la fuente y una limitación."
+              ],
+              "ejemplo": "«Pregunta: ¿cómo cambió la asistencia de julio a septiembre de 2026 y qué temas concentraron asistencias en septiembre? Tablero para la coordinación de la biblioteca. Indicadores de septiembre (filas 05 y 06): **70 asistentes** y **70 % de asistencia (70 de 100 inscritos)**. Gráfico 1: línea «Tasa de asistencia por mes, julio a septiembre de 2026», con 70 %, 80 % y 70 %. Gráfico 2: barras desde cero «Asistencias registradas en septiembre de 2026, por tema»: Datos 30, Seguridad 25, Programación 15 (total 70). Hallazgo: los inscritos crecieron de 80 a 100; la tasa subió a 80 % en agosto y en septiembre volvió a 70 %: 2 asistentes menos y 10 puntos porcentuales menos que en agosto. Recomendación: revisar con el equipo qué pudo cambiar entre agosto y septiembre antes de ajustar la convocatoria. Pregunta pendiente: ¿cambiaron los horarios o la forma de convocar? Fuente: registro ficticio de la biblioteca. Limitación: no hay inscritos por tema, así que las barras no dicen qué tema tiene mejor asistencia.»",
+              "explicacion": "No se busca un tablero bonito: se busca uno que **otra persona pueda leer y comprobar** desde las tablas.",
+              "tema": "hallazgo-hipotesis-limite"
+            },
+            {
+              "id": "n3-cierre",
+              "tipo": "escritura",
+              "fase": "observar",
+              "titulo": "Cierre de la misión",
+              "consigna": "Completa estas dos frases. Quedan guardadas en tu cuaderno (solo en este navegador).",
+              "frases": [
+                {
+                  "clave": "cierre-ayuda",
+                  "inicio": "Mi tablero ayuda a saber…"
+                },
+                {
+                  "clave": "cierre-falta",
+                  "inicio": "Todavía necesitamos averiguar…"
+                }
+              ],
+              "explicacion": "El procedimiento en una línea: **pregunta y periodo → indicadores con unidad y denominador → cantidad y tasa por separado → gráficos que responden → relato con límites.**"
+            }
+          ]
+        }
+      ],
+      "conceptos": [
+        {
+          "termino": "Tablero",
+          "definicion": "Una sola vista con pocos indicadores, gráficos y un texto corto que responden **una pregunta**.",
+          "ejemplo": "El tablero de la biblioteca: dos indicadores de septiembre, una línea de tasas y barras por tema."
+        },
+        {
+          "termino": "Indicador clave (KPI)",
+          "definicion": "Una cifra importante para la pregunta, con unidad, periodo y, si es porcentaje, su denominador.",
+          "ejemplo": "«70 % de asistencia en septiembre de 2026 (70 de 100 inscritos)»."
+        },
+        {
+          "termino": "Cantidad",
+          "definicion": "Cuántos hubo. Responde «¿cuántos?».",
+          "ejemplo": "70 asistentes en septiembre."
+        },
+        {
+          "termino": "Tasa",
+          "definicion": "Qué parte del total: la parte ÷ la base. Responde «¿de cada 100, cuántos?».",
+          "ejemplo": "70 ÷ 100 = 70 % de asistencia."
+        },
+        {
+          "termino": "Denominador",
+          "definicion": "La base de una tasa: va abajo en la división.",
+          "ejemplo": "Para la asistencia, la base son los inscritos: 70 ÷ 100, no 100 ÷ 70."
+        },
+        {
+          "termino": "Puntos porcentuales",
+          "definicion": "La diferencia entre dos tasas.",
+          "ejemplo": "De 80 % a 70 % hay 10 puntos porcentuales, aunque fueron solo 2 asistentes menos."
+        },
+        {
+          "termino": "Sin denominador no hay tasa",
+          "definicion": "Si no tienes la base de una categoría, solo puedes mostrar cantidades.",
+          "ejemplo": "No hay inscritos por tema: las barras por tema son cantidades."
+        },
+        {
+          "termino": "Hallazgo e hipótesis",
+          "definicion": "El hallazgo es lo que muestran los datos; la hipótesis, una posible causa aún sin comprobar.",
+          "ejemplo": "Hallazgo: «la tasa bajó 10 puntos». Hipótesis: «la campaña falló»."
+        }
+      ],
+      "fraseClave": "Un tablero responde una pregunta: cada cifra con su unidad, su periodo y su denominador, y un texto que no inventa causas.",
+      "paraLlevar": {
+        "consigna": "Prepara un tablero de una sola vista para la coordinación de la biblioteca: dos indicadores de septiembre, la tendencia mensual de tasas y la distribución de asistencias por tema, con un texto corto que haga visible lo que todavía no puede concluirse.",
+        "pasos": [
+          "Escribe la pregunta, para quién es el tablero y qué periodos usa.",
+          "Calcula y rotula dos indicadores de septiembre con unidad, periodo y denominador.",
+          "Haz una línea de la tasa de asistencia por mes, con el eje en porcentaje.",
+          "Haz barras de asistencias por tema en septiembre, desde cero (cantidades, no tasas).",
+          "Escribe un hallazgo con cifras, una recomendación prudente y una pregunta pendiente, con fuente y una limitación."
+        ],
+        "lupa": [
+          "Dice para quién es y qué periodo cubre.",
+          "Se responde con indicadores que tienen unidad y denominador.",
+          "Separa cantidades de tasas.",
+          "Dice qué no se puede concluir todavía."
+        ]
+      }
+    }
+  },
   "teoria": {
     "intro": "Un tablero junta en una sola vista las cifras y gráficos que responden una pregunta, con un texto corto que ayuda a leerlos. Es como el resumen del partido: el marcador, un par de datos clave y una frase que cuenta qué pasó, sin inventar lo que no se vio.",
     "platzi": [

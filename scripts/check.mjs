@@ -1,7 +1,7 @@
 // Valida los archivos de contenido antes de publicar. Sin dependencias: `node scripts/check.mjs`.
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENIDO = join(RAIZ, 'content');
@@ -83,6 +83,18 @@ const glosario = leerJson(join(CONTENIDO, 'glosario.json'));
 if (sitio && !sitio.nombre) errores.push('sitio.json: falta "nombre"');
 if (glosario && !Array.isArray(glosario.terminos)) errores.push('glosario.json: falta la lista "terminos"');
 
+// ---------- Panel de control ----------
+const SI = new Set([true, 'si', 'sí', 'on', 'true', 1, '1', 'abierta']);
+const NO = new Set([false, 'no', 'off', 'false', 0, '0', 'cerrada']);
+const norm = (v) => (typeof v === 'string' ? v.trim().toLowerCase() : v);
+let panel = {};
+const rutaPanel = join(CONTENIDO, 'panel-de-control.js');
+if (existsSync(rutaPanel)) {
+  try { panel = (await import(pathToFileURL(rutaPanel).href)).default || {}; }
+  catch (e) { errores.push(`panel-de-control.js no se pudo leer: ${e.message}`); }
+} else avisos.push('No existe content/panel-de-control.js; se usa el "estado" de cada misión.');
+const resumenPanel = [];
+
 const numeros = new Set();
 for (const archivo of indice?.misiones || []) {
   const ruta = join(CONTENIDO, 'misiones', archivo);
@@ -90,6 +102,17 @@ for (const archivo of indice?.misiones || []) {
   const m = leerJson(ruta);
   if (!m) continue;
   const donde = archivo;
+  const p = panel[m.numero];
+  if (p) {
+    if (p.abierta !== undefined) {
+      if (!SI.has(norm(p.abierta)) && !NO.has(norm(p.abierta))) errores.push(`panel-de-control.js, misión ${m.numero}: "abierta" debe ser true/false (o si/no, on/off); dice "${p.abierta}"`);
+      m.estado = SI.has(norm(p.abierta)) ? 'disponible' : 'proximamente';
+    }
+    if (p.caso) {
+      if (!m.casos) errores.push(`panel-de-control.js, misión ${m.numero}: tiene "caso: '${p.caso}'", pero la misión tiene un solo caso`);
+      else m.casoActivo = p.caso;
+    }
+  }
   if (typeof m.numero !== 'number') errores.push(`${donde}: "numero" debe ser un número`);
   if (numeros.has(m.numero)) errores.push(`${donde}: número de misión repetido (${m.numero})`);
   numeros.add(m.numero);
@@ -112,30 +135,62 @@ for (const archivo of indice?.misiones || []) {
       if (!['aplica', 'anticipa', 'retoma'].includes(pl.relacion)) errores.push(`${donde}: "teoria.platzi" de ${pl.modulo}: "relacion" debe ser aplica, anticipa o retoma`);
       if (!pl.curso || !pl.modulo || !pl.contenidos?.length) errores.push(`${donde}: cada entrada de "teoria.platzi" necesita "curso", "modulo" y "contenidos"`);
     });
-    m.niveles?.forEach((nv) => nv.actividades?.forEach((a) => {
-      if (a.tema && !idsTema.has(a.tema)) errores.push(`${donde} [${a.id}]: "tema": "${a.tema}" no existe en "teoria.temas"`);
-    }));
   } else {
     avisos.push(`${donde}: todavía no tiene "teoria"`);
   }
 
-  if (m.estado === 'disponible') {
-    if (!m.historia) errores.push(`${donde}: falta "historia"`);
-    if (!m.niveles?.length) errores.push(`${donde}: está "disponible" pero no tiene niveles`);
-    if (m.datos) {
-      const n = m.datos.columnas?.length;
-      m.datos.filas?.forEach((f, i) => { if (f.length !== n) errores.push(`${donde}: la fila ${i + 1} de "datos" tiene ${f.length} valores y hay ${n} columnas`); });
-      if (!m.datos.definiciones?.length) errores.push(`${donde}: "datos.definiciones" es obligatorio (se muestra siempre junto a la tabla)`);
-      if (!m.datos.aviso) avisos.push(`${donde}: "datos.aviso" vacío; se usará «Datos ficticios, solo para practicar.»`);
+  // Una misión puede traer un solo caso (campos en la raíz) o varios en "casos" con "casoActivo".
+  const idsTema = new Set((m.teoria?.temas || []).map((t) => t.id));
+  let casos = [[donde, m]];
+  if (m.casos) {
+    if (!m.casos[m.casoActivo]) errores.push(`${donde}: "casoActivo" ("${m.casoActivo}") no es ninguna de las claves de "casos": ${Object.keys(m.casos).join(', ')}`);
+    casos = Object.entries(m.casos).map(([k, c]) => [`${donde} (caso ${k})`, { ...m, ...c }]);
+    Object.entries(m.casos).forEach(([k, c]) => { if (!c.nombre) errores.push(`${donde}: el caso "${k}" necesita "nombre" (se muestra en la vista previa)`); });
+  }
+  resumenPanel.push(`  Misión ${m.numero}  ${m.estado === 'disponible' ? '🟢 abierta  ' : '🔒 bloqueada'}  ${m.casos ? `caso: ${m.casoActivo}` : '(un solo caso)'}${m.casos || m.niveles?.length ? '' : '  · sin niveles todavía'}`);
+  for (const [dondeCaso, c] of casos) {
+    const tieneNiveles = c.niveles?.length > 0;
+    if (m.estado === 'disponible' && !tieneNiveles) errores.push(`${dondeCaso}: está "disponible" pero no tiene niveles`);
+    if (!tieneNiveles) continue; // misiones en "proximamente" sin niveles: solo teoría
+    if (!c.historia) errores.push(`${dondeCaso}: falta "historia"`);
+    if (!c.titulo || !c.caso) errores.push(`${dondeCaso}: faltan "titulo" o "caso"`);
+    if (c.datos) {
+      const n = c.datos.columnas?.length;
+      c.datos.filas?.forEach((f, i) => { if (f.length !== n) errores.push(`${dondeCaso}: la fila ${i + 1} de "datos" tiene ${f.length} valores y hay ${n} columnas`); });
+      if (!c.datos.definiciones?.length) errores.push(`${dondeCaso}: "datos.definiciones" es obligatorio (se muestra siempre junto a la tabla)`);
+      if (!c.datos.aviso) avisos.push(`${dondeCaso}: "datos.aviso" vacío; se usará «Datos ficticios, solo para practicar.»`);
     }
+    if (!c.conceptos?.length) errores.push(`${dondeCaso}: faltan "conceptos"`);
     const ids = new Set();
-    m.niveles?.forEach((nv) => {
-      if (!nv.actividades?.length) errores.push(`${donde} nivel ${nv.numero}: no tiene actividades`);
-      nv.actividades?.forEach((a) => revisarActividad(a, m, `${donde} nivel ${nv.numero}`, ids));
+    c.niveles.forEach((nv) => {
+      if (!nv.actividades?.length) errores.push(`${dondeCaso} nivel ${nv.numero}: no tiene actividades`);
+      if (!nv.cierre) avisos.push(`${dondeCaso} nivel ${nv.numero}: sin "cierre"`);
+      nv.actividades?.forEach((a) => {
+        revisarActividad(a, c, `${dondeCaso} nivel ${nv.numero}`, ids);
+        if (a.tema && !idsTema.has(a.tema)) errores.push(`${dondeCaso} [${a.id}]: "tema": "${a.tema}" no existe en "teoria.temas"`);
+        revisarApoyo(a.apoyo, `${dondeCaso} [${a.id}]`);
+      });
     });
   }
 }
 
+function revisarApoyo(ap, donde) {
+  if (!ap) return;
+  if (Array.isArray(ap)) { ap.forEach((x) => revisarApoyo(x, donde)); return; }
+  if (!['comparacion', 'tabla', 'texto', 'grafico'].includes(ap.tipo)) errores.push(`${donde}: "apoyo.tipo" desconocido "${ap.tipo}"`);
+  if (ap.tipo === 'tabla') ap.filas?.forEach((f, i) => { if (f.length !== ap.columnas?.length) errores.push(`${donde}: la fila ${i + 1} de la tabla de apoyo no cuadra con sus columnas`); });
+  if (ap.tipo === 'grafico') revisarGrafico(ap, donde);
+  if (ap.tipo === 'comparacion') ap.items?.forEach((it) => it.grafico && revisarGrafico(it.grafico, donde));
+}
+
+function revisarGrafico(g, donde) {
+  if (!['barras', 'lineas', undefined].includes(g.forma)) errores.push(`${donde}: "forma" del gráfico debe ser barras o lineas`);
+  if (!g.etiquetas?.length || !g.series?.length) errores.push(`${donde}: el gráfico necesita "etiquetas" y "series"`);
+  g.series?.forEach((x) => { if (x.valores?.length !== g.etiquetas?.length) errores.push(`${donde}: la serie "${x.nombre || ''}" tiene ${x.valores?.length} valores y hay ${g.etiquetas?.length} etiquetas`); });
+}
+
+console.log('Panel de control (content/panel-de-control.js):');
+resumenPanel.sort().forEach((l) => console.log(l));
 avisos.forEach((a) => console.warn(`⚠  ${a}`));
 if (errores.length) {
   errores.forEach((e) => console.error(`✗ ${e}`));

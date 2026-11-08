@@ -1,0 +1,64 @@
+<!doctype html><html><body><h1 style="font-family:sans-serif">Prueba de humo: todas las misiones y casos (usa la vista previa)</h1><pre id="out">corriendo…</pre>
+<iframe id="f" style="width:360px;height:800px"></iframe>
+<script>
+// Recorre cada misión con dos casos, en cada caso: portada de misión, cada actividad, cuaderno, para llevar y modo clase.
+// Revisa que no haya errores de JavaScript, actividades sin dibujar ni scroll horizontal a 360 px.
+const f = document.getElementById('f'); const log = []; let fallos = 0;
+const ok = (c, m) => { if (!c) { log.push('FAIL ' + m); fallos++; } return c; };
+const esperar = (ms = 120) => new Promise((r) => setTimeout(r, ms));
+const W = () => f.contentWindow, D = () => f.contentDocument;
+let errores = [];
+const cargar = async (url) => { f.src = url; await esperar(900); W().addEventListener('error', (e) => errores.push(e.message)); W().addEventListener('unhandledrejection', (e) => errores.push(String(e.reason))); };
+const ir = async (h) => { W().location.hash = h; await esperar(150); };
+const anchoOk = () => D().documentElement.scrollWidth <= 362;
+
+async function correr() {
+  // 1. Como estudiante: todo bloqueado menos la misión 1.
+  await cargar('/?previa=0#/');
+  W().localStorage.clear(); W().sessionStorage.clear(); W().location.reload(); await esperar(900);
+  ok(D().querySelectorAll('.cp--pronto').length === 7, 'estudiante: 7 misiones bloqueadas');
+  await ir('#/mision/4/nivel/1/1'); ok(D().body.textContent.includes('PRÓXIMAMENTE') || D().body.textContent.includes('Próximamente'), 'estudiante: no puede entrar a un nivel bloqueado');
+  log.push('OK   vista de estudiante');
+
+  // 2. Vista previa: cada misión y cada caso.
+  await cargar('/?previa#/');
+  ok(D().querySelector('.banda-previa'), 'banda de vista previa en el mapa');
+  const misiones = [2, 3, 4, 5, 6, 7, 8];
+  let actividades = 0;
+  for (const n of misiones) {
+    for (const caso of ['cotidiano', 'guia']) {
+      W().sessionStorage.setItem('arcade-datos:previa-casos', JSON.stringify({ [n]: caso }));
+      await cargar(`/#/mision/${n}`);
+      errores = [];
+      const etiqueta = `M${n} ${caso}`;
+      ok(D().querySelector('.banda-previa .btn--primario')?.getAttribute('aria-pressed') === 'true', `${etiqueta}: selector de caso`);
+      const niveles = D().querySelectorAll('.nivel-item').length;
+      ok(niveles === 3, `${etiqueta}: 3 niveles (hay ${niveles})`);
+      for (let nv = 1; nv <= niveles; nv++) {
+        await ir(`#/mision/${n}/nivel/${nv}`);
+        const total = Number((D().body.textContent.match(/(\d+) actividades/) || [])[1] || 0);
+        ok(total > 0, `${etiqueta} nivel ${nv}: tiene actividades`);
+        for (let a = 1; a <= total; a++) {
+          await ir(`#/mision/${n}/nivel/${nv}/${a}`);
+          actividades++;
+          const t = D().body.textContent;
+          ok(D().querySelector('.actividad__titulo'), `${etiqueta} ${nv}.${a}: se dibuja`);
+          ok(!t.includes('Tipo de actividad desconocido'), `${etiqueta} ${nv}.${a}: tipo conocido`);
+          ok(D().querySelector('.actividad').children.length >= 4, `${etiqueta} ${nv}.${a}: tiene cuerpo`);
+          ok(anchoOk(), `${etiqueta} ${nv}.${a}: sin scroll horizontal (${D().documentElement.scrollWidth})`);
+          D().querySelectorAll('.grafico__svg').forEach((g) => ok(g.querySelectorAll('rect, path').length > 0, `${etiqueta} ${nv}.${a}: gráfico con marcas`));
+        }
+      }
+      for (const sub of ['cuaderno', 'llevar']) { await ir(`#/mision/${n}/${sub}`); ok(D().querySelector('h1'), `${etiqueta}: ${sub}`); }
+      await ir(`#/clase/${n}`); ok(D().querySelector('h1, h2'), `${etiqueta}: modo clase`);
+      await ir(`#/mision/${n}/teoria`); ok(D().querySelectorAll('.tema').length > 0, `${etiqueta}: teoría`);
+      ok(!errores.length, `${etiqueta}: sin errores de JS (${errores.join(' | ')})`);
+      log.push(`OK   ${etiqueta}`);
+    }
+  }
+  log.push(`Actividades recorridas: ${actividades}`);
+  await cargar('/?previa=0#/');
+  ok(!D().querySelector('.banda-previa'), 'salir de la vista previa');
+}
+correr().catch((e) => { log.push('ERROR ' + e.stack); fallos++; }).finally(() => { document.getElementById('out').textContent = log.join('\n') + `\n\nFALLOS: ${fallos}`; document.title = 'FIN'; });
+</script></body></html>

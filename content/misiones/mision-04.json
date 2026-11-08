@@ -4,18 +4,2034 @@
   "titulo": "Comparar con justicia",
   "sesion": "Agrupar y comparar segmentos",
   "habilidad": "Tasas con denominador; tasa global frente a promedio de tasas.",
-  "caso": "Tres sedes de talleres",
+  "caso": "Tres rutas de bus de un barrio",
   "color": "naranja",
-  "historia": "",
   "insignia": {
     "nombre": "Balanza justa",
-    "descripcion": "",
+    "descripcion": "Comparas grupos de tamaños distintos con tasas, muestras siempre el denominador y no confundes el total con el promedio de los porcentajes.",
     "simbolo": "balanza"
   },
-  "niveles": [],
-  "conceptos": [],
+  "casoActivo": "cotidiano",
+  "casos": {
+    "cotidiano": {
+      "nombre": "Cotidiano: rutas de bus que llegan tarde",
+      "titulo": "Las rutas del barrio",
+      "caso": "Puntualidad de tres rutas de bus",
+      "historia": "Por el paradero del parque de un barrio pasan tres rutas de bus: Estación, Parque y Colegio. En el grupo de vecinos todos dicen que «la Estación siempre llega tarde». Don Hernán, de la junta de acción comunal (ficticia), organizó a unos voluntarios que anotaron durante dos semanas cuántos viajes pasaron y cuántos llegaron tarde. La junta quiere pedirle a la empresa que revise primero una ruta. ¿Cuál? Tú le vas a ayudar a comparar con justicia.",
+      "datos": {
+        "titulo": "Viajes observados en el paradero del parque",
+        "unidad": [
+          "registro",
+          "registros"
+        ],
+        "columnas": [
+          "Código",
+          "Ruta",
+          "Semana",
+          "Viajes observados",
+          "Llegaron tarde"
+        ],
+        "filas": [
+          [
+            "01",
+            "Estación",
+            "1",
+            "70",
+            "6"
+          ],
+          [
+            "02",
+            "Parque",
+            "1",
+            "20",
+            "4"
+          ],
+          [
+            "03",
+            "Colegio",
+            "1",
+            "10",
+            "3"
+          ],
+          [
+            "04",
+            "Estación",
+            "2",
+            "70",
+            "8"
+          ],
+          [
+            "05",
+            "Parque",
+            "2",
+            "20",
+            "6"
+          ],
+          [
+            "06",
+            "Colegio",
+            "2",
+            "10",
+            "5"
+          ]
+        ],
+        "definiciones": [
+          "Cada **código** es un **registro**: lo que se observó de **una ruta durante una semana**.",
+          "**Semana 1** va del 19 al 23 de octubre de 2026 y **semana 2** del 26 al 30 de octubre (de lunes a viernes).",
+          "**Viajes observados**: cuántos buses de esa ruta pasaron por el paradero entre las 6:00 y las 8:00 a. m.",
+          "**Llegaron tarde**: de esos viajes, cuántos pasaron más de 5 minutos después de la hora del horario publicado.",
+          "**No hay** datos de por qué se retrasó un bus (tráfico, lluvia, varadas) ni de otras horas, otros días u otros paraderos."
+        ],
+        "aviso": "Datos ficticios, solo para practicar. Las rutas y la junta son inventadas."
+      },
+      "niveles": [
+        {
+          "numero": 1,
+          "titulo": "Leer y resumir",
+          "objetivo": "Entender qué cuenta cada fila, armar una fila por ruta y saber qué va arriba y qué va abajo en una tasa.",
+          "cierre": "Nivel 1 listo: ya tienes una fila por ruta y sabes preguntar «¿de cuántos?».",
+          "actividades": [
+            {
+              "id": "n1-toca-fila",
+              "tipo": "leer-filas",
+              "fase": "hacer",
+              "titulo": "Toca una fila",
+              "consigna": "Toca una fila de la tabla y escucha lo que nos cuenta. Lee al menos **2 filas** para continuar.",
+              "minimo": 2,
+              "lecturas": {
+                "01": "El registro 01 cuenta que, en la semana 1, por el paradero pasaron 70 viajes de la Ruta Estación entre las 6:00 y las 8:00 a. m., y 6 de ellos llegaron tarde.",
+                "02": "El registro 02 cuenta que, en la semana 1, por el paradero pasaron 20 viajes de la Ruta Parque entre las 6:00 y las 8:00 a. m., y 4 de ellos llegaron tarde.",
+                "03": "El registro 03 cuenta que, en la semana 1, por el paradero pasaron 10 viajes de la Ruta Colegio entre las 6:00 y las 8:00 a. m., y 3 de ellos llegaron tarde.",
+                "04": "El registro 04 cuenta que, en la semana 2, por el paradero pasaron 70 viajes de la Ruta Estación entre las 6:00 y las 8:00 a. m., y 8 de ellos llegaron tarde.",
+                "05": "El registro 05 cuenta que, en la semana 2, por el paradero pasaron 20 viajes de la Ruta Parque entre las 6:00 y las 8:00 a. m., y 6 de ellos llegaron tarde.",
+                "06": "El registro 06 cuenta que, en la semana 2, por el paradero pasaron 10 viajes de la Ruta Colegio entre las 6:00 y las 8:00 a. m., y 5 de ellos llegaron tarde."
+              },
+              "explicacion": "Cada lectura habla de **una ruta en una semana**: cuántos viajes pasaron y cuántos de ellos llegaron tarde. Los viajes tarde son **parte** de los viajes observados, no algo aparte.",
+              "tema": "tabla-resumen"
+            },
+            {
+              "id": "n1-que-es-fila",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "¿Qué representa una fila?",
+              "consigna": "Después de leer algunas filas, ¿qué representa cada fila de esta tabla?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Un bus",
+                  "feedback": "Una fila habla de muchos viajes: la 01 tiene 70. Lo que cuenta cada fila es lo que pasó con una ruta durante una semana."
+                },
+                {
+                  "texto": "Una ruta durante una semana",
+                  "correcta": true
+                },
+                {
+                  "texto": "Una ruta",
+                  "feedback": "¡Casi! Pero cada ruta aparece en dos filas, una por semana. Para tener una sola fila por ruta hay que juntarlas: eso es lo que harás enseguida."
+                },
+                {
+                  "texto": "Un viaje que llegó tarde",
+                  "feedback": "Los viajes tarde son una columna: una cantidad dentro de cada fila. Mira la 01: 70 viajes, 6 tarde."
+                }
+              ],
+              "pistas": [
+                "Mira la columna Ruta: ¿cuántas veces aparece la Ruta Estación?",
+                "Lee las definiciones debajo de la tabla: dicen qué es cada código."
+              ],
+              "explicacion": "Cada fila es **una ruta en una semana**. Para comparar rutas necesitamos **una fila por ruta**: una **tabla resumen**.",
+              "tema": "tabla-resumen"
+            },
+            {
+              "id": "n1-resumen",
+              "tipo": "conteo",
+              "fase": "hacer",
+              "titulo": "Arma la tabla resumen",
+              "consigna": "Junta las dos semanas de cada ruta: suma cuántos viajes **llegaron tarde** en cada una.",
+              "usaDatos": true,
+              "categorias": [
+                "Estación",
+                "Parque",
+                "Colegio"
+              ],
+              "esperado": {
+                "Estación": 14,
+                "Parque": 10,
+                "Colegio": 8
+              },
+              "erroresComunes": [
+                {
+                  "valores": {
+                    "Estación": 2,
+                    "Parque": 2,
+                    "Colegio": 2
+                  },
+                  "mensaje": "Contaste filas: cada ruta tiene 2. La pregunta es cuántos viajes llegaron tarde: suma la columna «Llegaron tarde» de sus dos filas."
+                },
+                {
+                  "valores": {
+                    "Estación": 6,
+                    "Parque": 4,
+                    "Colegio": 3
+                  },
+                  "mensaje": "Esos son solo los de la semana 1. Suma también los de la semana 2."
+                },
+                {
+                  "valores": {
+                    "Estación": 8,
+                    "Parque": 6,
+                    "Colegio": 5
+                  },
+                  "mensaje": "Esos son solo los de la semana 2. Suma también los de la semana 1."
+                }
+              ],
+              "mensajeGeneral": "Vas por buen camino. Revisa {categorias}: busca sus dos filas (una por semana) y suma la columna «Llegaron tarde».",
+              "pistas": [
+                "La Ruta Estación está en las filas 01 y 04.",
+                "Estación: 6 + 8. Parque: 4 + 6. Colegio: 3 + 5."
+              ],
+              "explicacion": "Viajes tarde por ruta: **Estación 14 · Parque 10 · Colegio 8**. Con los viajes observados se hace lo mismo: Estación 70 + 70 = **140**, Parque **40** y Colegio **20**. En total, 32 viajes tarde de 200 observados. Eso es una **tabla resumen**: una fila por ruta.",
+              "tema": "tabla-resumen"
+            },
+            {
+              "id": "n1-mas-tarde",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "¿La que más falla?",
+              "consigna": "En el grupo de vecinos dicen: «La Ruta Estación es la que más falla». Con **solo** este gráfico, ¿qué puedes afirmar?",
+              "apoyo": {
+                "tipo": "grafico",
+                "forma": "barras",
+                "titulo": "Viajes que llegaron tarde, por ruta",
+                "etiquetas": [
+                  "Estación",
+                  "Parque",
+                  "Colegio"
+                ],
+                "series": [
+                  {
+                    "nombre": "Llegaron tarde",
+                    "valores": [
+                      14,
+                      10,
+                      8
+                    ]
+                  }
+                ],
+                "unidad": "viajes",
+                "nota": "Dos semanas, de 6:00 a 8:00 a. m."
+              },
+              "opciones": [
+                {
+                  "texto": "La Ruta Estación es la menos puntual.",
+                  "feedback": "El gráfico muestra cuántos viajes llegaron tarde, pero no de cuántos. ¿Y si la Ruta Estación pasó muchas más veces que las otras?"
+                },
+                {
+                  "texto": "La Ruta Estación tuvo más viajes tarde, pero falta saber de cuántos viajes.",
+                  "correcta": true
+                },
+                {
+                  "texto": "La Ruta Colegio es la más puntual porque tuvo menos viajes tarde.",
+                  "feedback": "Menos retrasos en cantidad no es lo mismo que más puntual: Colegio también pudo pasar muy pocas veces. Falta la base."
+                },
+                {
+                  "texto": "Las tres rutas son igual de puntuales.",
+                  "feedback": "Las cantidades son distintas (14, 10 y 8) y además no sabemos de cuántos viajes. Con este gráfico no se puede decir que sean iguales."
+                }
+              ],
+              "explicacion": "Una cantidad sola no dice si es mucho o poco: **14 retrasos** pueden ser muchísimos de 20 viajes o pocos de 140. La pregunta que destapa todo es: **¿de cuántos?**",
+              "tema": "cantidad-vs-tasa"
+            },
+            {
+              "id": "n1-partes",
+              "tipo": "emparejar",
+              "fase": "entender",
+              "titulo": "¿Arriba o abajo?",
+              "consigna": "Para comparar con justicia vas a usar una división: la **tasa de retraso** de cada ruta. Para cada dato, toca qué papel cumple.",
+              "tipos": [
+                {
+                  "id": "numerador",
+                  "texto": "Numerador",
+                  "ayuda": "va arriba: lo que pasó"
+                },
+                {
+                  "id": "denominador",
+                  "texto": "Denominador",
+                  "ayuda": "va abajo: la base, «de cuántos»"
+                },
+                {
+                  "id": "fuera",
+                  "texto": "No entra en la división",
+                  "ayuda": "sirve para ubicar o identificar la fila"
+                }
+              ],
+              "pares": [
+                {
+                  "item": "Llegaron tarde (Estación: 14)",
+                  "correcto": "numerador",
+                  "feedback": "Es lo que pasó y queremos medir: va arriba."
+                },
+                {
+                  "item": "Viajes observados (Estación: 140)",
+                  "correcto": "denominador",
+                  "feedback": "Es la base: de cuántos viajes hablamos. Va abajo."
+                },
+                {
+                  "item": "Semana (1 o 2)",
+                  "correcto": "fuera",
+                  "feedback": "La semana ubica el registro en el tiempo. Ya la usaste para juntar filas, pero no va en la división."
+                },
+                {
+                  "item": "Código (01 a 06)",
+                  "correcto": "fuera",
+                  "feedback": "El código identifica la fila: no se suma ni se divide."
+                }
+              ],
+              "pistas": [
+                "Pregúntate «¿tantos de cuántos?»: los «tantos» van arriba y los «cuántos» van abajo."
+              ],
+              "explicacion": "**Tasa de retraso = viajes que llegaron tarde ÷ viajes observados.** Arriba va lo que pasó (**numerador**); abajo, la base (**denominador**).",
+              "tema": "tasa"
+            },
+            {
+              "id": "n1-completa",
+              "tipo": "completar",
+              "fase": "entender",
+              "titulo": "Completa la división",
+              "consigna": "Elige lo que completa la tasa de la Ruta Estación (usa la tabla resumen).",
+              "frase": "La tasa de retraso de la Ruta Estación es {0} ÷ {1} = 0,10 = 10 %. Eso quiere decir que llegaron tarde 10 de cada {2}.",
+              "huecos": [
+                {
+                  "opciones": [
+                    {
+                      "texto": "14",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "140",
+                      "feedback": "140 es la base (los viajes observados): va abajo. Arriba va lo que pasó."
+                    },
+                    {
+                      "texto": "6",
+                      "feedback": "6 son solo los retrasos de la semana 1. La tabla resumen junta las dos semanas: 6 + 8."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "140",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "14",
+                      "feedback": "14 ya va arriba. Abajo va de cuántos viajes hablamos: los observados de esa ruta."
+                    },
+                    {
+                      "texto": "200",
+                      "feedback": "200 son los viajes de las tres rutas juntas. Para la tasa de Estación, la base son solo sus viajes."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "100 viajes",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "140 viajes",
+                      "feedback": "De 140 viajes llegaron tarde 14. Pero el porcentaje siempre se lee «de cada 100»."
+                    },
+                    {
+                      "texto": "10 viajes",
+                      "feedback": "«10 de cada 10» sería que todos llegaron tarde. El porcentaje se lee «de cada 100»."
+                    }
+                  ]
+                }
+              ],
+              "textoLibre": {
+                "etiqueta": "Si quieres, escribe con tus palabras qué significa ese 10 % (opcional, queda en tu cuaderno):",
+                "clave": "bus-que-es-10"
+              },
+              "explicacion": "14 ÷ 140 = 0,10. En la hoja de cálculo, si a 0,10 le das formato de porcentaje ya se ve **10 %**: no hay que multiplicar otra vez por 100. Y 10 % no son «10 buses»: son **10 de cada 100 viajes**.",
+              "tema": "tasa"
+            }
+          ]
+        },
+        {
+          "numero": 2,
+          "titulo": "Comparar con justicia",
+          "objetivo": "Calcular la tasa de cada ruta, ordenar con el criterio de la pregunta y sacar la tasa global sin trampas.",
+          "cierre": "Nivel 2 listo: comparas con tasas y sabes sacar el total.",
+          "actividades": [
+            {
+              "id": "n2-tasas",
+              "tipo": "seleccion",
+              "fase": "hacer",
+              "titulo": "Las tres tasas",
+              "consigna": "Calcula la tasa de retraso de cada ruta (llegaron tarde ÷ viajes observados). ¿Qué resultado te da?",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Tabla resumen por ruta (dos semanas)",
+                "columnas": [
+                  "Ruta",
+                  "Viajes observados",
+                  "Llegaron tarde"
+                ],
+                "filas": [
+                  [
+                    "Estación",
+                    "140",
+                    "14"
+                  ],
+                  [
+                    "Parque",
+                    "40",
+                    "10"
+                  ],
+                  [
+                    "Colegio",
+                    "20",
+                    "8"
+                  ]
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Estación 10 % · Parque 25 % · Colegio 40 %",
+                  "correcta": true
+                },
+                {
+                  "texto": "Estación 14 % · Parque 10 % · Colegio 8 %",
+                  "feedback": "Leíste las cantidades como si fueran porcentajes. 14 retrasos no son 14 %: hay que dividir entre los viajes de cada ruta."
+                },
+                {
+                  "texto": "Estación 10 · Parque 4 · Colegio 2,5",
+                  "feedback": "Dividiste al revés: viajes ÷ retrasos. Pregúntate «¿tantos de cuántos?»: los retrasos van arriba."
+                },
+                {
+                  "texto": "Estación 7 % · Parque 5 % · Colegio 4 %",
+                  "feedback": "Dividiste entre los 200 viajes de las tres rutas. Para la tasa de una ruta, la base son **sus** viajes: 140, 40 o 20."
+                }
+              ],
+              "pistas": [
+                "Parque: 10 ÷ 40.",
+                "Colegio: 8 ÷ 20 = 0,4. ¿Cómo se ve con formato de porcentaje?"
+              ],
+              "explicacion": "**Estación 14 ÷ 140 = 10 % · Parque 10 ÷ 40 = 25 % · Colegio 8 ÷ 20 = 40 %.** Escribe siempre la división completa: así cualquiera ve qué fue arriba y qué abajo.",
+              "tema": "tasa"
+            },
+            {
+              "id": "n2-orden",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "¿Cuál revisar primero?",
+              "consigna": "La junta quiere pedir que revisen primero **la ruta que llega tarde con más frecuencia**. Con ese criterio, ¿cuál va primero?",
+              "apoyo": {
+                "tipo": "comparacion",
+                "items": [
+                  {
+                    "etiqueta": "Cantidad",
+                    "grafico": {
+                      "tipo": "grafico",
+                      "forma": "barras",
+                      "titulo": "Viajes que llegaron tarde",
+                      "etiquetas": [
+                        "Estación",
+                        "Parque",
+                        "Colegio"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Llegaron tarde",
+                          "valores": [
+                            14,
+                            10,
+                            8
+                          ]
+                        }
+                      ],
+                      "unidad": "viajes"
+                    }
+                  },
+                  {
+                    "etiqueta": "Proporción",
+                    "grafico": {
+                      "tipo": "grafico",
+                      "forma": "barras",
+                      "titulo": "Tasa de retraso",
+                      "etiquetas": [
+                        "Estación",
+                        "Parque",
+                        "Colegio"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Tasa de retraso",
+                          "valores": [
+                            10,
+                            25,
+                            40
+                          ],
+                          "color": "magenta"
+                        }
+                      ],
+                      "unidad": "%"
+                    }
+                  }
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Estación, porque tuvo más viajes tarde (14)",
+                  "feedback": "Estación tiene más retrasos en cantidad, ¡bien leído! Pero también pasó muchas más veces: 140 viajes. De cada 100, llegaron tarde 10: la menor proporción de las tres."
+                },
+                {
+                  "texto": "Colegio, porque llegaron tarde 40 de cada 100 viajes",
+                  "correcta": true
+                },
+                {
+                  "texto": "Parque, porque queda en la mitad",
+                  "feedback": "Parque tiene 25 %: queda de segunda. ¿Cuál tiene la tasa más alta?"
+                },
+                {
+                  "texto": "Ninguna: basta con mirar cuántos buses pasan",
+                  "feedback": "Cuántos pasan es la base, pero sola no responde. La pregunta es por la frecuencia de los retrasos: retrasos ÷ viajes."
+                }
+              ],
+              "explicacion": "Por tasa, de mayor a menor: **Colegio 40 % → Parque 25 % → Estación 10 %**. Es justo al revés que por cantidad (14, 10, 8): la ruta con **más** retrasos es la **más puntual** en proporción. El criterio sale de la pregunta: «con más frecuencia» pide una tasa.",
+              "tema": "cantidad-vs-tasa"
+            },
+            {
+              "id": "n2-respaldan",
+              "tipo": "tarjetas",
+              "fase": "entender",
+              "titulo": "¿Lo respaldan los datos?",
+              "consigna": "Para cada frase, decide si los datos de estas dos semanas la respaldan.",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Tabla resumen por ruta (dos semanas)",
+                "columnas": [
+                  "Ruta",
+                  "Viajes observados",
+                  "Llegaron tarde"
+                ],
+                "filas": [
+                  [
+                    "Estación",
+                    "140",
+                    "14"
+                  ],
+                  [
+                    "Parque",
+                    "40",
+                    "10"
+                  ],
+                  [
+                    "Colegio",
+                    "20",
+                    "8"
+                  ]
+                ]
+              },
+              "botones": {
+                "si": "Los datos lo respaldan",
+                "no": "No lo respaldan"
+              },
+              "tarjetas": [
+                {
+                  "texto": "La Ruta Estación tuvo más viajes tarde que las otras dos.",
+                  "respuesta": "si",
+                  "explicacion": "Sí: 14 frente a 10 y 8. Es una frase sobre **cantidad**, y es cierta."
+                },
+                {
+                  "texto": "La Ruta Estación es la que más incumple el horario.",
+                  "respuesta": "no",
+                  "explicacion": "En proporción es la que menos: 10 %. Más retrasos en cantidad no es más incumplimiento en proporción."
+                },
+                {
+                  "texto": "En la Ruta Colegio llegaron tarde 40 buses.",
+                  "respuesta": "no",
+                  "explicacion": "40 % no son 40 buses: fueron 8 de 20 viajes. El porcentaje se lee «40 de cada 100»."
+                },
+                {
+                  "texto": "En la Ruta Parque, más o menos 1 de cada 4 viajes llegó tarde.",
+                  "respuesta": "si",
+                  "explicacion": "25 % es 1 de cada 4: 10 de 40."
+                },
+                {
+                  "texto": "Si mañana tomas la Ruta Colegio, vas a llegar tarde.",
+                  "respuesta": "no",
+                  "explicacion": "La tasa describe estas dos semanas en esa franja. No dice qué va a pasar en un viaje concreto."
+                }
+              ],
+              "explicacion": "Una **cantidad** responde «¿cuántos?»; una **tasa** responde «¿cuántos de cuántos?». Las dos pueden ser ciertas a la vez: lo que cambia es la pregunta.",
+              "tema": "cantidad-vs-tasa"
+            },
+            {
+              "id": "n2-global",
+              "tipo": "seleccion",
+              "fase": "hacer",
+              "titulo": "Un solo número para todo",
+              "consigna": "La junta también quiere un solo número: **¿qué proporción de todos los viajes observados llegó tarde?**",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Tabla resumen con fila de total",
+                "columnas": [
+                  "Ruta",
+                  "Viajes observados",
+                  "Llegaron tarde",
+                  "Tasa"
+                ],
+                "filas": [
+                  [
+                    "Estación",
+                    "140",
+                    "14",
+                    "10 %"
+                  ],
+                  [
+                    "Parque",
+                    "40",
+                    "10",
+                    "25 %"
+                  ],
+                  [
+                    "Colegio",
+                    "20",
+                    "8",
+                    "40 %"
+                  ],
+                  [
+                    "Total",
+                    "?",
+                    "?",
+                    "?"
+                  ]
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "16 %",
+                  "correcta": true
+                },
+                {
+                  "texto": "25 %",
+                  "feedback": "Ese es el promedio de las tres tasas: (10 + 25 + 40) ÷ 3. Coincide con la tasa de Parque por pura casualidad. Trata a Colegio (20 viajes) igual que a Estación (140). Suma primero retrasos y viajes, y divide al final."
+                },
+                {
+                  "texto": "75 %",
+                  "feedback": "Sumaste las tres tasas: 10 + 25 + 40. Los porcentajes de grupos distintos no se suman así. Suma cantidades: retrasos con retrasos y viajes con viajes."
+                },
+                {
+                  "texto": "32 %",
+                  "feedback": "32 es el total de viajes tarde, no un porcentaje. Te falta dividir entre el total de viajes observados."
+                }
+              ],
+              "pistas": [
+                "Suma los viajes tarde de las tres rutas: 14 + 10 + 8.",
+                "Suma los viajes observados: 140 + 40 + 20. Ahora divide: 32 ÷ 200."
+              ],
+              "explicacion": "**Tasa global = (14 + 10 + 8) ÷ (140 + 40 + 20) = 32 ÷ 200 = 0,16 = 16 %.** En la fila de total se **suman cantidades**, no tasas; la tasa del total se vuelve a calcular.",
+              "tema": "global-vs-promedio"
+            },
+            {
+              "id": "n2-por-que",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "¿Por qué no coinciden?",
+              "consigna": "Mira las dos cuentas y el gráfico de viajes. ¿Por qué los dos números no coinciden?",
+              "apoyo": [
+                {
+                  "tipo": "comparacion",
+                  "items": [
+                    {
+                      "etiqueta": "Tasa global",
+                      "texto": "(14 + 10 + 8) ÷ (140 + 40 + 20) = 32 ÷ 200 = **16 %**"
+                    },
+                    {
+                      "etiqueta": "Promedio simple de tasas",
+                      "texto": "(10 % + 25 % + 40 %) ÷ 3 = **25 %**"
+                    }
+                  ]
+                },
+                {
+                  "tipo": "grafico",
+                  "forma": "barras",
+                  "titulo": "Viajes observados por ruta",
+                  "etiquetas": [
+                    "Estación",
+                    "Parque",
+                    "Colegio"
+                  ],
+                  "series": [
+                    {
+                      "nombre": "Viajes observados",
+                      "valores": [
+                        140,
+                        40,
+                        20
+                      ],
+                      "color": "verde"
+                    }
+                  ],
+                  "unidad": "viajes"
+                }
+              ],
+              "opciones": [
+                {
+                  "texto": "Porque uno de los dos cálculos está mal hecho",
+                  "feedback": "Las dos cuentas están bien hechas. Responden preguntas distintas: mira cuántos viajes aporta cada ruta."
+                },
+                {
+                  "texto": "Porque el promedio le da el mismo peso a cada ruta, aunque Estación pone 140 de los 200 viajes",
+                  "correcta": true
+                },
+                {
+                  "texto": "Porque la tasa global siempre da menos que el promedio",
+                  "feedback": "No siempre. Aquí da menos porque la ruta grande (Estación) es la más puntual. Si la ruta grande fuera la más impuntual, la global daría más que el promedio."
+                },
+                {
+                  "texto": "Porque en una de las dos hay que multiplicar otra vez por 100",
+                  "feedback": "El formato de porcentaje no cambia el resultado. La diferencia viene del peso de cada ruta."
+                }
+              ],
+              "explicacion": "El **promedio simple de tasas** le da el mismo peso a cada ruta. La **tasa global** le da el mismo peso a cada **viaje**: por eso Estación, con 140 viajes y solo 10 % de retrasos, la jala hacia abajo. El promedio no es «malo»: responde otra pregunta, pero no dice qué parte de todos los viajes llegó tarde. Dato curioso: dentro de cada ruta las dos semanas tienen los mismos viajes, y ahí promediar o sumar da igual. Cuando los grupos pesan distinto, ya no.",
+              "tema": "global-vs-promedio"
+            }
+          ]
+        },
+        {
+          "numero": 3,
+          "titulo": "Probar y recomendar",
+          "objetivo": "Probar un cambio sin borrar la base, leer puntos porcentuales y escribir una recomendación prudente. Es el reto de la clase, en versión autoguiada.",
+          "cierre": "Nivel 3 listo: comparaste con justicia y recomendaste sin inventar causas.",
+          "actividades": [
+            {
+              "id": "n3-escenario",
+              "tipo": "completar",
+              "fase": "aplicar",
+              "titulo": "Escenario «¿y si…?»",
+              "consigna": "Trabaja en una **copia rotulada «escenario»**, sin borrar la tabla base. Elige lo que completa la frase.",
+              "apoyo": {
+                "tipo": "texto",
+                "texto": "**Escenario de prueba:** la empresa promete ajustar el horario de la Ruta Colegio. ¿Qué pasaría si en estas dos semanas hubiera tenido **2 viajes tarde menos**? Los viajes observados no cambian (siguen siendo 20)."
+              },
+              "frase": "En el escenario, la Ruta Colegio queda en {0}, la tasa global queda en {1} y la ruta con mayor proporción de retrasos {2}.",
+              "huecos": [
+                {
+                  "opciones": [
+                    {
+                      "texto": "6 ÷ 20 = 30 %",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "6 ÷ 18 ≈ 33 %",
+                      "feedback": "Los viajes observados no cambian: siguen siendo 20. Solo cambia cuántos llegaron tarde."
+                    },
+                    {
+                      "texto": "40 % − 2 % = 38 %",
+                      "feedback": "Quitar 2 retrasos no es quitar 2 puntos. Recalcula la división: (8 − 2) ÷ 20."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "30 ÷ 200 = 15 %",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "16 %, igual que antes",
+                      "feedback": "Si cambian los retrasos de una ruta, cambia también el total: 32 − 2 = 30 retrasos de 200 viajes."
+                    },
+                    {
+                      "texto": "(10 % + 25 % + 30 %) ÷ 3 ≈ 21,7 %",
+                      "feedback": "Ese es el promedio simple de las tasas del escenario. Para la global, suma cantidades: 30 ÷ 200."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "sigue siendo Colegio",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "pasa a ser Parque",
+                      "feedback": "Parque tiene 25 % y Colegio queda en 30 %: Colegio sigue arriba, aunque la distancia se achicó."
+                    },
+                    {
+                      "texto": "pasa a ser Estación",
+                      "feedback": "Estación sigue con 10 %: sus datos no cambian en el escenario."
+                    }
+                  ]
+                }
+              ],
+              "explicacion": "Escenario: **Colegio 6 ÷ 20 = 30 %** y **global 30 ÷ 200 = 15 %**. La prioridad **no cambia**: Colegio (30 %) sigue por encima de Parque (25 %). Rotula siempre «base» y «escenario»: en la base, Colegio sigue en 40 %.",
+              "tema": "escenario-y-puntos"
+            },
+            {
+              "id": "n3-puntos",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "¿Diez qué?",
+              "consigna": "Alguien escribe en el grupo de vecinos: «En el escenario, la Ruta Colegio mejoró 10 viajes». ¿Cómo se dice bien el cambio?",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Ruta Colegio: base y escenario",
+                "columnas": [
+                  "Ruta Colegio",
+                  "Base",
+                  "Escenario",
+                  "Cambio"
+                ],
+                "filas": [
+                  [
+                    "Viajes observados",
+                    "20",
+                    "20",
+                    "0"
+                  ],
+                  [
+                    "Llegaron tarde",
+                    "8",
+                    "6",
+                    "2 menos"
+                  ],
+                  [
+                    "Tasa de retraso",
+                    "40 %",
+                    "30 %",
+                    "?"
+                  ]
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Bajó 10 puntos porcentuales: de 40 % a 30 %, con 2 viajes tarde menos",
+                  "correcta": true
+                },
+                {
+                  "texto": "Bajó 10 viajes tarde",
+                  "feedback": "En el escenario solo hay 2 viajes tarde menos (de 8 a 6). Lo que bajó 10 fue la tasa, y eso se mide en puntos porcentuales."
+                },
+                {
+                  "texto": "Bajó 10 %",
+                  "feedback": "«Bajó 10 %» se confunde con un cambio relativo: pasar de 40 a 30 es bajar la cuarta parte (25 %) de la tasa. Para la distancia entre dos porcentajes se dice **puntos porcentuales**."
+                },
+                {
+                  "texto": "Bajó 2 puntos porcentuales",
+                  "feedback": "2 es el cambio en viajes tarde. La tasa pasó de 40 % a 30 %: ¿cuántos puntos son?"
+                }
+              ],
+              "explicacion": "Los **puntos porcentuales** miden la distancia entre dos porcentajes: de 40 % a 30 % hay **10 puntos**. Con solo 20 viajes de base, cada retraso pesa 5 puntos; por eso 2 retrasos menos mueven 10 puntos. Mira siempre las dos filas: viajes y tasa.",
+              "tema": "escenario-y-puntos"
+            },
+            {
+              "id": "n3-frase",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "El mensaje a la empresa",
+              "consigna": "Don Hernán va a escribirle a la empresa de buses. ¿Cuál mensaje recomienda con datos y sin pasarse?",
+              "opciones": [
+                {
+                  "texto": "Revisen primero la Ruta Estación: tuvo 14 viajes tarde, más que ninguna.",
+                  "feedback": "Usa la cantidad, no la tasa. Estación pasó 140 veces y llegó tarde 10 de cada 100: es la más puntual en proporción."
+                },
+                {
+                  "texto": "Revisen primero la Ruta Colegio: en dos semanas, 8 de sus 20 viajes de 6:00 a 8:00 a. m. llegaron tarde (40 %), la mayor proporción de las tres. ¿Nos pueden contar qué pasa en esa franja?",
+                  "correcta": true
+                },
+                {
+                  "texto": "Los conductores de la Ruta Colegio son irresponsables: tienen 40 % de retrasos.",
+                  "feedback": "La tabla dice dónde mirar, no por qué pasa. El retraso puede venir del tráfico, la lluvia, el horario o los buses disponibles. Convierte la causa en una pregunta."
+                },
+                {
+                  "texto": "Revisen la Ruta Colegio, aunque ya bajó a 30 %.",
+                  "feedback": "Ese 30 % es del escenario de prueba, no de lo que pasó. Rotula cada cifra: en la base, Colegio está en 40 %."
+                }
+              ],
+              "explicacion": "Una recomendación prudente dice **ruta, tasa con su denominador y criterio**, y deja una **pregunta pendiente**. Afirmar la causa («son irresponsables») es una hipótesis que necesita otros datos.",
+              "tema": "prioridad-prudente"
+            },
+            {
+              "id": "n3-reto",
+              "tipo": "constructor",
+              "fase": "aplicar",
+              "titulo": "El reto: ¿qué ruta revisar primero?",
+              "consigna": "Prepara una comparación de las tres rutas para orientar cuál revisar primero. Apóyate en tasas, muestra sus denominadores, separa la base de cualquier escenario y escribe qué información te falta antes de pedir un cambio concreto.",
+              "rutas": [
+                {
+                  "id": "mapa",
+                  "nombre": "Ruta Mapa",
+                  "descripcion": "La pregunta ya viene dada. Te concentras en calcular, ordenar y recomendar.",
+                  "preguntaDada": "En estas dos semanas, entre las 6:00 y las 8:00 a. m., ¿qué ruta tuvo la mayor proporción de viajes que llegaron tarde?"
+                },
+                {
+                  "id": "brujula",
+                  "nombre": "Ruta Brújula",
+                  "descripcion": "Formulas tu propia pregunta. Ideas: comparar las dos semanas, comparar solo dos rutas o mirar la tasa global."
+                },
+                {
+                  "id": "telescopio",
+                  "nombre": "Ruta Telescopio",
+                  "descripcion": "Comparas la base con el escenario de 2 viajes tarde menos en Colegio, y la tasa global con el promedio de tasas en los dos casos.",
+                  "preguntaDada": "¿Cómo cambian las tasas por ruta y la tasa global si la Ruta Colegio hubiera tenido 2 viajes tarde menos? ¿Cambia la ruta que conviene revisar primero?"
+                }
+              ],
+              "pasos": [
+                {
+                  "clave": "bus-pregunta",
+                  "titulo": "1 · Mi pregunta",
+                  "ayuda": "Empieza con «En estas dos semanas…» o «Entre estas tres rutas…».",
+                  "pistas": [
+                    "Elige qué comparar: rutas, semanas, o base frente a escenario.",
+                    "Ejemplo de forma: «En estas dos semanas, ¿qué ruta tuvo la mayor proporción de ___?»"
+                  ]
+                },
+                {
+                  "clave": "bus-tabla",
+                  "titulo": "2 · Mi tabla resumen y mis tasas",
+                  "ayuda": "Una fila por ruta: viajes observados, llegaron tarde y la división completa. Puedes marcar filas en la tabla y agregarlas aquí.",
+                  "pistas": [
+                    "Junta las dos semanas de cada ruta: Estación son las filas 01 y 04.",
+                    "Escribe la división completa, por ejemplo: «Colegio: 8 ÷ 20 = 40 %».",
+                    "Revisa: ¿los viajes tarde nunca superan a los viajes observados?"
+                  ],
+                  "permiteFilas": true
+                },
+                {
+                  "clave": "bus-total",
+                  "titulo": "3 · El total (y el escenario, si lo usas)",
+                  "ayuda": "Escribe la tasa global con sus dos cantidades. Si usas el escenario, ponlo aparte con su rótulo.",
+                  "pistas": [
+                    "Para el total, suma retrasos y viajes, y divide al final.",
+                    "Si te da 25 %, promediaste las tasas: ¿cada ruta tiene los mismos viajes?",
+                    "Escenario: rotúlalo «¿y si…?» y no borres la base."
+                  ]
+                },
+                {
+                  "clave": "bus-recomendacion",
+                  "titulo": "4 · Mi recomendación y lo que todavía no sé",
+                  "ayuda": "«Conviene revisar primero… porque… (tasa y criterio). Antes de pedir un cambio, preguntaría…»",
+                  "pistas": [
+                    "Nombra la ruta, su tasa con la división y el criterio («la mayor proporción de retrasos»).",
+                    "Piensa en lo que la tabla no tiene: por qué se retrasan, otras horas, fines de semana, otros paraderos, días de lluvia."
+                  ]
+                }
+              ],
+              "verificacion": [
+                "¿Cada tasa muestra su división (arriba los retrasos, abajo los viajes)?",
+                "¿Ordené por tasa y dije por qué ese criterio responde la pregunta?",
+                "¿El total sale de sumar cantidades antes de dividir?",
+                "¿Separé la base del escenario?",
+                "¿Mi recomendación deja una pregunta en vez de afirmar una causa?"
+              ],
+              "ejemplo": "«En estas dos semanas, entre las 6:00 y las 8:00 a. m., ¿qué ruta tuvo la mayor proporción de viajes que llegaron tarde? Junté las dos semanas de cada ruta (filas 01 y 04, 02 y 05, 03 y 06): Estación 14 ÷ 140 = 10 %, Parque 10 ÷ 40 = 25 % y Colegio 8 ÷ 20 = 40 %. En total, 32 ÷ 200 = 16 % de los viajes llegó tarde; el promedio de las tres tasas (25 %) es otra medida. Conviene revisar primero la Ruta Colegio, que tiene la mayor proporción de retrasos, aunque Estación tuvo más retrasos en cantidad. Antes de pedir un cambio, preguntaría si los retrasos se repiten a otras horas y qué explica la empresa sobre el horario de esa ruta.»",
+              "explicacion": "No se busca un texto largo: sirve si otra persona puede repetir tus divisiones y ver de dónde sale tu prioridad.",
+              "tema": "prioridad-prudente"
+            },
+            {
+              "id": "n3-cierre",
+              "tipo": "escritura",
+              "fase": "observar",
+              "titulo": "Cierre de la misión",
+              "consigna": "Completa estas dos frases. Quedan guardadas en tu cuaderno (solo en este navegador).",
+              "frases": [
+                {
+                  "clave": "bus-cierre-necesito",
+                  "inicio": "Para comparar con justicia necesito…"
+                },
+                {
+                  "clave": "bus-cierre-preguntaria",
+                  "inicio": "Antes de pedir un cambio, preguntaría…"
+                }
+              ],
+              "explicacion": "El procedimiento en una línea: **tabla resumen → tasa con su denominador → ordenar según la pregunta → total sumando cantidades → escenario aparte → recomendación con una pregunta pendiente.**"
+            }
+          ]
+        }
+      ],
+      "conceptos": [
+        {
+          "termino": "Tabla resumen",
+          "definicion": "Una fila por grupo con las cantidades que necesitas para comparar.",
+          "ejemplo": "Estación: 140 viajes y 14 tarde, juntando sus dos semanas."
+        },
+        {
+          "termino": "Tasa",
+          "definicion": "Una división que compara una parte con su base: «tantos de cuántos».",
+          "ejemplo": "Colegio: 8 viajes tarde ÷ 20 viajes = 40 %."
+        },
+        {
+          "termino": "Numerador y denominador",
+          "definicion": "Arriba va lo que pasó; abajo, la base.",
+          "ejemplo": "En 14 ÷ 140, 14 son los viajes tarde y 140 los viajes observados."
+        },
+        {
+          "termino": "Cantidad frente a proporción",
+          "definicion": "«¿Cuántos?» y «¿cuántos de cuántos?» son preguntas distintas y pueden dar ganadores distintos.",
+          "ejemplo": "Estación tuvo más retrasos (14), pero la menor proporción (10 %)."
+        },
+        {
+          "termino": "Tasa global",
+          "definicion": "Se suman las cantidades de todos los grupos y se divide al final.",
+          "ejemplo": "32 ÷ 200 = 16 % de todos los viajes llegó tarde."
+        },
+        {
+          "termino": "Promedio simple de tasas",
+          "definicion": "Suma las tasas y divide entre el número de grupos: cada grupo pesa igual. Responde otra pregunta.",
+          "ejemplo": "(10 % + 25 % + 40 %) ÷ 3 = 25 %, distinto del 16 % global."
+        },
+        {
+          "termino": "Escenario",
+          "definicion": "Una copia rotulada para probar «¿y si…?» sin borrar la base.",
+          "ejemplo": "Colegio con 2 retrasos menos: 30 %; global 15 %."
+        },
+        {
+          "termino": "Punto porcentual",
+          "definicion": "La distancia entre dos porcentajes.",
+          "ejemplo": "De 40 % a 30 % son 10 puntos porcentuales, con solo 2 viajes tarde menos."
+        },
+        {
+          "termino": "Recomendación prudente",
+          "definicion": "Dice dónde mirar, con qué tasa y criterio, y qué falta saber. No afirma causas.",
+          "ejemplo": "«Revisen primero Colegio (8 de 20, 40 %). ¿Qué pasa en esa franja?»"
+        }
+      ],
+      "fraseClave": "Antes de comparar, pregunto «¿de cuántos?»: una tasa necesita su denominador, y el total se calcula sumando cantidades antes de dividir.",
+      "paraLlevar": {
+        "consigna": "Prepara una comparación de las tres rutas para orientar cuál revisar primero. Apóyate en tasas, muestra sus denominadores, separa la base de cualquier escenario y escribe qué información te falta antes de pedir un cambio concreto.",
+        "pasos": [
+          "Mi pregunta (empieza con «En estas dos semanas…» o «Entre estas tres rutas…»).",
+          "Mi tabla resumen: una fila por ruta, con viajes observados, viajes tarde y la división de cada tasa.",
+          "El total: sumo cantidades y divido al final. Si pruebo un escenario, lo rotulo aparte.",
+          "Mi recomendación (ruta, tasa y criterio) y una pregunta sobre lo que todavía no sé."
+        ],
+        "lupa": [
+          "Cada tasa muestra su división.",
+          "Ordené según el criterio de la pregunta.",
+          "El total suma cantidades antes de dividir.",
+          "Base y escenario van separados.",
+          "Recomiendo sin afirmar causas."
+        ]
+      }
+    },
+    "guia": {
+      "nombre": "Guía oficial: tres sedes de talleres",
+      "titulo": "Tres sedes de talleres",
+      "caso": "Ocupación de tres sedes de talleres",
+      "historia": "Una red de talleres (ficticia) tiene tres sedes: Norte, Centro y Sur, cada una con cupos distintos. Lucía, de la coordinación, quiere saber dónde revisar primero las condiciones de ocupación para orientar apoyo. Ojo: revisar no es juzgar a una sede ni explicar por qué se inscribió menos gente. Tú le vas a ayudar a comparar con justicia.",
+      "datos": {
+        "titulo": "Cupos e inscritos de la red de talleres",
+        "unidad": [
+          "taller",
+          "talleres"
+        ],
+        "columnas": [
+          "Código",
+          "Sede",
+          "Taller",
+          "Cupos",
+          "Inscritos"
+        ],
+        "filas": [
+          [
+            "01",
+            "Norte",
+            "Dibujo",
+            "20",
+            "16"
+          ],
+          [
+            "02",
+            "Sur",
+            "Cocina",
+            "20",
+            "12"
+          ],
+          [
+            "03",
+            "Centro",
+            "Teatro",
+            "10",
+            "9"
+          ],
+          [
+            "04",
+            "Sur",
+            "Danza",
+            "20",
+            "14"
+          ],
+          [
+            "05",
+            "Norte",
+            "Fotografía",
+            "20",
+            "14"
+          ],
+          [
+            "06",
+            "Centro",
+            "Música",
+            "10",
+            "9"
+          ],
+          [
+            "07",
+            "Sur",
+            "Huerta",
+            "20",
+            "10"
+          ]
+        ],
+        "definiciones": [
+          "Cada **código** es **un taller** de una sede.",
+          "Todas las filas son del **mismo periodo** (octubre de 2026) y usan la **misma definición de inscripción**.",
+          "**Cupos**: cuántas personas caben en el taller. **Inscritos**: cuántas personas se inscribieron.",
+          "**No hay** datos de horarios, cancelaciones ni motivos de no inscripción."
+        ],
+        "aviso": "Datos ficticios, solo para practicar."
+      },
+      "niveles": [
+        {
+          "numero": 1,
+          "titulo": "Leer y resumir",
+          "objetivo": "Entender qué cuenta cada fila, armar una fila por sede y saber qué va arriba y qué va abajo en una tasa.",
+          "cierre": "Nivel 1 listo: ya tienes una fila por sede y sabes preguntar «¿de cuántos?».",
+          "actividades": [
+            {
+              "id": "n1-toca-fila",
+              "tipo": "leer-filas",
+              "fase": "hacer",
+              "titulo": "Toca una fila",
+              "consigna": "Toca una fila de la tabla y escucha lo que nos cuenta. Lee al menos **2 filas** para continuar.",
+              "minimo": 2,
+              "lecturas": {
+                "01": "El registro 01 es el taller de Dibujo de la sede Norte: tiene 20 cupos y se inscribieron 16 personas.",
+                "02": "El registro 02 es el taller de Cocina de la sede Sur: tiene 20 cupos y se inscribieron 12 personas.",
+                "03": "El registro 03 es el taller de Teatro de la sede Centro: tiene 10 cupos y se inscribieron 9 personas.",
+                "04": "El registro 04 es el taller de Danza de la sede Sur: tiene 20 cupos y se inscribieron 14 personas.",
+                "05": "El registro 05 es el taller de Fotografía de la sede Norte: tiene 20 cupos y se inscribieron 14 personas.",
+                "06": "El registro 06 es el taller de Música de la sede Centro: tiene 10 cupos y se inscribieron 9 personas.",
+                "07": "El registro 07 es el taller de Huerta de la sede Sur: tiene 20 cupos y se inscribieron 10 personas."
+              },
+              "explicacion": "Cada lectura habla de **un taller**: cuántos cupos tiene y cuántas personas se inscribieron. Los inscritos ocupan **parte** de los cupos; no son algo aparte.",
+              "tema": "tabla-resumen"
+            },
+            {
+              "id": "n1-que-es-fila",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "¿Qué representa una fila?",
+              "consigna": "Después de leer algunas filas, ¿qué representa cada fila de esta tabla?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Una persona inscrita",
+                  "feedback": "Una fila habla de varias personas: en la 01 hay 16 inscritas. Lo que cuenta cada fila es un taller."
+                },
+                {
+                  "texto": "Un taller de una sede",
+                  "correcta": true
+                },
+                {
+                  "texto": "Una sede",
+                  "feedback": "¡Casi! Pero la sede Sur aparece en tres filas y Norte en dos. Para tener una fila por sede hay que juntarlas: eso es lo que harás enseguida."
+                },
+                {
+                  "texto": "Un cupo",
+                  "feedback": "Los cupos son una columna: una cantidad dentro de cada fila. Mira la 01: 20 cupos, 16 inscritos."
+                }
+              ],
+              "pistas": [
+                "Mira la columna Sede: ¿cuántas veces aparece Sur?",
+                "Lee las definiciones debajo de la tabla: dicen qué es cada código."
+              ],
+              "explicacion": "Cada fila es **un taller de una sede**. Para comparar sedes necesitamos **una fila por sede**: una **tabla resumen**.",
+              "tema": "tabla-resumen"
+            },
+            {
+              "id": "n1-resumen",
+              "tipo": "conteo",
+              "fase": "hacer",
+              "titulo": "Arma la tabla resumen",
+              "consigna": "Junta los talleres de cada sede: suma cuántas personas se **inscribieron** en cada una.",
+              "usaDatos": true,
+              "categorias": [
+                "Norte",
+                "Centro",
+                "Sur"
+              ],
+              "esperado": {
+                "Norte": 30,
+                "Centro": 18,
+                "Sur": 36
+              },
+              "erroresComunes": [
+                {
+                  "valores": {
+                    "Norte": 2,
+                    "Centro": 2,
+                    "Sur": 3
+                  },
+                  "mensaje": "Contaste filas (talleres). La pregunta es cuántas personas se inscribieron: suma la columna «Inscritos» de los talleres de cada sede."
+                },
+                {
+                  "valores": {
+                    "Norte": 40,
+                    "Centro": 20,
+                    "Sur": 60
+                  },
+                  "mensaje": "Sumaste los cupos. ¡También los vamos a necesitar! Pero aquí la pregunta es por los inscritos."
+                },
+                {
+                  "valores": {
+                    "Norte": 16,
+                    "Centro": 9,
+                    "Sur": 12
+                  },
+                  "mensaje": "Tomaste solo el primer taller de cada sede. Suma todos los talleres de la sede: Sur tiene tres."
+                }
+              ],
+              "mensajeGeneral": "Vas por buen camino. Revisa {categorias}: busca todos sus talleres y suma la columna «Inscritos».",
+              "pistas": [
+                "Norte está en las filas 01 y 05; Sur en 02, 04 y 07.",
+                "Norte: 16 + 14. Centro: 9 + 9. Sur: 12 + 14 + 10."
+              ],
+              "explicacion": "Inscritos por sede: **Norte 30 · Centro 18 · Sur 36**. Con los cupos se hace lo mismo: Norte **40**, Centro **20** y Sur **60**. En total, 84 inscritos en 120 cupos. Eso es una **tabla resumen**: una fila por sede.",
+              "tema": "tabla-resumen"
+            },
+            {
+              "id": "n1-mas-inscritos",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "¿La que mejor aprovecha?",
+              "consigna": "Alguien dice: «Sur es la sede que mejor aprovecha sus cupos: tiene más inscritos». Con **solo** este gráfico, ¿qué puedes afirmar?",
+              "apoyo": {
+                "tipo": "grafico",
+                "forma": "barras",
+                "titulo": "Inscritos por sede",
+                "etiquetas": [
+                  "Norte",
+                  "Centro",
+                  "Sur"
+                ],
+                "series": [
+                  {
+                    "nombre": "Inscritos",
+                    "valores": [
+                      30,
+                      18,
+                      36
+                    ]
+                  }
+                ],
+                "unidad": "personas"
+              },
+              "opciones": [
+                {
+                  "texto": "Sur es la que mejor aprovecha sus cupos.",
+                  "feedback": "El gráfico muestra cuántas personas se inscribieron, pero no de cuántos cupos. ¿Y si Sur tiene muchos más cupos que las otras?"
+                },
+                {
+                  "texto": "Sur tiene más inscritos, pero falta saber de cuántos cupos.",
+                  "correcta": true
+                },
+                {
+                  "texto": "Centro es la que peor aprovecha, porque tiene menos inscritos.",
+                  "feedback": "Menos inscritos en cantidad no es menor ocupación: Centro también pudo tener muy pocos cupos. Falta la base."
+                },
+                {
+                  "texto": "Las tres sedes aprovechan igual sus cupos.",
+                  "feedback": "Las cantidades son distintas (30, 18 y 36) y además no sabemos de cuántos cupos. Con este gráfico no se puede decir que sean iguales."
+                }
+              ],
+              "explicacion": "Una cantidad sola no dice si es mucho o poco: **36 inscritos** pueden llenar 40 cupos o dejar vacíos muchos de 60. La pregunta que destapa todo es: **¿de cuántos?**",
+              "tema": "cantidad-vs-tasa"
+            },
+            {
+              "id": "n1-partes",
+              "tipo": "emparejar",
+              "fase": "entender",
+              "titulo": "¿Arriba o abajo?",
+              "consigna": "Para comparar con justicia vas a usar una división: la **ocupación** de cada sede. Para cada dato, toca qué papel cumple.",
+              "tipos": [
+                {
+                  "id": "numerador",
+                  "texto": "Numerador",
+                  "ayuda": "va arriba: lo que pasó"
+                },
+                {
+                  "id": "denominador",
+                  "texto": "Denominador",
+                  "ayuda": "va abajo: la base, «de cuántos»"
+                },
+                {
+                  "id": "fuera",
+                  "texto": "No entra en la división",
+                  "ayuda": "sirve para ubicar o identificar la fila"
+                }
+              ],
+              "pares": [
+                {
+                  "item": "Inscritos (Norte: 30)",
+                  "correcto": "numerador",
+                  "feedback": "Es lo que pasó y queremos medir: va arriba."
+                },
+                {
+                  "item": "Cupos (Norte: 40)",
+                  "correcto": "denominador",
+                  "feedback": "Es la base: de cuántos cupos hablamos. Va abajo."
+                },
+                {
+                  "item": "Taller (Dibujo, Teatro…)",
+                  "correcto": "fuera",
+                  "feedback": "El nombre del taller describe la fila. Ya lo usaste para juntar filas, pero no va en la división."
+                },
+                {
+                  "item": "Código (01 a 07)",
+                  "correcto": "fuera",
+                  "feedback": "El código identifica la fila: no se suma ni se divide."
+                }
+              ],
+              "pistas": [
+                "Pregúntate «¿tantos de cuántos?»: los «tantos» van arriba y los «cuántos» van abajo."
+              ],
+              "explicacion": "**Ocupación = inscritos ÷ cupos.** Arriba va lo que pasó (**numerador**); abajo, la base (**denominador**). Con 8 inscritos y 10 cupos: 8 ÷ 10 = 80 %, es decir, 80 de cada 100 cupos, no 80 personas.",
+              "tema": "tasa"
+            },
+            {
+              "id": "n1-completa",
+              "tipo": "completar",
+              "fase": "entender",
+              "titulo": "Completa la división",
+              "consigna": "Elige lo que completa la ocupación de la sede Norte (usa la tabla resumen).",
+              "frase": "La ocupación de la sede Norte es {0} ÷ {1} = 0,75 = 75 %. Eso quiere decir que se ocuparon 75 de cada {2}.",
+              "huecos": [
+                {
+                  "opciones": [
+                    {
+                      "texto": "30",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "40",
+                      "feedback": "40 es la base (los cupos): va abajo. Arriba va lo que pasó: los inscritos."
+                    },
+                    {
+                      "texto": "16",
+                      "feedback": "16 son solo los inscritos de Dibujo. La tabla resumen junta los talleres: 16 + 14."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "40",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "30",
+                      "feedback": "30 ya va arriba. Abajo va de cuántos cupos hablamos."
+                    },
+                    {
+                      "texto": "120",
+                      "feedback": "120 son los cupos de las tres sedes juntas. Para la ocupación de Norte, la base son solo sus cupos."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "100 cupos",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "40 cupos",
+                      "feedback": "De 40 cupos se ocuparon 30. Pero el porcentaje siempre se lee «de cada 100»."
+                    },
+                    {
+                      "texto": "10 cupos",
+                      "feedback": "«75 de cada 10» no tiene sentido: el porcentaje se lee «de cada 100»."
+                    }
+                  ]
+                }
+              ],
+              "textoLibre": {
+                "etiqueta": "Si quieres, escribe con tus palabras qué significa ese 75 % (opcional, queda en tu cuaderno):",
+                "clave": "sedes-que-es-75"
+              },
+              "explicacion": "30 ÷ 40 = 0,75. En la hoja de cálculo, si a 0,75 le das formato de porcentaje ya se ve **75 %**: no hay que multiplicar otra vez por 100. Y 75 % no son «75 personas»: son **75 de cada 100 cupos**.",
+              "tema": "tasa"
+            }
+          ]
+        },
+        {
+          "numero": 2,
+          "titulo": "Comparar con justicia",
+          "objetivo": "Calcular la ocupación de cada sede, ordenar con el criterio de la pregunta y sacar la ocupación global sin trampas.",
+          "cierre": "Nivel 2 listo: comparas con tasas y sabes sacar el total.",
+          "actividades": [
+            {
+              "id": "n2-tasas",
+              "tipo": "seleccion",
+              "fase": "hacer",
+              "titulo": "Las tres ocupaciones",
+              "consigna": "Calcula la ocupación de cada sede (inscritos ÷ cupos). ¿Qué resultado te da?",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Tabla resumen por sede",
+                "columnas": [
+                  "Sede",
+                  "Cupos",
+                  "Inscritos"
+                ],
+                "filas": [
+                  [
+                    "Norte",
+                    "40",
+                    "30"
+                  ],
+                  [
+                    "Centro",
+                    "20",
+                    "18"
+                  ],
+                  [
+                    "Sur",
+                    "60",
+                    "36"
+                  ]
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Norte 75 % · Centro 90 % · Sur 60 %",
+                  "correcta": true
+                },
+                {
+                  "texto": "Norte 30 % · Centro 18 % · Sur 36 %",
+                  "feedback": "Leíste las cantidades como si fueran porcentajes. 30 inscritos no son 30 %: hay que dividir entre los cupos de cada sede."
+                },
+                {
+                  "texto": "Norte 133 % · Centro 111 % · Sur 167 %",
+                  "feedback": "Dividiste al revés: cupos ÷ inscritos. Una ocupación mayor que 100 % diría que hay más inscritos que cupos, y en esta tabla eso no pasa."
+                },
+                {
+                  "texto": "Norte 25 % · Centro 15 % · Sur 30 %",
+                  "feedback": "Dividiste entre los 120 cupos de las tres sedes. Para la ocupación de una sede, la base son **sus** cupos: 40, 20 o 60."
+                }
+              ],
+              "pistas": [
+                "Centro: 18 ÷ 20.",
+                "Sur: 36 ÷ 60 = 0,6. ¿Cómo se ve con formato de porcentaje?"
+              ],
+              "explicacion": "**Norte 30 ÷ 40 = 75 % · Centro 18 ÷ 20 = 90 % · Sur 36 ÷ 60 = 60 %.** Escribe siempre la división completa: así cualquiera ve qué fue arriba y qué abajo.",
+              "tema": "tasa"
+            },
+            {
+              "id": "n2-orden",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "¿Cuál revisar primero?",
+              "consigna": "Lucía quiere revisar primero **la sede que ocupa la menor proporción de sus cupos**. Con ese criterio, ¿cuál va primero?",
+              "apoyo": {
+                "tipo": "comparacion",
+                "items": [
+                  {
+                    "etiqueta": "Cantidad",
+                    "grafico": {
+                      "tipo": "grafico",
+                      "forma": "barras",
+                      "titulo": "Inscritos",
+                      "etiquetas": [
+                        "Norte",
+                        "Centro",
+                        "Sur"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Inscritos",
+                          "valores": [
+                            30,
+                            18,
+                            36
+                          ]
+                        }
+                      ],
+                      "unidad": "personas"
+                    }
+                  },
+                  {
+                    "etiqueta": "Proporción",
+                    "grafico": {
+                      "tipo": "grafico",
+                      "forma": "barras",
+                      "titulo": "Ocupación",
+                      "etiquetas": [
+                        "Norte",
+                        "Centro",
+                        "Sur"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Ocupación",
+                          "valores": [
+                            75,
+                            90,
+                            60
+                          ],
+                          "color": "magenta"
+                        }
+                      ],
+                      "unidad": "%"
+                    }
+                  }
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Centro, porque tiene menos inscritos (18)",
+                  "feedback": "Centro tiene menos inscritos, pero también menos cupos: llenó 18 de 20, el 90 %. Es la que más ocupa."
+                },
+                {
+                  "texto": "Sur, porque solo se ocupan 60 de cada 100 cupos",
+                  "correcta": true
+                },
+                {
+                  "texto": "Norte, porque queda en la mitad",
+                  "feedback": "Norte tiene 75 %: queda en la mitad. ¿Cuál tiene la ocupación más baja?"
+                },
+                {
+                  "texto": "Ninguna: Sur tiene más inscritos, así que todo está bien",
+                  "feedback": "Más inscritos en cantidad no es mayor ocupación: Sur también tiene muchos más cupos (60)."
+                }
+              ],
+              "explicacion": "Por ocupación, de menor a mayor: **Sur 60 % → Norte 75 % → Centro 90 %**. Sur tiene **más** inscritos (36) y aun así la **menor** ocupación. Si alguien usa otro criterio, como los cupos vacíos (Sur 24, Norte 10, Centro 2), también puede valer, pero es otra medida y hay que decirlo.",
+              "tema": "cantidad-vs-tasa"
+            },
+            {
+              "id": "n2-respaldan",
+              "tipo": "tarjetas",
+              "fase": "entender",
+              "titulo": "¿Lo respaldan los datos?",
+              "consigna": "Para cada frase, decide si los datos de este periodo la respaldan.",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Tabla resumen por sede",
+                "columnas": [
+                  "Sede",
+                  "Cupos",
+                  "Inscritos"
+                ],
+                "filas": [
+                  [
+                    "Norte",
+                    "40",
+                    "30"
+                  ],
+                  [
+                    "Centro",
+                    "20",
+                    "18"
+                  ],
+                  [
+                    "Sur",
+                    "60",
+                    "36"
+                  ]
+                ]
+              },
+              "botones": {
+                "si": "Los datos lo respaldan",
+                "no": "No lo respaldan"
+              },
+              "tarjetas": [
+                {
+                  "texto": "La sede Sur tiene más inscritos que las otras dos.",
+                  "respuesta": "si",
+                  "explicacion": "Sí: 36 frente a 30 y 18. Es una frase sobre **cantidad**, y es cierta."
+                },
+                {
+                  "texto": "La sede Sur es la que mejor llena sus cupos.",
+                  "respuesta": "no",
+                  "explicacion": "En proporción es la que menos llena: 60 %. Más inscritos en cantidad no es mayor ocupación."
+                },
+                {
+                  "texto": "En Centro se inscribieron 90 personas.",
+                  "respuesta": "no",
+                  "explicacion": "90 % no son 90 personas: fueron 18 de 20 cupos. El porcentaje se lee «90 de cada 100»."
+                },
+                {
+                  "texto": "En Norte se ocuparon 3 de cada 4 cupos.",
+                  "respuesta": "si",
+                  "explicacion": "75 % es 3 de cada 4: 30 de 40."
+                },
+                {
+                  "texto": "En Sur la convocatoria es mala.",
+                  "respuesta": "no",
+                  "explicacion": "La tabla no dice por qué se inscribió menos gente: puede ser el horario, la difusión o las cancelaciones. Es una hipótesis por verificar."
+                }
+              ],
+              "explicacion": "Una **cantidad** responde «¿cuántos?»; una **tasa** responde «¿cuántos de cuántos?». Las dos pueden ser ciertas a la vez: lo que cambia es la pregunta.",
+              "tema": "cantidad-vs-tasa"
+            },
+            {
+              "id": "n2-global",
+              "tipo": "seleccion",
+              "fase": "hacer",
+              "titulo": "Un solo número para todo",
+              "consigna": "Lucía también quiere un solo número: **¿qué proporción de todos los cupos de la red está ocupada?**",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Tabla resumen con fila de total",
+                "columnas": [
+                  "Sede",
+                  "Cupos",
+                  "Inscritos",
+                  "Ocupación"
+                ],
+                "filas": [
+                  [
+                    "Norte",
+                    "40",
+                    "30",
+                    "75 %"
+                  ],
+                  [
+                    "Centro",
+                    "20",
+                    "18",
+                    "90 %"
+                  ],
+                  [
+                    "Sur",
+                    "60",
+                    "36",
+                    "60 %"
+                  ],
+                  [
+                    "Total",
+                    "?",
+                    "?",
+                    "?"
+                  ]
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "70 %",
+                  "correcta": true
+                },
+                {
+                  "texto": "75 %",
+                  "feedback": "Ese es el promedio de las tres ocupaciones: (75 + 90 + 60) ÷ 3. Coincide con la ocupación de Norte por pura casualidad. Trata a Centro (20 cupos) igual que a Sur (60). Suma primero inscritos y cupos, y divide al final."
+                },
+                {
+                  "texto": "225 %",
+                  "feedback": "Sumaste las tres ocupaciones: 75 + 90 + 60. Los porcentajes de grupos distintos no se suman así. Suma cantidades: inscritos con inscritos y cupos con cupos."
+                },
+                {
+                  "texto": "84 %",
+                  "feedback": "84 es el total de inscritos, no un porcentaje. Te falta dividir entre el total de cupos."
+                }
+              ],
+              "pistas": [
+                "Suma los inscritos de las tres sedes: 30 + 18 + 36.",
+                "Suma los cupos: 40 + 20 + 60. Ahora divide: 84 ÷ 120."
+              ],
+              "explicacion": "**Ocupación global = (30 + 18 + 36) ÷ (40 + 20 + 60) = 84 ÷ 120 = 0,70 = 70 %.** En la fila de total se **suman cantidades**, no tasas; la tasa del total se vuelve a calcular.",
+              "tema": "global-vs-promedio"
+            },
+            {
+              "id": "n2-por-que",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "¿Por qué no coinciden?",
+              "consigna": "Mira las dos cuentas y el gráfico de cupos. ¿Por qué los dos números no coinciden?",
+              "apoyo": [
+                {
+                  "tipo": "comparacion",
+                  "items": [
+                    {
+                      "etiqueta": "Ocupación global",
+                      "texto": "(30 + 18 + 36) ÷ (40 + 20 + 60) = 84 ÷ 120 = **70 %**"
+                    },
+                    {
+                      "etiqueta": "Promedio simple de tasas",
+                      "texto": "(75 % + 90 % + 60 %) ÷ 3 = **75 %**"
+                    }
+                  ]
+                },
+                {
+                  "tipo": "grafico",
+                  "forma": "barras",
+                  "titulo": "Cupos por sede",
+                  "etiquetas": [
+                    "Norte",
+                    "Centro",
+                    "Sur"
+                  ],
+                  "series": [
+                    {
+                      "nombre": "Cupos",
+                      "valores": [
+                        40,
+                        20,
+                        60
+                      ],
+                      "color": "verde"
+                    }
+                  ],
+                  "unidad": "cupos"
+                }
+              ],
+              "opciones": [
+                {
+                  "texto": "Porque uno de los dos cálculos está mal hecho",
+                  "feedback": "Las dos cuentas están bien hechas. Responden preguntas distintas: mira cuántos cupos aporta cada sede."
+                },
+                {
+                  "texto": "Porque el promedio le da el mismo peso a cada sede, aunque Sur pone 60 de los 120 cupos y Centro solo 20",
+                  "correcta": true
+                },
+                {
+                  "texto": "Porque la tasa global siempre da menos que el promedio",
+                  "feedback": "No siempre. Aquí da menos porque la sede más grande (Sur) es la de menor ocupación. Si la sede grande fuera la más llena, la global daría más que el promedio."
+                },
+                {
+                  "texto": "Porque en una de las dos hay que multiplicar otra vez por 100",
+                  "feedback": "El formato de porcentaje no cambia el resultado. La diferencia viene del peso de cada sede."
+                }
+              ],
+              "explicacion": "El **promedio simple de tasas** le da el mismo peso a cada sede. La **ocupación global** le da el mismo peso a cada **cupo**: por eso Sur, con 60 cupos y 60 % de ocupación, la jala hacia abajo, y Centro, con solo 20 cupos, pesa poco. El promedio no es «malo»: responde otra pregunta, pero no reemplaza la ocupación conjunta. Dato curioso: dentro de cada sede los talleres tienen los mismos cupos, y ahí promediar o sumar da igual. Cuando los grupos pesan distinto, ya no.",
+              "tema": "global-vs-promedio"
+            }
+          ]
+        },
+        {
+          "numero": 3,
+          "titulo": "Probar y recomendar",
+          "objetivo": "Probar una actualización sin borrar la base, leer puntos porcentuales y escribir una recomendación prudente. Es el reto de la clase, en versión autoguiada.",
+          "cierre": "Nivel 3 listo: comparaste con justicia y recomendaste sin inventar causas.",
+          "actividades": [
+            {
+              "id": "n3-escenario",
+              "tipo": "completar",
+              "fase": "aplicar",
+              "titulo": "Una actualización aparte",
+              "consigna": "Trabaja en una **copia rotulada «actualización»**, sin borrar la tabla base. Elige lo que completa la frase.",
+              "apoyo": {
+                "tipo": "texto",
+                "texto": "**Actualización de contraste:** Centro registra **2 inscripciones adicionales** (una en Teatro y otra en Música). Los cupos no cambian (siguen siendo 20)."
+              },
+              "frase": "En la actualización, Centro queda en {0}, la ocupación global queda en {1} y la sede con menor ocupación {2}.",
+              "huecos": [
+                {
+                  "opciones": [
+                    {
+                      "texto": "20 ÷ 20 = 100 %",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "20 ÷ 22 ≈ 91 %",
+                      "feedback": "Los cupos no cambian: siguen siendo 20. Solo cambia cuántas personas se inscribieron."
+                    },
+                    {
+                      "texto": "90 % + 2 % = 92 %",
+                      "feedback": "Sumar 2 inscritos no es sumar 2 puntos. Recalcula la división: (18 + 2) ÷ 20."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "86 ÷ 120 ≈ 71,67 %",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "70 %, igual que antes",
+                      "feedback": "Si cambian los inscritos de una sede, cambia también el total: 84 + 2 = 86 inscritos de 120 cupos."
+                    },
+                    {
+                      "texto": "(75 % + 100 % + 60 %) ÷ 3 ≈ 78,3 %",
+                      "feedback": "Ese es el promedio simple de las tasas de la actualización. Para la global, suma cantidades: 86 ÷ 120."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "sigue siendo Sur",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "pasa a ser Norte",
+                      "feedback": "Norte sigue en 75 % y Sur en 60 %: Sur sigue siendo la de menor ocupación."
+                    },
+                    {
+                      "texto": "pasa a ser Centro",
+                      "feedback": "Centro subió a 100 %: ahora es la más llena, no la menos."
+                    }
+                  ]
+                }
+              ],
+              "explicacion": "Actualización: **Centro 20 ÷ 20 = 100 %** y **global 86 ÷ 120 ≈ 71,67 %**. La prioridad **no cambia**: Sur (60 %) sigue con la menor ocupación. Rotula siempre «base» y «actualización»: en la base, Centro sigue en 90 % y la global en 70 %.",
+              "tema": "escenario-y-puntos"
+            },
+            {
+              "id": "n3-puntos",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "¿Diez qué?",
+              "consigna": "Alguien escribe: «En la actualización, Centro sumó diez inscritos». ¿Cómo se dice bien el cambio?",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Sede Centro: base y actualización",
+                "columnas": [
+                  "Sede Centro",
+                  "Base",
+                  "Actualización",
+                  "Cambio"
+                ],
+                "filas": [
+                  [
+                    "Cupos",
+                    "20",
+                    "20",
+                    "0"
+                  ],
+                  [
+                    "Inscritos",
+                    "18",
+                    "20",
+                    "2 más"
+                  ],
+                  [
+                    "Ocupación",
+                    "90 %",
+                    "100 %",
+                    "?"
+                  ]
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Subió 10 puntos porcentuales: de 90 % a 100 %, con 2 inscritos más",
+                  "correcta": true
+                },
+                {
+                  "texto": "Sumó 10 inscritos",
+                  "feedback": "En la actualización solo hay 2 inscritos más (de 18 a 20). Lo que subió 10 fue la ocupación, y eso se mide en puntos porcentuales."
+                },
+                {
+                  "texto": "Subió 10 %",
+                  "feedback": "«Subió 10 %» se confunde con un cambio relativo: pasar de 90 a 100 es crecer cerca de 11 % sobre 90. Para la distancia entre dos porcentajes se dice **puntos porcentuales**."
+                },
+                {
+                  "texto": "Subió 2 puntos porcentuales",
+                  "feedback": "2 es el cambio en inscritos. La ocupación pasó de 90 % a 100 %: ¿cuántos puntos son?"
+                }
+              ],
+              "explicacion": "Los **puntos porcentuales** miden la distancia entre dos porcentajes: de 90 % a 100 % hay **10 puntos**. Con solo 20 cupos de base, cada inscrito pesa 5 puntos; por eso 2 inscritos más mueven 10 puntos. Mira siempre las dos filas: personas y tasa.",
+              "tema": "escenario-y-puntos"
+            },
+            {
+              "id": "n3-frase",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "La recomendación",
+              "consigna": "Lucía va a escribir su recomendación a la coordinación. ¿Cuál frase recomienda con datos y sin pasarse?",
+              "opciones": [
+                {
+                  "texto": "Revisen primero Centro: solo tiene 18 inscritos.",
+                  "feedback": "Usa la cantidad, no la tasa. Centro tiene pocos cupos (20) y ocupa 90 %: es la sede más llena."
+                },
+                {
+                  "texto": "Conviene revisar primero Sur: se ocupan 36 de sus 60 cupos (60 %), la menor ocupación de las tres. Antes de proponer algo, preguntaríamos por horarios, difusión y cancelaciones.",
+                  "correcta": true
+                },
+                {
+                  "texto": "La convocatoria de Sur es mala: solo llena el 60 %.",
+                  "feedback": "La tabla dice dónde mirar, no por qué pasa. Puede ser el horario, la difusión o las cancelaciones. Convierte la causa en una pregunta."
+                },
+                {
+                  "texto": "No hay que revisar nada: la ocupación global ya subió a 71,67 %.",
+                  "feedback": "Ese 71,67 % es de la actualización de contraste, no de la base. Rotula cada cifra: en la base, la global es 70 % y Sur sigue en 60 %."
+                }
+              ],
+              "explicacion": "Una recomendación prudente dice **sede, tasa con su denominador y criterio**, y deja una **pregunta pendiente**. Afirmar la causa («la convocatoria es mala») es una hipótesis que necesita otros datos.",
+              "tema": "prioridad-prudente"
+            },
+            {
+              "id": "n3-reto",
+              "tipo": "constructor",
+              "fase": "aplicar",
+              "titulo": "El reto: ¿qué sede revisar primero?",
+              "consigna": "Prepara una comparación de las tres sedes para orientar dónde revisar primero la ocupación. Tu recomendación debe apoyarse en tasas, mostrar sus denominadores y distinguir la base de una actualización. Incluye información que aún necesitarías antes de proponer una intervención concreta.",
+              "rutas": [
+                {
+                  "id": "mapa",
+                  "nombre": "Ruta Mapa",
+                  "descripcion": "La pregunta ya viene dada. Te concentras en calcular, ordenar y recomendar.",
+                  "preguntaDada": "En este periodo, ¿qué sede ocupa la menor proporción de sus cupos?"
+                },
+                {
+                  "id": "brujula",
+                  "nombre": "Ruta Brújula",
+                  "descripcion": "Formulas tu propia pregunta. Ideas: comparar talleres dentro de una sede, comparar dos sedes o mirar la ocupación global."
+                },
+                {
+                  "id": "telescopio",
+                  "nombre": "Ruta Telescopio",
+                  "descripcion": "Comparas la base con la actualización de 2 inscritos más en Centro, y la ocupación global con el promedio de tasas en los dos casos.",
+                  "preguntaDada": "¿Cómo cambian la ocupación de Centro y la ocupación global si Centro registra dos inscripciones adicionales? ¿Cambia la sede con menor ocupación?"
+                }
+              ],
+              "pasos": [
+                {
+                  "clave": "sedes-pregunta",
+                  "titulo": "1 · Mi pregunta",
+                  "ayuda": "Empieza con «En este periodo…» o «Entre estas tres sedes…».",
+                  "pistas": [
+                    "Elige qué comparar: sedes, talleres, o base frente a actualización.",
+                    "Ejemplo de forma: «En este periodo, ¿qué sede ocupa la menor proporción de ___?»"
+                  ]
+                },
+                {
+                  "clave": "sedes-tabla",
+                  "titulo": "2 · Mi tabla resumen y mis tasas",
+                  "ayuda": "Una fila por sede: cupos, inscritos y la división completa. Puedes marcar filas en la tabla y agregarlas aquí.",
+                  "pistas": [
+                    "Junta los talleres de cada sede: Sur son las filas 02, 04 y 07.",
+                    "Escribe la división completa, por ejemplo: «Sur: 36 ÷ 60 = 60 %».",
+                    "Revisa: ¿los cupos son mayores que cero y los inscritos nunca superan los cupos?"
+                  ],
+                  "permiteFilas": true
+                },
+                {
+                  "clave": "sedes-total",
+                  "titulo": "3 · El total (y la actualización, si la usas)",
+                  "ayuda": "Escribe la ocupación global con sus dos cantidades. Si usas la actualización, ponla aparte con su rótulo.",
+                  "pistas": [
+                    "Para el total, suma inscritos y cupos, y divide al final.",
+                    "Si te da 75 %, promediaste las tasas: ¿cada sede tiene los mismos cupos?",
+                    "Actualización: rotúlala y no borres la base."
+                  ]
+                },
+                {
+                  "clave": "sedes-recomendacion",
+                  "titulo": "4 · Mi recomendación y lo que todavía no sé",
+                  "ayuda": "«Conviene revisar primero… porque… (tasa y criterio). Antes de intervenir, preguntaría…»",
+                  "pistas": [
+                    "Nombra la sede, su tasa con la división y el criterio («la menor ocupación»).",
+                    "Piensa en lo que la tabla no tiene: horarios, difusión, cancelaciones, motivos para no inscribirse."
+                  ]
+                }
+              ],
+              "verificacion": [
+                "¿Cada tasa muestra su división (arriba los inscritos, abajo los cupos)?",
+                "¿Ordené por tasa y dije por qué ese criterio responde la pregunta?",
+                "¿El total sale de sumar cantidades (84 ÷ 120)?",
+                "¿Separé la base de la actualización?",
+                "¿Mi recomendación deja una pregunta en vez de afirmar una causa?"
+              ],
+              "ejemplo": "«En este periodo, ¿qué sede ocupa la menor proporción de sus cupos? Junté los talleres de cada sede: Norte 30 ÷ 40 = 75 %, Centro 18 ÷ 20 = 90 % y Sur 36 ÷ 60 = 60 %. En total, 84 ÷ 120 = 70 % de los cupos está ocupado; el promedio de las tres tasas (75 %) es otra medida. Si Centro suma dos inscritos, llega a 100 % y la global a 86 ÷ 120 ≈ 71,67 %, pero Sur sigue con la menor ocupación. Conviene revisar primero Sur, aunque tenga más inscritos en cantidad. Antes de intervenir, preguntaría si los horarios de Sur le sirven a la gente y cuántas personas cancelaron.»",
+              "explicacion": "No se busca un texto largo: sirve si otra persona puede repetir tus divisiones y ver de dónde sale tu prioridad.",
+              "tema": "prioridad-prudente"
+            },
+            {
+              "id": "n3-cierre",
+              "tipo": "escritura",
+              "fase": "observar",
+              "titulo": "Cierre de la misión",
+              "consigna": "Completa estas dos frases. Quedan guardadas en tu cuaderno (solo en este navegador).",
+              "frases": [
+                {
+                  "clave": "sedes-cierre-necesito",
+                  "inicio": "Para comparar ocupación necesito…"
+                },
+                {
+                  "clave": "sedes-cierre-preguntaria",
+                  "inicio": "Antes de intervenir, preguntaría…"
+                }
+              ],
+              "explicacion": "El procedimiento en una línea: **tabla resumen → tasa con su denominador → ordenar según la pregunta → total sumando cantidades → actualización aparte → recomendación con una pregunta pendiente.**"
+            }
+          ]
+        }
+      ],
+      "conceptos": [
+        {
+          "termino": "Tabla resumen",
+          "definicion": "Una fila por grupo con las cantidades que necesitas para comparar.",
+          "ejemplo": "Sur: 60 cupos y 36 inscritos, juntando sus tres talleres."
+        },
+        {
+          "termino": "Tasa (ocupación)",
+          "definicion": "Una división que compara una parte con su base: «tantos de cuántos».",
+          "ejemplo": "Centro: 18 inscritos ÷ 20 cupos = 90 %."
+        },
+        {
+          "termino": "Numerador y denominador",
+          "definicion": "Arriba va lo que pasó; abajo, la base.",
+          "ejemplo": "En 30 ÷ 40, 30 son los inscritos y 40 los cupos."
+        },
+        {
+          "termino": "Cantidad frente a proporción",
+          "definicion": "«¿Cuántos?» y «¿cuántos de cuántos?» son preguntas distintas y pueden dar ganadores distintos.",
+          "ejemplo": "Sur tiene más inscritos (36), pero la menor ocupación (60 %)."
+        },
+        {
+          "termino": "Tasa global",
+          "definicion": "Se suman las cantidades de todos los grupos y se divide al final.",
+          "ejemplo": "84 ÷ 120 = 70 % de los cupos de la red."
+        },
+        {
+          "termino": "Promedio simple de tasas",
+          "definicion": "Suma las tasas y divide entre el número de grupos: cada grupo pesa igual. Responde otra pregunta.",
+          "ejemplo": "(75 % + 90 % + 60 %) ÷ 3 = 75 %, distinto del 70 % global."
+        },
+        {
+          "termino": "Escenario o actualización",
+          "definicion": "Una copia rotulada para probar un cambio sin borrar la base.",
+          "ejemplo": "Centro con 2 inscritos más: 100 %; global ≈ 71,67 %."
+        },
+        {
+          "termino": "Punto porcentual",
+          "definicion": "La distancia entre dos porcentajes.",
+          "ejemplo": "De 90 % a 100 % son 10 puntos porcentuales, con solo 2 inscritos más."
+        },
+        {
+          "termino": "Recomendación prudente",
+          "definicion": "Dice dónde mirar, con qué tasa y criterio, y qué falta saber. No afirma causas.",
+          "ejemplo": "«Revisemos primero Sur (36 de 60, 60 %). ¿Los horarios le sirven a la gente?»"
+        }
+      ],
+      "fraseClave": "Antes de comparar, pregunto «¿de cuántos?»: una tasa necesita su denominador, y el total se calcula sumando cantidades antes de dividir.",
+      "paraLlevar": {
+        "consigna": "Prepara una comparación de las tres sedes para orientar dónde revisar primero la ocupación. Tu recomendación debe apoyarse en tasas, mostrar sus denominadores y distinguir la base de una actualización. Incluye información que aún necesitarías antes de proponer una intervención concreta.",
+        "pasos": [
+          "Mi pregunta (empieza con «En este periodo…» o «Entre estas tres sedes…»).",
+          "Mi tabla resumen: una fila por sede, con cupos, inscritos y la división de cada ocupación.",
+          "El total: sumo cantidades y divido al final. Si pruebo una actualización, la rotulo aparte.",
+          "Mi recomendación (sede, tasa y criterio) y una pregunta sobre lo que todavía no sé."
+        ],
+        "lupa": [
+          "Cada tasa muestra su división.",
+          "Ordené según el criterio de la pregunta.",
+          "El total suma cantidades antes de dividir.",
+          "Base y actualización van separadas.",
+          "Recomiendo sin afirmar causas."
+        ]
+      }
+    }
+  },
   "teoria": {
-    "intro": "Para comparar grupos de tamaños distintos no basta con mirar quién tiene más: hay que mirar «de cuántos». Es lo mismo que pensar si un bus va lleno o no según cuántos puestos tiene.",
+    "intro": "Para comparar grupos de tamaños distintos no basta con mirar quién tiene más: hay que mirar «de cuántos». Es lo mismo que pensar quién cobra mejor los penaltis: no basta con contar los goles, también importa cuántos cobró cada quien.",
     "platzi": [
       {
         "curso": "Data1 · Fundamentos del análisis de datos",
@@ -57,7 +2073,7 @@
         "titulo": "Tabla resumen por grupo",
         "idea": "Una tabla resumen pone en una fila lo de cada grupo para poder compararlo.",
         "explicacion": "Cuando quieres comparar sedes, grupos o barrios, lo primero es una **tabla resumen**: una fila por grupo y columnas con las cantidades que necesitas. En Excel se puede hacer con una **tabla dinámica**, que agrupa y suma por ti, o a mano. Antes de calcular, pregúntate qué representa cada fila y qué mide cada columna.",
-        "cotidiano": "En la tienda, el tendero apunta por día cuántas gaseosas tenía y cuántas vendió. Con eso arma su propio resumen de la semana.",
+        "cotidiano": "En un torneo de microfútbol del barrio, la planilla anota partido por partido. Para comparar equipos, se arma una fila por equipo con sus partidos jugados y ganados.",
         "ejemplo": "Datos ficticios de un curso de natación: Grupo mañana: 50 cupos, 33 inscritos. Grupo tarde: 20 cupos, 19 inscritos.",
         "enElReto": "Arma la tabla con una fila por sede y deja visibles los cupos y los inscritos antes de agregar cualquier cálculo."
       },
@@ -66,7 +2082,7 @@
         "titulo": "Tasa: numerador y denominador",
         "idea": "Una tasa compara una parte con su base: «tantos de cuántos».",
         "explicacion": "Una **tasa** es una división: arriba va lo que pasó (**numerador**) y abajo la base posible (**denominador**). La **ocupación** es inscritos ÷ cupos. El resultado se puede leer como porcentaje. Ojo en Excel: si a 0,66 le das formato de porcentaje, ya se muestra como 66 %; no hace falta multiplicar otra vez por 100.",
-        "cotidiano": "Si en el bus hay 30 puestos y van 15 personas sentadas, va medio lleno: 15 de 30.",
+        "cotidiano": "Si sembraste 10 semillas de frijol y germinaron 8, germinó el 80 %: 8 de 10.",
         "ejemplo": "Curso ficticio: mañana 33 ÷ 50 = 0,66 = 66 %. Tarde 19 ÷ 20 = 0,95 = 95 %. Ese 95 % no son «95 personas»: son 95 de cada 100 cupos.",
         "enElReto": "Calcula la tasa de cada sede escribiendo la división completa, para que se vea qué va arriba y qué va abajo."
       },
@@ -75,7 +2091,7 @@
         "titulo": "Más cantidad no es mayor proporción",
         "idea": "Un grupo puede tener más inscritos y aun así llenar menos sus cupos.",
         "explicacion": "Las cantidades (cuántos) y las tasas (cuántos de cuántos) responden preguntas distintas. Un grupo grande puede tener más gente y menor ocupación, porque tiene muchos más cupos. Para decidir dónde revisar, define primero tu **criterio** según la pregunta.",
-        "cotidiano": "Un supermercado grande puede vender más arepas que la tienda de la esquina y aun así quedarse con más arepas sin vender.",
+        "cotidiano": "Una jugadora que cobró 10 penaltis y metió 7 tiene más goles que otra que cobró 4 y metió los 4. Pero la segunda acertó todos.",
         "ejemplo": "Curso ficticio: el grupo de la mañana tiene más inscritos (33 frente a 19), pero menor ocupación (66 % frente a 95 %).",
         "enElReto": "Ordena las sedes por tasa, no solo por cantidad, y explica por qué ese es el criterio que responde la pregunta."
       },
@@ -84,7 +2100,7 @@
         "titulo": "Tasa global frente a promedio de tasas",
         "idea": "Para el total, primero sumas las cantidades y después divides.",
         "explicacion": "La **tasa global** responde por todos los cupos juntos: sumas todos los inscritos, sumas todos los cupos y divides. El **promedio simple de tasas** suma los porcentajes y los divide entre el número de grupos: trata a cada grupo como si pesara igual, aunque sean de tamaños distintos. No es un error en sí, pero responde otra pregunta y no reemplaza la ocupación conjunta.",
-        "cotidiano": "Si un bus grande va medio vacío y una buseta pequeña va llena, promediar «medio» y «lleno» no te dice cuántos puestos libres hay en total.",
+        "cotidiano": "Si en un quiz corto sacaste 9 de 10 preguntas (90 %) y en el examen 30 de 60 (50 %), promediar da 70 %. Pero de todas las preguntas acertaste 39 de 70, más o menos 56 %.",
         "ejemplo": "Curso ficticio: global = (33 + 19) ÷ (50 + 20) = 52 ÷ 70 ≈ 74,3 %. Promedio simple = (66 % + 95 %) ÷ 2 = 80,5 %. Son medidas distintas.",
         "enElReto": "Para el total, suma inscritos y cupos y divide al final. Si te sale el promedio de los porcentajes, pregúntate si cada sede tiene los mismos cupos."
       },
@@ -102,7 +2118,7 @@
         "titulo": "Priorizar no es explicar la causa",
         "idea": "Los datos pueden decirte dónde mirar primero, no por qué pasa algo.",
         "explicacion": "Una **recomendación prudente** dice qué sede revisar, con qué tasa y con qué criterio, y añade qué información falta. Decir «aquí hay menor ocupación» es un hallazgo; decir «aquí la convocatoria es mala» es una **hipótesis** que necesita más datos (horarios, cancelaciones, motivos).",
-        "cotidiano": "Si una tienda vende menos que otra, no sabes si es por el precio, la ubicación o el horario hasta que lo averiguas.",
+        "cotidiano": "Si en una matera germinaron menos semillas que en otra, no sabes si fue el sol, el agua o la semilla hasta que lo averiguas.",
         "ejemplo": "Curso ficticio: «Conviene revisar primero el grupo de la mañana, que tiene 66 % de ocupación. Antes de cambiar algo, preguntaríamos si el horario le sirve a la gente».",
         "enElReto": "Escribe una frase con sede, tasa y criterio, y una pregunta sobre lo que todavía necesitas saber."
       }

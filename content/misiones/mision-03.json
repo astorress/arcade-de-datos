@@ -4,18 +4,1646 @@
   "titulo": "Indicadores y distribuciones",
   "sesion": "Construir indicadores y describir distribuciones",
   "habilidad": "Media, mediana, mínimo, máximo, rango, porcentaje y valor extremo.",
-  "caso": "Tiempos de espera",
+  "caso": "Minutos esperando el bus o el metro",
   "color": "verde",
-  "historia": "",
   "insignia": {
     "nombre": "Medidor de centros",
-    "descripcion": "",
+    "descripcion": "Encuentras el centro de una lista, ves el valor que se aleja sin borrarlo y eliges qué cifra cuenta mejor la historia, siempre con su unidad.",
     "simbolo": "regla"
   },
-  "niveles": [],
-  "conceptos": [],
+  "casoActivo": "cotidiano",
+  "casos": {
+    "cotidiano": {
+      "nombre": "Cotidiano: la espera de Valentina en el paradero",
+      "titulo": "La espera de Valentina",
+      "caso": "Minutos esperando el bus o el metro",
+      "historia": "Valentina, ficticia, sale a estudiar todos los días entre semana y siente que «siempre espera muchísimo». Durante dos semanas anotó en el celular cuántos minutos esperó en el paradero o en la estación. Un amigo miró la lista y le dijo: «En promedio esperas casi 12 minutos». ¿Eso cuenta bien cómo son sus días? Tú le vas a ayudar a resumir la espera sin esconder el día del aguacero.",
+      "datos": {
+        "titulo": "Las esperas de Valentina",
+        "unidad": [
+          "espera",
+          "esperas"
+        ],
+        "columnas": [
+          "Código",
+          "Fecha",
+          "Día",
+          "Transporte",
+          "Minutos",
+          "Nota"
+        ],
+        "filas": [
+          [
+            "01",
+            "13/10",
+            "Mar",
+            "Bus",
+            "7",
+            "—"
+          ],
+          [
+            "02",
+            "14/10",
+            "Mié",
+            "Metro",
+            "5",
+            "—"
+          ],
+          [
+            "03",
+            "15/10",
+            "Jue",
+            "Bus",
+            "9",
+            "Llovizna"
+          ],
+          [
+            "04",
+            "16/10",
+            "Vie",
+            "Metro",
+            "4",
+            "—"
+          ],
+          [
+            "05",
+            "19/10",
+            "Lun",
+            "Bus",
+            "12",
+            "—"
+          ],
+          [
+            "06",
+            "20/10",
+            "Mar",
+            "Bus",
+            "8",
+            "—"
+          ],
+          [
+            "07",
+            "21/10",
+            "Mié",
+            "Bus",
+            "45",
+            "Aguacero"
+          ],
+          [
+            "08",
+            "22/10",
+            "Jue",
+            "Metro",
+            "5",
+            "—"
+          ],
+          [
+            "09",
+            "23/10",
+            "Vie",
+            "Bus",
+            "10",
+            "—"
+          ]
+        ],
+        "definiciones": [
+          "Cada **código** identifica **una espera** de Valentina: la de ida a estudiar, un día entre semana.",
+          "**Fecha** es el día de la espera (octubre de 2026). **Día** es el día de la semana.",
+          "**Transporte** dice si esperó el bus (en el paradero) o el metro (en la estación).",
+          "**Minutos** es cuánto esperó, desde que llegó hasta que se subió. Es la variable que vamos a resumir.",
+          "**Nota** es lo que Valentina anotó del clima; «—» quiere decir que no anotó nada.",
+          "**No hay** datos de la hora, la ruta exacta ni de por qué una espera fue más larga."
+        ],
+        "aviso": "Datos ficticios, solo para practicar."
+      },
+      "niveles": [
+        {
+          "numero": 1,
+          "titulo": "Mirar antes de calcular",
+          "objetivo": "Entender qué cuenta cada fila, ordenar la lista sin perder ningún valor y ver el dato que se aleja, sin borrarlo.",
+          "cierre": "Nivel 1 listo: miraste los datos antes de hacer cuentas, y el 45 sigue en su lugar.",
+          "actividades": [
+            {
+              "id": "n1-toca-fila",
+              "tipo": "leer-filas",
+              "fase": "hacer",
+              "titulo": "Toca una fila",
+              "consigna": "Toca una fila de la tabla y lee lo que nos cuenta. Lee al menos **2 filas** para continuar. Tip: toca también la más larga.",
+              "minimo": 2,
+              "lecturas": {
+                "01": "El registro 01 es una espera de Valentina: el martes 13 de octubre esperó el bus 7 minutos.",
+                "02": "El registro 02 es una espera de Valentina: el miércoles 14 de octubre esperó el metro 5 minutos.",
+                "03": "El registro 03 es una espera de Valentina: el jueves 15 de octubre esperó el bus 9 minutos. Ese día anotó «llovizna».",
+                "04": "El registro 04 es una espera de Valentina: el viernes 16 de octubre esperó el metro 4 minutos. Es la espera más corta.",
+                "05": "El registro 05 es una espera de Valentina: el lunes 19 de octubre esperó el bus 12 minutos.",
+                "06": "El registro 06 es una espera de Valentina: el martes 20 de octubre esperó el bus 8 minutos.",
+                "07": "El registro 07 es una espera de Valentina: el miércoles 21 de octubre esperó el bus 45 minutos. Ese día anotó «aguacero». Es, de lejos, la espera más larga.",
+                "08": "El registro 08 es una espera de Valentina: el jueves 22 de octubre esperó el metro 5 minutos.",
+                "09": "El registro 09 es una espera de Valentina: el viernes 23 de octubre esperó el bus 10 minutos."
+              },
+              "explicacion": "Cada lectura empieza igual: **«es una espera de Valentina…»**. Y casi todas duran entre 4 y 12 minutos… menos una.",
+              "tema": "conteo-y-suma"
+            },
+            {
+              "id": "n1-que-es-fila",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "¿Qué representa una fila?",
+              "consigna": "Después de leer algunas filas, ¿qué representa cada fila de esta tabla?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Un bus",
+                  "feedback": "El transporte es una columna: dice si fue bus o metro. Hay 2 tipos de transporte y 9 filas. ¿Qué se repite 9 veces?"
+                },
+                {
+                  "texto": "Una espera de Valentina en un día",
+                  "correcta": true
+                },
+                {
+                  "texto": "Un minuto",
+                  "feedback": "Los minutos son una columna: la cantidad que se midió en cada fila. Cada fila tiene su propio número de minutos."
+                },
+                {
+                  "texto": "Un día de lluvia",
+                  "feedback": "Solo dos filas tienen nota de lluvia. La fila existe aunque no haya llovido: lo que registra es otra cosa."
+                }
+              ],
+              "pistas": [
+                "Vuelve a leer una fila completa: ¿cómo empieza la frase?",
+                "Las definiciones debajo de la tabla dicen qué identifica cada código."
+              ],
+              "explicacion": "La **unidad de análisis** aquí es **una espera** de Valentina (una por día). Por eso, cuando contemos, contaremos esperas, o días: hay **9**.",
+              "tema": "conteo-y-suma"
+            },
+            {
+              "id": "n1-afirmacion",
+              "tipo": "seleccion",
+              "fase": "hacer",
+              "titulo": "¿Casi todos esperaron eso?",
+              "consigna": "El amigo de Valentina dijo: **«En promedio esperas casi 12 minutos»**. Antes de hacer cuentas: ¿eso quiere decir que **casi todos los días** esperó unos 12 minutos?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Sí: eso es justo lo que dice un promedio",
+                  "feedback": "Es muy común pensarlo así. Pero mira la tabla: ¿cuántos días esperó algo cercano a 12 minutos? El promedio reparte la suma en partes iguales; no dice qué le pasó a la mayoría."
+                },
+                {
+                  "texto": "No necesariamente: hay que mirar los valores uno por uno",
+                  "correcta": true
+                },
+                {
+                  "texto": "No: un promedio siempre está mal calculado",
+                  "feedback": "El promedio puede estar perfectamente bien calculado. La duda no es la cuenta, sino si esa cifra describe lo que vivió la mayoría de días."
+                }
+              ],
+              "pistas": [
+                "Antes de responder, mira la columna de minutos de arriba abajo. ¿Cuántos valores se parecen a esa cifra?"
+              ],
+              "explicacion": "Mira la columna Minutos: **solo un día** esperó 12 minutos. Siete días esperó 10 minutos o menos, y uno esperó 45. Una media puede estar bien hecha y aun así **no** describir la experiencia típica.",
+              "tema": "media"
+            },
+            {
+              "id": "n1-ordena",
+              "tipo": "seleccion",
+              "fase": "hacer",
+              "titulo": "Ordena sin perder ninguno",
+              "consigna": "Para hallar la mediana hay que **ordenar** los minutos de menor a mayor. Tres compañeros lo intentaron. ¿Cuál lista está **completa y bien ordenada**?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "4, 5, 7, 8, 9, 10, 12, 45",
+                  "feedback": "Cuenta los valores: hay 8 y la tabla tiene 9. Se perdió uno de los dos 5 (códigos 02 y 08). Un valor repetido se escribe dos veces."
+                },
+                {
+                  "texto": "4, 5, 5, 7, 8, 9, 10, 12, 45",
+                  "correcta": true
+                },
+                {
+                  "texto": "4, 5, 5, 7, 8, 9, 10, 12",
+                  "feedback": "Están bien ordenados, pero son 8. ¿Dónde quedó el más grande? Si lo dejas por fuera, todas las medidas cambian."
+                },
+                {
+                  "texto": "7, 5, 9, 4, 12, 8, 45, 5, 10",
+                  "feedback": "Esa es la lista en el orden de la tabla (por fecha). Para la mediana hay que ordenarla de menor a mayor."
+                }
+              ],
+              "pistas": [
+                "Primero cuenta: la tabla tiene **9 valores**. La lista ordenada también debe tener 9.",
+                "Un valor repetido se escribe dos veces, y el más grande va al final."
+              ],
+              "explicacion": "La lista ordenada es **4, 5, 5, 7, 8, 9, 10, 12, 45**: 9 valores, los mismos de la tabla. Ordenar no cambia ningún dato; solo los pone en fila, del más corto al más largo.",
+              "tema": "mediana"
+            },
+            {
+              "id": "n1-se-aleja",
+              "tipo": "seleccionar-filas",
+              "fase": "observar",
+              "titulo": "El que se aleja",
+              "consigna": "Mira el gráfico y la tabla. **Toca la fila** cuyo tiempo se aleja mucho de los demás.",
+              "apoyo": {
+                "tipo": "grafico",
+                "forma": "barras",
+                "titulo": "Minutos de espera por código",
+                "unidad": "minutos",
+                "etiquetas": [
+                  "01",
+                  "02",
+                  "03",
+                  "04",
+                  "05",
+                  "06",
+                  "07",
+                  "08",
+                  "09"
+                ],
+                "series": [
+                  {
+                    "nombre": "Minutos",
+                    "valores": [
+                      7,
+                      5,
+                      9,
+                      4,
+                      12,
+                      8,
+                      45,
+                      5,
+                      10
+                    ]
+                  }
+                ],
+                "nota": "Datos ficticios. Cada barra es una espera de Valentina."
+              },
+              "esperadas": [
+                "07"
+              ],
+              "feedback": {
+                "sobran": "Esa espera se parece bastante a las demás. Busca la barra que sobresale muchísimo.",
+                "faltan": "Todavía no has tocado la fila que se aleja. Busca la barra más alta."
+              },
+              "pistas": [
+                "En el gráfico, una barra es varias veces más alta que el resto."
+              ],
+              "explicacion": "El código **07** (45 minutos, el día del aguacero) se aleja mucho: casi cuatro veces la segunda espera más larga (12). A un dato así le llamamos **valor extremo**.",
+              "tema": "valor-extremo"
+            },
+            {
+              "id": "n1-borrar",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "¿Lo borramos?",
+              "consigna": "El amigo de Valentina propone: **«Borra el 45, eso fue un día raro y te daña el promedio»**. ¿Qué es lo más responsable?",
+              "opciones": [
+                {
+                  "texto": "Borrarlo: se ve raro, entonces seguro es un error",
+                  "feedback": "¿Qué evidencia hay de que sea un error? Valentina sí esperó esos 45 minutos y hasta anotó el aguacero. Que se vea raro no lo vuelve falso."
+                },
+                {
+                  "texto": "Conservarlo en el análisis principal y, aparte, calcular sin él para comparar",
+                  "correcta": true
+                },
+                {
+                  "texto": "Cambiarlo por 12, que es más parecido a los demás",
+                  "feedback": "Eso sería inventar un dato. Si cambias lo que pasó, el resumen deja de contar la historia real."
+                },
+                {
+                  "texto": "Dejarlo, pero no decir nada de él en el resumen",
+                  "feedback": "Conservarlo va bien. Pero esconderlo en el resumen tampoco es honesto: ese día Valentina esperó 45 minutos y vale la pena contarlo."
+                }
+              ],
+              "explicacion": "Un valor extremo **merece atención, no borrarse sin evidencia**. El 45 se queda en el análisis principal. Más adelante haremos un **contraste**: calcular otra vez sin él, en un espacio aparte, solo para ver qué medidas cambian.",
+              "tema": "valor-extremo"
+            }
+          ]
+        },
+        {
+          "numero": 2,
+          "titulo": "Calcular y dejar rastro",
+          "objetivo": "Calcular conteo, suma, media, mediana, mínimo, máximo, rango y un porcentaje, siempre con su unidad.",
+          "cierre": "Nivel 2 listo: tienes todas las medidas, con su unidad y con el rastro de cada cuenta.",
+          "actividades": [
+            {
+              "id": "n2-conteo-suma",
+              "tipo": "completar",
+              "fase": "hacer",
+              "titulo": "Primero, contar y sumar",
+              "consigna": "Antes de dividir, deja a la vista cuántos datos hay y cuánto suman. Completa la frase.",
+              "apoyo": {
+                "tipo": "texto",
+                "texto": "Lista ordenada (minutos): **4, 5, 5, 7, 8, 9, 10, 12, 45**"
+              },
+              "frase": "Hay {0} esperas y entre todas suman {1}.",
+              "huecos": [
+                {
+                  "opciones": [
+                    {
+                      "texto": "9",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "8",
+                      "feedback": "Cuenta otra vez la lista: el 5 está dos veces y el 45 también cuenta. Son 9."
+                    },
+                    {
+                      "texto": "10",
+                      "feedback": "Revisa los códigos: van del 01 al 09. Son 9 esperas."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "105 minutos",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "60 minutos",
+                      "feedback": "Esa suma deja por fuera el 45. En el análisis principal entran todos los valores."
+                    },
+                    {
+                      "texto": "105",
+                      "feedback": "El número está bien, ¡pero le falta algo! ¿105 qué? Sin la unidad, nadie sabe si son minutos, pesos o personas."
+                    }
+                  ]
+                }
+              ],
+              "textoLibre": {
+                "etiqueta": "Si quieres, escribe aquí la suma completa, valor por valor (opcional, queda en tu cuaderno):",
+                "clave": "m3-suma-escrita"
+              },
+              "explicacion": "**Conteo: 9 esperas. Suma: 105 minutos** (7 + 5 + 9 + 4 + 12 + 8 + 45 + 5 + 10). La suma es tu control: si al final algo no cuadra, vuelves aquí.",
+              "tema": "conteo-y-suma"
+            },
+            {
+              "id": "n2-media",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "La media",
+              "consigna": "¿Cuál es la **media** (el promedio) de las esperas?",
+              "apoyo": {
+                "tipo": "texto",
+                "texto": "Lista ordenada (minutos): **4, 5, 5, 7, 8, 9, 10, 12, 45**"
+              },
+              "opciones": [
+                {
+                  "texto": "≈ 11,67 minutos",
+                  "correcta": true
+                },
+                {
+                  "texto": "7,5 minutos",
+                  "feedback": "Esa es la media **sin el 45** (60 ÷ 8). Si en Excel te dio eso, revisa que el rango de celdas incluya el valor más grande."
+                },
+                {
+                  "texto": "≈ 13,1 minutos",
+                  "feedback": "Dividiste 105 entre 8 (13,125). ¿Cuántas esperas hay? Revisa el conteo: son 9."
+                },
+                {
+                  "texto": "≈ 6,67 minutos",
+                  "feedback": "Quitaste el 45 de la suma (60), pero dividiste entre 9. Suma y conteo tienen que salir de la misma lista."
+                }
+              ],
+              "pistas": [
+                "Media = suma ÷ conteo. Ya tienes las dos cifras del paso anterior.",
+                "105 ÷ 9 = ?"
+              ],
+              "explicacion": "**Media = 105 ÷ 9 ≈ 11,67 minutos**. El amigo tenía razón en la cuenta: «casi 12». Pero recuerda: solo un día esperó algo parecido a 12 minutos.",
+              "tema": "media"
+            },
+            {
+              "id": "n2-mediana",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "La mediana",
+              "consigna": "¿Cuál es la **mediana** de las esperas, y por qué?",
+              "apoyo": {
+                "tipo": "texto",
+                "texto": "Lista ordenada (minutos): **4, 5, 5, 7, 8, 9, 10, 12, 45**"
+              },
+              "opciones": [
+                {
+                  "texto": "8 minutos: es el 5.º valor de la lista ordenada",
+                  "correcta": true
+                },
+                {
+                  "texto": "12 minutos: es el valor que queda en la mitad de la tabla",
+                  "feedback": "El 12 está en la mitad de la tabla (código 05), pero la tabla está en orden de fecha, no de menor a mayor. La mediana se busca en la lista **ordenada**."
+                },
+                {
+                  "texto": "5 minutos: es el que más se repite",
+                  "feedback": "El 5 es el que más se repite (aparece dos veces), ¡bien visto! Pero eso no es la mediana. La mediana es el valor que queda en la **posición del centro** al ordenar."
+                },
+                {
+                  "texto": "24,5 minutos: la mitad entre el mínimo y el máximo",
+                  "feedback": "(4 + 45) ÷ 2 = 24,5 es el punto medio entre los extremos, no el centro de la lista. Ningún día se esperó algo parecido a 24,5."
+                }
+              ],
+              "pistas": [
+                "La mediana se busca en la lista **ordenada**, no en la tabla.",
+                "Con 9 valores, el del centro es el 5.º: quedan 4 a la izquierda y 4 a la derecha."
+              ],
+              "explicacion": "**Mediana = 8 minutos**: en 4, 5, 5, 7, **8**, 9, 10, 12, 45 quedan cuatro valores a cada lado. Ojo: el que más se repite es el 5, y no es la mediana.",
+              "tema": "mediana"
+            },
+            {
+              "id": "n2-medidas",
+              "tipo": "emparejar",
+              "fase": "entender",
+              "titulo": "Cada medida con su valor",
+              "consigna": "Para cada medida, toca el valor que le corresponde. Todas van en **minutos**.",
+              "apoyo": {
+                "tipo": "texto",
+                "texto": "Lista ordenada (minutos): **4, 5, 5, 7, 8, 9, 10, 12, 45**"
+              },
+              "tipos": [
+                {
+                  "id": "v4",
+                  "texto": "4 min"
+                },
+                {
+                  "id": "v8",
+                  "texto": "8 min"
+                },
+                {
+                  "id": "v1167",
+                  "texto": "11,67 min"
+                },
+                {
+                  "id": "v41",
+                  "texto": "41 min"
+                },
+                {
+                  "id": "v45",
+                  "texto": "45 min"
+                }
+              ],
+              "pares": [
+                {
+                  "item": "Mínimo",
+                  "correcto": "v4",
+                  "feedback": "El mínimo es la espera más corta: la primera de la lista ordenada."
+                },
+                {
+                  "item": "Máximo",
+                  "correcto": "v45",
+                  "feedback": "El máximo es la espera más larga: la última de la lista ordenada."
+                },
+                {
+                  "item": "Rango",
+                  "correcto": "v41",
+                  "feedback": "El rango es máximo menos mínimo: 45 − 4."
+                },
+                {
+                  "item": "Mediana",
+                  "correcto": "v8",
+                  "feedback": "La mediana es el valor del centro de la lista ordenada (el 5.º)."
+                },
+                {
+                  "item": "Media",
+                  "correcto": "v1167",
+                  "feedback": "La media es la suma entre el conteo: 105 ÷ 9."
+                }
+              ],
+              "pistas": [
+                "El mínimo y el máximo son la primera y la última de la lista ordenada.",
+                "El rango es una resta: máximo menos mínimo."
+              ],
+              "explicacion": "**Mínimo 4 · Máximo 45 · Rango 41 · Mediana 8 · Media 11,67** (todo en minutos). El rango de 41 minutos muestra que no todos los días fueron iguales.",
+              "tema": "minimo-maximo-rango"
+            },
+            {
+              "id": "n2-cuantos",
+              "tipo": "conteo",
+              "fase": "aplicar",
+              "titulo": "¿Cuántos esperaron 10 minutos o menos?",
+              "consigna": "¿En cuántos días Valentina esperó **10 minutos o menos**, y en cuántos más de 10? Usa la columna Minutos.",
+              "usaDatos": true,
+              "categorias": [
+                "10 minutos o menos",
+                "Más de 10 minutos"
+              ],
+              "esperado": {
+                "10 minutos o menos": 7,
+                "Más de 10 minutos": 2
+              },
+              "erroresComunes": [
+                {
+                  "valores": {
+                    "10 minutos o menos": 6,
+                    "Más de 10 minutos": 3
+                  },
+                  "mensaje": "Casi. Mira el código 09: esperó exactamente 10 minutos. «10 o menos» **incluye** el 10."
+                },
+                {
+                  "valores": {
+                    "10 minutos o menos": 7,
+                    "Más de 10 minutos": 1
+                  },
+                  "mensaje": "El primer grupo está bien. En el segundo falta una: además del 45, ¿hay otra espera de más de 10?"
+                }
+              ],
+              "mensajeGeneral": "Vas por buen camino. Revisa {categorias}: recorre la columna de minutos de arriba abajo y compara cada valor con el límite.",
+              "pistas": [
+                "«10 minutos o menos» **incluye** el 10.",
+                "Entre las dos categorías deben sumar el total de filas."
+              ],
+              "explicacion": "**7 días con 10 minutos o menos** (01, 02, 03, 04, 06, 08 y 09) y **2 con más de 10** (05 y 07). Entre los dos suman 9: el total cuadra.",
+              "tema": "porcentaje"
+            },
+            {
+              "id": "n2-porcentaje",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Del conteo al porcentaje",
+              "consigna": "Valentina esperó 10 minutos o menos en **7 de 9 días**. ¿Cómo se dice eso en porcentaje?",
+              "opciones": [
+                {
+                  "texto": "7 de 9 ≈ 77,8 %",
+                  "correcta": true
+                },
+                {
+                  "texto": "6 de 9 ≈ 66,7 %",
+                  "feedback": "Así saldría si dejas por fuera el día de 10 minutos. «10 o menos» lo incluye: son 7."
+                },
+                {
+                  "texto": "77,8 minutos",
+                  "feedback": "La cuenta va bien, pero un porcentaje no es un tiempo: es una proporción. Se escribe con %."
+                },
+                {
+                  "texto": "7 %",
+                  "feedback": "7 es la parte, no el porcentaje. Divide entre el total (9) y multiplica por 100."
+                }
+              ],
+              "pistas": [
+                "Porcentaje = parte ÷ total × 100. ¿Cuál es el total (el denominador)?"
+              ],
+              "explicacion": "**7 ÷ 9 ≈ 0,778, es decir, 77,8 %**. Dilo con el denominador a la vista: «en 7 de 9 días (≈ 77,8 %) esperó 10 minutos o menos». Esa frase cuenta la experiencia típica mejor que «en promedio casi 12».",
+              "tema": "porcentaje"
+            }
+          ]
+        },
+        {
+          "numero": 3,
+          "titulo": "El valor extremo y qué comunicar",
+          "objetivo": "Hacer el contraste sin el valor extremo, decidir qué frases respaldan los datos y escribir un resumen honesto. Es el reto de la clase, en versión autoguiada.",
+          "cierre": "Nivel 3 listo: calculaste, contrastaste y elegiste qué contar sin esconder el caso más largo.",
+          "actividades": [
+            {
+              "id": "n3-contraste",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "Contraste: con y sin el 45",
+              "consigna": "En un espacio aparte (sin tocar la tabla original) calculamos otra vez sin el 45. **¿Qué medida se movió más?**",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Contraste (espacio aparte)",
+                "columnas": [
+                  "Medida",
+                  "Con todos (9)",
+                  "Sin el extremo (8)"
+                ],
+                "filas": [
+                  [
+                    "Conteo",
+                    "9",
+                    "8"
+                  ],
+                  [
+                    "Suma",
+                    "105 min",
+                    "60 min"
+                  ],
+                  [
+                    "Media",
+                    "11,67 min",
+                    "7,5 min"
+                  ],
+                  [
+                    "Mediana",
+                    "8 min",
+                    "7,5 min"
+                  ]
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "La media: bajó de 11,67 a 7,5 minutos",
+                  "correcta": true
+                },
+                {
+                  "texto": "La mediana: bajó de 8 a 7,5 minutos",
+                  "feedback": "La mediana sí bajó, pero solo medio minuto. Compara: ¿cuánto bajó la media?"
+                },
+                {
+                  "texto": "Las dos se movieron igual",
+                  "feedback": "Resta en cada fila: la media bajó más de 4 minutos y la mediana medio minuto. No es lo mismo."
+                },
+                {
+                  "texto": "Ninguna: quitar un dato no cambia nada",
+                  "feedback": "Mira la tabla del contraste: las dos medidas cambiaron, aunque una mucho más que la otra."
+                }
+              ],
+              "pistas": [
+                "Resta: ¿cuánto bajó la media? ¿Cuánto bajó la mediana?"
+              ],
+              "explicacion": "La **media** bajó más de 4 minutos (de 11,67 a 7,5); la **mediana** casi no se movió (de 8 a 7,5). Con 8 datos el centro queda entre el 4.º (7) y el 5.º (8): (7 + 8) ÷ 2 = 7,5. Un solo día jala la media; la mediana mira la posición. Y ojo: este contraste muestra **sensibilidad**, no prueba que el 45 esté malo. El 45 se queda en el informe.",
+              "tema": "valor-extremo"
+            },
+            {
+              "id": "n3-respaldo",
+              "tipo": "tarjetas",
+              "fase": "entender",
+              "titulo": "¿Los datos lo respaldan?",
+              "consigna": "Para cada frase, decide si **estos datos** la respaldan. Antes de tocar, busca en la tabla los valores que la apoyan o la contradicen.",
+              "usaDatos": true,
+              "botones": {
+                "si": "Los datos la respaldan",
+                "no": "Los datos no alcanzan"
+              },
+              "tarjetas": [
+                {
+                  "texto": "«La mayoría de los días Valentina esperó unos 12 minutos.»",
+                  "respuesta": "no",
+                  "explicacion": "Solo un día esperó algo cercano a 12. La media (11,67) no habla de la mayoría: siete de nueve días esperó 10 minutos o menos."
+                },
+                {
+                  "texto": "«En 7 de 9 días (≈ 77,8 %) esperó 10 minutos o menos.»",
+                  "respuesta": "si",
+                  "explicacion": "Se comprueba contando: códigos 01, 02, 03, 04, 06, 08 y 09."
+                },
+                {
+                  "texto": "«En un día típico esperó unos 8 minutos (la mediana).»",
+                  "respuesta": "si",
+                  "explicacion": "La mediana es 8: la mitad de los días esperó 8 minutos o menos y la otra mitad, 8 o más."
+                },
+                {
+                  "texto": "«El aguacero fue la causa de los 45 minutos.»",
+                  "respuesta": "no",
+                  "explicacion": "La nota dice que ese día hubo aguacero, y es una buena pista para investigar. Pero un solo día no prueba la causa: también pudo haber trancón, un bus varado u otra cosa que no se anotó. Además, el 15/10 hubo llovizna y la espera fue normal (9 minutos)."
+                },
+                {
+                  "texto": "«En el metro siempre se espera menos que en el bus.»",
+                  "respuesta": "no",
+                  "explicacion": "En estos días las tres esperas de metro (5, 4 y 5) fueron las más cortas. Pero son solo tres días, de una persona, a una hora: no alcanza para decir «siempre»."
+                },
+                {
+                  "texto": "«Hubo un día con una espera mucho más larga que las demás: 45 minutos.»",
+                  "respuesta": "si",
+                  "explicacion": "Es una descripción comprobable: código 07, 45 minutos. Contarlo es parte de un resumen honesto."
+                }
+              ],
+              "explicacion": "Una frase honesta **describe** lo que muestran los datos, con su unidad. La causa de la espera larga queda como **pregunta pendiente**, no como conclusión.",
+              "tema": "valor-extremo"
+            },
+            {
+              "id": "n3-reto",
+              "tipo": "constructor",
+              "fase": "aplicar",
+              "titulo": "El reto: un resumen que no esconda nada",
+              "consigna": "Prepara un resumen para Valentina: calcula los indicadores de su espera, elige cómo describirías un día típico y advierte qué pasa con la espera de 45 minutos. Tu explicación debe permitir comprobar tanto los cálculos como la decisión de qué contar.",
+              "rutas": [
+                {
+                  "id": "mapa",
+                  "nombre": "Ruta Mapa",
+                  "descripcion": "La pregunta ya viene dada. Te concentras en calcular con rastro y escribir las dos frases.",
+                  "preguntaDada": "En estos nueve días, ¿cuánto esperó Valentina en un día típico y qué tan distinta fue la espera más larga?"
+                },
+                {
+                  "id": "brujula",
+                  "nombre": "Ruta Brújula",
+                  "descripcion": "Formulas tu propia pregunta sobre las esperas. Ideas: un día típico, la variación, cuántos días esperó poco."
+                },
+                {
+                  "id": "telescopio",
+                  "nombre": "Ruta Telescopio",
+                  "descripcion": "Te enfocas en el contraste: qué le pasa a cada medida sin el 45 y por qué, con 8 datos, la mediana es el promedio de los dos del centro.",
+                  "preguntaDada": "¿Qué cambia en la media y en la mediana si dejo aparte el día del aguacero, y por qué igual lo conservo en el resumen?"
+                }
+              ],
+              "pasos": [
+                {
+                  "clave": "pregunta",
+                  "titulo": "1 · La pregunta que respondo",
+                  "ayuda": "Empieza con «En estos nueve días…» o «Entre estas esperas…».",
+                  "pistas": [
+                    "Una buena pregunta dice qué se mide (minutos de espera) y de qué conjunto habla.",
+                    "Ejemplo de forma: «En estos nueve días, ¿cuántos minutos esperó Valentina en un día típico?»"
+                  ]
+                },
+                {
+                  "clave": "calculos",
+                  "titulo": "2 · Mis cálculos, con rastro",
+                  "ayuda": "Escribe conteo, suma, media, mediana, mínimo, máximo y rango. Cada cifra con «minutos» y con la operación que hiciste.",
+                  "pistas": [
+                    "Empieza por lo que sirve de control: conteo 9 y suma 105 minutos.",
+                    "Para la mediana, escribe la lista ordenada y encierra el valor del centro (el 5.º).",
+                    "Si usas Excel: CONTAR, SUMA, PROMEDIO, MEDIANA, MIN y MAX. Revisa que el rango de celdas incluya el valor más grande."
+                  ]
+                },
+                {
+                  "clave": "contraste",
+                  "titulo": "3 · El contraste sin el 45",
+                  "ayuda": "En un espacio aparte, repite la media y la mediana sin el 45. Escribe qué cambió y por qué el 45 se queda en el informe principal.",
+                  "pistas": [
+                    "Sin el 45 quedan 8 valores que suman 60. Con 8 datos, la mediana es el promedio de los dos del centro.",
+                    "El contraste muestra **sensibilidad**: qué medida se mueve con un solo dato. No prueba que el dato esté malo."
+                  ]
+                },
+                {
+                  "clave": "frases",
+                  "titulo": "4 · Mis dos frases y mi cautela",
+                  "ayuda": "Una frase sobre la espera típica (apóyate en la mediana), otra que muestre la variación o el caso más largo, con «7 de 9» y su porcentaje. Cierra con algo que los datos **no** permiten afirmar.",
+                  "pistas": [
+                    "Forma posible: «Un día típico esperó unos ___ minutos; en ___ de 9 días (≈ ___ %) esperó 10 o menos, pero un día esperó ___».",
+                    "Para la cautela: ¿qué no sabes del caso más largo? Descríbelo sin inventarle una causa."
+                  ]
+                }
+              ],
+              "verificacion": [
+                "¿Usé los 9 valores y cada cifra dice «minutos»?",
+                "¿Se ven la suma y el conteo antes de dividir?",
+                "¿Expliqué cómo encontré la mediana (la posición del centro)?",
+                "¿Hice el contraste aparte, sin borrar el 45 del resumen principal?",
+                "¿Escribí una frase de espera típica y otra de variación, con «7 de 9» y su porcentaje?",
+                "¿Evité afirmar la causa de la espera larga?"
+              ],
+              "ejemplo": "«En estos nueve días, ¿cuánto esperó Valentina en un día típico? Cada fila es una espera. Conteo: 9. Suma: 105 minutos. Media: 105 ÷ 9 ≈ 11,67 minutos. Lista ordenada: 4, 5, 5, 7, 8, 9, 10, 12, 45; la mediana es el 5.º valor, 8 minutos. Mínimo 4, máximo 45, rango 41 minutos. Sin el 45 (aparte): 8 valores, suma 60, media 7,5 y mediana 7,5. La media se movió mucho y la mediana casi nada. Un día típico esperó unos 8 minutos: en 7 de 9 días (≈ 77,8 %) esperó 10 minutos o menos. Pero un día esperó 45 minutos, y por eso la media sube a casi 12. Ese día anotó aguacero; con un solo día no puedo afirmar que la lluvia haya sido la causa, ni que esto pase en otros paraderos u horas.»",
+              "explicacion": "No se busca un texto largo: una respuesta breve sirve si otra persona puede repetir tus cuentas y ver por qué elegiste esas frases.",
+              "tema": "valor-extremo"
+            },
+            {
+              "id": "n3-cierre",
+              "tipo": "escritura",
+              "fase": "observar",
+              "titulo": "Cierre de la misión",
+              "consigna": "Completa estas frases. Quedan guardadas en tu cuaderno (solo en este navegador). La última es para tu **pregunta más loca**: no hay respuestas tontas.",
+              "frases": [
+                {
+                  "clave": "m3-cierre-medida",
+                  "inicio": "Para contar la espera típica en este caso elegiría… porque…"
+                },
+                {
+                  "clave": "m3-cierre-no-dice",
+                  "inicio": "Lo que esa medida no cuenta por sí sola es…"
+                },
+                {
+                  "clave": "m3-cierre-loca",
+                  "inicio": "Mi pregunta más loca sobre las esperas de Valentina es… y para responderla me faltaría…"
+                }
+              ],
+              "explicacion": "El procedimiento en una línea: **mirar la lista → ordenar sin perder datos → calcular con rastro → contrastar sin borrar → elegir qué contar y decir qué no sabemos.**"
+            }
+          ]
+        }
+      ],
+      "conceptos": [
+        {
+          "termino": "Conteo y suma",
+          "definicion": "Cuántos datos hay y cuánto dan entre todos. Son el control de todo lo demás.",
+          "ejemplo": "9 esperas que suman 105 minutos."
+        },
+        {
+          "termino": "Media (promedio)",
+          "definicion": "La suma repartida en partes iguales: suma ÷ conteo. Un solo valor extremo la puede jalar.",
+          "ejemplo": "105 ÷ 9 ≈ 11,67 minutos, aunque solo un día se esperó algo parecido."
+        },
+        {
+          "termino": "Mediana",
+          "definicion": "El valor que queda en la posición del centro al ordenar. No es el que más se repite.",
+          "ejemplo": "En 4, 5, 5, 7, 8, 9, 10, 12, 45 la mediana es 8; el que más se repite es 5."
+        },
+        {
+          "termino": "Mínimo, máximo y rango",
+          "definicion": "Los extremos de la lista y la distancia entre ellos (máximo − mínimo), con la misma unidad.",
+          "ejemplo": "Mínimo 4, máximo 45, rango 41 minutos."
+        },
+        {
+          "termino": "Porcentaje y denominador",
+          "definicion": "Cuántos de cada 100 cumplen algo: parte ÷ total × 100. Siempre se dice de qué total se habla.",
+          "ejemplo": "7 de 9 días ≈ 77,8 % esperó 10 minutos o menos."
+        },
+        {
+          "termino": "Valor extremo",
+          "definicion": "Un dato que se aleja mucho del resto. Se conserva si no hay evidencia de error.",
+          "ejemplo": "Los 45 minutos del día del aguacero."
+        },
+        {
+          "termino": "Contraste (sensibilidad)",
+          "definicion": "Calcular otra vez, aparte, sin el valor extremo para ver qué medidas cambian. No prueba que el dato esté malo.",
+          "ejemplo": "Sin el 45, la media baja de 11,67 a 7,5; la mediana, de 8 a 7,5."
+        },
+        {
+          "termino": "Describir ≠ explicar la causa",
+          "definicion": "Los datos muestran qué pasó; la causa necesita otros datos.",
+          "ejemplo": "«Un día esperó 45 minutos» sí; «el aguacero lo causó» todavía no."
+        }
+      ],
+      "fraseClave": "Una media bien calculada puede quedarse corta: la acompaño con la mediana y con el caso más largo, y no borro un dato solo porque se ve raro.",
+      "paraLlevar": {
+        "consigna": "Prepara un resumen para Valentina: calcula los indicadores de su espera, elige cómo describirías un día típico y advierte qué pasa con la espera de 45 minutos. Tu explicación debe permitir comprobar tanto los cálculos como la decisión de qué contar.",
+        "pasos": [
+          "La pregunta que respondo (qué se mide y de qué conjunto).",
+          "Mis cálculos con rastro: conteo, suma, media, mediana, mínimo, máximo y rango, todo en minutos.",
+          "El contraste sin el 45, en un espacio aparte: qué cambió y por qué el 45 se queda.",
+          "Dos frases (espera típica y variación, con un porcentaje sencillo) y una cautela sobre el caso más largo."
+        ],
+        "lupa": [
+          "Usé los 9 valores y cada cifra lleva su unidad.",
+          "Se ve la suma y el conteo antes de dividir.",
+          "La mediana es la posición del centro, no la que más se repite.",
+          "No confundo la media con «la mayoría» ni invento causas."
+        ]
+      }
+    },
+    "guia": {
+      "nombre": "Guía: tiempos de espera del programa cultural (sesión 3)",
+      "titulo": "Esperas en el programa cultural",
+      "caso": "Tiempos de espera de siete atenciones",
+      "historia": "Un programa cultural, ficticio, registró cuánto esperaron siete atenciones durante una jornada. El equipo quiere contarle a la gente cuánto se espera, en un resumen fácil de entender, pero sin ocultar una espera excepcionalmente larga. Alguien ya escribió: «El tiempo promedio fue de unos trece minutos». ¿Eso significa que casi todos esperaron trece minutos? Vamos a averiguarlo.",
+      "datos": {
+        "titulo": "Tiempos de espera del programa cultural",
+        "unidad": [
+          "atención",
+          "atenciones"
+        ],
+        "columnas": [
+          "Observación",
+          "Espera (minutos)"
+        ],
+        "filas": [
+          [
+            "T01",
+            "5"
+          ],
+          [
+            "T02",
+            "7"
+          ],
+          [
+            "T03",
+            "8"
+          ],
+          [
+            "T04",
+            "8"
+          ],
+          [
+            "T05",
+            "9"
+          ],
+          [
+            "T06",
+            "11"
+          ],
+          [
+            "T07",
+            "42"
+          ]
+        ],
+        "definiciones": [
+          "Cada **observación** (T01 a T07) es **una atención** observada durante una misma jornada.",
+          "**Espera** es cuánto esperó esa atención, medida en **minutos**.",
+          "La espera de 42 minutos está registrada como una **observación válida**: nada indica que sea un error.",
+          "**No hay** datos de horarios de llegada, motivos de consulta ni causas de la demora."
+        ],
+        "aviso": "Datos ficticios, solo para practicar."
+      },
+      "niveles": [
+        {
+          "numero": 1,
+          "titulo": "Mirar antes de calcular",
+          "objetivo": "Entender qué cuenta cada fila, ordenar la lista sin perder ningún valor y ver el dato que se aleja, sin borrarlo.",
+          "cierre": "Nivel 1 listo: miraste los datos antes de hacer cuentas, y el 42 sigue en su lugar.",
+          "actividades": [
+            {
+              "id": "n1-toca-fila",
+              "tipo": "leer-filas",
+              "fase": "hacer",
+              "titulo": "Toca una fila",
+              "consigna": "Toca una fila de la tabla y lee lo que nos cuenta. Lee al menos **2 filas** para continuar. Tip: toca también la más larga.",
+              "minimo": 2,
+              "lecturas": {
+                "T01": "La observación T01 es una atención que esperó 5 minutos. Es la espera más corta.",
+                "T02": "La observación T02 es una atención que esperó 7 minutos.",
+                "T03": "La observación T03 es una atención que esperó 8 minutos.",
+                "T04": "La observación T04 es una atención que esperó 8 minutos, igual que T03.",
+                "T05": "La observación T05 es una atención que esperó 9 minutos.",
+                "T06": "La observación T06 es una atención que esperó 11 minutos.",
+                "T07": "La observación T07 es una atención que esperó 42 minutos. Es, de lejos, la espera más larga, y está registrada como válida."
+              },
+              "explicacion": "Cada lectura empieza igual: **«es una atención que esperó…»**. Y casi todas esperaron entre 5 y 11 minutos… menos una.",
+              "tema": "conteo-y-suma"
+            },
+            {
+              "id": "n1-que-es-fila",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "¿Qué representa una fila?",
+              "consigna": "Después de leer algunas filas, ¿qué representa cada fila de esta tabla?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Una persona",
+                  "feedback": "La tabla no dice quién fue atendido ni si alguien volvió dos veces. Lo que registra cada fila es otra cosa: mira las definiciones."
+                },
+                {
+                  "texto": "Una atención observada",
+                  "correcta": true
+                },
+                {
+                  "texto": "Un minuto",
+                  "feedback": "Los minutos son la columna Espera: la cantidad medida en cada fila. Cada fila tiene su propio número de minutos."
+                },
+                {
+                  "texto": "Una jornada",
+                  "feedback": "Todas las filas son de la misma jornada. Si cada fila fuera una jornada, habría siete jornadas."
+                }
+              ],
+              "pistas": [
+                "Vuelve a leer una fila completa: ¿cómo empieza la frase?",
+                "Las definiciones debajo de la tabla dicen qué identifica cada observación."
+              ],
+              "explicacion": "La **unidad de análisis** aquí es **una atención**. Cada valor es la espera de una atención observada, en minutos; no es un porcentaje. Hay **7**.",
+              "tema": "conteo-y-suma"
+            },
+            {
+              "id": "n1-afirmacion",
+              "tipo": "seleccion",
+              "fase": "hacer",
+              "titulo": "¿Casi todos esperaron eso?",
+              "consigna": "Alguien del equipo escribió: **«El tiempo promedio fue de unos trece minutos»**. Antes de hacer cuentas: ¿eso significa que **casi todos** esperaron unos trece minutos?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Sí: eso es justo lo que dice un promedio",
+                  "feedback": "Es muy común pensarlo así. Pero mira la tabla: ¿alguna atención esperó algo cercano a 13 minutos? El promedio reparte la suma en partes iguales; no dice qué le pasó a la mayoría."
+                },
+                {
+                  "texto": "No necesariamente: hay que mirar los valores uno por uno",
+                  "correcta": true
+                },
+                {
+                  "texto": "No: un promedio siempre está mal calculado",
+                  "feedback": "El promedio puede estar bien calculado. La duda no es la cuenta, sino si esa cifra describe lo que vivió la mayoría."
+                }
+              ],
+              "pistas": [
+                "Antes de responder, mira la columna de minutos de arriba abajo. ¿Cuántos valores se parecen a esa cifra?"
+              ],
+              "explicacion": "Mira la columna Espera: **ninguna** atención esperó algo cercano a 13 minutos. Seis esperaron 11 o menos y una esperó 42. Una media puede estar bien hecha y aun así **no** describir la experiencia típica.",
+              "tema": "media"
+            },
+            {
+              "id": "n1-ordena",
+              "tipo": "seleccion",
+              "fase": "hacer",
+              "titulo": "Ordena sin perder ninguno",
+              "consigna": "Para hallar la mediana hay que tener la lista **ordenada** y completa. Tres compañeros la copiaron en su hoja. ¿Cuál está **completa y bien ordenada**?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "5, 7, 8, 9, 11, 42",
+                  "feedback": "Cuenta los valores: hay 6 y la tabla tiene 7. Se perdió uno de los dos 8 (T03 y T04). Un valor repetido se escribe dos veces."
+                },
+                {
+                  "texto": "5, 7, 8, 8, 9, 11, 42",
+                  "correcta": true
+                },
+                {
+                  "texto": "5, 7, 8, 8, 9, 11",
+                  "feedback": "Están bien ordenados, pero son 6. ¿Dónde quedó el 42? Si queda por fuera, todas las medidas cambian."
+                },
+                {
+                  "texto": "5, 7, 8, 8, 9, 42, 11",
+                  "feedback": "Están los 7, ¡bien! Pero el final está desordenado: el 42 es más grande que el 11 y va de último."
+                }
+              ],
+              "pistas": [
+                "Primero cuenta: la tabla tiene **7 valores**. La lista ordenada también debe tener 7.",
+                "Un valor repetido se escribe dos veces, y el más grande va al final."
+              ],
+              "explicacion": "La lista ordenada es **5, 7, 8, 8, 9, 11, 42**: 7 valores, los mismos de la tabla. Aquí la tabla ya venía ordenada, pero no siempre pasa: revisa antes de buscar el centro.",
+              "tema": "mediana"
+            },
+            {
+              "id": "n1-se-aleja",
+              "tipo": "seleccionar-filas",
+              "fase": "observar",
+              "titulo": "El que se aleja",
+              "consigna": "Mira el gráfico y la tabla. **Toca la fila** cuyo tiempo se aleja mucho de los demás.",
+              "apoyo": {
+                "tipo": "grafico",
+                "forma": "barras",
+                "titulo": "Minutos de espera por observación",
+                "unidad": "minutos",
+                "etiquetas": [
+                  "T01",
+                  "T02",
+                  "T03",
+                  "T04",
+                  "T05",
+                  "T06",
+                  "T07"
+                ],
+                "series": [
+                  {
+                    "nombre": "Espera",
+                    "valores": [
+                      5,
+                      7,
+                      8,
+                      8,
+                      9,
+                      11,
+                      42
+                    ]
+                  }
+                ],
+                "nota": "Datos ficticios. Cada barra es una atención."
+              },
+              "esperadas": [
+                "T07"
+              ],
+              "feedback": {
+                "sobran": "Esa espera se parece bastante a las demás. Busca la barra que sobresale muchísimo.",
+                "faltan": "Todavía no has tocado la fila que se aleja. Busca la barra más alta."
+              },
+              "pistas": [
+                "En el gráfico, una barra es varias veces más alta que el resto."
+              ],
+              "explicacion": "La observación **T07** (42 minutos) se aleja mucho: casi cuatro veces la segunda espera más larga (11). A un dato así le llamamos **valor extremo**.",
+              "tema": "valor-extremo"
+            },
+            {
+              "id": "n1-borrar",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "¿Lo borramos?",
+              "consigna": "Alguien propone: **«Quitemos el 42, eso daña el promedio»**. ¿Qué es lo más responsable?",
+              "opciones": [
+                {
+                  "texto": "Quitarlo: se ve raro, entonces seguro es un error",
+                  "feedback": "¿Qué evidencia hay de que sea un error? El caso lo registra como una observación válida. Que se vea raro no lo vuelve falso."
+                },
+                {
+                  "texto": "Conservarlo en el análisis principal y, aparte, calcular sin él para comparar",
+                  "correcta": true
+                },
+                {
+                  "texto": "Cambiarlo por 11, que es más parecido a los demás",
+                  "feedback": "Eso sería inventar un dato. Si cambias lo que pasó, el resumen deja de contar la historia real."
+                },
+                {
+                  "texto": "Dejarlo, pero no mencionarlo en el resumen",
+                  "feedback": "Conservarlo va bien. Pero esconderlo en el resumen no es honesto: el equipo quiere justamente no ocultar esa espera."
+                }
+              ],
+              "explicacion": "Un valor extremo **merece atención, no borrarse sin evidencia**. El 42 se queda en el análisis principal. Más adelante haremos un **contraste**: calcular otra vez sin él, en un espacio aparte, solo para ver qué medidas cambian.",
+              "tema": "valor-extremo"
+            }
+          ]
+        },
+        {
+          "numero": 2,
+          "titulo": "Calcular y dejar rastro",
+          "objetivo": "Calcular conteo, suma, media, mediana, mínimo, máximo, rango y un porcentaje, siempre con su unidad.",
+          "cierre": "Nivel 2 listo: tienes todas las medidas, con su unidad y con el rastro de cada cuenta.",
+          "actividades": [
+            {
+              "id": "n2-conteo-suma",
+              "tipo": "completar",
+              "fase": "hacer",
+              "titulo": "Primero, contar y sumar",
+              "consigna": "Antes de dividir, deja a la vista cuántos datos hay y cuánto suman. Completa la frase.",
+              "apoyo": {
+                "tipo": "texto",
+                "texto": "Lista ordenada (minutos): **5, 7, 8, 8, 9, 11, 42**"
+              },
+              "frase": "Hay {0} atenciones y entre todas suman {1}.",
+              "huecos": [
+                {
+                  "opciones": [
+                    {
+                      "texto": "7",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "6",
+                      "feedback": "Cuenta otra vez la lista: el 8 está dos veces y el 42 también cuenta. Son 7."
+                    },
+                    {
+                      "texto": "8",
+                      "feedback": "Revisa las observaciones: van de T01 a T07. Son 7."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "90 minutos",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "48 minutos",
+                      "feedback": "Esa suma deja por fuera el 42. En el análisis principal entran todos los valores."
+                    },
+                    {
+                      "texto": "90",
+                      "feedback": "El número está bien, ¡pero le falta algo! ¿90 qué? Sin la unidad, nadie sabe si son minutos, pesos o personas."
+                    }
+                  ]
+                }
+              ],
+              "textoLibre": {
+                "etiqueta": "Si quieres, escribe aquí la suma completa, valor por valor (opcional, queda en tu cuaderno):",
+                "clave": "m3-suma-escrita"
+              },
+              "explicacion": "**Conteo: 7 atenciones. Suma: 90 minutos** (5 + 7 + 8 + 8 + 9 + 11 + 42). La suma es tu control: si al final algo no cuadra, vuelves aquí.",
+              "tema": "conteo-y-suma"
+            },
+            {
+              "id": "n2-media",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "La media",
+              "consigna": "¿Cuál es la **media** (el promedio) de las esperas?",
+              "apoyo": {
+                "tipo": "texto",
+                "texto": "Lista ordenada (minutos): **5, 7, 8, 8, 9, 11, 42**"
+              },
+              "opciones": [
+                {
+                  "texto": "≈ 12,86 minutos",
+                  "correcta": true
+                },
+                {
+                  "texto": "8 minutos",
+                  "feedback": "Esa es la media **sin el 42** (48 ÷ 6). Si en Excel te dio 8, revisa si el rango de celdas incluye el 42."
+                },
+                {
+                  "texto": "15 minutos",
+                  "feedback": "Dividiste 90 entre 6. ¿Cuántas atenciones hay? Revisa el conteo: son 7."
+                },
+                {
+                  "texto": "≈ 6,86 minutos",
+                  "feedback": "Quitaste el 42 de la suma (48), pero dividiste entre 7. Suma y conteo tienen que salir de la misma lista."
+                }
+              ],
+              "pistas": [
+                "Media = suma ÷ conteo. Ya tienes las dos cifras del paso anterior.",
+                "90 ÷ 7 = ?"
+              ],
+              "explicacion": "**Media = 90 ÷ 7 ≈ 12,86 minutos**. Por eso alguien dijo «unos trece minutos»: la cuenta está bien. Pero ninguna atención esperó algo parecido.",
+              "tema": "media"
+            },
+            {
+              "id": "n2-mediana",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "La mediana",
+              "consigna": "¿Cuál es la **mediana** de las esperas, y por qué?",
+              "apoyo": {
+                "tipo": "texto",
+                "texto": "Lista ordenada (minutos): **5, 7, 8, 8, 9, 11, 42**"
+              },
+              "opciones": [
+                {
+                  "texto": "8 minutos: es el 4.º valor de la lista ordenada",
+                  "correcta": true
+                },
+                {
+                  "texto": "8 minutos: es el número que más se repite",
+                  "feedback": "¡El número está bien, pero la razón no! El 8 sí es el que más se repite, y aquí coincide con la mediana. La mediana se define por la **posición del centro** al ordenar, no por la frecuencia."
+                },
+                {
+                  "texto": "≈ 12,86 minutos",
+                  "feedback": "Esa es la media. La mediana no se calcula con la suma: se busca en la lista ordenada."
+                },
+                {
+                  "texto": "23,5 minutos: la mitad entre el mínimo y el máximo",
+                  "feedback": "(5 + 42) ÷ 2 = 23,5 es el punto medio entre los extremos, no el centro de la lista. Ninguna atención esperó algo parecido."
+                }
+              ],
+              "pistas": [
+                "La mediana se busca en la lista **ordenada**, no en la tabla.",
+                "Con 7 valores, el del centro es el 4.º: quedan 3 a la izquierda y 3 a la derecha."
+              ],
+              "explicacion": "**Mediana = 8 minutos**: en 5, 7, 8, **8**, 9, 11, 42 quedan tres valores a cada lado. Aquí coincide con el que más se repite, pero esa no es su definición.",
+              "tema": "mediana"
+            },
+            {
+              "id": "n2-medidas",
+              "tipo": "emparejar",
+              "fase": "entender",
+              "titulo": "Cada medida con su valor",
+              "consigna": "Para cada medida, toca el valor que le corresponde. Todas van en **minutos**.",
+              "apoyo": {
+                "tipo": "texto",
+                "texto": "Lista ordenada (minutos): **5, 7, 8, 8, 9, 11, 42**"
+              },
+              "tipos": [
+                {
+                  "id": "v5",
+                  "texto": "5 min"
+                },
+                {
+                  "id": "v8",
+                  "texto": "8 min"
+                },
+                {
+                  "id": "v1286",
+                  "texto": "12,86 min"
+                },
+                {
+                  "id": "v37",
+                  "texto": "37 min"
+                },
+                {
+                  "id": "v42",
+                  "texto": "42 min"
+                }
+              ],
+              "pares": [
+                {
+                  "item": "Mínimo",
+                  "correcto": "v5",
+                  "feedback": "El mínimo es la espera más corta: la primera de la lista ordenada."
+                },
+                {
+                  "item": "Máximo",
+                  "correcto": "v42",
+                  "feedback": "El máximo es la espera más larga: la última de la lista ordenada."
+                },
+                {
+                  "item": "Rango",
+                  "correcto": "v37",
+                  "feedback": "El rango es máximo menos mínimo: 42 − 5."
+                },
+                {
+                  "item": "Mediana",
+                  "correcto": "v8",
+                  "feedback": "La mediana es el valor del centro de la lista ordenada (el 4.º)."
+                },
+                {
+                  "item": "Media",
+                  "correcto": "v1286",
+                  "feedback": "La media es la suma entre el conteo: 90 ÷ 7."
+                }
+              ],
+              "pistas": [
+                "El mínimo y el máximo son la primera y la última de la lista ordenada.",
+                "El rango es una resta: máximo menos mínimo."
+              ],
+              "explicacion": "**Mínimo 5 · Máximo 42 · Rango 37 · Mediana 8 · Media ≈ 12,86** (todo en minutos). El rango de 37 minutos muestra que no todas las esperas fueron iguales.",
+              "tema": "minimo-maximo-rango"
+            },
+            {
+              "id": "n2-cuantos",
+              "tipo": "conteo",
+              "fase": "aplicar",
+              "titulo": "¿Cuántos esperaron 11 minutos o menos?",
+              "consigna": "¿Cuántas atenciones esperaron **11 minutos o menos**, y cuántas más de 11? Usa la columna Espera.",
+              "usaDatos": true,
+              "categorias": [
+                "11 minutos o menos",
+                "Más de 11 minutos"
+              ],
+              "esperado": {
+                "11 minutos o menos": 6,
+                "Más de 11 minutos": 1
+              },
+              "erroresComunes": [
+                {
+                  "valores": {
+                    "11 minutos o menos": 5,
+                    "Más de 11 minutos": 2
+                  },
+                  "mensaje": "Casi. Mira T06: esperó exactamente 11 minutos. «11 o menos» **incluye** el 11."
+                },
+                {
+                  "valores": {
+                    "11 minutos o menos": 6,
+                    "Más de 11 minutos": 0
+                  },
+                  "mensaje": "El primer grupo está bien. ¿Y el 42? También es una atención y debe quedar en algún grupo."
+                }
+              ],
+              "mensajeGeneral": "Vas por buen camino. Revisa {categorias}: recorre la columna de minutos de arriba abajo y compara cada valor con el límite.",
+              "pistas": [
+                "«11 minutos o menos» **incluye** el 11.",
+                "Entre las dos categorías deben sumar el total de filas."
+              ],
+              "explicacion": "**6 atenciones con 11 minutos o menos** (T01 a T06) y **1 con más de 11** (T07). Entre las dos suman 7: el total cuadra.",
+              "tema": "porcentaje"
+            },
+            {
+              "id": "n2-porcentaje",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Del conteo al porcentaje",
+              "consigna": "**Seis de siete** atenciones esperaron 11 minutos o menos. ¿Cómo se dice eso en porcentaje?",
+              "opciones": [
+                {
+                  "texto": "6 de 7 ≈ 85,7 %",
+                  "correcta": true
+                },
+                {
+                  "texto": "5 de 7 ≈ 71,4 %",
+                  "feedback": "Así saldría si dejas por fuera la atención de 11 minutos. «11 o menos» la incluye: son 6."
+                },
+                {
+                  "texto": "85,7 minutos",
+                  "feedback": "La cuenta va bien, pero un porcentaje no es un tiempo: es una proporción. Se escribe con %."
+                },
+                {
+                  "texto": "6 %",
+                  "feedback": "6 es la parte, no el porcentaje. Divide entre el total (7) y multiplica por 100."
+                }
+              ],
+              "pistas": [
+                "Porcentaje = parte ÷ total × 100. ¿Cuál es el total (el denominador)?"
+              ],
+              "explicacion": "**6 ÷ 7 ≈ 0,857, es decir, 85,7 %**. Dilo con el denominador a la vista: «seis de siete atenciones (≈ 85,7 %) esperaron 11 minutos o menos». Compárala con «la media fue 12,86»: las dos describen los datos, pero responden a matices distintos.",
+              "tema": "porcentaje"
+            }
+          ]
+        },
+        {
+          "numero": 3,
+          "titulo": "El valor extremo y qué comunicar",
+          "objetivo": "Hacer el contraste sin el valor extremo, decidir qué frases respaldan los datos y escribir un resumen honesto. Es el reto de la clase, en versión autoguiada.",
+          "cierre": "Nivel 3 listo: calculaste, contrastaste y elegiste qué contar sin esconder el caso más largo.",
+          "actividades": [
+            {
+              "id": "n3-contraste",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "Contraste: con y sin el 42",
+              "consigna": "En un espacio aparte (sin tocar la tabla original) calculamos otra vez sin el 42. **¿Qué medida se movió más?**",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Contraste (espacio aparte)",
+                "columnas": [
+                  "Medida",
+                  "Con todos (7)",
+                  "Sin el extremo (6)"
+                ],
+                "filas": [
+                  [
+                    "Conteo",
+                    "7",
+                    "6"
+                  ],
+                  [
+                    "Suma",
+                    "90 min",
+                    "48 min"
+                  ],
+                  [
+                    "Media",
+                    "12,86 min",
+                    "8 min"
+                  ],
+                  [
+                    "Mediana",
+                    "8 min",
+                    "8 min"
+                  ]
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "La media: bajó de 12,86 a 8 minutos",
+                  "correcta": true
+                },
+                {
+                  "texto": "La mediana: bajó de 8 a 6 minutos",
+                  "feedback": "Mira otra vez la tabla del contraste: la mediana no bajó. Con 6 datos, los dos del centro son 8 y 8, y su promedio es 8."
+                },
+                {
+                  "texto": "Las dos se movieron igual",
+                  "feedback": "Resta en cada fila: la media bajó casi 5 minutos y la mediana no se movió."
+                },
+                {
+                  "texto": "Ninguna: quitar un dato no cambia nada",
+                  "feedback": "La mediana se quedó quieta, ¡bien visto! Pero la media sí cambió, y mucho."
+                }
+              ],
+              "pistas": [
+                "Resta: ¿cuánto bajó la media? ¿Cuánto bajó la mediana?"
+              ],
+              "explicacion": "La **media** bajó casi 5 minutos (de 12,86 a 8); la **mediana** se quedó en 8. Con 6 datos el centro queda entre el 3.º y el 4.º (8 y 8): (8 + 8) ÷ 2 = 8. Un solo valor jala la media; la mediana mira la posición. Y ojo: este contraste muestra **sensibilidad**, no prueba que el 42 sea un error. El 42 se queda en el informe.",
+              "tema": "valor-extremo"
+            },
+            {
+              "id": "n3-respaldo",
+              "tipo": "tarjetas",
+              "fase": "entender",
+              "titulo": "¿Los datos lo respaldan?",
+              "consigna": "Para cada frase, decide si **estos datos** la respaldan. Antes de tocar, busca en la tabla los valores que la apoyan o la contradicen.",
+              "usaDatos": true,
+              "botones": {
+                "si": "Los datos la respaldan",
+                "no": "Los datos no alcanzan"
+              },
+              "tarjetas": [
+                {
+                  "texto": "«La mayoría esperó aproximadamente trece minutos.»",
+                  "respuesta": "no",
+                  "explicacion": "Ninguna atención esperó algo cercano a 13. Seis de siete esperaron 11 minutos o menos: los valores 5, 7, 8, 8, 9 y 11 contradicen la frase."
+                },
+                {
+                  "texto": "«Seis de siete atenciones (≈ 85,7 %) esperaron 11 minutos o menos.»",
+                  "respuesta": "si",
+                  "explicacion": "Se comprueba contando: T01 a T06."
+                },
+                {
+                  "texto": "«La espera típica fue de unos 8 minutos (la mediana).»",
+                  "respuesta": "si",
+                  "explicacion": "La mediana es 8: la mitad de las atenciones esperó 8 minutos o menos y la otra mitad, 8 o más."
+                },
+                {
+                  "texto": "«La espera de 42 minutos fue por una consulta más complicada.»",
+                  "respuesta": "no",
+                  "explicacion": "No hay datos de motivos de consulta, horarios ni causas. Puede ser una buena pregunta para averiguar, pero no una conclusión."
+                },
+                {
+                  "texto": "«Como sin el 42 la media da 8, el 42 es un error.»",
+                  "respuesta": "no",
+                  "explicacion": "El contraste muestra cuánto se mueve la media con ese dato, no si el dato es falso. El caso lo registra como válido."
+                },
+                {
+                  "texto": "«Hubo al menos una espera mucho más larga que las demás: 42 minutos.»",
+                  "respuesta": "si",
+                  "explicacion": "Es una descripción comprobable: T07, 42 minutos. Contarlo es parte de un resumen honesto."
+                }
+              ],
+              "explicacion": "Una frase honesta **describe** lo que muestran los datos, con su unidad. La causa de la espera larga queda como **pregunta pendiente**, no como conclusión.",
+              "tema": "valor-extremo"
+            },
+            {
+              "id": "n3-reto",
+              "tipo": "constructor",
+              "fase": "aplicar",
+              "titulo": "El reto: un resumen que no esconda nada",
+              "consigna": "Prepara un resumen para el equipo del programa: calcula los indicadores de espera, elige cómo describirías la experiencia típica y advierte qué ocurre con la observación de 42 minutos. Tu explicación debe permitir comprobar tanto los cálculos como la decisión de qué comunicar.",
+              "rutas": [
+                {
+                  "id": "mapa",
+                  "nombre": "Ruta Mapa",
+                  "descripcion": "La pregunta ya viene dada. Te concentras en calcular con rastro y escribir las dos frases.",
+                  "preguntaDada": "En estas siete atenciones, ¿cuánto fue la espera típica y qué tan distinta fue la más larga?"
+                },
+                {
+                  "id": "brujula",
+                  "nombre": "Ruta Brújula",
+                  "descripcion": "Formulas tu propia pregunta sobre las esperas. Ideas: la espera típica, la variación, cuántas atenciones esperaron poco."
+                },
+                {
+                  "id": "telescopio",
+                  "nombre": "Ruta Telescopio",
+                  "descripcion": "Te enfocas en el contraste: qué le pasa a cada medida sin el 42 y por qué, con 6 datos, la mediana es el promedio de los dos del centro.",
+                  "preguntaDada": "¿Qué cambia en la media y en la mediana si dejo aparte la espera de 42 minutos, y por qué igual la conservo en el informe?"
+                }
+              ],
+              "pasos": [
+                {
+                  "clave": "pregunta",
+                  "titulo": "1 · La pregunta que respondo",
+                  "ayuda": "Empieza con «En estas siete atenciones…» o «En esta jornada…».",
+                  "pistas": [
+                    "Una buena pregunta dice qué se mide (minutos de espera) y de qué conjunto habla.",
+                    "Ejemplo de forma: «En estas siete atenciones, ¿cuántos minutos fue la espera típica?»"
+                  ]
+                },
+                {
+                  "clave": "calculos",
+                  "titulo": "2 · Mis cálculos, con rastro",
+                  "ayuda": "Escribe conteo, suma, media, mediana, mínimo, máximo y rango. Cada cifra con «minutos» y con la operación que hiciste.",
+                  "pistas": [
+                    "Empieza por lo que sirve de control: conteo 7 y suma 90 minutos.",
+                    "Para la mediana, escribe la lista ordenada y encierra el valor del centro (el 4.º).",
+                    "Si usas Excel: CONTAR, SUMA, PROMEDIO, MEDIANA, MIN y MAX. Revisa que el rango de celdas incluya el valor más grande."
+                  ]
+                },
+                {
+                  "clave": "contraste",
+                  "titulo": "3 · El contraste sin el 42",
+                  "ayuda": "En un espacio aparte, repite la media y la mediana sin el 42. Escribe qué cambió y por qué el 42 se queda en el informe principal.",
+                  "pistas": [
+                    "Sin el 42 quedan 6 valores que suman 48. Con 6 datos, la mediana es el promedio de los dos del centro.",
+                    "El contraste muestra **sensibilidad**: qué medida se mueve con un solo dato. No prueba que el dato esté malo."
+                  ]
+                },
+                {
+                  "clave": "frases",
+                  "titulo": "4 · Mis dos frases y mi cautela",
+                  "ayuda": "Una frase sobre la espera típica (apóyate en la mediana), otra que muestre la variación o el máximo, con «seis de siete» y su porcentaje. Cierra con algo que los datos **no** permiten afirmar.",
+                  "pistas": [
+                    "Forma posible: «La espera típica fue de unos ___ minutos; ___ de 7 atenciones (≈ ___ %) esperaron 11 o menos, pero una esperó ___».",
+                    "Para la cautela: ¿qué no sabes del caso más largo? Descríbelo sin inventarle una causa."
+                  ]
+                }
+              ],
+              "verificacion": [
+                "¿Usé los 7 valores y cada cifra dice «minutos»?",
+                "¿Se ven la suma y el conteo antes de dividir?",
+                "¿Expliqué cómo encontré la mediana (la posición del centro)?",
+                "¿Hice el contraste aparte, sin quitar el 42 del informe principal?",
+                "¿Escribí una frase de espera típica y otra de variación, con «seis de siete» y su porcentaje?",
+                "¿Evité atribuirle una causa a la espera de 42 minutos?"
+              ],
+              "ejemplo": "«En estas siete atenciones, ¿cuánto fue la espera típica? Cada fila es una atención. Conteo: 7. Suma: 90 minutos. Media: 90 ÷ 7 ≈ 12,86 minutos. Lista ordenada: 5, 7, 8, 8, 9, 11, 42; la mediana es el 4.º valor, 8 minutos. Mínimo 5, máximo 42, rango 37 minutos. Sin el 42 (aparte): 6 valores, suma 48, media 8 y mediana 8. La media se movió mucho y la mediana nada. La espera típica fue de unos 8 minutos: seis de siete atenciones (≈ 85,7 %) esperaron 11 minutos o menos. Pero una atención esperó 42 minutos, y por eso la media sube a casi 13. Ese contraste no prueba que el 42 sea un error; no sabemos por qué fue tan larga, porque no hay datos de horarios ni motivos.»",
+              "explicacion": "No se busca un texto largo: una respuesta breve sirve si otra persona puede repetir tus cuentas y ver por qué elegiste esas frases.",
+              "tema": "valor-extremo"
+            },
+            {
+              "id": "n3-cierre",
+              "tipo": "escritura",
+              "fase": "observar",
+              "titulo": "Cierre de la misión",
+              "consigna": "Completa estas frases. Quedan guardadas en tu cuaderno (solo en este navegador). La última es para tu **pregunta más loca**: no hay respuestas tontas.",
+              "frases": [
+                {
+                  "clave": "m3-cierre-medida",
+                  "inicio": "Para contar la espera típica en este caso elegiría… porque…"
+                },
+                {
+                  "clave": "m3-cierre-no-dice",
+                  "inicio": "Lo que esa medida no cuenta por sí sola es…"
+                },
+                {
+                  "clave": "m3-cierre-loca",
+                  "inicio": "Mi pregunta más loca sobre estas esperas es… y para responderla me faltaría…"
+                }
+              ],
+              "explicacion": "El procedimiento en una línea: **mirar la lista → ordenar sin perder datos → calcular con rastro → contrastar sin borrar → elegir qué contar y decir qué no sabemos.**"
+            }
+          ]
+        }
+      ],
+      "conceptos": [
+        {
+          "termino": "Conteo y suma",
+          "definicion": "Cuántos datos hay y cuánto dan entre todos. Son el control de todo lo demás.",
+          "ejemplo": "7 atenciones que suman 90 minutos."
+        },
+        {
+          "termino": "Media (promedio)",
+          "definicion": "La suma repartida en partes iguales: suma ÷ conteo. Un solo valor extremo la puede jalar.",
+          "ejemplo": "90 ÷ 7 ≈ 12,86 minutos, aunque ninguna atención esperó algo parecido."
+        },
+        {
+          "termino": "Mediana",
+          "definicion": "El valor que queda en la posición del centro al ordenar. No es el que más se repite, aunque a veces coincidan.",
+          "ejemplo": "En 5, 7, 8, 8, 9, 11, 42 la mediana es 8 (el 4.º valor)."
+        },
+        {
+          "termino": "Mínimo, máximo y rango",
+          "definicion": "Los extremos de la lista y la distancia entre ellos (máximo − mínimo), con la misma unidad.",
+          "ejemplo": "Mínimo 5, máximo 42, rango 37 minutos."
+        },
+        {
+          "termino": "Porcentaje y denominador",
+          "definicion": "Cuántos de cada 100 cumplen algo: parte ÷ total × 100. Siempre se dice de qué total se habla.",
+          "ejemplo": "Seis de siete ≈ 85,7 % esperaron 11 minutos o menos."
+        },
+        {
+          "termino": "Valor extremo",
+          "definicion": "Un dato que se aleja mucho del resto. Se conserva si no hay evidencia de error.",
+          "ejemplo": "La espera de 42 minutos (T07)."
+        },
+        {
+          "termino": "Contraste (sensibilidad)",
+          "definicion": "Calcular otra vez, aparte, sin el valor extremo para ver qué medidas cambian. No prueba que el dato esté malo.",
+          "ejemplo": "Sin el 42, la media baja de 12,86 a 8; la mediana se queda en 8."
+        },
+        {
+          "termino": "Describir ≠ explicar la causa",
+          "definicion": "Los datos muestran qué pasó; la causa necesita otros datos.",
+          "ejemplo": "«Una atención esperó 42 minutos» sí; «fue por una consulta difícil» no."
+        }
+      ],
+      "fraseClave": "Una media bien calculada puede quedarse corta: la acompaño con la mediana y con el caso más largo, y no borro un dato solo porque se ve raro.",
+      "paraLlevar": {
+        "consigna": "Prepara un resumen para el equipo del programa: calcula los indicadores de espera, elige cómo describirías la experiencia típica y advierte qué ocurre con la observación de 42 minutos. Tu explicación debe permitir comprobar tanto los cálculos como la decisión de qué comunicar.",
+        "pasos": [
+          "La pregunta que respondo (qué se mide y de qué conjunto).",
+          "Mis cálculos con rastro: conteo, suma, media, mediana, mínimo, máximo y rango, todo en minutos.",
+          "El contraste sin el 42, en un espacio aparte: qué cambió y por qué el 42 se queda.",
+          "Dos frases (espera típica y variación, con un porcentaje sencillo) y una cautela sobre el caso más largo."
+        ],
+        "lupa": [
+          "Usé los 7 valores y cada cifra lleva su unidad.",
+          "Se ve la suma y el conteo antes de dividir.",
+          "La mediana es la posición del centro, no la que más se repite.",
+          "No confundo la media con «la mayoría» ni invento causas."
+        ]
+      }
+    }
+  },
   "teoria": {
-    "intro": "Hoy vamos a resumir muchos números en pocas cifras que cuenten la historia completa. Lo haces a diario cuando dices «el bus casi siempre se demora poquito, pero un día me tocó esperar un montón».",
+    "intro": "Hoy vamos a resumir muchos números en pocas cifras que cuenten la historia completa. Lo haces a diario cuando dices «casi siempre hablo poquito con mi abuela por teléfono, pero el día de su cumpleaños hablamos un montón».",
     "platzi": [
       {
         "curso": "Data1 · Fundamentos del análisis de datos",
@@ -68,7 +1696,7 @@
         "idea": "Contar dice cuántos datos tienes; sumar dice cuánto dan entre todos.",
         "explicacion": "El **conteo** es el número de observaciones (en Excel, CONTAR). La **suma** junta todos los valores (SUMA). Son la base de casi todo lo demás, y sirven de control: si al final algo no cuadra, vuelves a revisar cuántos datos contaste y cuánto sumaron. Siempre con su **unidad**: minutos, pesos, personas.",
         "cotidiano": "Cuando cuentas cuántas monedas tienes en el bolsillo (conteo) y cuánta plata suman (suma) antes de comprar las papitas.",
-        "ejemplo": "Datos ficticios: minutos que esperaste el bus durante cinco días: 4, 6, 6, 9 y 30. Conteo: 5 días. Suma: 55 minutos.",
+        "ejemplo": "Datos ficticios: minutos que hablaste por teléfono con tu abuela durante cinco días: 4, 6, 6, 9 y 30. Conteo: 5 días. Suma: 55 minutos.",
         "enElReto": "Antes de cualquier otra medida, cuenta las observaciones y súmalas. Si usas fórmula, revisa que el rango de celdas incluya todos los valores."
       },
       {
@@ -77,7 +1705,7 @@
         "idea": "La media reparte la suma en partes iguales entre todas las observaciones.",
         "explicacion": "La **media** se calcula dividiendo la suma entre el conteo (en Excel, PROMEDIO). Es útil, pero ojo: la media **no** dice lo que le pasó a la mayoría. Un solo valor muy grande o muy pequeño la puede jalar hacia arriba o hacia abajo.",
         "cotidiano": "Si entre cuatro amigos pagan una pizza, la media es lo que le tocaría a cada uno si dividen por partes iguales, aunque uno se haya comido más.",
-        "ejemplo": "Con los tiempos ficticios del bus: 55 ÷ 5 = 11 minutos de media. Pero cuatro de los cinco días esperaste 9 minutos o menos.",
+        "ejemplo": "Con las llamadas ficticias: 55 ÷ 5 = 11 minutos de media. Pero cuatro de los cinco días hablaron 9 minutos o menos.",
         "enElReto": "Calcula la media dejando a la vista la suma y el conteo, y luego pregúntate si de verdad describe lo que vivió la mayoría."
       },
       {
@@ -86,7 +1714,7 @@
         "idea": "La mediana es el valor que queda justo en la mitad cuando ordenas los datos.",
         "explicacion": "Para hallar la **mediana**, ordena los valores de menor a mayor y busca el del centro. Si la cantidad de datos es par, hay dos en el centro: se suman y se dividen entre dos. La mediana **no** es el valor que más se repite (aunque a veces coincidan). Como mira la posición, un valor extremo casi no la mueve.",
         "cotidiano": "Si cinco amigos se ponen en fila del más bajito al más alto, la estatura del que queda en la mitad es la mediana.",
-        "ejemplo": "Tiempos ficticios ordenados: 4, 6, 6, 9, 30. El del centro es el tercero: la mediana es 6 minutos.",
+        "ejemplo": "Llamadas ficticias ordenadas: 4, 6, 6, 9, 30. El del centro es el tercero: la mediana es 6 minutos.",
         "enElReto": "Ordena la lista completa, ubica la posición central y explica cómo la encontraste. Te ayudará a describir la espera típica."
       },
       {
@@ -94,8 +1722,8 @@
         "titulo": "Mínimo, máximo y rango",
         "idea": "El mínimo y el máximo son los extremos; el rango es la distancia entre ellos.",
         "explicacion": "El **mínimo** es el valor más pequeño y el **máximo** el más grande (en Excel, MIN y MAX). El **rango** es máximo menos mínimo y muestra qué tan separados están los datos. Las tres medidas se escriben con la misma unidad de los datos.",
-        "cotidiano": "Si el pasaje del bus en tu recorrido varía entre lo más barato y lo más caro que has pagado, la diferencia entre esos dos es el rango.",
-        "ejemplo": "En los tiempos ficticios: mínimo 4 minutos, máximo 30 minutos, rango 30 − 4 = 26 minutos.",
+        "cotidiano": "Si en una semana la temperatura iba de 17 °C en la madrugada más fresca a 29 °C en la tarde más caliente, la diferencia, 12 grados, es el rango.",
+        "ejemplo": "En las llamadas ficticias: mínimo 4 minutos, máximo 30 minutos, rango 30 − 4 = 26 minutos.",
         "enElReto": "Calcula los tres y úsalos para mostrar que no todas las esperas fueron iguales, sin esconder la más larga."
       },
       {
@@ -104,16 +1732,16 @@
         "idea": "Un porcentaje dice cuántos de cada 100 cumplen algo.",
         "explicacion": "Para sacar un **porcentaje**, divide la parte entre el total (el **denominador**) y multiplica por 100. Siempre di primero de qué total hablas: «4 de 5» es más claro cuando lo acompañas con «80 %». Un porcentaje no es un tiempo ni una cantidad de personas: es una proporción.",
         "cotidiano": "Si de 10 pandebonos que compraste, 7 estaban calienticos, el 70 % estaba caliente.",
-        "ejemplo": "En los tiempos ficticios, 4 de 5 días esperaste 9 minutos o menos: 4 ÷ 5 = 0,8, es decir, 80 %.",
-        "enElReto": "Cuando calcules qué proporción de atenciones esperó cierto tiempo o menos, escribe la fracción y el porcentaje juntos."
+        "ejemplo": "En las llamadas ficticias, 4 de 5 días hablaron 9 minutos o menos: 4 ÷ 5 = 0,8, es decir, 80 %.",
+        "enElReto": "Cuando calcules qué proporción de las esperas duró cierto tiempo o menos, escribe la fracción y el porcentaje juntos."
       },
       {
         "id": "valor-extremo",
         "titulo": "Valor extremo",
         "idea": "Un valor muy distinto de los demás merece atención, no borrarse sin evidencia.",
-        "explicacion": "Un **valor extremo** es un dato que se aleja mucho del resto. Puede ser real (un día de trancón) o un error, pero sin evidencia no lo sabemos. Lo responsable es **conservarlo** en el análisis principal y, aparte, hacer un **contraste**: calcular otra vez sin ese valor para ver qué medidas cambian. Ese contraste muestra sensibilidad, no prueba que el dato esté errado ni explica su causa.",
-        "cotidiano": "Un día el bus se demoró muchísimo por un accidente en la vía. Ese día pasó; no lo borras de tu memoria, pero tampoco dices que el bus siempre se demora así.",
-        "ejemplo": "Sin el 30, los tiempos ficticios quedan 4, 6, 6, 9: la media baja de 11 a 6,25 minutos y la mediana sigue en 6. La media se movió mucho; la mediana casi nada.",
+        "explicacion": "Un **valor extremo** es un dato que se aleja mucho del resto. Puede ser real (un día de trancón o de aguacero) o un error, pero sin evidencia no lo sabemos. Lo responsable es **conservarlo** en el análisis principal y, aparte, hacer un **contraste**: calcular otra vez sin ese valor para ver qué medidas cambian. Ese contraste muestra sensibilidad, no prueba que el dato esté errado ni explica su causa.",
+        "cotidiano": "El día del cumpleaños de tu abuela hablaron muchísimo. Ese día pasó; no lo borras de tu memoria, pero tampoco dices que siempre hablan tanto.",
+        "ejemplo": "Sin el 30, las llamadas ficticias quedan 4, 6, 6, 9: la media baja de 11 a 6,25 minutos y la mediana sigue en 6. La media se movió mucho; la mediana casi nada.",
         "enElReto": "Haz el contraste en un espacio aparte, compara qué cambió y explica por qué el valor extremo se queda en el informe principal."
       }
     ],

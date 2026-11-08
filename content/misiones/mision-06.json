@@ -4,16 +4,1958 @@
   "titulo": "Gráficos que responden",
   "sesion": "Crear visualizaciones que respondan preguntas",
   "habilidad": "Líneas o barras, ejes, etiquetas y cuidado con la causalidad.",
-  "caso": "Asistencia mensual",
+  "caso": "Consumo de energía del recibo, mes a mes",
   "color": "verde",
-  "historia": "",
   "insignia": {
     "nombre": "Ojo de gráfico",
-    "descripcion": "",
+    "descripcion": "Eliges el gráfico según la pregunta, revisas que la escala no exagere y separas lo que muestra el gráfico de lo que todavía no explica.",
     "simbolo": "grafico"
   },
-  "niveles": [],
-  "conceptos": [],
+  "casoActivo": "cotidiano",
+  "casos": {
+    "cotidiano": {
+      "nombre": "Cotidiano: el recibo de energía de Sofía",
+      "titulo": "El recibo de Sofía",
+      "caso": "Consumo de energía (kWh) de una casa, mes a mes",
+      "historia": "Sofía vive con su mamá y su hermano en una casa ficticia de Medellín. Cada mes llega el recibo de servicios, y trae un dato que casi nadie mira con calma: los **kWh** de energía que gastó la casa. En agosto llegó a vivir con ellos una prima que vino a estudiar, y en septiembre y octubre hizo bastante calor. El consumo subió y en la casa cada quien tiene su explicación. Sofía quiere mostrarlo con **dos gráficos honestos** antes de que alguien saque conclusiones apresuradas. Tú le vas a ayudar.",
+      "datos": {
+        "titulo": "Consumo de energía de la casa de Sofía (kWh)",
+        "unidad": [
+          "fila",
+          "filas"
+        ],
+        "columnas": [
+          "Código",
+          "Tabla",
+          "Mes",
+          "Detalle",
+          "kWh"
+        ],
+        "filas": [
+          [
+            "01",
+            "Por mes",
+            "Mayo",
+            "Toda la casa",
+            "150"
+          ],
+          [
+            "02",
+            "Por mes",
+            "Junio",
+            "Toda la casa",
+            "156"
+          ],
+          [
+            "03",
+            "Por mes",
+            "Julio",
+            "Toda la casa",
+            "152"
+          ],
+          [
+            "04",
+            "Por mes",
+            "Agosto",
+            "Toda la casa",
+            "164"
+          ],
+          [
+            "05",
+            "Por mes",
+            "Septiembre",
+            "Toda la casa",
+            "171"
+          ],
+          [
+            "06",
+            "Por mes",
+            "Octubre",
+            "Toda la casa",
+            "180"
+          ],
+          [
+            "07",
+            "Por uso",
+            "Octubre",
+            "Nevera",
+            "72"
+          ],
+          [
+            "08",
+            "Por uso",
+            "Octubre",
+            "Ropa",
+            "45"
+          ],
+          [
+            "09",
+            "Por uso",
+            "Octubre",
+            "Pantallas",
+            "36"
+          ],
+          [
+            "10",
+            "Por uso",
+            "Octubre",
+            "Luces",
+            "27"
+          ]
+        ],
+        "definiciones": [
+          "Aquí hay **dos tablas en una**. Las filas **01 a 06** salen de los recibos: cada una es el **consumo de toda la casa en un mes** (mayo a octubre de 2026).",
+          "Las filas **07 a 10** reparten **solo el consumo de octubre** en cuatro usos. Es un **cálculo aproximado** que hizo Sofía con las etiquetas de los aparatos; suman 180 kWh, igual que la fila 06.",
+          "**Ropa** = lavadora y plancha. **Pantallas** = televisor, computador y cargadores. **Luces** = bombillos.",
+          "**kWh** (kilovatio hora) es la unidad con la que el recibo mide la energía que se gastó.",
+          "La tabla **no** tiene temperatura, ni horas de uso de cada aparato, ni el consumo de otras casas."
+        ],
+        "aviso": "Datos ficticios, solo para practicar."
+      },
+      "niveles": [
+        {
+          "numero": 1,
+          "titulo": "Primero la pregunta",
+          "objetivo": "Separar las dos tablas, elegir las filas que responden cada pregunta y decidir qué gráfico pide cada una.",
+          "cierre": "Nivel 1 listo: ya sabes qué pregunta responde cada gráfico.",
+          "actividades": [
+            {
+              "id": "n1-toca-fila",
+              "tipo": "leer-filas",
+              "fase": "hacer",
+              "titulo": "Toca una fila",
+              "consigna": "Toca filas de la tabla y escucha lo que cuentan. Lee al menos **3 filas**, y procura que una sea de la 07 a la 10.",
+              "minimo": 3,
+              "lecturas": {
+                "01": "La fila 01 dice que en mayo de 2026 toda la casa gastó 150 kWh, según el recibo.",
+                "02": "La fila 02 dice que en junio de 2026 toda la casa gastó 156 kWh, según el recibo.",
+                "03": "La fila 03 dice que en julio de 2026 toda la casa gastó 152 kWh, según el recibo.",
+                "04": "La fila 04 dice que en agosto de 2026 toda la casa gastó 164 kWh, según el recibo.",
+                "05": "La fila 05 dice que en septiembre de 2026 toda la casa gastó 171 kWh, según el recibo.",
+                "06": "La fila 06 dice que en octubre de 2026 toda la casa gastó 180 kWh, según el recibo.",
+                "07": "La fila 07 dice que, de los 180 kWh de octubre, unos 72 fueron de la nevera. Es un cálculo aproximado de Sofía, solo de octubre.",
+                "08": "La fila 08 dice que, de los 180 kWh de octubre, unos 45 fueron de lavar y planchar la ropa. Solo habla de octubre.",
+                "09": "La fila 09 dice que, de los 180 kWh de octubre, unos 36 fueron de pantallas: televisor, computador y cargadores.",
+                "10": "La fila 10 dice que, de los 180 kWh de octubre, unos 27 fueron de las luces de la casa."
+              },
+              "explicacion": "Las filas 01 a 06 cuentan **cuánto gastó toda la casa cada mes**. Las filas 07 a 10 cuentan **en qué se fue la energía de un solo mes**, octubre. Son dos preguntas distintas.",
+              "tema": "pregunta-del-grafico"
+            },
+            {
+              "id": "n1-dos-tablas",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "Dos tablas en una",
+              "consigna": "¿Qué diferencia a las filas **01 a 06** de las filas **07 a 10**?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Las primeras son de los recibos y las otras son inventadas",
+                  "feedback": "Las filas 07 a 10 no son inventadas: son un cálculo aproximado de Sofía. La diferencia importante está en **qué periodo** y **qué conjunto** describe cada bloque."
+                },
+                {
+                  "texto": "Las 01 a 06 son toda la casa mes a mes; las 07 a 10 reparten solo octubre por uso",
+                  "correcta": true
+                },
+                {
+                  "texto": "Las 07 a 10 son los meses que vienen",
+                  "feedback": "Mira la columna Mes de las filas 07 a 10: todas dicen Octubre. No son meses nuevos, son el mismo octubre repartido por uso."
+                },
+                {
+                  "texto": "No hay diferencia: todas son consumos en kWh",
+                  "feedback": "Es cierto que todas están en kWh, ¡bien visto! Pero la unidad igual no hace iguales las filas. Mira las columnas Tabla, Mes y Detalle."
+                }
+              ],
+              "pistas": [
+                "Lee la columna Tabla y la columna Mes de las filas 07 a 10.",
+                "Suma las filas 07 a 10 y compáralas con la fila 06."
+              ],
+              "explicacion": "Hay **dos tablas**: una mensual (01–06) y otra de un solo mes por uso (07–10). Mismo kWh, **distinto significado**. Antes de graficar, cada pregunta elige su tabla.",
+              "tema": "pregunta-del-grafico"
+            },
+            {
+              "id": "n1-filas-pregunta",
+              "tipo": "seleccionar-filas",
+              "fase": "aplicar",
+              "titulo": "Las filas de la pregunta",
+              "consigna": "Pregunta: «¿Cómo cambió el consumo de la casa de **mayo a octubre**?». **Toca solo las filas** que necesitas para responderla.",
+              "esperadas": [
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06"
+              ],
+              "feedback": {
+                "sobran": "Las filas 07 a 10 son solo de octubre y reparten ese mes por uso. Si las metes, octubre aparecería dos veces en tu gráfico.",
+                "faltan": "Vas bien. La pregunta va de mayo a octubre: revisa que estén los seis meses."
+              },
+              "pistas": [
+                "Fíjate en la columna Tabla: ¿cuál bloque habla de cada mes?",
+                "Son las filas que dicen «Por mes». Hay seis."
+              ],
+              "explicacion": "Para la evolución usas las filas **01 a 06**. Las 07 a 10 responden otra pregunta: «¿en qué se fue la energía de octubre?».",
+              "tema": "pregunta-del-grafico"
+            },
+            {
+              "id": "n1-suma-trampa",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "La suma que no cuadra",
+              "consigna": "El hermano de Sofía sumó **toda** la columna kWh y dijo: «De mayo a octubre gastamos **1.153 kWh**». ¿Qué pasó?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Nada: 1.153 kWh es el total correcto",
+                  "feedback": "Suma solo las filas 01 a 06 y compara. ¿Qué filas de más entraron en esa suma?"
+                },
+                {
+                  "texto": "Contó octubre dos veces: el total de mayo a octubre es 973 kWh",
+                  "correcta": true
+                },
+                {
+                  "texto": "Le faltó sumar los usos: el total es más de 1.153",
+                  "feedback": "Los usos (07 a 10) ya están dentro de la fila 06: suman 180, lo mismo que octubre. Sumarlos otra vez es contar doble."
+                },
+                {
+                  "texto": "El total es 180 kWh, porque octubre es el último mes",
+                  "feedback": "180 kWh es solo octubre. La pregunta es por todo el periodo de mayo a octubre: filas 01 a 06."
+                }
+              ],
+              "pistas": [
+                "Suma las filas 07 a 10. ¿A qué fila se parece ese resultado?",
+                "150 + 156 + 152 + 164 + 171 + 180 = ?"
+              ],
+              "explicacion": "De mayo a octubre la casa gastó **973 kWh** (filas 01 a 06). El 1.153 suma además los 180 kWh de octubre repartidos por uso: **octubre quedó contado dos veces**. Por eso no se mezclan tablas que significan cosas distintas, ni al sumar ni al graficar.",
+              "tema": "pregunta-del-grafico"
+            },
+            {
+              "id": "n1-elige-forma",
+              "tipo": "emparejar",
+              "fase": "entender",
+              "titulo": "Cada pregunta, su gráfico",
+              "consigna": "Para cada pregunta, toca el gráfico que mejor la responde. Ojo: una de ellas no se puede responder con esta tabla.",
+              "tipos": [
+                {
+                  "id": "lineas",
+                  "texto": "Líneas",
+                  "ayuda": "cambio en el tiempo, con los meses en orden"
+                },
+                {
+                  "id": "barras",
+                  "texto": "Barras",
+                  "ayuda": "comparar categorías lado a lado"
+                },
+                {
+                  "id": "ninguno",
+                  "texto": "Ninguno todavía",
+                  "ayuda": "a la tabla le faltan datos para esa pregunta"
+                }
+              ],
+              "pares": [
+                {
+                  "item": "¿El consumo subió o bajó de mayo a octubre?",
+                  "correcto": "lineas",
+                  "feedback": "Es una pregunta de cambio en el tiempo: los meses en orden y una línea que suba o baje."
+                },
+                {
+                  "item": "¿Qué uso gastó más energía en octubre?",
+                  "correcto": "barras",
+                  "feedback": "Compara categorías (nevera, ropa, pantallas, luces) de un solo mes: barras lado a lado."
+                },
+                {
+                  "item": "¿Hubo algún mes en que el consumo bajó?",
+                  "correcto": "lineas",
+                  "feedback": "Para ver si la serie baja en algún punto necesitas los meses en orden: una línea lo muestra de un vistazo."
+                },
+                {
+                  "item": "¿Las luces gastaron menos que las pantallas en octubre?",
+                  "correcto": "barras",
+                  "feedback": "Otra comparación de usos en un mismo mes: barras."
+                },
+                {
+                  "item": "¿La casa de Sofía gasta más que las casas vecinas?",
+                  "correcto": "ninguno",
+                  "feedback": "La tabla solo tiene la casa de Sofía. Ningún gráfico arregla un dato que no está."
+                }
+              ],
+              "pistas": [
+                "Pregúntate primero: ¿esta pregunta habla de meses en orden o de nombres de categorías?",
+                "Si la pregunta menciona algo que no está en la tabla (otras casas, por ejemplo), ningún gráfico la responde."
+              ],
+              "explicacion": "**Tiempo en orden → líneas. Categorías lado a lado → barras.** Son buenas opciones, no reglas únicas: lo que manda es que el gráfico responda la pregunta sin confundir. Y si faltan datos, primero hay que conseguirlos.",
+              "tema": "lineas-tiempo"
+            }
+          ]
+        },
+        {
+          "numero": 2,
+          "titulo": "Leer sin dejarse engañar",
+          "objetivo": "Revisar el orden de los meses, leer valores en el gráfico, detectar un eje recortado y calcular la variación relativa.",
+          "cierre": "Nivel 2 listo: ya lees un gráfico con ojo crítico.",
+          "actividades": [
+            {
+              "id": "n2-orden",
+              "tipo": "seleccion",
+              "fase": "hacer",
+              "titulo": "Algo raro en la línea",
+              "consigna": "El hermano de Sofía hizo este gráfico y dice: «¿Ven? **Subió todos los meses**». Míralo bien. ¿Qué tiene de raro?",
+              "apoyo": {
+                "tipo": "grafico",
+                "forma": "lineas",
+                "titulo": "Consumo de energía de la casa de Sofía, mayo a octubre de 2026",
+                "etiquetas": [
+                  "May",
+                  "Jul",
+                  "Jun",
+                  "Ago",
+                  "Sep",
+                  "Oct"
+                ],
+                "series": [
+                  {
+                    "nombre": "Consumo",
+                    "valores": [
+                      150,
+                      152,
+                      156,
+                      164,
+                      171,
+                      180
+                    ]
+                  }
+                ],
+                "unidad": "kWh",
+                "nota": "Fuente: recibos de la casa de Sofía y cálculo aproximado de Sofía (datos ficticios del ejercicio)."
+              },
+              "opciones": [
+                {
+                  "texto": "Nada: la línea sube siempre, así que el consumo subió todos los meses",
+                  "feedback": "Lee las etiquetas de abajo una por una. ¿Están los meses en el orden del calendario?"
+                },
+                {
+                  "texto": "Los meses están ordenados de menor a mayor consumo, no por calendario",
+                  "correcta": true
+                },
+                {
+                  "texto": "Le falta empezar el eje en cero",
+                  "feedback": "Este eje sí empieza en cero. El problema está en el eje de abajo: mira el orden de los meses."
+                },
+                {
+                  "texto": "Debería ser de barras",
+                  "feedback": "Una línea es buena opción para ver el tiempo. El problema no es la forma, sino que el tiempo no va en orden."
+                }
+              ],
+              "pistas": [
+                "Lee el eje horizontal: May, Jul, Jun…",
+                "¿Qué pasa si pones junio antes de julio?"
+              ],
+              "explicacion": "Junio y julio están **intercambiados**: así la línea sube siempre y **se esconde que en julio el consumo bajó** (de 156 a 152 kWh). En un gráfico de tiempo, los periodos van **en orden cronológico**, aunque eso muestre una bajada.",
+              "tema": "lineas-tiempo"
+            },
+            {
+              "id": "n2-linea-bien",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "La línea en orden",
+              "consigna": "Ahora con los meses en orden. Lee el gráfico: ¿entre qué meses **bajó** el consumo?",
+              "apoyo": {
+                "tipo": "grafico",
+                "forma": "lineas",
+                "titulo": "Consumo de energía de la casa de Sofía, mayo a octubre de 2026",
+                "etiquetas": [
+                  "May",
+                  "Jun",
+                  "Jul",
+                  "Ago",
+                  "Sep",
+                  "Oct"
+                ],
+                "series": [
+                  {
+                    "nombre": "Consumo",
+                    "valores": [
+                      150,
+                      156,
+                      152,
+                      164,
+                      171,
+                      180
+                    ]
+                  }
+                ],
+                "unidad": "kWh",
+                "nota": "Fuente: recibos de la casa de Sofía y cálculo aproximado de Sofía (datos ficticios del ejercicio)."
+              },
+              "opciones": [
+                {
+                  "texto": "De mayo a junio",
+                  "feedback": "De mayo a junio pasó de 150 a 156: subió 6 kWh. Busca el tramo donde la línea va hacia abajo."
+                },
+                {
+                  "texto": "De junio a julio",
+                  "correcta": true
+                },
+                {
+                  "texto": "De septiembre a octubre",
+                  "feedback": "De septiembre a octubre pasó de 171 a 180: subió. Busca el tramo donde la línea baja."
+                },
+                {
+                  "texto": "En ningún mes",
+                  "feedback": "Eso parecía en el gráfico desordenado. Mira ahora el tramo entre Jun y Jul."
+                }
+              ],
+              "pistas": [
+                "Busca el único tramo de la línea que va hacia abajo.",
+                "Compara los números de Jun y Jul."
+              ],
+              "explicacion": "De **junio a julio** bajó 4 kWh (156 → 152). Luego el salto más grande fue **de julio a agosto: +12 kWh**. Comprueba: esos valores son las filas 02, 03 y 04 de la tabla. Leer un valor del gráfico y buscarlo en la tabla es tu mejor control.",
+              "tema": "lineas-tiempo"
+            },
+            {
+              "id": "n2-linea-categorias",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "¿Línea o barras para los usos?",
+              "consigna": "Sofía probó dos gráficos para los usos de octubre. ¿Cuál comunica mejor la comparación y por qué?",
+              "apoyo": {
+                "tipo": "comparacion",
+                "items": [
+                  {
+                    "etiqueta": "A",
+                    "grafico": {
+                      "tipo": "grafico",
+                      "forma": "lineas",
+                      "titulo": "Consumo por uso en octubre de 2026 (cálculo aproximado)",
+                      "etiquetas": [
+                        "Nevera",
+                        "Ropa",
+                        "Pantallas",
+                        "Luces"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Octubre",
+                          "valores": [
+                            72,
+                            45,
+                            36,
+                            27
+                          ]
+                        }
+                      ],
+                      "unidad": "kWh"
+                    }
+                  },
+                  {
+                    "etiqueta": "B",
+                    "grafico": {
+                      "tipo": "grafico",
+                      "forma": "barras",
+                      "titulo": "Consumo por uso en octubre de 2026 (cálculo aproximado)",
+                      "etiquetas": [
+                        "Nevera",
+                        "Ropa",
+                        "Pantallas",
+                        "Luces"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Octubre",
+                          "valores": [
+                            72,
+                            45,
+                            36,
+                            27
+                          ]
+                        }
+                      ],
+                      "unidad": "kWh"
+                    }
+                  }
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "A, porque la línea muestra que el consumo va bajando",
+                  "feedback": "La línea baja porque Sofía puso los usos en ese orden, no porque algo «baje» con el tiempo. Si cambias el orden, la línea cambia. ¿Hay un camino entre nevera y ropa?"
+                },
+                {
+                  "texto": "B, porque son categorías sueltas y las barras las ponen lado a lado",
+                  "correcta": true
+                },
+                {
+                  "texto": "Los dos son igual de buenos",
+                  "feedback": "Los números son los mismos, ¡bien visto! Pero la línea sugiere una continuidad que no existe entre usos. ¿Cuál se lee sin malentendidos?"
+                }
+              ],
+              "explicacion": "Entre «Nevera» y «Ropa» no hay un antes y un después: son **categorías**. La línea inventa un recorrido; las **barras** dejan comparar longitudes. Pregúntate siempre: **¿qué continuidad hay entre estos puntos?**",
+              "tema": "barras-categorias"
+            },
+            {
+              "id": "n2-lee-barra",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Lee una barra",
+              "consigna": "Lee la barra de **Nevera**. ¿Qué dice exactamente?",
+              "apoyo": {
+                "tipo": "grafico",
+                "forma": "barras",
+                "titulo": "Consumo por uso en octubre de 2026 (cálculo aproximado)",
+                "etiquetas": [
+                  "Nevera",
+                  "Ropa",
+                  "Pantallas",
+                  "Luces"
+                ],
+                "series": [
+                  {
+                    "nombre": "Octubre",
+                    "valores": [
+                      72,
+                      45,
+                      36,
+                      27
+                    ]
+                  }
+                ],
+                "unidad": "kWh",
+                "nota": "Fuente: recibos de la casa de Sofía y cálculo aproximado de Sofía (datos ficticios del ejercicio)."
+              },
+              "opciones": [
+                {
+                  "texto": "La nevera gastó unos 72 kWh en octubre de 2026",
+                  "correcta": true
+                },
+                {
+                  "texto": "La nevera gastó 72 kWh entre mayo y octubre",
+                  "feedback": "Mira el título: el gráfico es solo de octubre. Las filas por uso (07 a 10) no dicen nada de mayo a septiembre."
+                },
+                {
+                  "texto": "La nevera gasta 72 kWh todos los meses",
+                  "feedback": "Solo tenemos el reparto de octubre. Que en otros meses sea igual es una suposición, no un dato."
+                },
+                {
+                  "texto": "La nevera gastó el 72 % de la energía",
+                  "feedback": "72 son kWh, no porcentaje. Si quieres el porcentaje: 72 ÷ 180 = 0,40, o sea, el 40 % de octubre."
+                }
+              ],
+              "pistas": [
+                "Lee el título del gráfico: ¿de qué mes habla?",
+                "Busca la fila 07 en la tabla."
+              ],
+              "explicacion": "**72 kWh en octubre**, igual que la fila 07. El título con el mes evita que alguien lo lea como si fuera de todo el periodo. Y un detalle honesto: es un **cálculo aproximado**, por eso decimos «unos 72».",
+              "tema": "elementos-del-grafico"
+            },
+            {
+              "id": "n2-eje",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "La trampa del eje",
+              "consigna": "Mismos datos, dos gráficos. En el **B**, la barra de octubre se ve unas **7 veces** más alta que la de mayo. ¿Cuánto más consumió la casa de verdad en octubre?",
+              "apoyo": {
+                "tipo": "comparacion",
+                "items": [
+                  {
+                    "etiqueta": "A · Eje desde 0",
+                    "grafico": {
+                      "forma": "barras",
+                      "titulo": "Consumo de energía, mayo y octubre de 2026",
+                      "etiquetas": [
+                        "Mayo",
+                        "Octubre"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Consumo",
+                          "valores": [
+                            150,
+                            180
+                          ]
+                        }
+                      ],
+                      "unidad": "kWh"
+                    }
+                  },
+                  {
+                    "etiqueta": "B · Eje desde 145",
+                    "grafico": {
+                      "forma": "barras",
+                      "titulo": "Consumo de energía, mayo y octubre de 2026",
+                      "etiquetas": [
+                        "Mayo",
+                        "Octubre"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Consumo",
+                          "valores": [
+                            150,
+                            180
+                          ]
+                        }
+                      ],
+                      "unidad": "kWh",
+                      "ejeDesde": 145,
+                      "nota": "El eje empieza en 145 kWh (≈ marca el corte)."
+                    }
+                  }
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Unas 7 veces más, como se ve en B",
+                  "feedback": "Lee los números encima de las barras: 150 y 180. ¿180 es siete veces 150? En B el eje empieza en 145, y eso exagera la diferencia."
+                },
+                {
+                  "texto": "El doble",
+                  "feedback": "El doble de 150 sería 300. Octubre fue 180."
+                },
+                {
+                  "texto": "30 kWh más, o sea, un 20 % más que mayo",
+                  "correcta": true
+                },
+                {
+                  "texto": "180 kWh más",
+                  "feedback": "180 es todo el consumo de octubre, no la diferencia. Resta: 180 − 150."
+                }
+              ],
+              "pistas": [
+                "Los números son iguales en los dos gráficos. Solo cambia dónde empieza el eje.",
+                "180 − 150 = 30. ¿Cuánto es 30 frente a 150?"
+              ],
+              "explicacion": "En B, las barras solo muestran lo que pasa de 145: 5 kWh para mayo y 35 para octubre, por eso una parece **7 veces** la otra. La diferencia real es **30 kWh (20 %)**. En barras, la longitud representa la cantidad: **el eje empieza en cero**. Muchos recibos y anuncios recortan el eje; ahora ya sabes mirarlo.",
+              "tema": "escala-honesta"
+            },
+            {
+              "id": "n2-variacion",
+              "tipo": "completar",
+              "fase": "aplicar",
+              "titulo": "¿Cuánto creció?",
+              "consigna": "Calcula la variación relativa del consumo entre **mayo** (la base) y **octubre**.",
+              "frase": "La base es {0}. De mayo a octubre hay {1} más. 30 ÷ 150 = 0,20, es decir, el consumo creció {2} respecto a mayo.",
+              "huecos": [
+                {
+                  "opciones": [
+                    {
+                      "texto": "150 kWh (mayo)",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "180 kWh (octubre)",
+                      "feedback": "La base es el punto de partida, el mes con el que comparas. Aquí partes de mayo."
+                    },
+                    {
+                      "texto": "973 kWh (el total)",
+                      "feedback": "El total del periodo no es el punto de partida. Comparas octubre contra mayo."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "30 kWh",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "30 %",
+                      "feedback": "180 − 150 = 30, pero son **kWh**, no porcentaje. El porcentaje sale de dividir por la base."
+                    },
+                    {
+                      "texto": "180 kWh",
+                      "feedback": "180 es el consumo de octubre. La diferencia es 180 − 150."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "un 20 %",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "20 puntos porcentuales",
+                      "feedback": "Los puntos porcentuales sirven para restar dos porcentajes. Aquí lo que cambió fue una cantidad (kWh), así que se dice «creció un 20 %»."
+                    },
+                    {
+                      "texto": "un 16,7 %",
+                      "feedback": "Eso es 30 ÷ 180: usaste octubre como base. Si comparas contra mayo, divides por 150."
+                    },
+                    {
+                      "texto": "un 120 %",
+                      "feedback": "180 ÷ 150 = 1,20 dice que octubre es el 120 % de mayo; el **aumento** es la parte que sobra: 20 %."
+                    }
+                  ]
+                }
+              ],
+              "pistas": [
+                "(valor final − valor inicial) ÷ valor inicial.",
+                "(180 − 150) ÷ 150."
+              ],
+              "explicacion": "De 150 a 180 kWh: **30 kWh más, un 20 % respecto a mayo**. Se dice «creció un 20 %», no «20 puntos porcentuales», porque el kWh es una cantidad, no una tasa.",
+              "tema": "variacion-relativa"
+            }
+          ]
+        },
+        {
+          "numero": 3,
+          "titulo": "Ver no es explicar",
+          "objetivo": "Revisar que el gráfico se lea solo, separar lo que muestra de lo que no explica y armar el reto.",
+          "cierre": "Nivel 3 listo: tus gráficos se leen solos y dicen solo lo que los datos respaldan.",
+          "actividades": [
+            {
+              "id": "n3-resultados",
+              "tipo": "seleccion",
+              "multiple": true,
+              "fase": "observar",
+              "titulo": "«Resultados» no es un título",
+              "consigna": "Sofía le mandó este gráfico a su mamá, sin explicarle nada. **Marca todo lo que le falta** para leerse solo.",
+              "apoyo": {
+                "tipo": "grafico",
+                "forma": "barras",
+                "titulo": "Resultados",
+                "etiquetas": [
+                  "Nevera",
+                  "Ropa",
+                  "Pantallas",
+                  "Luces"
+                ],
+                "series": [
+                  {
+                    "nombre": "Octubre",
+                    "valores": [
+                      72,
+                      45,
+                      36,
+                      27
+                    ]
+                  }
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Decir qué se mide y de qué casa",
+                  "correcta": true,
+                  "siFalta": "«Resultados» de qué: ¿consumo de energía? ¿de qué casa?"
+                },
+                {
+                  "texto": "Decir a qué periodo corresponde",
+                  "correcta": true,
+                  "siFalta": "¿Es de octubre o de todo el semestre? Sin el mes, alguien puede leerlo como si fuera de varios meses."
+                },
+                {
+                  "texto": "La unidad (kWh)",
+                  "correcta": true,
+                  "siFalta": "72 ¿qué? ¿kWh, pesos, horas?"
+                },
+                {
+                  "texto": "La fuente (datos ficticios, cálculo de Sofía)",
+                  "correcta": true,
+                  "siFalta": "¿De dónde salen los números? Una línea de fuente da confianza."
+                },
+                {
+                  "texto": "Más colores y un fondo con dibujos",
+                  "feedback": "El adorno no ayuda a leer. Primero claridad: título, unidad, periodo y fuente."
+                }
+              ],
+              "explicacion": "Un buen título dice **qué, de dónde y cuándo**: «Consumo de energía por uso en la casa de Sofía, octubre de 2026 (kWh) · Fuente: cálculo aproximado, datos ficticios». Si alguien necesita que estés al lado explicando, al gráfico le falta algo.",
+              "tema": "elementos-del-grafico"
+            },
+            {
+              "id": "n3-tarjetas-causa",
+              "tipo": "tarjetas",
+              "fase": "entender",
+              "titulo": "¿Lo muestran los datos?",
+              "consigna": "Para cada frase, decide si **la tabla la respalda** o si **necesita otros datos**.",
+              "usaDatos": true,
+              "botones": {
+                "si": "La tabla lo muestra",
+                "no": "Necesita otros datos"
+              },
+              "tarjetas": [
+                {
+                  "texto": "El consumo pasó de 150 kWh en mayo a 180 kWh en octubre.",
+                  "respuesta": "si",
+                  "explicacion": "Está en las filas 01 y 06. Es una observación que cualquiera puede comprobar."
+                },
+                {
+                  "texto": "El consumo subió porque llegó el calor.",
+                  "respuesta": "no",
+                  "explicacion": "La tabla no tiene temperatura. Y aunque la tuviera, que dos cosas suban al tiempo no prueba que una cause la otra."
+                },
+                {
+                  "texto": "El consumo subió porque llegó la prima en agosto.",
+                  "respuesta": "no",
+                  "explicacion": "El salto de julio a agosto (+12 kWh) coincide con su llegada, pero coincidir no es causar: ese mes también pudo pasar otra cosa. Faltan datos, por ejemplo, el consumo por persona o por aparato en cada mes."
+                },
+                {
+                  "texto": "En julio el consumo bajó respecto a junio.",
+                  "respuesta": "si",
+                  "explicacion": "Filas 02 y 03: de 156 a 152 kWh."
+                },
+                {
+                  "texto": "Según el cálculo de Sofía, la nevera fue el uso que más gastó en octubre.",
+                  "respuesta": "si",
+                  "explicacion": "Fila 07: unos 72 kWh de 180. Y la frase dice bien de dónde sale: un cálculo aproximado, solo de octubre."
+                },
+                {
+                  "texto": "Si cambian la nevera, el recibo bajará un 40 %.",
+                  "respuesta": "no",
+                  "explicacion": "Que la nevera sea el 40 % de octubre no dice cuánto gastaría una nevera nueva. Eso es una predicción que necesita otros datos."
+                }
+              ],
+              "explicacion": "Separa dos tipos de frase: **lo que viste** (comprobable en la tabla) y **por qué pasó** (una explicación que necesita más información). Las dos pueden ir en tu conclusión, siempre que digas cuál es cuál.",
+              "tema": "observacion-vs-causa"
+            },
+            {
+              "id": "n3-coincidencia",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "¿El calor o la prima?",
+              "consigna": "La mamá dice: «Subió por el calor». El hermano dice: «Subió por la prima». Las dos cosas pasaron desde agosto. ¿Qué le respondes a la familia?",
+              "apoyo": {
+                "tipo": "grafico",
+                "forma": "lineas",
+                "titulo": "Consumo de energía de la casa de Sofía, mayo a octubre de 2026",
+                "etiquetas": [
+                  "May",
+                  "Jun",
+                  "Jul",
+                  "Ago",
+                  "Sep",
+                  "Oct"
+                ],
+                "series": [
+                  {
+                    "nombre": "Consumo",
+                    "valores": [
+                      150,
+                      156,
+                      152,
+                      164,
+                      171,
+                      180
+                    ]
+                  }
+                ],
+                "unidad": "kWh",
+                "nota": "Fuente: recibos de la casa de Sofía y cálculo aproximado de Sofía (datos ficticios del ejercicio)."
+              },
+              "opciones": [
+                {
+                  "texto": "Tiene razón la mamá: en septiembre y octubre hizo calor y el consumo subió",
+                  "feedback": "Que el calor y el consumo suban juntos es una coincidencia en el tiempo. La prima también llegó en esos meses. ¿Cómo sabrías cuál de las dos fue, o si fueron ambas?"
+                },
+                {
+                  "texto": "Tiene razón el hermano: el salto más grande fue justo en agosto",
+                  "feedback": "Bien leído: de julio a agosto subió 12 kWh. Pero que coincida con la llegada de la prima no prueba que sea la causa. ¿Qué dato te haría falta?"
+                },
+                {
+                  "texto": "Los dos describen algo que coincide en el tiempo; con esta tabla no se puede saber la causa",
+                  "correcta": true
+                },
+                {
+                  "texto": "Ninguno: el consumo en realidad no subió",
+                  "feedback": "El aumento sí está en la tabla: de 150 a 180 kWh. Lo que no está es la causa."
+                }
+              ],
+              "explicacion": "El aumento es una **observación**; el calor y la prima son **hipótesis**. Para separarlas haría falta más información: la temperatura de cada mes, el consumo por aparato en varios meses o cuánta energía usa cada persona. Mientras tanto, la frase honesta es: «El consumo subió 20 % entre mayo y octubre; **todavía no sabemos por qué**».",
+              "tema": "observacion-vs-causa"
+            },
+            {
+              "id": "n3-reto",
+              "tipo": "constructor",
+              "fase": "aplicar",
+              "titulo": "El reto: dos gráficos que se leen solos",
+              "consigna": "Prepara dos gráficos para Sofía: uno que permita seguir el consumo mes a mes y otro que compare los usos de octubre. Dibújalos en tu cuaderno o en la hoja de cálculo. Deben leerse sin que tú estés al lado. Acompáñalos con una conclusión que la tabla respalde y una causa que todavía no podrías afirmar.",
+              "rutas": [
+                {
+                  "id": "mapa",
+                  "nombre": "Ruta Mapa",
+                  "descripcion": "Las dos preguntas ya vienen dadas. Te concentras en elegir el gráfico, revisarlo y escribir la conclusión.",
+                  "preguntaDada": "Gráfico 1: ¿cómo cambió el consumo de la casa de mayo a octubre de 2026? Gráfico 2: ¿qué uso gastó más energía en octubre de 2026?"
+                },
+                {
+                  "id": "brujula",
+                  "nombre": "Ruta Brújula",
+                  "descripcion": "Formulas tus propias dos preguntas: una sobre el tiempo y otra que compare categorías. Ideas: el tramo de julio a agosto, nevera frente a luces."
+                },
+                {
+                  "id": "telescopio",
+                  "nombre": "Ruta Telescopio",
+                  "descripcion": "Haces las dos preguntas de la ruta Mapa, calculas la variación relativa de mayo a octubre y explicas cómo corregirías el gráfico de eje recortado.",
+                  "preguntaDada": "Gráfico 1: ¿cómo cambió el consumo de mayo a octubre de 2026, y en qué porcentaje? Gráfico 2: ¿qué uso gastó más en octubre? Extra: ¿qué cambiarías en un gráfico con el eje desde 145 kWh?"
+                }
+              ],
+              "pasos": [
+                {
+                  "clave": "preguntas",
+                  "titulo": "1 · Las preguntas de mis dos gráficos",
+                  "ayuda": "Gráfico 1 responde… Gráfico 2 responde…",
+                  "pistas": [
+                    "Una pregunta debe hablar de meses en orden; la otra, de categorías de un solo mes.",
+                    "Ejemplo de forma: «¿Cómo cambió ___ entre ___ y ___?» y «¿Qué ___ tuvo más ___ en ___?»"
+                  ]
+                },
+                {
+                  "clave": "forma-filas",
+                  "titulo": "2 · Qué gráfico uso y qué filas",
+                  "ayuda": "Para el gráfico 1 uso… con las filas… Para el gráfico 2 uso… con las filas…",
+                  "pistas": [
+                    "Recuerda el Nivel 1: las filas 01 a 06 son por mes; las 07 a 10, solo octubre.",
+                    "Escribe por qué: «líneas porque…», «barras porque…»."
+                  ],
+                  "permiteFilas": true
+                },
+                {
+                  "clave": "revision",
+                  "titulo": "3 · Cómo lo revisé",
+                  "ayuda": "Título, ejes, unidad, escala, fuente… y un valor que leí en el gráfico y comparé con la tabla.",
+                  "pistas": [
+                    "¿El título dice qué, de dónde y cuándo?",
+                    "¿Las barras empiezan en cero? ¿Los meses van en orden?",
+                    "Lee una barra o un punto y busca su fila en la tabla: ¿coincide?"
+                  ]
+                },
+                {
+                  "clave": "conclusion-causa",
+                  "titulo": "4 · Mi conclusión y la causa que aún no puedo afirmar",
+                  "ayuda": "«Los datos muestran que… Todavía no puedo afirmar que… porque…»",
+                  "pistas": [
+                    "La conclusión usa números de la tabla (por ejemplo, de 150 a 180 kWh).",
+                    "Piensa en el calor y en la prima: ¿qué dato faltaría para saber cuál pesó más?"
+                  ]
+                }
+              ],
+              "verificacion": [
+                "¿Cada gráfico tiene su pregunta y su tabla, sin mezclar octubre dos veces?",
+                "¿Los meses van en orden y las barras empiezan en cero?",
+                "¿Los títulos dicen qué, de dónde y cuándo, con unidad y fuente?",
+                "¿Leí un valor del gráfico y coincidió con la tabla?",
+                "¿Separé lo que muestran los datos de la causa que no puedo afirmar?"
+              ],
+              "ejemplo": "«Gráfico 1 (líneas): “Consumo de energía de la casa de Sofía, mayo a octubre de 2026 (kWh)”, filas 01 a 06, meses en orden. Gráfico 2 (barras desde cero): “Consumo por uso en octubre de 2026, cálculo aproximado (kWh)”, filas 07 a 10. Fuente: datos ficticios del ejercicio. Leí la barra de Nevera: 72, igual que la fila 07. Conclusión: el consumo pasó de 150 a 180 kWh, 30 kWh más, un 20 % respecto a mayo; en julio bajó un poco. Todavía no puedo afirmar que subió por el calor ni por la llegada de la prima: la tabla no tiene temperatura ni consumo por persona.»",
+              "explicacion": "No se busca un gráfico perfecto ni bonito: se busca uno que **responda su pregunta** y **no exagere**. Lo demás se pule.",
+              "tema": "pregunta-del-grafico"
+            },
+            {
+              "id": "n3-cierre",
+              "tipo": "escritura",
+              "fase": "observar",
+              "titulo": "Cierre de la misión",
+              "consigna": "Completa estas dos frases. Quedan guardadas en tu cuaderno (solo en este navegador).",
+              "frases": [
+                {
+                  "clave": "cierre-decision",
+                  "inicio": "La decisión visual que más cambió la lectura fue…"
+                },
+                {
+                  "clave": "cierre-revisar",
+                  "inicio": "Antes de confiar en un gráfico, ahora reviso…"
+                }
+              ],
+              "explicacion": "El procedimiento en una línea: **pregunta → tabla → forma del gráfico → título, ejes, unidad, escala y fuente → leer un valor → conclusión sin causas inventadas.**"
+            }
+          ]
+        }
+      ],
+      "conceptos": [
+        {
+          "termino": "Gráfico de líneas",
+          "definicion": "Une momentos ordenados para ver si algo sube, baja o se mantiene.",
+          "ejemplo": "El consumo de mayo a octubre, con los meses en orden: se ve que en julio bajó."
+        },
+        {
+          "termino": "Gráfico de barras",
+          "definicion": "Pone categorías lado a lado; la longitud de cada barra es la cantidad.",
+          "ejemplo": "Los usos de octubre: nevera 72, ropa 45, pantallas 36, luces 27 kWh."
+        },
+        {
+          "termino": "Una pregunta, una tabla",
+          "definicion": "Cada gráfico usa las filas que responden su pregunta, sin mezclar tablas que significan cosas distintas.",
+          "ejemplo": "Sumar las 10 filas da 1.153 kWh y cuenta octubre dos veces; de mayo a octubre fueron 973 kWh."
+        },
+        {
+          "termino": "Eje desde cero (escala honesta)",
+          "definicion": "En barras, el eje de cantidad empieza en cero para que la longitud no exagere diferencias.",
+          "ejemplo": "Con el eje desde 145, octubre parece 7 veces mayo; en realidad es 20 % más."
+        },
+        {
+          "termino": "Elementos del gráfico",
+          "definicion": "Título específico (qué, de dónde, cuándo), ejes, unidad, escala y fuente.",
+          "ejemplo": "«Resultados» no es un título; «Consumo por uso en octubre de 2026 (kWh)» sí."
+        },
+        {
+          "termino": "Variación relativa",
+          "definicion": "(final − inicial) ÷ inicial. El valor inicial es la base.",
+          "ejemplo": "(180 − 150) ÷ 150 = 0,20: creció un 20 %, no «20 puntos porcentuales»."
+        },
+        {
+          "termino": "Observación vs. causa",
+          "definicion": "El gráfico muestra qué cambió; el porqué necesita otros datos. Que dos cosas coincidan en el tiempo no prueba que una cause la otra.",
+          "ejemplo": "El consumo subió y también llegaron el calor y la prima. La tabla no permite saber cuál fue la causa."
+        }
+      ],
+      "fraseClave": "Primero la pregunta, después el gráfico: líneas para el tiempo, barras desde cero para comparar, y lo que el gráfico muestra todavía no es el porqué.",
+      "paraLlevar": {
+        "consigna": "Prepara dos gráficos: uno para seguir el consumo mes a mes y otro para comparar los usos de octubre. Que se lean sin tu explicación. Acompáñalos con una conclusión que la tabla respalde y una causa que todavía no podrías afirmar.",
+        "pasos": [
+          "Escribe la pregunta de cada gráfico y elige su tabla (filas 01–06 o 07–10).",
+          "Gráfico 1: líneas, con los meses en orden.",
+          "Gráfico 2: barras con el eje desde cero.",
+          "Revisa título, ejes, unidad, escala y fuente; lee un valor y compáralo con la tabla.",
+          "Escribe una conclusión respaldada y una causa que aún no puedes afirmar."
+        ],
+        "lupa": [
+          "¿Cada gráfico responde una pregunta concreta?",
+          "¿Los meses van en orden y las barras empiezan en cero?",
+          "¿Se lee solo: qué, de dónde, cuándo, unidad y fuente?",
+          "¿Separé lo que se ve de lo que todavía no se explica?"
+        ]
+      }
+    },
+    "guia": {
+      "nombre": "Guía oficial: asistencia mensual del programa",
+      "titulo": "Gráficos que responden",
+      "caso": "Asistencia mensual de un programa",
+      "historia": "Un programa ficticio de formación hace **tres encuentros comparables cada mes**. La coordinación quiere contarle a la comunidad cómo le fue: cómo cambió la asistencia de julio a septiembre y qué temas reunieron más asistencias en septiembre. Tiene dos tablas y **ningún dato** que explique por qué cambiaron las cifras. Tu misión: dos gráficos que se lean solos y una conclusión que no diga más de lo que muestran los datos.",
+      "datos": {
+        "titulo": "Asistencia a los encuentros del programa",
+        "unidad": [
+          "fila",
+          "filas"
+        ],
+        "columnas": [
+          "Código",
+          "Tabla",
+          "Mes",
+          "Detalle",
+          "Asistencias"
+        ],
+        "filas": [
+          [
+            "01",
+            "Por mes",
+            "Julio",
+            "Todos los temas",
+            "40"
+          ],
+          [
+            "02",
+            "Por mes",
+            "Agosto",
+            "Todos los temas",
+            "45"
+          ],
+          [
+            "03",
+            "Por mes",
+            "Septiembre",
+            "Todos los temas",
+            "50"
+          ],
+          [
+            "04",
+            "Por tema",
+            "Septiembre",
+            "Datos",
+            "22"
+          ],
+          [
+            "05",
+            "Por tema",
+            "Septiembre",
+            "Programación",
+            "18"
+          ],
+          [
+            "06",
+            "Por tema",
+            "Septiembre",
+            "Seguridad",
+            "10"
+          ]
+        ],
+        "definiciones": [
+          "Aquí hay **dos tablas en una**. Las filas **01 a 03** son la **asistencia mensual**: las asistencias registradas en los tres encuentros de cada mes (julio a septiembre de 2026).",
+          "Las filas **04 a 06** reparten **solo las 50 asistencias de septiembre** por tema. Cada asistencia se clasifica en un solo tema, por eso suman 50, igual que la fila 03.",
+          "Los encuentros de cada mes son **comparables** (mismo número y mismo tipo).",
+          "La tabla **no** dice cuántas personas distintas asistieron ni trae datos sobre por qué cambió la asistencia (campañas, horarios, calidad)."
+        ],
+        "aviso": "Datos ficticios, solo para practicar."
+      },
+      "niveles": [
+        {
+          "numero": 1,
+          "titulo": "Primero la pregunta",
+          "objetivo": "Separar las dos tablas, elegir las filas que responden cada pregunta y decidir qué gráfico pide cada una.",
+          "cierre": "Nivel 1 listo: ya sabes qué pregunta responde cada gráfico.",
+          "actividades": [
+            {
+              "id": "n1-toca-fila",
+              "tipo": "leer-filas",
+              "fase": "hacer",
+              "titulo": "Toca una fila",
+              "consigna": "Toca filas de la tabla y escucha lo que cuentan. Lee al menos **3 filas**, y procura que una sea de la 04 a la 06.",
+              "minimo": 3,
+              "lecturas": {
+                "01": "La fila 01 dice que en julio de 2026 se registraron 40 asistencias en los tres encuentros del mes, sumando todos los temas.",
+                "02": "La fila 02 dice que en agosto de 2026 se registraron 45 asistencias en los tres encuentros del mes.",
+                "03": "La fila 03 dice que en septiembre de 2026 se registraron 50 asistencias en los tres encuentros del mes.",
+                "04": "La fila 04 dice que, de las 50 asistencias de septiembre, 22 fueron al tema Datos. Solo habla de septiembre.",
+                "05": "La fila 05 dice que, de las 50 asistencias de septiembre, 18 fueron al tema Programación.",
+                "06": "La fila 06 dice que, de las 50 asistencias de septiembre, 10 fueron al tema Seguridad."
+              },
+              "explicacion": "Las filas 01 a 03 cuentan **cuántas asistencias hubo cada mes**. Las filas 04 a 06 cuentan **cómo se repartieron las de septiembre** por tema. Son dos preguntas distintas.",
+              "tema": "pregunta-del-grafico"
+            },
+            {
+              "id": "n1-dos-tablas",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "Dos tablas en una",
+              "consigna": "¿Qué diferencia a las filas **01 a 03** de las filas **04 a 06**?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Las 04 a 06 son de encuentros diferentes",
+                  "feedback": "Son los mismos encuentros de septiembre, contados de otra forma: por tema. Mira las columnas Mes y Detalle."
+                },
+                {
+                  "texto": "Las 01 a 03 son la asistencia de cada mes; las 04 a 06 reparten solo septiembre por tema",
+                  "correcta": true
+                },
+                {
+                  "texto": "Las 04 a 06 son los meses siguientes",
+                  "feedback": "Mira la columna Mes de las filas 04 a 06: todas dicen Septiembre. No son meses nuevos."
+                },
+                {
+                  "texto": "No hay diferencia: todas cuentan asistencias",
+                  "feedback": "Es cierto que todas cuentan asistencias, ¡bien visto! Pero eso no las hace iguales. Mira las columnas Tabla, Mes y Detalle."
+                }
+              ],
+              "pistas": [
+                "Lee la columna Tabla y la columna Mes de las filas 04 a 06.",
+                "Suma las filas 04 a 06 y compáralas con la fila 03."
+              ],
+              "explicacion": "Hay **dos tablas**: una mensual (01–03) y otra de un solo mes por tema (04–06). Misma unidad, **distinto significado**. Antes de graficar, cada pregunta elige su tabla.",
+              "tema": "pregunta-del-grafico"
+            },
+            {
+              "id": "n1-filas-pregunta",
+              "tipo": "seleccionar-filas",
+              "fase": "aplicar",
+              "titulo": "Las filas de la pregunta",
+              "consigna": "Pregunta: «¿Cómo cambió la asistencia **entre julio y septiembre**?». **Toca solo las filas** que necesitas para responderla.",
+              "esperadas": [
+                "01",
+                "02",
+                "03"
+              ],
+              "feedback": {
+                "sobran": "Las filas 04 a 06 son solo de septiembre y lo reparten por tema. Si las metes, septiembre aparecería dos veces en tu gráfico.",
+                "faltan": "Vas bien. La pregunta va de julio a septiembre: revisa que estén los tres meses."
+              },
+              "pistas": [
+                "Fíjate en la columna Tabla: ¿cuál bloque habla de cada mes?",
+                "Son las filas que dicen «Por mes». Hay tres."
+              ],
+              "explicacion": "Para la evolución usas las filas **01 a 03**. Las 04 a 06 responden otra pregunta: «¿qué tema registró más asistencias en septiembre?».",
+              "tema": "pregunta-del-grafico"
+            },
+            {
+              "id": "n1-suma-trampa",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "La suma que no cuadra",
+              "consigna": "Alguien del equipo sumó **toda** la columna Asistencias y escribió: «Entre julio y septiembre hubo **185** asistencias». ¿Qué pasó?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Nada: 185 es el total correcto",
+                  "feedback": "Suma solo las filas 01 a 03 y compara. ¿Qué filas de más entraron en esa suma?"
+                },
+                {
+                  "texto": "Contó septiembre dos veces: el total de julio a septiembre es 135",
+                  "correcta": true
+                },
+                {
+                  "texto": "Le faltaron los temas de julio y agosto",
+                  "feedback": "Esos datos no existen en la tabla, y no hacen falta: las filas 01 y 02 ya traen el total de cada mes."
+                },
+                {
+                  "texto": "El total es 50, porque septiembre es el último mes",
+                  "feedback": "50 es solo septiembre. La pregunta es por julio, agosto y septiembre: filas 01 a 03."
+                }
+              ],
+              "pistas": [
+                "Suma las filas 04 a 06. ¿A qué fila se parece ese resultado?",
+                "40 + 45 + 50 = ?"
+              ],
+              "explicacion": "Entre julio y septiembre hubo **135 asistencias** (filas 01 a 03). El 185 suma además las 50 de septiembre repartidas por tema: **septiembre quedó contado dos veces**. Por eso la guía insiste: no unas las tablas como si sus filas significaran lo mismo.",
+              "tema": "pregunta-del-grafico"
+            },
+            {
+              "id": "n1-elige-forma",
+              "tipo": "emparejar",
+              "fase": "entender",
+              "titulo": "Cada pregunta, su gráfico",
+              "consigna": "Para cada pregunta, toca el gráfico que mejor la responde. Ojo: una de ellas no se puede responder con esta tabla.",
+              "tipos": [
+                {
+                  "id": "lineas",
+                  "texto": "Líneas",
+                  "ayuda": "cambio en el tiempo, con los meses en orden"
+                },
+                {
+                  "id": "barras",
+                  "texto": "Barras",
+                  "ayuda": "comparar categorías lado a lado"
+                },
+                {
+                  "id": "ninguno",
+                  "texto": "Ninguno todavía",
+                  "ayuda": "a la tabla le faltan datos para esa pregunta"
+                }
+              ],
+              "pares": [
+                {
+                  "item": "¿Cómo cambió la asistencia entre meses?",
+                  "correcto": "lineas",
+                  "feedback": "Es una pregunta de cambio en el tiempo: los meses en orden y una línea que suba o baje."
+                },
+                {
+                  "item": "¿Qué tema registró más asistencias en septiembre?",
+                  "correcto": "barras",
+                  "feedback": "Compara categorías (Datos, Programación, Seguridad) de un solo mes: barras lado a lado."
+                },
+                {
+                  "item": "¿La asistencia subió todos los meses o hubo alguna bajada?",
+                  "correcto": "lineas",
+                  "feedback": "Para ver la dirección de la serie necesitas los meses en orden: una línea lo muestra de un vistazo."
+                },
+                {
+                  "item": "¿Seguridad tuvo menos asistencias que Programación en septiembre?",
+                  "correcto": "barras",
+                  "feedback": "Otra comparación de temas en un mismo mes: barras."
+                },
+                {
+                  "item": "¿Qué tema prefirió la gente en julio?",
+                  "correcto": "ninguno",
+                  "feedback": "Solo tenemos los temas de septiembre. Para julio no hay reparto por tema: ningún gráfico arregla un dato que no está."
+                }
+              ],
+              "pistas": [
+                "Pregúntate primero: ¿esta pregunta habla de meses en orden o de nombres de categorías?",
+                "Si la pregunta pide algo que no está en la tabla (temas de julio, por ejemplo), ningún gráfico la responde."
+              ],
+              "explicacion": "**Tiempo en orden → líneas. Categorías lado a lado → barras.** Son buenas opciones, no reglas únicas: lo que manda es que el gráfico responda la pregunta sin confundir. Y si faltan datos, primero hay que conseguirlos.",
+              "tema": "lineas-tiempo"
+            }
+          ]
+        },
+        {
+          "numero": 2,
+          "titulo": "Leer sin dejarse engañar",
+          "objetivo": "Revisar el orden de los meses, leer valores en el gráfico, detectar un eje recortado y calcular la variación relativa.",
+          "cierre": "Nivel 2 listo: ya lees un gráfico con ojo crítico.",
+          "actividades": [
+            {
+              "id": "n2-orden",
+              "tipo": "seleccion",
+              "fase": "hacer",
+              "titulo": "Algo raro en la línea",
+              "consigna": "Alguien hizo este gráfico y dice: «En agosto subió, en julio bajó y en septiembre se recuperó». Míralo bien. ¿Qué tiene de raro?",
+              "apoyo": {
+                "tipo": "grafico",
+                "forma": "lineas",
+                "titulo": "Asistencia mensual del programa, julio a septiembre de 2026",
+                "etiquetas": [
+                  "Ago",
+                  "Jul",
+                  "Sep"
+                ],
+                "series": [
+                  {
+                    "nombre": "Asistencias",
+                    "valores": [
+                      45,
+                      40,
+                      50
+                    ]
+                  }
+                ],
+                "unidad": "asistencias",
+                "nota": "Fuente: registros del programa (datos ficticios del ejercicio)."
+              },
+              "opciones": [
+                {
+                  "texto": "Nada: la asistencia bajó en julio y luego se recuperó",
+                  "feedback": "Lee las etiquetas de abajo una por una. ¿Están los meses en el orden del calendario?"
+                },
+                {
+                  "texto": "Los meses quedaron en orden alfabético, no por calendario",
+                  "correcta": true
+                },
+                {
+                  "texto": "Le falta empezar el eje en cero",
+                  "feedback": "Este eje sí empieza en cero. El problema está en el eje de abajo: mira el orden de los meses."
+                },
+                {
+                  "texto": "Debería ser de barras",
+                  "feedback": "Una línea es buena opción para ver el tiempo. El problema no es la forma, sino que el tiempo no va en orden."
+                }
+              ],
+              "pistas": [
+                "Lee el eje horizontal: Ago, Jul, Sep…",
+                "¿Qué mes va primero en el calendario?"
+              ],
+              "explicacion": "Las hojas de cálculo a veces ordenan los meses **por orden alfabético** (Agosto, Julio, Septiembre). Así aparece una «bajada» que **nunca ocurrió**. En un gráfico de tiempo, los periodos van **en orden cronológico**.",
+              "tema": "lineas-tiempo"
+            },
+            {
+              "id": "n2-linea-bien",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "La línea en orden",
+              "consigna": "Ahora con los meses en orden. Lee el gráfico: ¿cómo cambió la asistencia mes a mes?",
+              "apoyo": {
+                "tipo": "grafico",
+                "forma": "lineas",
+                "titulo": "Asistencia mensual del programa, julio a septiembre de 2026",
+                "etiquetas": [
+                  "Jul",
+                  "Ago",
+                  "Sep"
+                ],
+                "series": [
+                  {
+                    "nombre": "Asistencias",
+                    "valores": [
+                      40,
+                      45,
+                      50
+                    ]
+                  }
+                ],
+                "unidad": "asistencias",
+                "nota": "Fuente: registros del programa (datos ficticios del ejercicio)."
+              },
+              "opciones": [
+                {
+                  "texto": "Bajó en julio y subió en septiembre",
+                  "feedback": "Eso parecía en el gráfico desordenado. Lee ahora de izquierda a derecha: Jul, Ago, Sep."
+                },
+                {
+                  "texto": "Subió 5 asistencias cada mes: 40, 45 y 50",
+                  "correcta": true
+                },
+                {
+                  "texto": "Subió 10 asistencias cada mes",
+                  "feedback": "10 es el aumento de julio a septiembre, en dos pasos. Mira cuánto sube de un mes al siguiente."
+                },
+                {
+                  "texto": "Se mantuvo igual",
+                  "feedback": "Lee los números de cada punto: 40, 45, 50. ¿Son iguales?"
+                }
+              ],
+              "pistas": [
+                "Lee el valor de cada punto.",
+                "Resta: 45 − 40 y 50 − 45."
+              ],
+              "explicacion": "La serie **sube 5 cada mes**: 40, 45 y 50. Comprueba: son las filas 01, 02 y 03. Leer un valor del gráfico y buscarlo en la tabla es tu mejor control.",
+              "tema": "lineas-tiempo"
+            },
+            {
+              "id": "n2-linea-categorias",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "¿Línea o barras para los temas?",
+              "consigna": "Probaron dos gráficos para los temas de septiembre. ¿Cuál comunica mejor la comparación y por qué?",
+              "apoyo": {
+                "tipo": "comparacion",
+                "items": [
+                  {
+                    "etiqueta": "A",
+                    "grafico": {
+                      "tipo": "grafico",
+                      "forma": "lineas",
+                      "titulo": "Asistencias por tema en septiembre de 2026",
+                      "etiquetas": [
+                        "Datos",
+                        "Programación",
+                        "Seguridad"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Septiembre",
+                          "valores": [
+                            22,
+                            18,
+                            10
+                          ]
+                        }
+                      ],
+                      "unidad": "asistencias"
+                    }
+                  },
+                  {
+                    "etiqueta": "B",
+                    "grafico": {
+                      "tipo": "grafico",
+                      "forma": "barras",
+                      "titulo": "Asistencias por tema en septiembre de 2026",
+                      "etiquetas": [
+                        "Datos",
+                        "Programación",
+                        "Seguridad"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Septiembre",
+                          "valores": [
+                            22,
+                            18,
+                            10
+                          ]
+                        }
+                      ],
+                      "unidad": "asistencias"
+                    }
+                  }
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "A, porque la línea muestra que el interés va bajando",
+                  "feedback": "La línea baja porque los temas quedaron en ese orden, no porque algo «baje» con el tiempo. Si cambias el orden, la línea cambia. ¿Hay un camino entre Datos y Programación?"
+                },
+                {
+                  "texto": "B, porque son categorías sueltas y las barras las ponen lado a lado",
+                  "correcta": true
+                },
+                {
+                  "texto": "Los dos son igual de buenos",
+                  "feedback": "Los números son los mismos, ¡bien visto! Pero la línea sugiere una continuidad que no existe entre temas. ¿Cuál se lee sin malentendidos?"
+                }
+              ],
+              "explicacion": "Entre «Datos» y «Programación» no hay un antes y un después: son **categorías**. La línea inventa un recorrido; las **barras** dejan comparar longitudes. Pregúntate siempre: **¿qué continuidad hay entre estos puntos?**",
+              "tema": "barras-categorias"
+            },
+            {
+              "id": "n2-lee-barra",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Lee una barra",
+              "consigna": "Lee la barra de **Datos**. ¿Qué dice exactamente?",
+              "apoyo": {
+                "tipo": "grafico",
+                "forma": "barras",
+                "titulo": "Asistencias por tema en septiembre de 2026",
+                "etiquetas": [
+                  "Datos",
+                  "Programación",
+                  "Seguridad"
+                ],
+                "series": [
+                  {
+                    "nombre": "Septiembre",
+                    "valores": [
+                      22,
+                      18,
+                      10
+                    ]
+                  }
+                ],
+                "unidad": "asistencias",
+                "nota": "Fuente: registros del programa (datos ficticios del ejercicio)."
+              },
+              "opciones": [
+                {
+                  "texto": "22 asistencias al tema Datos en septiembre de 2026",
+                  "correcta": true
+                },
+                {
+                  "texto": "22 asistencias al tema Datos en julio",
+                  "feedback": "Mira el título: el gráfico es solo de septiembre. Para julio no hay reparto por tema."
+                },
+                {
+                  "texto": "22 asistencias a Datos entre julio y septiembre",
+                  "feedback": "Las filas por tema (04 a 06) son solo de septiembre. No dicen nada de julio ni de agosto."
+                },
+                {
+                  "texto": "22 personas distintas fueron a Datos",
+                  "feedback": "La tabla cuenta asistencias, no personas distintas: una persona que fue a dos encuentros cuenta dos veces."
+                }
+              ],
+              "pistas": [
+                "Lee el título del gráfico: ¿de qué mes habla?",
+                "Busca la fila 04 en la tabla."
+              ],
+              "explicacion": "**22 asistencias en septiembre**, igual que la fila 04. Esta barra **no representa julio**: por eso el título debe decir el mes, para que no se confunda con toda la serie.",
+              "tema": "elementos-del-grafico"
+            },
+            {
+              "id": "n2-eje",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "La trampa del eje",
+              "consigna": "Mismos datos, dos gráficos. En el **B**, la barra de septiembre se ve unas **11 veces** más alta que la de julio. ¿Cuánto creció de verdad la asistencia?",
+              "apoyo": {
+                "tipo": "comparacion",
+                "items": [
+                  {
+                    "etiqueta": "A · Eje desde 0",
+                    "grafico": {
+                      "forma": "barras",
+                      "titulo": "Asistencia mensual, julio y septiembre de 2026",
+                      "etiquetas": [
+                        "Julio",
+                        "Septiembre"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Asistencias",
+                          "valores": [
+                            40,
+                            50
+                          ]
+                        }
+                      ],
+                      "unidad": "asistencias"
+                    }
+                  },
+                  {
+                    "etiqueta": "B · Eje desde 39",
+                    "grafico": {
+                      "forma": "barras",
+                      "titulo": "Asistencia mensual, julio y septiembre de 2026",
+                      "etiquetas": [
+                        "Julio",
+                        "Septiembre"
+                      ],
+                      "series": [
+                        {
+                          "nombre": "Asistencias",
+                          "valores": [
+                            40,
+                            50
+                          ]
+                        }
+                      ],
+                      "unidad": "asistencias",
+                      "ejeDesde": 39,
+                      "nota": "El eje empieza en 39 (≈ marca el corte)."
+                    }
+                  }
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Unas 11 veces, como se ve en B",
+                  "feedback": "Lee los números encima de las barras: 40 y 50. ¿50 es once veces 40? En B el eje empieza en 39, y eso exagera la diferencia."
+                },
+                {
+                  "texto": "Se duplicó",
+                  "feedback": "El doble de 40 sería 80. Septiembre tuvo 50."
+                },
+                {
+                  "texto": "10 asistencias más, o sea, un 25 % más que julio",
+                  "correcta": true
+                },
+                {
+                  "texto": "50 asistencias más",
+                  "feedback": "50 es toda la asistencia de septiembre, no la diferencia. Resta: 50 − 40."
+                }
+              ],
+              "pistas": [
+                "Los números son iguales en los dos gráficos. Solo cambia dónde empieza el eje.",
+                "50 − 40 = 10. ¿Cuánto es 10 frente a 40?"
+              ],
+              "explicacion": "En B, las barras solo muestran lo que pasa de 39: 1 para julio y 11 para septiembre, por eso una parece **11 veces** la otra. La diferencia real es **10 asistencias (25 %)**: no se multiplicó varias veces. En barras, la longitud representa la cantidad: **el eje empieza en cero**.",
+              "tema": "escala-honesta"
+            },
+            {
+              "id": "n2-variacion",
+              "tipo": "completar",
+              "fase": "aplicar",
+              "titulo": "¿Cuánto creció?",
+              "consigna": "Calcula la variación relativa de la asistencia entre **julio** (la base) y **septiembre**.",
+              "frase": "La base es {0}. De julio a septiembre hay {1} más. 10 ÷ 40 = 0,25, es decir, la asistencia creció {2} respecto a julio.",
+              "huecos": [
+                {
+                  "opciones": [
+                    {
+                      "texto": "40 (julio)",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "50 (septiembre)",
+                      "feedback": "La base es el punto de partida, el mes con el que comparas. Aquí partes de julio."
+                    },
+                    {
+                      "texto": "135 (el total)",
+                      "feedback": "El total del periodo no es el punto de partida. Comparas septiembre contra julio."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "10 asistencias",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "10 %",
+                      "feedback": "50 − 40 = 10, pero son **asistencias**, no porcentaje. El porcentaje sale de dividir por la base."
+                    },
+                    {
+                      "texto": "50 asistencias",
+                      "feedback": "50 es la asistencia de septiembre. La diferencia es 50 − 40."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "un 25 %",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "25 puntos porcentuales",
+                      "feedback": "Los puntos porcentuales sirven para restar dos porcentajes. Aquí lo que cambió fue una cantidad (asistencias), así que se dice «creció un 25 %»."
+                    },
+                    {
+                      "texto": "un 20 %",
+                      "feedback": "Eso es 10 ÷ 50: usaste septiembre como base. Si comparas contra julio, divides por 40."
+                    },
+                    {
+                      "texto": "un 125 %",
+                      "feedback": "50 ÷ 40 = 1,25 dice que septiembre es el 125 % de julio; el **aumento** es la parte que sobra: 25 %."
+                    }
+                  ]
+                }
+              ],
+              "pistas": [
+                "(valor final − valor inicial) ÷ valor inicial.",
+                "(50 − 40) ÷ 40."
+              ],
+              "explicacion": "De 40 a 50: **10 asistencias más, un 25 % respecto a julio**. Se dice «creció un 25 %», no «25 puntos porcentuales», porque la asistencia es una cantidad, no una tasa.",
+              "tema": "variacion-relativa"
+            }
+          ]
+        },
+        {
+          "numero": 3,
+          "titulo": "Ver no es explicar",
+          "objetivo": "Revisar que el gráfico se lea solo, separar lo que muestra de lo que no explica y armar el reto.",
+          "cierre": "Nivel 3 listo: tus gráficos se leen solos y dicen solo lo que los datos respaldan.",
+          "actividades": [
+            {
+              "id": "n3-resultados",
+              "tipo": "seleccion",
+              "multiple": true,
+              "fase": "observar",
+              "titulo": "«Resultados» no es un título",
+              "consigna": "Este gráfico se compartió en el grupo del programa, sin explicación. **Marca todo lo que le falta** para leerse solo.",
+              "apoyo": {
+                "tipo": "grafico",
+                "forma": "barras",
+                "titulo": "Resultados",
+                "etiquetas": [
+                  "Datos",
+                  "Programación",
+                  "Seguridad"
+                ],
+                "series": [
+                  {
+                    "nombre": "Septiembre",
+                    "valores": [
+                      22,
+                      18,
+                      10
+                    ]
+                  }
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Decir qué se mide y de qué programa",
+                  "correcta": true,
+                  "siFalta": "«Resultados» de qué: ¿asistencias? ¿inscripciones? ¿de qué programa?"
+                },
+                {
+                  "texto": "Decir a qué periodo corresponde",
+                  "correcta": true,
+                  "siFalta": "¿Es de septiembre o de los tres meses? Sin el mes, alguien puede leer la barra de Datos como si fuera de julio."
+                },
+                {
+                  "texto": "La unidad (asistencias)",
+                  "correcta": true,
+                  "siFalta": "22 ¿qué? ¿personas, asistencias, horas?"
+                },
+                {
+                  "texto": "La fuente (datos ficticios del ejercicio)",
+                  "correcta": true,
+                  "siFalta": "¿De dónde salen los números? Una línea de fuente da confianza."
+                },
+                {
+                  "texto": "Más colores y un fondo con dibujos",
+                  "feedback": "El adorno no ayuda a leer. Primero claridad: título, unidad, periodo y fuente."
+                }
+              ],
+              "explicacion": "Un buen título dice **qué, de dónde y cuándo**: «Asistencias por tema del programa, septiembre de 2026 · Fuente: datos ficticios del ejercicio». Si alguien necesita que estés al lado explicando, al gráfico le falta algo.",
+              "tema": "elementos-del-grafico"
+            },
+            {
+              "id": "n3-tarjetas-causa",
+              "tipo": "tarjetas",
+              "fase": "entender",
+              "titulo": "¿Lo muestran los datos?",
+              "consigna": "Para cada frase, decide si **la tabla la respalda** o si **necesita otros datos**.",
+              "usaDatos": true,
+              "botones": {
+                "si": "La tabla lo muestra",
+                "no": "Necesita otros datos"
+              },
+              "tarjetas": [
+                {
+                  "texto": "La asistencia pasó de 40 en julio a 50 en septiembre.",
+                  "respuesta": "si",
+                  "explicacion": "Está en las filas 01 y 03. Es una observación que cualquiera puede comprobar."
+                },
+                {
+                  "texto": "Entre julio y septiembre la asistencia creció un 25 %.",
+                  "respuesta": "si",
+                  "explicacion": "(50 − 40) ÷ 40 = 0,25. Se calcula solo con la tabla."
+                },
+                {
+                  "texto": "La campaña de difusión hizo crecer la asistencia.",
+                  "respuesta": "no",
+                  "explicacion": "La tabla no tiene ningún dato sobre campañas. El crecimiento está en la tabla; su causa, no."
+                },
+                {
+                  "texto": "En septiembre, Datos fue el tema con más asistencias.",
+                  "respuesta": "si",
+                  "explicacion": "Fila 04: 22 de 50. Y la frase dice bien el mes."
+                },
+                {
+                  "texto": "Datos es el tema que más le interesa a la gente de Medellín.",
+                  "respuesta": "no",
+                  "explicacion": "Son 50 asistencias de un programa en un mes. No hablan por toda la ciudad."
+                },
+                {
+                  "texto": "La asistencia subió 25 puntos porcentuales.",
+                  "respuesta": "no",
+                  "explicacion": "La asistencia es una cantidad, no una tasa: se dice «creció un 25 %». Los puntos porcentuales sirven para restar dos porcentajes."
+                }
+              ],
+              "explicacion": "Separa dos tipos de frase: **lo que viste** (comprobable en la tabla) y **por qué pasó** (una explicación que necesita más información). Ojo también con cómo lo dices: «25 %» y «25 puntos porcentuales» no son lo mismo.",
+              "tema": "observacion-vs-causa"
+            },
+            {
+              "id": "n3-coincidencia",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "La prueba de contraste",
+              "consigna": "Alguien propone esta frase para el informe: «**La campaña hizo crecer la asistencia 25 %**». ¿Qué parte puedes sostener con la tabla?",
+              "apoyo": {
+                "tipo": "grafico",
+                "forma": "lineas",
+                "titulo": "Asistencia mensual del programa, julio a septiembre de 2026",
+                "etiquetas": [
+                  "Jul",
+                  "Ago",
+                  "Sep"
+                ],
+                "series": [
+                  {
+                    "nombre": "Asistencias",
+                    "valores": [
+                      40,
+                      45,
+                      50
+                    ]
+                  }
+                ],
+                "unidad": "asistencias",
+                "nota": "Fuente: registros del programa (datos ficticios del ejercicio)."
+              },
+              "opciones": [
+                {
+                  "texto": "Toda la frase: la asistencia sí creció 25 %",
+                  "feedback": "El 25 % sí está en la tabla, ¡bien calculado! Pero la frase también dice **por qué** creció. ¿Hay algún dato sobre la campaña?"
+                },
+                {
+                  "texto": "Ninguna parte: no se puede decir nada",
+                  "feedback": "Sí se puede decir algo: el crecimiento de 40 a 50 está en la tabla. Lo que no está es la causa."
+                },
+                {
+                  "texto": "Solo el crecimiento del 25 %; que lo causó la campaña necesita otros datos",
+                  "correcta": true
+                },
+                {
+                  "texto": "Solo que hubo una campaña",
+                  "feedback": "La tabla no menciona ninguna campaña. Lo que sí muestra es el paso de 40 a 50 asistencias."
+                }
+              ],
+              "explicacion": "El crecimiento es una **observación**; la campaña es una **hipótesis**. Para sostenerla harían falta otros datos: por ejemplo, cómo se enteró cada asistente, o qué pasó en meses sin campaña. La frase honesta: «La asistencia creció 25 % entre julio y septiembre; **estas tablas no muestran por qué**».",
+              "tema": "observacion-vs-causa"
+            },
+            {
+              "id": "n3-reto",
+              "tipo": "constructor",
+              "fase": "aplicar",
+              "titulo": "El reto: dos gráficos que se leen solos",
+              "consigna": "Prepara dos gráficos para el programa: uno que permita seguir la asistencia mensual y otro que compare los temas de septiembre. Dibújalos en tu cuaderno o en la hoja de cálculo. Deben poder leerse sin una explicación oral extensa. Acompáñalos con una conclusión respaldada y una afirmación causal que todavía no podrías sostener.",
+              "rutas": [
+                {
+                  "id": "mapa",
+                  "nombre": "Ruta Mapa",
+                  "descripcion": "Las dos preguntas ya vienen dadas. Te concentras en elegir el gráfico, revisarlo y escribir la conclusión.",
+                  "preguntaDada": "Gráfico 1: ¿cómo cambió la asistencia entre julio y septiembre de 2026? Gráfico 2: ¿qué tema registró más asistencias en septiembre de 2026?"
+                },
+                {
+                  "id": "brujula",
+                  "nombre": "Ruta Brújula",
+                  "descripcion": "Formulas tus propias dos preguntas: una sobre el tiempo y otra que compare categorías. Ideas: el paso de julio a agosto, Datos frente a Seguridad."
+                },
+                {
+                  "id": "telescopio",
+                  "nombre": "Ruta Telescopio",
+                  "descripcion": "Haces las dos preguntas de la ruta Mapa, calculas la variación relativa con julio como base y explicas cómo corregirías el gráfico de eje truncado en 39.",
+                  "preguntaDada": "Gráfico 1: ¿cómo cambió la asistencia entre julio y septiembre de 2026, y en qué porcentaje? Gráfico 2: ¿qué tema registró más asistencias en septiembre? Extra: ¿qué cambiarías en las barras con el eje desde 39?"
+                }
+              ],
+              "pasos": [
+                {
+                  "clave": "preguntas",
+                  "titulo": "1 · Las preguntas de mis dos gráficos",
+                  "ayuda": "Gráfico 1 responde… Gráfico 2 responde…",
+                  "pistas": [
+                    "Una pregunta debe hablar de meses en orden; la otra, de categorías de un solo mes.",
+                    "Ejemplo de forma: «¿Cómo cambió ___ entre ___ y ___?» y «¿Qué ___ tuvo más ___ en ___?»"
+                  ]
+                },
+                {
+                  "clave": "forma-filas",
+                  "titulo": "2 · Qué gráfico uso y qué filas",
+                  "ayuda": "Para el gráfico 1 uso… con las filas… Para el gráfico 2 uso… con las filas…",
+                  "pistas": [
+                    "Recuerda el Nivel 1: las filas 01 a 03 son por mes; las 04 a 06, solo septiembre.",
+                    "Escribe por qué: «líneas porque…», «barras porque…»."
+                  ],
+                  "permiteFilas": true
+                },
+                {
+                  "clave": "revision",
+                  "titulo": "3 · Cómo lo revisé",
+                  "ayuda": "Título, ejes, unidad, escala, fuente… y un valor que leí en el gráfico y comparé con la tabla.",
+                  "pistas": [
+                    "¿El título dice qué, de dónde y cuándo?",
+                    "¿Las barras empiezan en cero? ¿Los meses van en orden?",
+                    "Si usas hoja de cálculo: ¿seleccionaste solo los datos, sin títulos ni totales?"
+                  ]
+                },
+                {
+                  "clave": "conclusion-causa",
+                  "titulo": "4 · Mi conclusión y la causa que aún no puedo afirmar",
+                  "ayuda": "«Los datos muestran que… Todavía no puedo afirmar que… porque…»",
+                  "pistas": [
+                    "La conclusión usa números de la tabla (por ejemplo, de 40 a 50).",
+                    "Piensa en la frase de la campaña: ¿qué parte está en la tabla y cuál no?"
+                  ]
+                }
+              ],
+              "verificacion": [
+                "¿Cada gráfico tiene su pregunta y su tabla, sin mezclar septiembre dos veces?",
+                "¿Los meses van en orden y las barras empiezan en cero?",
+                "¿Los títulos dicen qué, de dónde y cuándo, con unidad y fuente?",
+                "¿Leí un valor del gráfico y coincidió con la tabla?",
+                "¿Separé lo que muestran los datos de la causa que no puedo afirmar?"
+              ],
+              "ejemplo": "«Gráfico 1 (líneas): “Asistencia mensual del programa, julio a septiembre de 2026 (asistencias)”, filas 01 a 03, meses en orden. Gráfico 2 (barras desde cero): “Asistencias por tema, septiembre de 2026”, filas 04 a 06. Fuente: datos ficticios del ejercicio. Leí la barra de Datos: 22, igual que la fila 04. Conclusión: la asistencia pasó de 40 a 45 y a 50; aumentó 10, es decir, 25 % respecto a julio. En septiembre, Datos registró 22, Programación 18 y Seguridad 10. Todavía no puedo afirmar que el aumento se deba a una campaña: estas tablas no tienen datos sobre sus causas.»",
+              "explicacion": "No se busca un gráfico perfecto ni bonito: se busca uno que **responda su pregunta** y **no exagere**. Lo demás se pule.",
+              "tema": "pregunta-del-grafico"
+            },
+            {
+              "id": "n3-cierre",
+              "tipo": "escritura",
+              "fase": "observar",
+              "titulo": "Cierre de la misión",
+              "consigna": "Completa estas dos frases. Quedan guardadas en tu cuaderno (solo en este navegador).",
+              "frases": [
+                {
+                  "clave": "cierre-decision",
+                  "inicio": "La decisión visual que más cambió la lectura fue…"
+                },
+                {
+                  "clave": "cierre-revisar",
+                  "inicio": "Antes de confiar en un gráfico, ahora reviso…"
+                }
+              ],
+              "explicacion": "El procedimiento en una línea: **pregunta → tabla → forma del gráfico → título, ejes, unidad, escala y fuente → leer un valor → conclusión sin causas inventadas.**"
+            }
+          ]
+        }
+      ],
+      "conceptos": [
+        {
+          "termino": "Gráfico de líneas",
+          "definicion": "Une momentos ordenados para ver si algo sube, baja o se mantiene.",
+          "ejemplo": "La asistencia de julio a septiembre: 40, 45 y 50, con los meses en orden."
+        },
+        {
+          "termino": "Gráfico de barras",
+          "definicion": "Pone categorías lado a lado; la longitud de cada barra es la cantidad.",
+          "ejemplo": "Los temas de septiembre: Datos 22, Programación 18, Seguridad 10."
+        },
+        {
+          "termino": "Una pregunta, una tabla",
+          "definicion": "Cada gráfico usa las filas que responden su pregunta, sin mezclar tablas que significan cosas distintas.",
+          "ejemplo": "Sumar las 6 filas da 185 y cuenta septiembre dos veces; de julio a septiembre fueron 135."
+        },
+        {
+          "termino": "Eje desde cero (escala honesta)",
+          "definicion": "En barras, el eje de cantidad empieza en cero para que la longitud no exagere diferencias.",
+          "ejemplo": "Con el eje desde 39, septiembre parece 11 veces julio; en realidad es 25 % más."
+        },
+        {
+          "termino": "Elementos del gráfico",
+          "definicion": "Título específico (qué, de dónde, cuándo), ejes, unidad, escala y fuente.",
+          "ejemplo": "«Resultados» no es un título; «Asistencias por tema, septiembre de 2026» sí."
+        },
+        {
+          "termino": "Variación relativa",
+          "definicion": "(final − inicial) ÷ inicial. El valor inicial es la base.",
+          "ejemplo": "(50 − 40) ÷ 40 = 0,25: creció un 25 %, no «25 puntos porcentuales»."
+        },
+        {
+          "termino": "Observación vs. causa",
+          "definicion": "El gráfico muestra qué cambió; el porqué necesita otros datos.",
+          "ejemplo": "«Creció 25 %» se comprueba; «por la campaña» necesita información adicional."
+        }
+      ],
+      "fraseClave": "Primero la pregunta, después el gráfico: líneas para el tiempo, barras desde cero para comparar, y lo que el gráfico muestra todavía no es el porqué.",
+      "paraLlevar": {
+        "consigna": "Prepara dos gráficos para el programa: uno que permita seguir la asistencia mensual y otro que compare los temas de septiembre. Deben poder leerse sin una explicación oral extensa. Acompáñalos con una conclusión respaldada y una afirmación causal que todavía no podrías sostener.",
+        "pasos": [
+          "Escribe la pregunta de cada gráfico y elige su tabla (filas 01–03 o 04–06).",
+          "Gráfico 1: líneas, con julio, agosto y septiembre en orden.",
+          "Gráfico 2: barras por tema con el eje desde cero.",
+          "Revisa título, ejes, unidad, escala y fuente; lee un valor y compáralo con la tabla.",
+          "Escribe una conclusión respaldada y una causa que aún no puedes afirmar."
+        ],
+        "lupa": [
+          "¿Cada gráfico responde una pregunta concreta?",
+          "¿Los meses van en orden y las barras empiezan en cero?",
+          "¿Se lee solo: qué, de dónde, cuándo, unidad y fuente?",
+          "¿Separé lo que se ve de lo que todavía no se explica?"
+        ]
+      }
+    }
+  },
   "teoria": {
     "intro": "Un buen gráfico responde una pregunta de un vistazo, sin exagerar ni esconder nada. Lo ves todos los días en noticias y redes; hoy aprendes a elegirlo, construirlo y leerlo con ojo crítico.",
     "platzi": [
@@ -76,26 +2018,26 @@
         "idea": "Cada gráfico debe responder una pregunta concreta.",
         "explicacion": "Antes de abrir cualquier herramienta, escribe qué quieres que el gráfico responda y qué tabla lo respalda. Una pregunta sobre **cambio en el tiempo** pide conservar el orden de los meses; una pregunta sobre **comparar categorías** pide poner nombres lado a lado. Si mezclas tablas de periodos distintos, el gráfico confunde.",
         "cotidiano": "Antes de salir, te preguntas «¿va a llover hoy?» y miras el pronóstico por horas; no te sirve ver el clima de todo el año.",
-        "ejemplo": "Datos ficticios de una tienda: «¿Cómo cambiaron las ventas de empanadas de enero a marzo?» y «¿Qué sabor se vendió más en marzo?». Son dos preguntas y dos gráficos.",
+        "ejemplo": "Datos ficticios de una huerta comunitaria: «¿Cómo cambiaron los kilos de tomate cosechados de enero a marzo?» y «¿Qué variedad de tomate se cosechó más en marzo?». Son dos preguntas y dos gráficos.",
         "enElReto": "Escribe la pregunta de cada figura y elige la tabla que la responde, sin mezclar la tabla mensual con la de un solo mes."
       },
       {
         "id": "lineas-tiempo",
         "titulo": "Líneas para ver cambios en el tiempo",
         "idea": "Una línea une momentos ordenados para ver si algo sube, baja o se mantiene.",
-        "explicacion": "El **gráfico de líneas** es una buena opción para una **evolución temporal**: los periodos van en el eje horizontal, en orden, y la cantidad en el eje vertical. La línea sugiere continuidad, por eso funciona con el tiempo y no con categorías sueltas como sabores o temas.",
+        "explicacion": "El **gráfico de líneas** es una buena opción para una **evolución temporal**: los periodos van en el eje horizontal, en orden, y la cantidad en el eje vertical. La línea sugiere continuidad, por eso funciona con el tiempo y no con categorías sueltas como variedades o temas.",
         "cotidiano": "La app del clima muestra la temperatura del día con una línea: se ve cómo sube al mediodía y baja en la noche.",
-        "ejemplo": "Tienda ficticia: empanadas vendidas en enero 50, febrero 56 y marzo 65. Los tres meses en orden, de izquierda a derecha.",
-        "enElReto": "Para la asistencia mensual, ordena los meses cronológicamente y verifica que cada punto coincida con la tabla."
+        "ejemplo": "Huerta ficticia: kilos de tomate cosechados en enero 50, febrero 56 y marzo 65. Los tres meses en orden, de izquierda a derecha.",
+        "enElReto": "Para la serie mes a mes, ordena los meses cronológicamente y verifica que cada punto coincida con la tabla."
       },
       {
         "id": "barras-categorias",
         "titulo": "Barras para comparar categorías",
         "idea": "Las barras ponen categorías lado a lado para ver cuál es mayor.",
-        "explicacion": "El **gráfico de barras** compara categorías (temas, sabores, barrios). La **longitud** de cada barra representa la cantidad, por eso el eje de cantidad debe empezar en **cero**. Si usaras una línea para unir categorías, parecería que hay un «camino» entre ellas, y no lo hay.",
+        "explicacion": "El **gráfico de barras** compara categorías (temas, usos, barrios). La **longitud** de cada barra representa la cantidad, por eso el eje de cantidad debe empezar en **cero**. Si usaras una línea para unir categorías, parecería que hay un «camino» entre ellas, y no lo hay.",
         "cotidiano": "Si comparas cuántos goles hizo cada jugador del equipo, las barras te muestran de una quién lleva más.",
-        "ejemplo": "Tienda ficticia, sabores vendidos en marzo: carne 30, pollo 20, ranchera 15 (suman 65). Barras desde cero y con el mes en el título.",
-        "enElReto": "Para comparar los temas de un mes, usa barras desde cero y deja claro en el título a qué mes corresponden."
+        "ejemplo": "Huerta ficticia, kilos por variedad en marzo: chonto 30, cherry 20, milano 15 (suman 65). Barras desde cero y con el mes en el título.",
+        "enElReto": "Para comparar las categorías de un solo mes, usa barras desde cero y deja claro en el título a qué mes corresponden."
       },
       {
         "id": "escala-honesta",
@@ -103,7 +2045,7 @@
         "idea": "Cortar el eje puede hacer que una diferencia pequeña parezca enorme.",
         "explicacion": "Si el eje vertical de un gráfico de barras empieza, por ejemplo, en 48 en lugar de 0, una diferencia de unas pocas unidades se ve como si una barra fuera varias veces la otra. Eso es un **gráfico engañoso**, aunque los números sean ciertos. Compara siempre lo que ves con los valores de la tabla.",
         "cotidiano": "Pasa en publicidad: «¡Nuestro plan es el más rápido!» con barras cortadas, cuando la diferencia real es mínima.",
-        "ejemplo": "Tienda ficticia: 50 y 65 empanadas. Con el eje desde 0, la barra de marzo se ve un poco más alta. Con el eje desde 48, parece casi nueve veces más alta.",
+        "ejemplo": "Huerta ficticia: 50 y 65 kilos. Con el eje desde 0, la barra de marzo se ve un poco más alta. Con el eje desde 48, parece casi nueve veces más alta.",
         "enElReto": "Revisa la escala de tus barras y lee un valor directamente del gráfico para comprobar que coincide con la tabla."
       },
       {
@@ -112,7 +2054,7 @@
         "idea": "Un gráfico debe poder leerse sin que tú estés al lado explicándolo.",
         "explicacion": "Revisa que tenga: un **título específico** (qué, de dónde y cuándo), **ejes** con nombre y **unidad**, una **escala** legible y la **fuente** («datos ficticios del ejercicio»). Usa colores con buen contraste y no dependas solo del color para distinguir categorías: agrega etiquetas. «Resultados» no es un título.",
         "cotidiano": "Un aviso de ruta de bus sirve porque dice el número, el destino y por dónde pasa; si solo dijera «Bus», no te ayuda.",
-        "ejemplo": "Tienda ficticia: «Empanadas vendidas por mes, enero a marzo de 2026 · Unidades · Fuente: datos ficticios».",
+        "ejemplo": "Huerta ficticia: «Kilos de tomate cosechados por mes, enero a marzo de 2026 · Kilogramos · Fuente: datos ficticios».",
         "enElReto": "Antes de dar por terminado cada gráfico, recorre la lista: título, ejes, unidad, escala y fuente."
       },
       {
@@ -121,16 +2063,16 @@
         "idea": "La variación relativa dice cuánto creció algo en proporción a su punto de partida.",
         "explicacion": "La **variación relativa** se calcula así: (valor final − valor inicial) ÷ valor inicial, y se expresa en porcentaje. El punto de partida es la **base**. Si la medida original es una cantidad (no una tasa), el cambio se dice «creció tanto por ciento», no «subió tantos **puntos porcentuales**»; los puntos porcentuales son para restar dos porcentajes.",
         "cotidiano": "Si el pasaje sube de $3.000 a $3.300, sube $300, es decir, un 10 % respecto al precio anterior.",
-        "ejemplo": "Tienda ficticia: de 50 a 65 empanadas hay 15 más; 15 ÷ 50 = 0,30, o sea, un aumento del 30 % respecto a enero.",
-        "enElReto": "Si calculas el crecimiento de la asistencia, identifica el primer mes como base y escribe la operación completa."
+        "ejemplo": "Huerta ficticia: de 50 a 65 kilos hay 15 más; 15 ÷ 50 = 0,30, o sea, un aumento del 30 % respecto a enero.",
+        "enElReto": "Si calculas el crecimiento de la serie, identifica el primer mes como base y escribe la operación completa."
       },
       {
         "id": "observacion-vs-causa",
         "titulo": "Ver un aumento no es saber por qué pasó",
         "idea": "El gráfico muestra qué cambió; la causa necesita otros datos.",
         "explicacion": "Un aumento en el gráfico es una **observación** que puedes comprobar en la tabla. Decir que fue por una campaña, por el clima o por la calidad es una **explicación causal**, y para sostenerla necesitas información adicional. Lo responsable es separar las dos cosas en tu conclusión.",
-        "cotidiano": "Si un día vendiste más empanadas, puede ser por el partido, por la quincena o por la lluvia. Sin más datos, no sabes cuál.",
-        "ejemplo": "Tienda ficticia: «Las ventas crecieron 30 % entre enero y marzo» (comprobable). «Crecieron por el nuevo letrero» (necesitaría más datos).",
+        "cotidiano": "Si un domingo el parque estuvo más lleno, puede ser por el sol, por un evento o porque era puente festivo. Sin más datos, no sabes cuál.",
+        "ejemplo": "Huerta ficticia: «La cosecha creció 30 % entre enero y marzo» (comprobable). «Creció por el abono nuevo» (necesitaría más datos).",
         "enElReto": "Escribe una conclusión que sí respalden tus tablas y una afirmación causal que todavía no podrías sostener."
       }
     ],

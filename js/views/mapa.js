@@ -1,6 +1,6 @@
 import { h, md, rotulo } from '../util.js';
 import * as store from '../store.js';
-import { disponible } from '../content.js';
+import { disponible, enPrevia } from '../content.js';
 import { mundo } from '../components/mundo.js';
 import { miSprite, nombreJugador } from './personaje.js';
 import { misionesJugadas } from './repaso.js';
@@ -38,7 +38,7 @@ export function vistaMapa(c) {
     const totalNiveles = m.niveles?.length || 0;
     const nivelesHechos = (m.niveles || []).filter((n) => store.nivelHecho(m.numero, n.numero)).length;
     const estado = completa ? '★ Completada' : abierta ? (nivelesHechos ? `En curso · ${nivelesHechos}/${totalNiveles}` : 'Disponible') : (m.teoria ? 'Próximamente · teoría lista' : 'Próximamente');
-    return { m, abierta, completa, estado, nivelesHechos, totalNiveles };
+    return { m, abierta, completa, estado: abierta && m.estado !== 'disponible' ? `${estado} · 🔒 bloqueada para estudiantes` : estado, nivelesHechos, totalNiveles };
   });
   const camino = mundo(info, actual, miSprite(36));
   const visto = store.mapaVisto();
@@ -50,7 +50,8 @@ export function vistaMapa(c) {
     store.guardarMapaVisto(posActual);
   }
 
-  return h('div', { class: 'vista vista-mapa' }, portada, bienvenida, aviso,
+  const previa = enPrevia() ? h('aside', { class: 'banda-previa' }, h('strong', {}, '👀 Vista previa del tutor: '), 'ves todas las misiones, también las bloqueadas. ', h('a', { href: '?previa=0#/' }, 'Salir')) : null;
+  return h('div', { class: 'vista vista-mapa' }, previa, portada, bienvenida, aviso,
     h('h2', { class: 'titulo-seccion' }, 'Mapa de misiones'),
     h('p', { class: 'nota' }, 'Una misión por sesión. Toca un punto del mapa para entrar; puedes ir a cualquier misión publicada en el orden que quieras.'),
     camino);

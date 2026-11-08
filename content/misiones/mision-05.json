@@ -4,16 +4,1730 @@
   "titulo": "Consultar y resumir",
   "sesion": "Consultar, filtrar y resumir de forma reproducible",
   "habilidad": "Filtros con Y / O, agrupar y sumar. SQL opcional.",
-  "caso": "Talleres por tema y mes",
+  "caso": "Gastos de un hogar por categoría y mes",
   "color": "magenta",
-  "historia": "",
   "insignia": {
     "nombre": "Filtro maestro",
-    "descripcion": "",
+    "descripcion": "Conviertes una pregunta en condiciones claras, eliges las filas con Y o con O, agrupas y sumas sin confundir contar con sumar, y dejas un procedimiento que otra persona puede repetir.",
     "simbolo": "embudo"
   },
-  "niveles": [],
-  "conceptos": [],
+  "casoActivo": "cotidiano",
+  "casos": {
+    "cotidiano": {
+      "nombre": "Cotidiano: las compras de la familia de Camilo",
+      "titulo": "Las cuentas de la casa",
+      "caso": "Compras de un hogar por categoría y mes",
+      "historia": "Camilo vive con su familia en un barrio de Medellín (una familia inventada). En septiembre y octubre de 2026 anotaron en un cuaderno las compras de la casa: mercado, aseo y antojos, y dónde las hicieron. Ahora quieren saber cuánto se les fue en mercado en octubre y dónde lo compraron, para planear mejor. Camilo te pide ayuda con una condición: que cualquiera de la casa pueda repetir las cuentas y llegar a la misma cifra.",
+      "datos": {
+        "titulo": "Compras anotadas por la familia de Camilo",
+        "unidad": [
+          "compra",
+          "compras"
+        ],
+        "columnas": [
+          "Código",
+          "Categoría",
+          "Mes",
+          "Lugar",
+          "Monto"
+        ],
+        "filas": [
+          [
+            "G01",
+            "Mercado",
+            "oct",
+            "Tienda",
+            "$24.000"
+          ],
+          [
+            "G02",
+            "Mercado",
+            "oct",
+            "Plaza",
+            "$45.000"
+          ],
+          [
+            "G03",
+            "Aseo",
+            "oct",
+            "Súper",
+            "$18.000"
+          ],
+          [
+            "G04",
+            "Mercado",
+            "sep",
+            "Plaza",
+            "$52.000"
+          ],
+          [
+            "G05",
+            "Mercado",
+            "oct",
+            "Súper",
+            "$61.000"
+          ],
+          [
+            "G06",
+            "Antojos",
+            "oct",
+            "Tienda",
+            "$9.000"
+          ],
+          [
+            "G07",
+            "Aseo",
+            "sep",
+            "Tienda",
+            "$12.000"
+          ],
+          [
+            "G08",
+            "Antojos",
+            "sep",
+            "Plaza",
+            "$7.000"
+          ],
+          [
+            "G09",
+            "Mercado",
+            "sep",
+            "Súper",
+            "$58.000"
+          ],
+          [
+            "G10",
+            "Mercado",
+            "oct",
+            "Tienda",
+            "$16.000"
+          ]
+        ],
+        "definiciones": [
+          "Cada **código** identifica una **compra** anotada en el cuaderno de la casa.",
+          "**Categoría**: Mercado (comida para la casa), Aseo (jabón, detergente…) o Antojos (helado, pan o fruta para el algo).",
+          "**Mes**: sep = septiembre y oct = octubre de 2026.",
+          "**Lugar**: Tienda (la tienda del barrio), Plaza (la plaza de mercado) o Súper (un supermercado).",
+          "**Monto**: lo que costó esa compra, en pesos. Es la columna que se suma.",
+          "La tabla trae **solo** lo que anotaron de estas tres categorías: no incluye recibos, pasajes ni otros gastos de la casa."
+        ],
+        "aviso": "Datos ficticios, solo para practicar. Es una familia inventada: nadie te va a preguntar por tus gastos."
+      },
+      "niveles": [
+        {
+          "numero": 1,
+          "titulo": "Dos condiciones a la vez",
+          "objetivo": "Leer qué es cada fila, encontrar las condiciones de una pregunta y elegir las filas que cumplen las dos.",
+          "cierre": "Nivel 1 listo: ya conviertes una pregunta en condiciones y eliges filas con Y.",
+          "actividades": [
+            {
+              "id": "n1-toca-fila",
+              "tipo": "leer-filas",
+              "fase": "hacer",
+              "titulo": "Toca una fila",
+              "consigna": "Toca una fila de la tabla y lee lo que cuenta. Lee al menos **2 filas** para continuar.",
+              "minimo": 2,
+              "lecturas": {
+                "G01": "La fila G01 es una compra de mercado en la tienda del barrio, en octubre, por $24.000.",
+                "G02": "La fila G02 es una compra de mercado en la plaza de mercado, en octubre, por $45.000.",
+                "G03": "La fila G03 es una compra de aseo en el supermercado, en octubre, por $18.000.",
+                "G04": "La fila G04 es una compra de mercado en la plaza de mercado, en septiembre, por $52.000.",
+                "G05": "La fila G05 es una compra de mercado en el supermercado, en octubre, por $61.000.",
+                "G06": "La fila G06 es una compra de antojos en la tienda del barrio, en octubre, por $9.000.",
+                "G07": "La fila G07 es una compra de aseo en la tienda del barrio, en septiembre, por $12.000.",
+                "G08": "La fila G08 es una compra de antojos en la plaza de mercado, en septiembre, por $7.000.",
+                "G09": "La fila G09 es una compra de mercado en el supermercado, en septiembre, por $58.000.",
+                "G10": "La fila G10 es una compra de mercado en la tienda del barrio, en octubre, por $16.000."
+              },
+              "explicacion": "Todas las lecturas empiezan igual: **«es una compra de…»**. Cada fila es una compra anotada. El **código** sirve para reconocerla; el **Monto** es lo que se suma.",
+              "tema": "unidad-y-codigos"
+            },
+            {
+              "id": "n1-que-es-fila",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "¿Qué es cada fila y qué se suma?",
+              "consigna": "Después de leer algunas filas: ¿qué representa cada fila y qué columna tiene sentido **sumar**?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Una compra; se suma el Monto",
+                  "correcta": true
+                },
+                {
+                  "texto": "Un mes; se suma el Código",
+                  "feedback": "Hay 2 meses y 10 filas, así que una fila no es un mes. Y el código (G01, G02…) es una etiqueta para rastrear la compra: no se suma."
+                },
+                {
+                  "texto": "Una categoría; se cuentan los lugares",
+                  "feedback": "La categoría es una columna: hay 3 categorías y 10 filas. Cada fila es una compra, y lo que tiene sentido sumar son los pesos del Monto."
+                },
+                {
+                  "texto": "Todo lo que gastó la casa en un mes; se suma el Monto",
+                  "feedback": "El Monto sí se suma, ¡bien! Pero cada fila es una sola compra, y la tabla no trae todos los gastos de la casa: no hay recibos ni pasajes."
+                }
+              ],
+              "pistas": [
+                "Vuelve a leer una fila completa: ¿cómo empieza la frase?",
+                "Mira las definiciones debajo de la tabla: ¿qué identifica cada código?"
+              ],
+              "explicacion": "Cada fila es **una compra anotada**. El **código** sirve para rastrear de dónde sale una cifra, pero no se suma. Lo que se suma es el **Monto**.",
+              "tema": "unidad-y-codigos"
+            },
+            {
+              "id": "n1-condiciones",
+              "tipo": "seleccion",
+              "multiple": true,
+              "fase": "observar",
+              "titulo": "¿Cuáles son las condiciones?",
+              "consigna": "En la casa preguntan: «En octubre, ¿cuánto gastamos en **Mercado** y cómo se reparte por **lugar**?». **Marca las condiciones** que debe cumplir una fila para entrar en la respuesta.",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Categoría = Mercado",
+                  "correcta": true,
+                  "siFalta": "Falta una condición: ¿de qué categoría habla la pregunta?"
+                },
+                {
+                  "texto": "Mes = oct",
+                  "correcta": true,
+                  "siFalta": "Falta una condición: ¿de qué mes habla la pregunta?"
+                },
+                {
+                  "texto": "Lugar = Tienda",
+                  "feedback": "El lugar no deja filas por fuera: la pregunta pide **repartir** el resultado por lugar. Eso es agrupar, y se hace después de filtrar."
+                },
+                {
+                  "texto": "Monto mayor que $20.000",
+                  "feedback": "La pregunta no pone un límite al monto. Si lo agregas, dejarías por fuera compras que sí cuentan, como G10 ($16.000)."
+                }
+              ],
+              "pistas": [
+                "Busca en la pregunta las palabras que dejan filas por fuera.",
+                "«Por lugar» no deja filas por fuera: solo dice cómo repartir el resultado."
+              ],
+              "explicacion": "Hay dos condiciones: **Categoría = Mercado** y **Mes = oct**. «Por lugar» no filtra: dice cómo **agrupar** después. Como la fila debe cumplir las dos a la vez, se unen con **Y**.",
+              "tema": "condicion-y-o"
+            },
+            {
+              "id": "n1-predice",
+              "tipo": "tarjetas",
+              "fase": "entender",
+              "titulo": "Predice antes de filtrar",
+              "consigna": "Antes de marcar nada, **predice**. Para cada compra, decide si entra con el filtro **Categoría = Mercado Y Mes = oct**.",
+              "botones": {
+                "si": "Entra",
+                "no": "Queda fuera"
+              },
+              "tarjetas": [
+                {
+                  "texto": "**G04** · Mercado · sep · Plaza · $52.000",
+                  "respuesta": "no",
+                  "explicacion": "Es Mercado, pero de septiembre. Con Y tiene que cumplir las dos condiciones, y le falla el mes."
+                },
+                {
+                  "texto": "**G03** · Aseo · oct · Súper · $18.000",
+                  "respuesta": "no",
+                  "explicacion": "Es de octubre, pero no es Mercado. Cumple una sola condición, así que con Y queda fuera."
+                },
+                {
+                  "texto": "**G10** · Mercado · oct · Tienda · $16.000",
+                  "respuesta": "si",
+                  "explicacion": "Cumple las dos: es Mercado y es de octubre. Que el monto sea pequeño no importa."
+                },
+                {
+                  "texto": "**G08** · Antojos · sep · Plaza · $7.000",
+                  "respuesta": "no",
+                  "explicacion": "No cumple ninguna de las dos condiciones: ni es Mercado ni es de octubre."
+                },
+                {
+                  "texto": "**G05** · Mercado · oct · Súper · $61.000",
+                  "respuesta": "si",
+                  "explicacion": "Mercado y octubre: entra."
+                },
+                {
+                  "texto": "Ahora alguien cambia **Y** por **O**: Mercado **O** octubre. ¿**G03** (Aseo · oct) entra?",
+                  "respuesta": "si",
+                  "explicacion": "Con O basta cumplir una condición, y G03 es de octubre. Por eso O mete filas que la pregunta no pedía."
+                }
+              ],
+              "explicacion": "Con **Y** entran solo las filas que cumplen **las dos** condiciones; con **O** basta una. Predecir antes de filtrar te deja revisar después: si la herramienta muestra algo distinto de lo que esperabas, revisa el filtro.",
+              "tema": "seleccionar-sin-borrar"
+            },
+            {
+              "id": "n1-marca-y",
+              "tipo": "seleccionar-filas",
+              "fase": "aplicar",
+              "titulo": "Marca las filas con Y",
+              "consigna": "Ahora sí: **toca las filas** que cumplen **Categoría = Mercado Y Mes = oct**. Marcar no borra: las demás siguen en la tabla.",
+              "esperadas": [
+                "G01",
+                "G02",
+                "G05",
+                "G10"
+              ],
+              "feedback": {
+                "sobran": "Alguna fila marcada cumple solo una condición. Con Y, cada fila debe ser Mercado **y** de octubre.",
+                "faltan": "Vas bien. Falta alguna compra de Mercado en octubre: recorre la tabla fila por fila, también las de montos pequeños."
+              },
+              "pistas": [
+                "Primero busca Mercado en la columna Categoría. Luego, de esas, quédate solo con las de oct.",
+                "Son cuatro compras, y una es la compra de mercado más pequeña de la tabla."
+              ],
+              "explicacion": "Entran **G01, G02, G05 y G10**: 4 compras. G04 y G09 quedan fuera aunque son Mercado (son de septiembre). G03 y G06 quedan fuera aunque son de octubre (no son Mercado). Deja escrito el criterio junto a la tabla: **Categoría = Mercado Y Mes = oct**.",
+              "tema": "seleccionar-sin-borrar"
+            }
+          ]
+        },
+        {
+          "numero": 2,
+          "titulo": "Agrupar y sumar",
+          "objetivo": "Agrupar las filas elegidas, sumar la cantidad que pide la pregunta y no confundirla con contar filas.",
+          "cierre": "Nivel 2 listo: sabes cuándo contar, cuándo sumar y cómo rotular lo que obtuviste.",
+          "actividades": [
+            {
+              "id": "n2-agrupa",
+              "tipo": "conteo",
+              "fase": "hacer",
+              "titulo": "Agrupa por lugar y suma",
+              "consigna": "Reúne las 4 compras resaltadas por **lugar** y **suma** su Monto. Escribe cada total **en miles de pesos** (por ejemplo, $24.000 → 24).",
+              "usaDatos": true,
+              "resaltar": [
+                "G01",
+                "G02",
+                "G05",
+                "G10"
+              ],
+              "categorias": [
+                "Tienda",
+                "Plaza",
+                "Súper"
+              ],
+              "esperado": {
+                "Tienda": 40,
+                "Plaza": 45,
+                "Súper": 61
+              },
+              "erroresComunes": [
+                {
+                  "valores": {
+                    "Tienda": 2,
+                    "Plaza": 1,
+                    "Súper": 1
+                  },
+                  "mensaje": "Eso es **contar compras**, no sumar pesos. La pregunta es cuánto se gastó: suma el Monto de las filas resaltadas de cada lugar."
+                },
+                {
+                  "valores": {
+                    "Tienda": 24,
+                    "Plaza": 45,
+                    "Súper": 61
+                  },
+                  "mensaje": "Plaza y Súper están bien. En la Tienda hay **dos** compras resaltadas (G01 y G10): agrupar es reunirlas y sumarlas."
+                },
+                {
+                  "valores": {
+                    "Tienda": 16,
+                    "Plaza": 45,
+                    "Súper": 61
+                  },
+                  "mensaje": "Plaza y Súper están bien. En la Tienda hay **dos** compras resaltadas (G01 y G10): agrupar es reunirlas y sumarlas."
+                },
+                {
+                  "valores": {
+                    "Tienda": 49,
+                    "Plaza": 97,
+                    "Súper": 137
+                  },
+                  "mensaje": "Sumaste las filas que entran con **O**. Usa solo las resaltadas: Mercado **y** octubre."
+                },
+                {
+                  "valores": {
+                    "Tienda": 40,
+                    "Plaza": 97,
+                    "Súper": 119
+                  },
+                  "mensaje": "Te faltó la condición del mes: sumaste también el Mercado de septiembre (G04 y G09)."
+                }
+              ],
+              "mensajeGeneral": "Vas por buen camino. Revisa {categorias}: suma solo el Monto de las filas resaltadas de ese lugar.",
+              "pistas": [
+                "Tienda: G01 y G10. Plaza: G02. Súper: G05.",
+                "Tienda: 24 + 16."
+              ],
+              "explicacion": "Mercado en octubre, por lugar: **Tienda $40.000 · Plaza $45.000 · Súper $61.000**. La Tienda tiene **dos** filas: agrupar es reunir las filas del mismo lugar antes de sumar.",
+              "tema": "agrupar-y-sumar"
+            },
+            {
+              "id": "n2-contar-o-sumar",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "¿Contar o sumar?",
+              "consigna": "Dos personas resumieron **las mismas 4 filas** de dos formas. La pregunta era «¿cuánto gastamos en Mercado en octubre?». ¿Qué columna la responde?",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Mercado en octubre, resumido de dos formas",
+                "columnas": [
+                  "Lugar",
+                  "Contar filas",
+                  "Sumar Monto"
+                ],
+                "filas": [
+                  [
+                    "Tienda",
+                    "2",
+                    "$40.000"
+                  ],
+                  [
+                    "Plaza",
+                    "1",
+                    "$45.000"
+                  ],
+                  [
+                    "Súper",
+                    "1",
+                    "$61.000"
+                  ],
+                  [
+                    "Total",
+                    "4",
+                    "$146.000"
+                  ]
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "«Sumar Monto»: la pregunta es por pesos",
+                  "correcta": true
+                },
+                {
+                  "texto": "«Contar filas»: dice dónde se gastó más",
+                  "feedback": "Contar dice dónde hubo **más compras** (la Tienda, con 2). Pero la pregunta es por plata, y en pesos el Súper va adelante."
+                },
+                {
+                  "texto": "Las dos dicen lo mismo",
+                  "feedback": "Mira la Tienda: tiene más compras (2), pero no es donde más se gastó. Son dos medidas distintas."
+                },
+                {
+                  "texto": "Ninguna: hay que sumar los códigos",
+                  "feedback": "Los códigos son etiquetas (G01, G10…): no se suman. Sirven para mostrar qué filas formaron cada cifra."
+                }
+              ],
+              "explicacion": "**Contar** responde «¿cuántas compras?» (4). **Sumar** responde «¿cuánta plata?» ($146.000). Aquí hasta cambia quién va primero: la Tienda tiene más compras, pero el Súper concentra más plata. Antes de dar un número, pregúntate: **«¿conté compras o sumé pesos?»**.",
+              "tema": "agrupar-y-sumar"
+            },
+            {
+              "id": "n2-con-o",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "Una cuenta que parece razonable",
+              "consigna": "Sara, la hermana de Camilo, filtró **Categoría = Mercado O Mes = oct** y le dio **$283.000**. Su suma está bien hecha. Entonces, ¿qué pasó?",
+              "apoyo": {
+                "tipo": "comparacion",
+                "items": [
+                  {
+                    "etiqueta": "Con Y",
+                    "texto": "Mercado **Y** oct → G01, G02, G05, G10 → **$146.000**"
+                  },
+                  {
+                    "etiqueta": "Con O",
+                    "texto": "Mercado **O** oct → G01, G02, G03, G04, G05, G06, G09, G10 → **$283.000**"
+                  }
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Con O entraron filas que cumplen solo una condición, como G03 (Aseo de octubre) y G04 (Mercado de septiembre)",
+                  "correcta": true
+                },
+                {
+                  "texto": "Se equivocó al sumar",
+                  "feedback": "La suma de esas 8 filas sí da $283.000. El error pasó **antes** de sumar: en las filas que dejó entrar."
+                },
+                {
+                  "texto": "O es más completo, así que su cifra es mejor",
+                  "feedback": "O mete más filas, pero no las que pide la pregunta. Más filas no es una mejor respuesta: la pregunta pide Mercado **en** octubre."
+                },
+                {
+                  "texto": "Las dos cifras responden la misma pregunta",
+                  "feedback": "Responden preguntas distintas. Solo una responde «cuánto gastamos en Mercado en octubre»."
+                }
+              ],
+              "pistas": [
+                "Busca una fila que esté en la lista de O y no en la de Y. ¿Cuántas condiciones cumple?"
+              ],
+              "explicacion": "El error ocurre **antes de sumar**, en el filtro. Que una fórmula o una consulta no dé error no garantiza que responda la pregunta. Si el total no cuadra, revisa primero las condiciones y las filas; después, la suma. Solo G07 y G08 se quedaron por fuera: no son Mercado ni de octubre.",
+              "tema": "condicion-y-o"
+            },
+            {
+              "id": "n2-o-bien",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Cuando O sí es la respuesta",
+              "consigna": "Otra pregunta de la casa: «En octubre, ¿cuánto gastamos en **Aseo o Antojos**?». Aquí la O está **dentro de una misma columna**: vale cualquiera de las dos categorías, pero el mes sigue siendo obligatorio. ¿Cuánto da?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "$27.000",
+                  "correcta": true
+                },
+                {
+                  "texto": "$46.000",
+                  "feedback": "Esa es la suma de Aseo y Antojos en los dos meses. Te faltó la condición del mes: (Aseo O Antojos) **Y** oct."
+                },
+                {
+                  "texto": "$173.000",
+                  "feedback": "Ese es todo lo de octubre, incluido el Mercado. La categoría también filtra: solo Aseo o Antojos."
+                },
+                {
+                  "texto": "2",
+                  "feedback": "Dos es el número de compras que entran. La pregunta es por plata: suma su Monto."
+                }
+              ],
+              "pistas": [
+                "Primero quédate con las filas de octubre. De esas, toma las que son Aseo o Antojos.",
+                "Entran G03 y G06."
+              ],
+              "explicacion": "Entran **G03 ($18.000) y G06 ($9.000): $27.000**. La regla completa es **(Categoría = Aseo O Categoría = Antojos) Y Mes = oct**. O no es «malo»: sirve cuando la pregunta acepta cualquiera de dos valores. El error es usarlo cuando la pregunta exige las dos condiciones.",
+              "tema": "condicion-y-o"
+            },
+            {
+              "id": "n2-rotula",
+              "tipo": "completar",
+              "fase": "entender",
+              "titulo": "Ponle nombre a la cifra",
+              "consigna": "Una cifra sin rótulo se presta para confusiones. Completa la frase de la respuesta principal.",
+              "frase": "Entre las compras anotadas, la familia gastó {0} en {1}, durante {2}.",
+              "huecos": [
+                {
+                  "opciones": [
+                    {
+                      "texto": "$146.000",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "4",
+                      "feedback": "4 es el número de compras. La frase habla de plata."
+                    },
+                    {
+                      "texto": "$302.000",
+                      "feedback": "Ese es el total de toda la tabla: incluye septiembre y las otras categorías."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "Mercado",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "todos los gastos de la casa",
+                      "feedback": "La tabla solo trae lo anotado de mercado, aseo y antojos: no tiene recibos ni pasajes. No digas «todos los gastos»."
+                    },
+                    {
+                      "texto": "Mercado y Aseo",
+                      "feedback": "Aseo no entró en el filtro: la condición era Categoría = Mercado."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "octubre de 2026",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "septiembre y octubre",
+                      "feedback": "Septiembre quedó fuera con la condición Mes = oct."
+                    },
+                    {
+                      "texto": "todo el año",
+                      "feedback": "La tabla solo tiene septiembre y octubre; la cifra es de un mes."
+                    }
+                  ]
+                }
+              ],
+              "textoLibre": {
+                "etiqueta": "Si quieres, escribe el rótulo con tus palabras (opcional, queda en tu cuaderno):",
+                "clave": "rotulo-cifra"
+              },
+              "explicacion": "Un buen rótulo dice **qué medida** (pesos), **de qué** (compras de Mercado anotadas) y **qué periodo** (octubre de 2026). Así nadie confunde $146.000 con «todo lo que gasta la casa».",
+              "tema": "unidad-y-codigos"
+            }
+          ]
+        },
+        {
+          "numero": 3,
+          "titulo": "Un procedimiento que otro pueda repetir",
+          "objetivo": "Escribir los pasos, cambiar la pregunta de forma controlada y resolver el reto. Es el reto de la clase, en versión autoguiada.",
+          "cierre": "Nivel 3 listo: tu procedimiento se puede repetir, comprobar y adaptar.",
+          "actividades": [
+            {
+              "id": "n3-repetible",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "¿Se puede repetir?",
+              "consigna": "Cuatro personas cuentan cómo llegaron a su respuesta. ¿Con cuál procedimiento otra persona llegaría **a la misma cifra** sin tener que preguntar nada?",
+              "opciones": [
+                {
+                  "texto": "«Filtré Categoría = Mercado Y Mes = oct; entraron G01, G02, G05 y G10. Agrupé por lugar y sumé el Monto.»",
+                  "correcta": true
+                },
+                {
+                  "texto": "«Sumé lo importante de octubre.»",
+                  "feedback": "¿Qué es «lo importante»? Otra persona no sabría qué filas usar. Escribe cada condición tal cual la aplicaste."
+                },
+                {
+                  "texto": "«Miré la tabla y me dio $146.000.»",
+                  "feedback": "La cifra es correcta, pero nadie puede comprobarla: no dice qué filas entraron ni qué operación hiciste."
+                },
+                {
+                  "texto": "«Filtré Mercado, agrupé por lugar y sumé.»",
+                  "feedback": "Casi: falta una condición. Sin el mes, otra persona sumaría también septiembre y le daría $256.000."
+                }
+              ],
+              "explicacion": "Un procedimiento repetible deja a la vista **tres decisiones**: la **selección** (las condiciones y los códigos que entraron), la **agrupación** (por lugar) y la **medida** (sumar el Monto).",
+              "tema": "procedimiento-reproducible"
+            },
+            {
+              "id": "n3-sql",
+              "tipo": "emparejar",
+              "fase": "entender",
+              "titulo": "La misma receta en SQL (opcional)",
+              "consigna": "**Opcional, sin instalar nada.** SQL es un lenguaje para pedirle datos a una tabla. Esta consulta hace lo mismo que hiciste a mano. Empareja cada parte con lo que hace. Si nunca lo has visto, no pasa nada: lee cada parte como un paso de la receta.",
+              "apoyo": {
+                "tipo": "texto",
+                "texto": "**SELECT** lugar, SUM(monto) AS total **FROM** gastos **WHERE** categoria = 'Mercado' **AND** mes = 'oct' **GROUP BY** lugar **ORDER BY** total DESC;"
+              },
+              "tipos": [
+                {
+                  "id": "salida",
+                  "texto": "Qué quiero ver",
+                  "ayuda": "la salida: columnas y medida"
+                },
+                {
+                  "id": "tabla",
+                  "texto": "De qué tabla",
+                  "ayuda": "dónde están los datos"
+                },
+                {
+                  "id": "seleccion",
+                  "texto": "Qué filas entran",
+                  "ayuda": "la selección: las condiciones"
+                },
+                {
+                  "id": "agrupacion",
+                  "texto": "Cómo agrupo",
+                  "ayuda": "reunir filas que comparten un valor"
+                },
+                {
+                  "id": "orden",
+                  "texto": "En qué orden muestro",
+                  "ayuda": "de mayor a menor, por ejemplo"
+                }
+              ],
+              "pares": [
+                {
+                  "item": "SELECT lugar, SUM(monto) AS total",
+                  "correcto": "salida",
+                  "feedback": "SELECT dice qué se muestra: el lugar y la suma del monto, con el nombre «total»."
+                },
+                {
+                  "item": "FROM gastos",
+                  "correcto": "tabla",
+                  "feedback": "FROM dice de qué tabla salen los datos: la tabla «gastos»."
+                },
+                {
+                  "item": "WHERE categoria = 'Mercado' AND mes = 'oct'",
+                  "correcto": "seleccion",
+                  "feedback": "WHERE es el filtro: qué filas entran. AND es la Y: deben cumplir las dos condiciones."
+                },
+                {
+                  "item": "GROUP BY lugar",
+                  "correcto": "agrupacion",
+                  "feedback": "GROUP BY reúne las filas del mismo lugar para sumarlas juntas."
+                },
+                {
+                  "item": "ORDER BY total DESC",
+                  "correcto": "orden",
+                  "feedback": "ORDER BY ordena el resultado; DESC significa de mayor a menor."
+                }
+              ],
+              "explicacion": "**SELECT** es la salida, **WHERE** la selección (AND = Y, OR = O), **GROUP BY** la agrupación y **SUM** la medida. Resultado: Súper $61.000, Plaza $45.000, Tienda $40.000. Ojo: si en el WHERE escribes OR en lugar de AND, la consulta corre sin error… y responde otra pregunta.",
+              "tema": "sql-opcional"
+            },
+            {
+              "id": "n3-nueva-filas",
+              "tipo": "seleccionar-filas",
+              "fase": "aplicar",
+              "titulo": "Cambia la pregunta · Paso 1",
+              "consigna": "Pregunta nueva: «En octubre, ¿cuánto se gastó **en la Tienda** y en qué categorías?». Cambia el procedimiento de forma controlada: **quita** la condición de categoría y **agrega** Lugar = Tienda. Toca las filas que entran.",
+              "esperadas": [
+                "G01",
+                "G06",
+                "G10"
+              ],
+              "feedback": {
+                "sobran": "Revisa las dos condiciones nuevas: Lugar = Tienda **Y** Mes = oct. La categoría ya no filtra.",
+                "faltan": "Falta alguna compra de la Tienda en octubre. Ojo: ahora no importa si es Mercado."
+              },
+              "pistas": [
+                "Busca Tienda en la columna Lugar y, de esas, quédate con las de oct.",
+                "Son tres filas. Una de las compras de la Tienda es de septiembre: esa no."
+              ],
+              "explicacion": "Entran **G01, G06 y G10**. G07 queda fuera aunque es de la Tienda (es de septiembre). Quitaste «Categoría = Mercado», agregaste «Lugar = Tienda» y el mes se quedó igual.",
+              "tema": "procedimiento-reproducible"
+            },
+            {
+              "id": "n3-nueva-suma",
+              "tipo": "conteo",
+              "fase": "aplicar",
+              "titulo": "Cambia la pregunta · Paso 2",
+              "consigna": "Ahora agrupa las filas resaltadas por **categoría** y suma su Monto, **en miles de pesos**. Si una categoría no tiene filas, déjala en 0.",
+              "usaDatos": true,
+              "resaltar": [
+                "G01",
+                "G06",
+                "G10"
+              ],
+              "categorias": [
+                "Mercado",
+                "Aseo",
+                "Antojos"
+              ],
+              "esperado": {
+                "Mercado": 40,
+                "Aseo": 0,
+                "Antojos": 9
+              },
+              "erroresComunes": [
+                {
+                  "valores": {
+                    "Mercado": 40,
+                    "Aseo": 0,
+                    "Antojos": 0
+                  },
+                  "mensaje": "Dejaste la condición vieja (Mercado). En la pregunta nueva la categoría ya no filtra: se usa para agrupar. Mira G06."
+                },
+                {
+                  "valores": {
+                    "Mercado": 40,
+                    "Aseo": 12,
+                    "Antojos": 9
+                  },
+                  "mensaje": "Te faltó el mes: G07 (Aseo en la Tienda) es de septiembre."
+                },
+                {
+                  "valores": {
+                    "Mercado": 2,
+                    "Aseo": 0,
+                    "Antojos": 1
+                  },
+                  "mensaje": "Eso es **contar compras**. La pregunta es cuánto se gastó: suma el Monto."
+                },
+                {
+                  "valores": {
+                    "Mercado": 146,
+                    "Aseo": 30,
+                    "Antojos": 9
+                  },
+                  "mensaje": "Sumaste las filas que entran con **O** (Tienda O octubre). Usa solo las resaltadas: Tienda **y** octubre."
+                }
+              ],
+              "mensajeGeneral": "Vas por buen camino. Revisa {categorias}: suma solo las filas resaltadas de esa categoría.",
+              "pistas": [
+                "Mercado: G01 y G10. Antojos: G06. Aseo: ninguna resaltada.",
+                "Mercado: 24 + 16."
+              ],
+              "explicacion": "Tienda en octubre, por categoría: **Mercado $40.000 · Antojos $9.000 · Aseo $0**; total **$49.000** en 3 compras. Rotúlalo aparte: $49.000 (Tienda, octubre) no es lo mismo que $146.000 (Mercado, octubre).",
+              "tema": "agrupar-y-sumar"
+            },
+            {
+              "id": "n3-reto",
+              "tipo": "constructor",
+              "fase": "aplicar",
+              "titulo": "El reto: un procedimiento que otro pueda repetir",
+              "consigna": "Responde la pregunta de Mercado en octubre con un procedimiento que otra persona pueda repetir y comprobar. Después adáptalo a la pregunta nueva sobre la Tienda. Puedes usar filtros, marcar filas o escribir SQL (opcional): en todos los casos muestra las condiciones y las filas que entraron.",
+              "rutas": [
+                {
+                  "id": "mapa",
+                  "nombre": "Ruta Mapa",
+                  "descripcion": "La pregunta ya viene dada. Te concentras en filtrar, agrupar, sumar y explicar tus pasos.",
+                  "preguntaDada": "En octubre de 2026, ¿cuánto gastó la familia de Camilo en Mercado y cómo se reparte por lugar?"
+                },
+                {
+                  "id": "brujula",
+                  "nombre": "Ruta Brújula",
+                  "descripcion": "Haces tu propia pregunta con dos condiciones. Ideas: Aseo en septiembre por lugar, todo lo de la Plaza en octubre por categoría, Aseo o Antojos en septiembre…"
+                },
+                {
+                  "id": "telescopio",
+                  "nombre": "Ruta Telescopio",
+                  "descripcion": "Misma pregunta, pero además escribes la consulta SQL y explicas qué hace cada parte (opcional, sin instalar nada).",
+                  "preguntaDada": "En octubre de 2026, ¿cuánto gastó la familia de Camilo en Mercado y cómo se reparte por lugar?"
+                }
+              ],
+              "pasos": [
+                {
+                  "clave": "pregunta",
+                  "titulo": "1 · Mi pregunta y sus condiciones",
+                  "ayuda": "Escribe la pregunta y, debajo, sus condiciones unidas con Y u O. Forma: «Categoría = ___ Y Mes = ___».",
+                  "pistas": [
+                    "¿Qué palabras de la pregunta dejan filas por fuera? Esas son las condiciones.",
+                    "«Por lugar» no es una condición: es cómo vas a agrupar."
+                  ]
+                },
+                {
+                  "clave": "prediccion",
+                  "titulo": "2 · Mi predicción",
+                  "ayuda": "Antes de filtrar, escribe qué códigos esperas que entren y uno que quede por fuera, con su razón.",
+                  "pistas": [
+                    "Recorre la tabla con dos preguntas de sí o no, una por condición.",
+                    "Forma: «Espero ___. ___ queda fuera porque ___»."
+                  ]
+                },
+                {
+                  "clave": "comprobacion",
+                  "titulo": "3 · Filas, grupos y total",
+                  "ayuda": "Marca las filas en la tabla y agrega los códigos aquí. Luego escribe la suma de cada grupo y el total, con su rótulo.",
+                  "pistas": [
+                    "Primero filtras, después agrupas y al final sumas.",
+                    "Pregúntate: «¿conté compras o sumé pesos?».",
+                    "Rotula: «pesos en compras de ___ anotadas, ___ de 2026»."
+                  ],
+                  "permiteFilas": true
+                },
+                {
+                  "clave": "adaptacion",
+                  "titulo": "4 · La pregunta nueva y mis límites",
+                  "ayuda": "Adapta tu procedimiento a «En octubre, ¿cuánto se gastó en la Tienda, por categoría?». Di qué condición quitaste y cuál agregaste, y una cosa que la tabla no permite afirmar.",
+                  "pistas": [
+                    "Quitas una condición de la pregunta original y agregas la del lugar. El mes se queda.",
+                    "Límites posibles: la tabla solo tiene lo que anotaron; no trae recibos ni pasajes; dos meses no dicen cómo será noviembre."
+                  ]
+                }
+              ],
+              "verificacion": [
+                "¿Escribí las condiciones y si van con Y o con O?",
+                "¿Anoté los códigos que entraron y uno que quedó fuera, con su razón?",
+                "¿Sumé el Monto (no conté filas) y rotulé la medida y el periodo?",
+                "¿Otra persona podría repetir mis pasos sin preguntarme nada?",
+                "¿Dije qué condición cambié para la pregunta nueva y qué no puedo afirmar?"
+              ],
+              "ejemplo": "«Condiciones: Categoría = Mercado Y Mes = oct. Predije G01, G02, G05 y G10; G04 queda fuera porque es Mercado pero de septiembre, y G03 porque es de octubre pero de Aseo. Agrupé por lugar y sumé el Monto: Tienda $40.000 (G01 + G10), Plaza $45.000 (G02) y Súper $61.000 (G05). Total: $146.000 en 4 compras de Mercado anotadas en octubre de 2026. Pregunta nueva: quité la condición de categoría y agregué Lugar = Tienda; entran G01, G06 y G10: Mercado $40.000 y Antojos $9.000, total $49.000. Esto no dice cuánto gasta la casa en total (no hay recibos ni pasajes) ni cuánto gastarán en noviembre.»",
+              "explicacion": "No se busca un texto largo: sirve si otra persona puede seguirlo y llegar a la misma cifra. Condiciones, filas, agrupación y medida, a la vista.",
+              "tema": "procedimiento-reproducible"
+            },
+            {
+              "id": "n3-cierre",
+              "tipo": "escritura",
+              "fase": "observar",
+              "titulo": "Cierre de la misión",
+              "consigna": "Completa estas dos frases. Quedan guardadas en tu cuaderno (solo en este navegador).",
+              "frases": [
+                {
+                  "clave": "cierre-y-o",
+                  "inicio": "Lo que cambió al pasar de Y a O fue…"
+                },
+                {
+                  "clave": "cierre-repetible",
+                  "inicio": "Otra persona puede repetir mi procedimiento porque…"
+                }
+              ],
+              "explicacion": "El procedimiento en una línea: **condiciones (Y u O) → filas que entran → agrupar → sumar → rotular → adaptar a la nueva pregunta.**"
+            }
+          ]
+        }
+      ],
+      "conceptos": [
+        {
+          "termino": "Filtro (condición)",
+          "definicion": "Una regla que deja ver solo las filas que la cumplen. Filtrar oculta filas, no las borra.",
+          "ejemplo": "Categoría = Mercado deja ver las 6 compras de mercado."
+        },
+        {
+          "termino": "Y",
+          "definicion": "La fila debe cumplir todas las condiciones a la vez.",
+          "ejemplo": "Mercado Y octubre: G01, G02, G05 y G10."
+        },
+        {
+          "termino": "O",
+          "definicion": "A la fila le basta cumplir al menos una condición. Sirve cuando la pregunta acepta cualquiera de dos valores.",
+          "ejemplo": "Mercado O octubre mete 8 filas; (Aseo O Antojos) Y octubre sí es una pregunta válida: $27.000."
+        },
+        {
+          "termino": "Agrupar",
+          "definicion": "Reunir las filas que comparten un valor para resumirlas juntas.",
+          "ejemplo": "Por lugar: G01 y G10 van juntas en la Tienda."
+        },
+        {
+          "termino": "Contar ≠ sumar",
+          "definicion": "Contar dice cuántas filas hay; sumar dice cuánto dan sus cantidades.",
+          "ejemplo": "4 compras de Mercado en octubre, que suman $146.000."
+        },
+        {
+          "termino": "Rótulo de una cifra",
+          "definicion": "Decir qué medida es, de qué y de qué periodo.",
+          "ejemplo": "$146.000 en compras de Mercado anotadas en octubre de 2026 (no «todos los gastos de la casa»)."
+        },
+        {
+          "termino": "Procedimiento reproducible",
+          "definicion": "Pasos escritos con los que otra persona llega a la misma cifra.",
+          "ejemplo": "Filtré Mercado Y oct, agrupé por lugar, sumé el Monto y revisé G01, G02, G05 y G10."
+        },
+        {
+          "termino": "SQL (opcional)",
+          "definicion": "Un lenguaje para pedirle datos a una tabla: SELECT (salida), FROM (tabla), WHERE (filtro), GROUP BY (agrupación).",
+          "ejemplo": "WHERE categoria = 'Mercado' AND mes = 'oct'"
+        }
+      ],
+      "fraseClave": "Primero decido qué filas entran (con Y o con O), después agrupo y sumo, y dejo escritos los pasos para que otra persona llegue a la misma cifra.",
+      "paraLlevar": {
+        "consigna": "Responde la pregunta de Mercado en octubre con un procedimiento que otra persona pueda repetir y comprobar. Después adáptalo a la pregunta sobre la Tienda en octubre.",
+        "pasos": [
+          "Mi pregunta y sus condiciones (¿van con Y o con O?).",
+          "Mi predicción: qué códigos entran y uno que queda fuera, con su razón.",
+          "Filas, grupos y total, con su rótulo (medida y periodo).",
+          "La pregunta nueva: qué condición quité, cuál agregué y qué no puedo afirmar."
+        ],
+        "lupa": [
+          "Las condiciones están escritas y unidas con Y u O.",
+          "Se ven los códigos que forman la cifra.",
+          "La medida es la correcta (sumar, no contar) y está rotulada.",
+          "Otra persona puede repetir los pasos."
+        ]
+      }
+    },
+    "guia": {
+      "nombre": "Guía: talleres por tema y mes",
+      "titulo": "Talleres por tema y mes",
+      "caso": "Talleres por sede, tema y mes",
+      "historia": "Una organización ficticia hace talleres de Tecnología y de Arte en tres sedes: Norte, Centro y Sur. Reunió seis registros de talleres del mismo año y necesita responder: ¿cuántas asistencias hubo en los talleres de Tecnología durante octubre y cómo se reparten por sede? Tu tarea es responder con un procedimiento que otra persona pueda repetir y comprobar, y después adaptarlo a una pregunta nueva.",
+      "datos": {
+        "titulo": "Talleres realizados (mismo año)",
+        "unidad": [
+          "taller",
+          "talleres"
+        ],
+        "columnas": [
+          "Código",
+          "Sede",
+          "Tema",
+          "Mes",
+          "Asistentes"
+        ],
+        "filas": [
+          [
+            "T01",
+            "Norte",
+            "Tecnología",
+            "oct",
+            "12"
+          ],
+          [
+            "T02",
+            "Centro",
+            "Tecnología",
+            "oct",
+            "18"
+          ],
+          [
+            "T03",
+            "Norte",
+            "Arte",
+            "oct",
+            "9"
+          ],
+          [
+            "T04",
+            "Sur",
+            "Tecnología",
+            "sep",
+            "20"
+          ],
+          [
+            "T05",
+            "Sur",
+            "Tecnología",
+            "oct",
+            "15"
+          ],
+          [
+            "T06",
+            "Centro",
+            "Arte",
+            "oct",
+            "11"
+          ]
+        ],
+        "definiciones": [
+          "Cada **código** identifica un **taller realizado**.",
+          "**Sede**: Norte, Centro o Sur. **Tema**: Tecnología o Arte.",
+          "**Mes**: sep = septiembre y oct = octubre, del mismo año (2026).",
+          "**Asistentes**: cuántas asistencias se registraron en ese taller. Es la columna que se suma.",
+          "Una misma persona pudo ir a varios talleres: al sumar obtienes **asistencias registradas**, no personas distintas."
+        ],
+        "aviso": "Datos ficticios de la guía de la sesión, solo para practicar."
+      },
+      "niveles": [
+        {
+          "numero": 1,
+          "titulo": "Dos condiciones a la vez",
+          "objetivo": "Leer qué es cada fila, encontrar las condiciones de una pregunta y elegir las filas que cumplen las dos.",
+          "cierre": "Nivel 1 listo: ya conviertes una pregunta en condiciones y eliges filas con Y.",
+          "actividades": [
+            {
+              "id": "n1-toca-fila",
+              "tipo": "leer-filas",
+              "fase": "hacer",
+              "titulo": "Toca una fila",
+              "consigna": "Toca una fila de la tabla y lee lo que cuenta. Lee al menos **2 filas** para continuar.",
+              "minimo": 2,
+              "lecturas": {
+                "T01": "La fila T01 es un taller de Tecnología en la sede Norte, en octubre, con 12 asistencias registradas.",
+                "T02": "La fila T02 es un taller de Tecnología en la sede Centro, en octubre, con 18 asistencias registradas.",
+                "T03": "La fila T03 es un taller de Arte en la sede Norte, en octubre, con 9 asistencias registradas.",
+                "T04": "La fila T04 es un taller de Tecnología en la sede Sur, en septiembre, con 20 asistencias registradas.",
+                "T05": "La fila T05 es un taller de Tecnología en la sede Sur, en octubre, con 15 asistencias registradas.",
+                "T06": "La fila T06 es un taller de Arte en la sede Centro, en octubre, con 11 asistencias registradas."
+              },
+              "explicacion": "Todas las lecturas empiezan igual: **«es un taller de…»**. Cada fila es un taller realizado. El **código** sirve para reconocerlo; los **Asistentes** son lo que se suma.",
+              "tema": "unidad-y-codigos"
+            },
+            {
+              "id": "n1-que-es-fila",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "¿Qué es cada fila y qué se suma?",
+              "consigna": "Después de leer algunas filas: ¿qué representa cada fila y qué columna tiene sentido **sumar**?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Un taller realizado; se suman los Asistentes",
+                  "correcta": true
+                },
+                {
+                  "texto": "Una persona; se suma el Código",
+                  "feedback": "Ninguna columna identifica personas: cada fila es un taller. Y el código (T01, T02…) es una etiqueta para rastrear el taller: no se suma."
+                },
+                {
+                  "texto": "Una sede; se cuentan los temas",
+                  "feedback": "La sede es una columna: hay 3 sedes y 6 filas. Cada fila es un taller, y lo que tiene sentido sumar son los Asistentes."
+                },
+                {
+                  "texto": "Un taller; y los Asistentes son personas distintas",
+                  "feedback": "Cada fila sí es un taller, ¡bien! Pero una misma persona pudo ir a varios talleres. Asistentes cuenta asistencias registradas, no personas distintas."
+                }
+              ],
+              "pistas": [
+                "Vuelve a leer una fila completa: ¿cómo empieza la frase?",
+                "Mira las definiciones debajo de la tabla: ¿qué identifica cada código?"
+              ],
+              "explicacion": "Cada fila es **un taller realizado**. El **código** sirve para rastrear de dónde sale una cifra, pero no se suma. Lo que se suma son los **Asistentes**, y el resultado son **asistencias**, no personas.",
+              "tema": "unidad-y-codigos"
+            },
+            {
+              "id": "n1-condiciones",
+              "tipo": "seleccion",
+              "multiple": true,
+              "fase": "observar",
+              "titulo": "¿Cuáles son las condiciones?",
+              "consigna": "La pregunta es: «¿Cuántas asistencias se registraron en talleres de **Tecnología** durante **octubre** y cómo se distribuyen por **sede**?». **Marca las condiciones** que debe cumplir una fila para entrar en la respuesta.",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Tema = Tecnología",
+                  "correcta": true,
+                  "siFalta": "Falta una condición: ¿de qué tema habla la pregunta?"
+                },
+                {
+                  "texto": "Mes = oct",
+                  "correcta": true,
+                  "siFalta": "Falta una condición: ¿de qué mes habla la pregunta? Piensa en qué pasaría con un taller de Tecnología de septiembre."
+                },
+                {
+                  "texto": "Sede = Norte",
+                  "feedback": "La sede no deja filas por fuera: la pregunta pide **distribuir** el resultado por sede. Eso es agrupar, y se hace después de filtrar."
+                },
+                {
+                  "texto": "Tema = Arte",
+                  "feedback": "La pregunta habla de Tecnología. Un taller de Arte en octubre cumple el mes, pero no el tema."
+                }
+              ],
+              "pistas": [
+                "Busca en la pregunta las palabras que dejan filas por fuera.",
+                "«Por sede» no deja filas por fuera: solo dice cómo repartir el resultado."
+              ],
+              "explicacion": "Hay dos condiciones: **Tema = Tecnología** y **Mes = oct**. «Por sede» no filtra: dice cómo **agrupar** después. Como la fila debe cumplir las dos a la vez, se unen con **Y**.",
+              "tema": "condicion-y-o"
+            },
+            {
+              "id": "n1-predice",
+              "tipo": "tarjetas",
+              "fase": "entender",
+              "titulo": "Predice antes de filtrar",
+              "consigna": "Antes de marcar nada, **predice**. Para cada taller, decide si entra con el filtro **Tema = Tecnología Y Mes = oct**.",
+              "botones": {
+                "si": "Entra",
+                "no": "Queda fuera"
+              },
+              "tarjetas": [
+                {
+                  "texto": "**T04** · Sur · Tecnología · sep · 20",
+                  "respuesta": "no",
+                  "explicacion": "Es Tecnología, pero de septiembre. Con Y tiene que cumplir las dos condiciones, y le falla el mes."
+                },
+                {
+                  "texto": "**T03** · Norte · Arte · oct · 9",
+                  "respuesta": "no",
+                  "explicacion": "Es de octubre, pero de Arte. Cumple una sola condición, así que con Y queda fuera."
+                },
+                {
+                  "texto": "**T05** · Sur · Tecnología · oct · 15",
+                  "respuesta": "si",
+                  "explicacion": "Cumple las dos: es Tecnología y es de octubre."
+                },
+                {
+                  "texto": "**T06** · Centro · Arte · oct · 11",
+                  "respuesta": "no",
+                  "explicacion": "Es de octubre, pero de Arte. Le falta el tema."
+                },
+                {
+                  "texto": "**T02** · Centro · Tecnología · oct · 18",
+                  "respuesta": "si",
+                  "explicacion": "Tecnología y octubre: entra."
+                },
+                {
+                  "texto": "Ahora alguien cambia **Y** por **O**: Tecnología **O** octubre. ¿**T04** (Tecnología · sep) entra?",
+                  "respuesta": "si",
+                  "explicacion": "Con O basta cumplir una condición, y T04 es de Tecnología. Por eso O mete filas que la pregunta no pedía."
+                }
+              ],
+              "explicacion": "Con **Y** entran solo las filas que cumplen **las dos** condiciones; con **O** basta una. Predecir antes de filtrar te deja revisar después: si la herramienta muestra algo distinto de lo que esperabas, revisa el filtro.",
+              "tema": "seleccionar-sin-borrar"
+            },
+            {
+              "id": "n1-marca-y",
+              "tipo": "seleccionar-filas",
+              "fase": "aplicar",
+              "titulo": "Marca las filas con Y",
+              "consigna": "Ahora sí: **toca las filas** que cumplen **Tema = Tecnología Y Mes = oct**. Marcar no borra: las demás siguen en la tabla.",
+              "esperadas": [
+                "T01",
+                "T02",
+                "T05"
+              ],
+              "feedback": {
+                "sobran": "Alguna fila marcada cumple solo una condición. Con Y, cada taller debe ser de Tecnología **y** de octubre.",
+                "faltan": "Vas bien. Falta algún taller de Tecnología en octubre: recorre la tabla fila por fila."
+              },
+              "pistas": [
+                "Primero busca Tecnología en la columna Tema. Luego, de esas, quédate solo con las de oct.",
+                "Son tres talleres, uno en cada sede."
+              ],
+              "explicacion": "Entran **T01, T02 y T05**: 3 talleres. T04 queda fuera aunque es de Tecnología (es de septiembre). T03 y T06 quedan fuera aunque son de octubre (son de Arte). Deja escrito el criterio junto a la tabla: **Tema = Tecnología Y Mes = oct**.",
+              "tema": "seleccionar-sin-borrar"
+            }
+          ]
+        },
+        {
+          "numero": 2,
+          "titulo": "Agrupar y sumar",
+          "objetivo": "Agrupar las filas elegidas, sumar la cantidad que pide la pregunta y no confundirla con contar filas.",
+          "cierre": "Nivel 2 listo: sabes cuándo contar, cuándo sumar y cómo rotular lo que obtuviste.",
+          "actividades": [
+            {
+              "id": "n2-agrupa",
+              "tipo": "conteo",
+              "fase": "hacer",
+              "titulo": "Agrupa por sede y suma",
+              "consigna": "Reúne los 3 talleres resaltados por **sede** y **suma** sus Asistentes.",
+              "usaDatos": true,
+              "resaltar": [
+                "T01",
+                "T02",
+                "T05"
+              ],
+              "categorias": [
+                "Norte",
+                "Centro",
+                "Sur"
+              ],
+              "esperado": {
+                "Norte": 12,
+                "Centro": 18,
+                "Sur": 15
+              },
+              "erroresComunes": [
+                {
+                  "valores": {
+                    "Norte": 1,
+                    "Centro": 1,
+                    "Sur": 1
+                  },
+                  "mensaje": "Te salió 1 por sede: eso es **contar talleres**, no sumar asistencias. La pregunta es cuántas asistencias hubo: suma la columna Asistentes."
+                },
+                {
+                  "valores": {
+                    "Norte": 21,
+                    "Centro": 29,
+                    "Sur": 35
+                  },
+                  "mensaje": "Sumaste las filas que entran con **O**. Usa solo las resaltadas: Tecnología **y** octubre."
+                },
+                {
+                  "valores": {
+                    "Norte": 12,
+                    "Centro": 18,
+                    "Sur": 35
+                  },
+                  "mensaje": "Norte y Centro están bien. En Sur sumaste también T04, que es de septiembre: te faltó la condición del mes."
+                },
+                {
+                  "valores": {
+                    "Norte": 21,
+                    "Centro": 29,
+                    "Sur": 15
+                  },
+                  "mensaje": "Sur está bien. En Norte y Centro sumaste también talleres de Arte (T03 y T06): te faltó la condición del tema."
+                }
+              ],
+              "mensajeGeneral": "Vas por buen camino. Revisa {categorias}: suma solo los Asistentes de las filas resaltadas de esa sede.",
+              "pistas": [
+                "Norte: T01. Centro: T02. Sur: T05.",
+                "Mira la columna Asistentes de cada una."
+              ],
+              "explicacion": "Tecnología en octubre, por sede: **Norte 12 · Centro 18 · Sur 15**. Cada sede tiene una sola fila seleccionada; por eso, si alguien **cuenta** en vez de sumar, le sale 1 por sede, y ese 1 no son asistencias.",
+              "tema": "agrupar-y-sumar"
+            },
+            {
+              "id": "n2-contar-o-sumar",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "¿Contar o sumar?",
+              "consigna": "Dos personas resumieron **las mismas 3 filas** de dos formas. La pregunta era «¿cuántas asistencias hubo en Tecnología en octubre?». ¿Qué columna la responde?",
+              "apoyo": {
+                "tipo": "tabla",
+                "titulo": "Tecnología en octubre, resumido de dos formas",
+                "columnas": [
+                  "Sede",
+                  "Contar filas",
+                  "Sumar Asistentes"
+                ],
+                "filas": [
+                  [
+                    "Norte",
+                    "1",
+                    "12"
+                  ],
+                  [
+                    "Centro",
+                    "1",
+                    "18"
+                  ],
+                  [
+                    "Sur",
+                    "1",
+                    "15"
+                  ],
+                  [
+                    "Total",
+                    "3",
+                    "45"
+                  ]
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "«Sumar Asistentes»: la pregunta es por asistencias",
+                  "correcta": true
+                },
+                {
+                  "texto": "«Contar filas»: hubo 1 por sede",
+                  "feedback": "Ese 1 dice cuántos **talleres** entraron por sede, no cuántas asistencias hubo."
+                },
+                {
+                  "texto": "Las dos dicen lo mismo",
+                  "feedback": "3 talleres no son 45 asistencias. Son dos medidas distintas que responden dos preguntas distintas."
+                },
+                {
+                  "texto": "Ninguna: hay que sumar los códigos",
+                  "feedback": "Los códigos son etiquetas (T01, T02…): no se suman. Sirven para mostrar qué filas formaron cada cifra."
+                }
+              ],
+              "explicacion": "**Contar** responde «¿cuántos talleres?» (3). **Sumar** responde «¿cuántas asistencias?» (45). Antes de dar un número, pregúntate: **«¿conté talleres o sumé asistencias?»**.",
+              "tema": "agrupar-y-sumar"
+            },
+            {
+              "id": "n2-con-o",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "Una consulta que parece razonable",
+              "consigna": "Alguien del equipo filtró **Tema = Tecnología O Mes = oct** y le dio **85**. Su suma está bien hecha. Entonces, ¿qué pasó?",
+              "apoyo": {
+                "tipo": "comparacion",
+                "items": [
+                  {
+                    "etiqueta": "Con Y",
+                    "texto": "Tecnología **Y** oct → T01, T02, T05 → **45**"
+                  },
+                  {
+                    "etiqueta": "Con O",
+                    "texto": "Tecnología **O** oct → T01, T02, T03, T04, T05, T06 → **85**"
+                  }
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Con O entraron filas que cumplen solo una condición, como T03 (Arte en octubre) y T04 (Tecnología en septiembre)",
+                  "correcta": true
+                },
+                {
+                  "texto": "Se equivocó al sumar",
+                  "feedback": "La suma de las seis filas sí da 85. El error pasó **antes** de sumar: en las filas que dejó entrar."
+                },
+                {
+                  "texto": "O es más completo, así que su cifra es mejor",
+                  "feedback": "O mete más filas, pero no las que pide la pregunta. Más filas no es una mejor respuesta: la pregunta pide Tecnología **en** octubre."
+                },
+                {
+                  "texto": "Las dos cifras responden la misma pregunta",
+                  "feedback": "Responden preguntas distintas. Solo una responde «asistencias en Tecnología durante octubre»."
+                }
+              ],
+              "pistas": [
+                "Busca una fila que esté en la lista de O y no en la de Y. ¿Cuántas condiciones cumple?"
+              ],
+              "explicacion": "El error ocurre **antes de sumar**, en el filtro. Aquí entraron **las seis filas**: todas son de Tecnología o de octubre. Que una fórmula o una consulta no dé error no garantiza que responda la pregunta. Si el total no cuadra, revisa primero las condiciones y las filas; después, la suma.",
+              "tema": "condicion-y-o"
+            },
+            {
+              "id": "n2-o-bien",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Cuando O sí es la respuesta",
+              "consigna": "Otra pregunta: «En octubre, ¿cuántas asistencias hubo en las sedes **Norte o Sur**?». Aquí la O está **dentro de una misma columna**: vale cualquiera de las dos sedes, pero el mes sigue siendo obligatorio. ¿Cuánto da?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "36",
+                  "correcta": true
+                },
+                {
+                  "texto": "56",
+                  "feedback": "Esa es la suma de Norte y Sur en los dos meses. Te faltó la condición del mes: (Norte O Sur) **Y** oct."
+                },
+                {
+                  "texto": "65",
+                  "feedback": "Ese es todo lo de octubre, incluido Centro. La sede también filtra: solo Norte o Sur."
+                },
+                {
+                  "texto": "3",
+                  "feedback": "Tres es el número de talleres que entran. La pregunta es por asistencias: suma la columna Asistentes."
+                }
+              ],
+              "pistas": [
+                "Primero quédate con las filas de octubre. De esas, toma las de Norte o Sur.",
+                "Entran T01, T03 y T05."
+              ],
+              "explicacion": "Entran **T01 (12), T03 (9) y T05 (15): 36 asistencias**. La regla completa es **(Sede = Norte O Sede = Sur) Y Mes = oct**. O no es «malo»: sirve cuando la pregunta acepta cualquiera de dos valores. El error es usarlo cuando la pregunta exige las dos condiciones.",
+              "tema": "condicion-y-o"
+            },
+            {
+              "id": "n2-rotula",
+              "tipo": "completar",
+              "fase": "entender",
+              "titulo": "Ponle nombre a la cifra",
+              "consigna": "Una cifra sin rótulo se presta para confusiones. Completa la frase de la respuesta principal.",
+              "frase": "Se registraron {0} {1} en talleres de Tecnología durante {2}.",
+              "huecos": [
+                {
+                  "opciones": [
+                    {
+                      "texto": "45",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "3",
+                      "feedback": "3 es el número de talleres seleccionados. La frase habla de asistencias."
+                    },
+                    {
+                      "texto": "85",
+                      "feedback": "85 sale con O: incluye talleres de Arte y de septiembre."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "asistencias",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "personas distintas",
+                      "feedback": "Una misma persona pudo ir a varios talleres: la tabla no permite saber cuántas personas distintas hubo."
+                    },
+                    {
+                      "texto": "talleres",
+                      "feedback": "Los talleres seleccionados son 3; 45 es la suma de los asistentes."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "octubre",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "septiembre y octubre",
+                      "feedback": "Septiembre quedó fuera con la condición Mes = oct."
+                    },
+                    {
+                      "texto": "todo el año",
+                      "feedback": "La tabla solo tiene septiembre y octubre; la cifra es de un mes."
+                    }
+                  ]
+                }
+              ],
+              "textoLibre": {
+                "etiqueta": "Si quieres, escribe el rótulo con tus palabras (opcional, queda en tu cuaderno):",
+                "clave": "rotulo-cifra"
+              },
+              "explicacion": "Un buen rótulo dice **qué medida** (asistencias registradas), **de qué** (talleres de Tecnología) y **qué periodo** (octubre). Decir «45 personas» sería afirmar algo que la tabla no permite.",
+              "tema": "unidad-y-codigos"
+            }
+          ]
+        },
+        {
+          "numero": 3,
+          "titulo": "Un procedimiento que otro pueda repetir",
+          "objetivo": "Escribir los pasos, cambiar la pregunta de forma controlada y resolver el reto. Es el reto de la clase, en versión autoguiada.",
+          "cierre": "Nivel 3 listo: tu procedimiento se puede repetir, comprobar y adaptar.",
+          "actividades": [
+            {
+              "id": "n3-repetible",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "¿Se puede repetir?",
+              "consigna": "Cuatro personas cuentan cómo llegaron a su respuesta. ¿Con cuál procedimiento otra persona llegaría **a la misma cifra** sin tener que preguntar nada?",
+              "opciones": [
+                {
+                  "texto": "«Filtré Tema = Tecnología Y Mes = oct; entraron T01, T02 y T05. Agrupé por sede y sumé Asistentes.»",
+                  "correcta": true
+                },
+                {
+                  "texto": "«Sumé lo importante de octubre.»",
+                  "feedback": "¿Qué es «lo importante»? Otra persona no sabría qué filas usar. Escribe cada condición tal cual la aplicaste."
+                },
+                {
+                  "texto": "«Miré la tabla y me dio 45.»",
+                  "feedback": "La cifra es correcta, pero nadie puede comprobarla: no dice qué filas entraron ni qué operación hiciste."
+                },
+                {
+                  "texto": "«Filtré Tecnología, agrupé por sede y sumé.»",
+                  "feedback": "Casi: falta una condición. Sin el mes, otra persona sumaría también T04 (septiembre) y le daría 65."
+                }
+              ],
+              "explicacion": "Un procedimiento repetible deja a la vista **tres decisiones**: la **selección** (las condiciones y los códigos que entraron), la **agrupación** (por sede) y la **medida** (sumar Asistentes).",
+              "tema": "procedimiento-reproducible"
+            },
+            {
+              "id": "n3-sql",
+              "tipo": "emparejar",
+              "fase": "entender",
+              "titulo": "La misma receta en SQL (opcional)",
+              "consigna": "**Opcional, sin instalar nada.** SQL es un lenguaje para pedirle datos a una tabla. Esta consulta hace lo mismo que hiciste a mano. Empareja cada parte con lo que hace. Si nunca lo has visto, no pasa nada: lee cada parte como un paso de la receta.",
+              "apoyo": {
+                "tipo": "texto",
+                "texto": "**SELECT** sede, SUM(asistentes) AS total **FROM** registros **WHERE** tema = 'Tecnología' **AND** mes = 'oct' **GROUP BY** sede **ORDER BY** total DESC;"
+              },
+              "tipos": [
+                {
+                  "id": "salida",
+                  "texto": "Qué quiero ver",
+                  "ayuda": "la salida: columnas y medida"
+                },
+                {
+                  "id": "tabla",
+                  "texto": "De qué tabla",
+                  "ayuda": "dónde están los datos"
+                },
+                {
+                  "id": "seleccion",
+                  "texto": "Qué filas entran",
+                  "ayuda": "la selección: las condiciones"
+                },
+                {
+                  "id": "agrupacion",
+                  "texto": "Cómo agrupo",
+                  "ayuda": "reunir filas que comparten un valor"
+                },
+                {
+                  "id": "orden",
+                  "texto": "En qué orden muestro",
+                  "ayuda": "de mayor a menor, por ejemplo"
+                }
+              ],
+              "pares": [
+                {
+                  "item": "SELECT sede, SUM(asistentes) AS total",
+                  "correcto": "salida",
+                  "feedback": "SELECT dice qué se muestra: la sede y la suma de asistentes, con el nombre «total»."
+                },
+                {
+                  "item": "FROM registros",
+                  "correcto": "tabla",
+                  "feedback": "FROM dice de qué tabla salen los datos: la tabla «registros»."
+                },
+                {
+                  "item": "WHERE tema = 'Tecnología' AND mes = 'oct'",
+                  "correcto": "seleccion",
+                  "feedback": "WHERE es el filtro: qué filas entran. AND es la Y: deben cumplir las dos condiciones."
+                },
+                {
+                  "item": "GROUP BY sede",
+                  "correcto": "agrupacion",
+                  "feedback": "GROUP BY reúne las filas de la misma sede para sumarlas juntas."
+                },
+                {
+                  "item": "ORDER BY total DESC",
+                  "correcto": "orden",
+                  "feedback": "ORDER BY ordena el resultado; DESC significa de mayor a menor."
+                }
+              ],
+              "explicacion": "**SELECT** es la salida, **WHERE** la selección (AND = Y, OR = O), **GROUP BY** la agrupación y **SUM** la medida. Resultado: Centro 18, Sur 15, Norte 12. Ojo: si en el WHERE escribes OR en lugar de AND, la consulta corre sin error… y responde otra pregunta.",
+              "tema": "sql-opcional"
+            },
+            {
+              "id": "n3-nueva-filas",
+              "tipo": "seleccionar-filas",
+              "fase": "aplicar",
+              "titulo": "Cambia la pregunta · Paso 1",
+              "consigna": "Pregunta nueva: «En octubre, ¿cuántas asistencias hubo en la sede **Centro**, en todos los temas?». Cambia el procedimiento de forma controlada: **quita** la condición de tema y **agrega** Sede = Centro. Toca las filas que entran.",
+              "esperadas": [
+                "T02",
+                "T06"
+              ],
+              "feedback": {
+                "sobran": "Revisa las dos condiciones nuevas: Sede = Centro **Y** Mes = oct. El tema ya no filtra.",
+                "faltan": "Falta algún taller de Centro en octubre. Ojo: ahora no importa si es de Tecnología."
+              },
+              "pistas": [
+                "Busca Centro en la columna Sede y revisa que sea de oct.",
+                "Son dos talleres: uno de cada tema."
+              ],
+              "explicacion": "Entran **T02 y T06**. Quitaste «Tema = Tecnología», agregaste «Sede = Centro» y el mes se quedó igual.",
+              "tema": "procedimiento-reproducible"
+            },
+            {
+              "id": "n3-nueva-suma",
+              "tipo": "conteo",
+              "fase": "aplicar",
+              "titulo": "Cambia la pregunta · Paso 2",
+              "consigna": "Ahora agrupa las filas resaltadas por **tema** y suma sus Asistentes.",
+              "usaDatos": true,
+              "resaltar": [
+                "T02",
+                "T06"
+              ],
+              "categorias": [
+                "Tecnología",
+                "Arte"
+              ],
+              "esperado": {
+                "Tecnología": 18,
+                "Arte": 11
+              },
+              "erroresComunes": [
+                {
+                  "valores": {
+                    "Tecnología": 18,
+                    "Arte": 0
+                  },
+                  "mensaje": "Dejaste la condición vieja (Tecnología). En la pregunta nueva el tema ya no filtra: se usa para agrupar. Mira T06."
+                },
+                {
+                  "valores": {
+                    "Tecnología": 1,
+                    "Arte": 1
+                  },
+                  "mensaje": "Eso es **contar talleres**. La pregunta es por asistencias: suma la columna Asistentes."
+                },
+                {
+                  "valores": {
+                    "Tecnología": 45,
+                    "Arte": 20
+                  },
+                  "mensaje": "Sumaste las filas que entran con **O** (Centro O octubre). Usa solo las resaltadas: Centro **y** octubre."
+                }
+              ],
+              "mensajeGeneral": "Vas por buen camino. Revisa {categorias}: suma solo las filas resaltadas de ese tema.",
+              "pistas": [
+                "Tecnología: T02. Arte: T06.",
+                "Mira la columna Asistentes de cada una."
+              ],
+              "explicacion": "Centro en octubre, por tema: **Tecnología 18 · Arte 11**; total **29 asistencias registradas**. Mantén los dos resultados rotulados: 29 (Centro, octubre) no es el total anterior de 45 (Tecnología, octubre).",
+              "tema": "agrupar-y-sumar"
+            },
+            {
+              "id": "n3-reto",
+              "tipo": "constructor",
+              "fase": "aplicar",
+              "titulo": "El reto: un procedimiento que otro pueda repetir",
+              "consigna": "Responde la pregunta de Tecnología en octubre con un procedimiento que otra persona pueda repetir y verificar. Después adáptalo a una pregunta nueva sobre Centro. Puedes usar filtros, marcar filas o escribir SQL (opcional): en todos los casos muestra las condiciones y las filas que entraron.",
+              "rutas": [
+                {
+                  "id": "mapa",
+                  "nombre": "Ruta Mapa",
+                  "descripcion": "La pregunta ya viene dada. Te concentras en filtrar, agrupar, sumar y explicar tus pasos.",
+                  "preguntaDada": "¿Cuántas asistencias se registraron en talleres de Tecnología durante octubre y cómo se distribuyen por sede?"
+                },
+                {
+                  "id": "brujula",
+                  "nombre": "Ruta Brújula",
+                  "descripcion": "Haces tu propia pregunta con dos condiciones. Ideas: Arte en octubre por sede, la sede Sur en los dos meses por tema, Norte o Sur en octubre…"
+                },
+                {
+                  "id": "telescopio",
+                  "nombre": "Ruta Telescopio",
+                  "descripcion": "Misma pregunta, pero además escribes la consulta SQL y explicas qué hace cada parte (opcional, sin instalar nada).",
+                  "preguntaDada": "¿Cuántas asistencias se registraron en talleres de Tecnología durante octubre y cómo se distribuyen por sede?"
+                }
+              ],
+              "pasos": [
+                {
+                  "clave": "pregunta",
+                  "titulo": "1 · Mi pregunta y sus condiciones",
+                  "ayuda": "Escribe la pregunta y, debajo, sus condiciones unidas con Y u O. Forma: «Tema = ___ Y Mes = ___».",
+                  "pistas": [
+                    "¿Qué palabras de la pregunta dejan filas por fuera? Esas son las condiciones.",
+                    "«Por sede» no es una condición: es cómo vas a agrupar."
+                  ]
+                },
+                {
+                  "clave": "prediccion",
+                  "titulo": "2 · Mi predicción",
+                  "ayuda": "Antes de filtrar, escribe qué códigos esperas que entren y uno que quede por fuera, con su razón.",
+                  "pistas": [
+                    "Recorre la tabla con dos preguntas de sí o no, una por condición.",
+                    "Forma: «Espero ___. ___ queda fuera porque ___»."
+                  ]
+                },
+                {
+                  "clave": "comprobacion",
+                  "titulo": "3 · Filas, grupos y total",
+                  "ayuda": "Marca las filas en la tabla y agrega los códigos aquí. Luego escribe la suma de cada grupo y el total, con su rótulo.",
+                  "pistas": [
+                    "Primero filtras, después agrupas y al final sumas.",
+                    "Pregúntate: «¿conté talleres o sumé asistencias?».",
+                    "Rotula: «asistencias registradas en talleres de ___ durante ___»."
+                  ],
+                  "permiteFilas": true
+                },
+                {
+                  "clave": "adaptacion",
+                  "titulo": "4 · La pregunta nueva y mis límites",
+                  "ayuda": "Adapta tu procedimiento a «En octubre, ¿cuántas asistencias hubo en Centro, en todos los temas?». Di qué condición quitaste y cuál agregaste, y una cosa que la tabla no permite afirmar.",
+                  "pistas": [
+                    "Quitas una condición de la pregunta original y agregas la de la sede. El mes se queda.",
+                    "Límites posibles: la suma son asistencias, no personas distintas; seis talleres no hablan de todo el año ni de otras organizaciones."
+                  ]
+                }
+              ],
+              "verificacion": [
+                "¿Escribí las condiciones y si van con Y o con O?",
+                "¿Anoté los códigos que entraron y uno que quedó fuera, con su razón?",
+                "¿Sumé Asistentes (no conté filas) y rotulé la medida y el periodo?",
+                "¿Otra persona podría repetir mis pasos sin preguntarme nada?",
+                "¿Dije qué condición cambié para la pregunta nueva y qué no puedo afirmar?"
+              ],
+              "ejemplo": "«Condiciones: Tema = Tecnología Y Mes = oct. Predije T01, T02 y T05; T04 queda fuera porque es Tecnología pero de septiembre, y T03 porque es de octubre pero de Arte. Agrupé por sede y sumé Asistentes: Norte 12 (T01), Centro 18 (T02) y Sur 15 (T05). Total: 45 asistencias registradas en talleres de Tecnología durante octubre, en 3 talleres. Pregunta nueva: quité la condición de tema y agregué Sede = Centro; entran T02 y T06: Tecnología 18 y Arte 11, total 29. Son asistencias, no personas distintas: una misma persona pudo ir a varios talleres.»",
+              "explicacion": "No se busca un texto largo: sirve si otra persona puede seguirlo y llegar a la misma cifra. Condiciones, filas, agrupación y medida, a la vista.",
+              "tema": "procedimiento-reproducible"
+            },
+            {
+              "id": "n3-cierre",
+              "tipo": "escritura",
+              "fase": "observar",
+              "titulo": "Cierre de la misión",
+              "consigna": "Completa estas dos frases. Quedan guardadas en tu cuaderno (solo en este navegador).",
+              "frases": [
+                {
+                  "clave": "cierre-y-o",
+                  "inicio": "Lo que cambió al pasar de Y a O fue…"
+                },
+                {
+                  "clave": "cierre-repetible",
+                  "inicio": "Otra persona puede repetir mi procedimiento porque…"
+                }
+              ],
+              "explicacion": "El procedimiento en una línea: **condiciones (Y u O) → filas que entran → agrupar → sumar → rotular → adaptar a la nueva pregunta.**"
+            }
+          ]
+        }
+      ],
+      "conceptos": [
+        {
+          "termino": "Filtro (condición)",
+          "definicion": "Una regla que deja ver solo las filas que la cumplen. Filtrar oculta filas, no las borra.",
+          "ejemplo": "Tema = Tecnología deja ver 4 talleres."
+        },
+        {
+          "termino": "Y",
+          "definicion": "La fila debe cumplir todas las condiciones a la vez.",
+          "ejemplo": "Tecnología Y octubre: T01, T02 y T05."
+        },
+        {
+          "termino": "O",
+          "definicion": "A la fila le basta cumplir al menos una condición. Sirve cuando la pregunta acepta cualquiera de dos valores.",
+          "ejemplo": "Tecnología O octubre mete las 6 filas (85); (Norte O Sur) Y octubre sí es una pregunta válida: 36."
+        },
+        {
+          "termino": "Agrupar",
+          "definicion": "Reunir las filas que comparten un valor para resumirlas juntas.",
+          "ejemplo": "Por sede: Norte 12, Centro 18, Sur 15."
+        },
+        {
+          "termino": "Contar ≠ sumar",
+          "definicion": "Contar dice cuántas filas hay; sumar dice cuánto dan sus cantidades.",
+          "ejemplo": "3 talleres de Tecnología en octubre, que suman 45 asistencias."
+        },
+        {
+          "termino": "Asistencias ≠ personas",
+          "definicion": "Una misma persona pudo ir a varios talleres. La suma da asistencias registradas, no personas distintas.",
+          "ejemplo": "«45 asistencias», no «45 personas»."
+        },
+        {
+          "termino": "Procedimiento reproducible",
+          "definicion": "Pasos escritos con los que otra persona llega a la misma cifra.",
+          "ejemplo": "Filtré Tecnología Y oct, agrupé por sede, sumé Asistentes y revisé T01, T02 y T05."
+        },
+        {
+          "termino": "SQL (opcional)",
+          "definicion": "Un lenguaje para pedirle datos a una tabla: SELECT (salida), FROM (tabla), WHERE (filtro), GROUP BY (agrupación).",
+          "ejemplo": "WHERE tema = 'Tecnología' AND mes = 'oct'"
+        }
+      ],
+      "fraseClave": "Primero decido qué filas entran (con Y o con O), después agrupo y sumo, y dejo escritos los pasos para que otra persona llegue a la misma cifra.",
+      "paraLlevar": {
+        "consigna": "Responde la pregunta de Tecnología en octubre con un procedimiento que otra persona pueda repetir y verificar. Después adáptalo a la pregunta sobre Centro en octubre.",
+        "pasos": [
+          "Mi pregunta y sus condiciones (¿van con Y o con O?).",
+          "Mi predicción: qué códigos entran y uno que queda fuera, con su razón.",
+          "Filas, grupos y total, con su rótulo (asistencias registradas y periodo).",
+          "La pregunta nueva: qué condición quité, cuál agregué y qué no puedo afirmar."
+        ],
+        "lupa": [
+          "Las condiciones están escritas y unidas con Y u O.",
+          "Se ven los códigos que forman la cifra.",
+          "La medida es la correcta (sumar, no contar) y está rotulada.",
+          "Otra persona puede repetir los pasos."
+        ]
+      }
+    }
+  },
   "teoria": {
     "intro": "Hoy vamos a convertir una pregunta en un procedimiento que cualquiera pueda repetir: elegir filas, agruparlas y sumarlas. Es como buscar en el celular las fotos de «mi familia» Y «en diciembre»: si usas bien el filtro, encuentras justo lo que buscabas.",
     "platzi": [
@@ -94,9 +1808,9 @@
         "titulo": "Agrupar y sumar (no es lo mismo que contar)",
         "idea": "Contar filas dice cuántos registros hay; sumar una columna dice cuánto dan sus cantidades.",
         "explicacion": "Después de seleccionar, se **agrupa** (por ejemplo, por sede) y se calcula una **medida**. **Contar** responde «¿cuántos talleres?» y **sumar** responde «¿cuántas asistencias?». Una **tabla dinámica** en Excel hace este paso; a mano también se puede. Siempre rotula qué medida es y de qué periodo.",
-        "cotidiano": "Contar cuántos domicilios pediste en el mes no es lo mismo que sumar cuánta plata gastaste en ellos.",
+        "cotidiano": "Contar cuántos partidos jugó tu equipo en el torneo no es lo mismo que sumar cuántos goles metió en esos partidos.",
         "ejemplo": "Polideportivo ficticio, Yoga en abril por sede: Belén 14, Robledo 7, total 21 asistencias. Filas seleccionadas: 2.",
-        "enElReto": "Agrupa por sede, suma la columna de asistentes y compara ese total con el número de filas, para no confundir las dos medidas."
+        "enElReto": "Agrupa por la columna que pide la pregunta (sede o lugar), suma la cantidad (asistentes o pesos) y compara ese total con el número de filas, para no confundir las dos medidas."
       },
       {
         "id": "procedimiento-reproducible",
@@ -121,7 +1835,7 @@
       "Lee qué representa cada fila y qué columna vas a sumar.",
       "Escribe las condiciones de la pregunta y decide si van con Y o con O.",
       "Predice qué códigos deberían entrar; luego filtra o marca las filas.",
-      "Agrupa por sede y suma la cantidad, rotulando medida y periodo.",
+      "Agrupa por la columna que pide la pregunta (sede o lugar) y suma la cantidad, rotulando medida y periodo.",
       "Escribe el procedimiento para que otra persona lo repita y adáptalo a la nueva pregunta."
     ],
     "errores": [
