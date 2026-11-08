@@ -671,10 +671,10 @@ textarea.campo { resize: vertical; min-height: 4.5rem; }
 
 /* Pista para deslizar la tabla: solo cuando la pantalla es angosta */
 .datos__deslizar { display: none; margin: 0 0 0.3rem; font-size: 0.95rem; color: var(--texto-suave); }
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .datos__deslizar { display: block; }
-  .tabla th, .tabla td { padding: 0.45rem 0.5rem; }
-  .tabla thead th { font-size: 0.8rem; }
+  .tabla th, .tabla td { padding: 0.45rem 0.4rem; }
+  .tabla thead th { font-size: 0.8rem; white-space: normal; vertical-align: bottom; }
 }
 .kolb__fase--actual { box-shadow: inset 0 -4px 0 var(--magenta); }
 

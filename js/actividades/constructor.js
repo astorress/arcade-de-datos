@@ -50,7 +50,7 @@ export function constructor(act, ctx) {
         h('button', { type: 'button', class: 'btn', onclick: () => {
           const sel = tabla.seleccion();
           if (!sel.length) return aviso('Primero marca una o más filas.');
-          ta.value = `${ta.value}${ta.value && !ta.value.endsWith('\n') ? '\n' : ''}Códigos: ${sel.join(', ')} → ${sel.length} ${sel.length === 1 ? 'inscripción' : 'inscripciones'}.`;
+          ta.value = `${ta.value}${ta.value && !ta.value.endsWith('\n') ? '\n' : ''}Códigos: ${sel.join(', ')} → ${sel.length} ${sel.length === 1 ? (ctx.mision?.datos?.unidad?.[0] || 'registro') : (ctx.mision?.datos?.unidad?.[1] || 'registros')}.`;
           ctx.guardar(k(paso.clave), ta.value);
           revisarEjemplo();
           aviso('Códigos agregados al paso 3.');

@@ -26,23 +26,23 @@ async function correr() {
   // Nivel 1
   await ir('#/mision/1/nivel/1/1');
   ok(D().querySelector('.btn--continuar').classList.contains('btn--bloqueado'), 'continuar bloqueado al inicio');
-  await clic(filaBtn('01')); ok(D().querySelector('.lectura__texto').textContent.startsWith('El registro 01 es una inscripción a Dibujo'), 'lectura fila 01');
+  await clic(filaBtn('01')); ok(D().querySelector('.lectura__texto').textContent.startsWith('El registro 01 es una venta de 2 papitas'), 'lectura fila 01');
   await clic(filaBtn('05')); ok(esBien(), 'leer 2 filas completa');
   ok(D().documentElement.scrollWidth <= 360, 'sin scroll horizontal en actividad con tabla');
   await ir('#/mision/1/nivel/1/2');
   ok(D().querySelector('.recordemos summary')?.textContent.includes('Unidad de análisis'), 'recordemos en la actividad');
-  await clic(btn('Una persona', '.opcion')); ok(fb().includes('no tiene un identificador') && !/incorrect/i.test(fb()), 'feedback "una persona"');
-  await clic(btn('Una inscripción', '.opcion')); ok(esBien(), '1.2 correcta');
+  await clic(btn('Un cliente', '.opcion')); ok(fb().includes('no tiene un dato que permita saber') && !/incorrect/i.test(fb()), 'feedback "una persona"');
+  await clic(btn('Una venta', '.opcion')); ok(esBien(), '1.2 correcta');
   await ir('#/mision/1/nivel/1/3');
-  await radio('Taller', 'Categórica'); await radio('Barrio', 'Categórica'); await radio('Fecha', 'Temporal'); await radio('Asistencia', 'Sí / No'); await radio('Código', 'Cantidad');
-  await clic(btn('Comprobar')); ok(fb().includes('El código identifica una inscripción; no es una cantidad.'), 'feedback código como cantidad');
+  await radio('Producto', 'Categórica'); await radio('Jornada', 'Categórica'); await radio('Fecha', 'Temporal'); await radio('Cantidad', 'Cantidad'); await radio('Valor total', 'Cantidad'); await radio('Pagada', 'Sí / No'); await radio('Código', 'Cantidad');
+  await clic(btn('Comprobar')); ok(fb().includes('El código identifica una venta; no es una cantidad.'), 'feedback código como cantidad');
   await radio('Código', 'Identificador'); await clic(btn('Comprobar')); ok(esBien(), '1.3 emparejar correcto');
   await ir('#/mision/1/nivel/1/4'); await clic(btn('No: cambia la etiqueta', '.opcion')); ok(esBien(), '1.4');
   await ir('#/mision/1/nivel/1/5');
-  await radio('Espacio 1', 'una persona'); await radio('Espacio 2', 'una característica'); await clic(btn('Comprobar'));
-  ok(fb().includes('La tabla no permite saber si son seis personas distintas'), 'feedback 6 personas');
-  await radio('Espacio 1', 'una inscripción'); await clic(btn('Comprobar')); ok(esBien(), '1.5');
-  const ta = D().querySelector('textarea'); ta.value = 'Una fila es una inscripción'; ta.dispatchEvent(new Event('input')); await esperar();
+  await radio('Espacio 1', 'un cliente'); await radio('Espacio 2', 'una característica'); await clic(btn('Comprobar'));
+  ok(fb().includes('La tabla no permite saber si son seis clientes distintos'), 'feedback 6 clientes');
+  await radio('Espacio 1', 'una venta'); await clic(btn('Comprobar')); ok(esBien(), '1.5');
+  const ta = D().querySelector('textarea'); ta.value = 'Una fila es una venta'; ta.dispatchEvent(new Event('input')); await esperar();
   await ir('#/mision/1/nivel/1/fin'); ok(D().body.textContent.includes('Nivel 1 listo: ya sabes leer una fila.'), 'cierre nivel 1');
   // Nivel 2
   await ir('#/mision/1/nivel/2/1');
@@ -50,26 +50,29 @@ async function correr() {
   ok(fb().includes('más concreta'), 'feedback distractor 2.1');
   D().querySelectorAll('.casilla input')[3].click(); D().querySelectorAll('.casilla input')[1].click(); D().querySelectorAll('.casilla input')[2].click(); await clic(btn('Comprobar')); ok(esBien(), '2.1');
   await ir('#/mision/1/nivel/2/2');
-  for (const r of ['no', 'si', 'no', 'si']) {
+  for (const r of ['no', 'si', 'no', 'si', 'si']) {
     const bs = D().querySelectorAll('.btn--decision'); const malo = r === 'si' ? bs[1] : bs[0]; const bueno = r === 'si' ? bs[0] : bs[1];
     await clic(malo); ok(D().querySelector('.tarjeta__explicacion').textContent.includes('Miremos'), 'tarjeta error productivo');
     await clic(bueno); await clic(D().querySelector('.tarjeta .btn--primario'));
   }
   ok(esBien(), '2.2 tarjetas');
-  await ir('#/mision/1/nivel/2/3'); await clic(btn('más inscripciones en estos registros', '.opcion')); ok(esBien(), '2.3');
+  await ir('#/mision/1/nivel/2/3'); await clic(btn('más ventas en estos registros', '.opcion')); ok(esBien(), '2.3');
   await ir('#/mision/1/nivel/2/4');
   for (const c of ['01', '02', '03', '04', '05']) await clic(filaBtn(c));
   await clic(btn('Comprobar')); ok(fb().includes('¿Qué significa el «Sí»'), 'feedback fila con No');
   await clic(filaBtn('02')); await clic(btn('Comprobar')); ok(esBien(), '2.4 filas');
   await ir('#/mision/1/nivel/2/5');
   const ins = D().querySelectorAll('.contador-input'); const set = async (v) => { v.forEach((x, i) => { ins[i].value = x; ins[i].dispatchEvent(new Event('input')); }); await esperar(30); };
-  await set([3, 2, 1]); await clic(btn('Comprobar')); ok(fb().includes('Contaste todas las inscripciones'), 'feedback conteo sin condición');
+  await set([3, 2, 1]); await clic(btn('Comprobar')); ok(fb().includes('Contaste todas las ventas'), 'feedback conteo sin condición');
   await set([2, 1, 1]); await clic(btn('Comprobar')); ok(esBien(), '2.4 conteo');
   await ir('#/mision/1/nivel/2/6'); await clic(btn('dos preguntas distintas', '.opcion')); ok(esBien(), '2.4 por qué cambió');
   await ir('#/mision/1/nivel/2/7');
-  await clic(btn('Vinieron 4 personas', '.opcion')); ok(fb().includes('Para hablar de personas únicas faltan datos'), 'feedback 4 personas');
-  await clic(btn('La suma de los códigos', '.opcion')); ok(fb().includes('El código identifica una inscripción'), 'feedback suma códigos');
-  await clic(btn('Hay 4 inscripciones', '.opcion')); ok(esBien(), '2.x honestidad');
+  await clic(btn('Hubo 4 clientes', '.opcion')); ok(fb().includes('Para hablar de clientes distintos faltan datos'), 'feedback 4 clientes');
+  await clic(btn('La suma de los códigos', '.opcion')); ok(fb().includes('El código identifica una venta'), 'feedback suma códigos');
+  await clic(btn('Hay 4 ventas pagadas', '.opcion')); ok(esBien(), '2.x honestidad');
+  await ir('#/mision/1/nivel/2/8');
+  await clic(btn('$25.500', '.opcion')); ok(fb().includes('incluido lo fiado'), 'feedback plata sin condición');
+  await clic(btn('$16.000', '.opcion')); ok(esBien(), '2.8 plata que entró');
   await ir('#/mision/1/nivel/2/fin'); ok(D().body.textContent.includes('Nivel 2 listo'), 'cierre nivel 2');
   // Nivel 3
   await ir('#/mision/1/nivel/3/1');
@@ -79,16 +82,16 @@ async function correr() {
   ok(btn('Ver ejemplo').disabled, 'la pregunta precargada no desbloquea el ejemplo');
   await clic(btn('Terminé mi reto')); ok(fb().includes('Te falta escribir'), 'reto incompleto avisa');
   const llenar = (id, v) => { const t = D().querySelector('#n3-reto-' + id); t.value = v; t.dispatchEvent(new Event('input')); };
-  llenar('fila-columnas', 'Cada fila representa una inscripción. Uso Taller.');
+  llenar('fila-columnas', 'Cada fila representa una venta. Uso Producto.');
   ok(!btn('Ver ejemplo').disabled, 'ejemplo se habilita al escribir');
   D().querySelector('.selector-filas').open = true; const tablaSel = D().querySelector('.selector-filas');
   [...tablaSel.querySelectorAll('.fila-btn')].filter((b) => /01|03|06/.test(b.textContent)).forEach((b) => b.click()); await esperar();
   await clic([...tablaSel.querySelectorAll('button')].find((b) => b.textContent.includes('Agregar')));
   ok(D().querySelector('#n3-reto-comprobacion').value.includes('Códigos: 01, 03, 06'), 'agregar códigos marcados');
-  llenar('respuesta-limite', 'Dibujo 3, Música 2, Programación 1. No permite saber personas distintas.');
+  llenar('respuesta-limite', 'Papitas 3, Gaseosa 2, Pan 1. No permite saber clientes distintos.');
   await clic(btn('Terminé mi reto')); ok(fb().includes('lista de verificación'), 'pide lista de verificación');
   D().querySelectorAll('.verificacion input').forEach((i) => i.click()); await clic(btn('Terminé mi reto')); ok(esBien(), 'reto completo');
-  await ir('#/mision/1/nivel/3/2'); await clic(btn('Solo la B', '.opcion')); ok(fb().includes('no tiene datos de población'), 'feedback población');
+  await ir('#/mision/1/nivel/3/2'); await clic(btn('Solo la B', '.opcion')); ok(fb().includes('no tiene un dato del cliente'), 'feedback clientes fieles');
   await clic(btn('Solo la A', '.opcion')); ok(esBien(), 'contraste');
   await ir('#/mision/1/nivel/3/3'); await clic(btn('Hay empate', '.opcion')); ok(esBien(), 'empate');
   await ir('#/mision/1/nivel/3/4'); await clic(btn('Listo')); ok(fb().includes('Completa también'), 'cierre pide frases');
@@ -104,9 +107,9 @@ async function correr() {
   ok(D().querySelector('.personaje-previa__nombre').textContent === 'TIGRE', 'nombre en la vista previa');
   ok(D().documentElement.scrollWidth <= 360, 'personaje sin scroll horizontal');
   await ir('#/'); ok(D().querySelector('.portada__pre').textContent.includes('TIGRE') && D().querySelector('.mundo__jugador svg rect[fill="#7FC200"]'), 'personaje personalizado en portada y mapa');
-  await ir('#/progreso'); const pts = D().querySelector('.marcador__valor').textContent; ok(pts === '0300', 'puntos 16x10+3x30+50=300 -> ' + pts);
+  await ir('#/progreso'); const pts = D().querySelector('.marcador__valor').textContent; ok(pts === '0310', 'puntos 17x10+3x30+50=310 -> ' + pts);
   ok(D().body.textContent.includes('Ganada'), 'insignia en progreso');
-  await ir('#/mision/1/cuaderno'); ok(D().body.textContent.includes('Códigos: 01, 03, 06') && D().body.textContent.includes('Una fila es una inscripción'), 'cuaderno guarda textos');
+  await ir('#/mision/1/cuaderno'); ok(D().body.textContent.includes('Códigos: 01, 03, 06') && D().body.textContent.includes('Una fila es una venta'), 'cuaderno guarda textos');
   await ir('#/mision/1/llevar'); ok(D().querySelectorAll('.hoja-previa tbody tr').length === 6 && D().body.textContent.includes('Datos ficticios'), 'hoja para llevar');
   await ir('#/glosario'); const b = D().querySelector('#buscar-glosario'); b.value = 'identif'; b.dispatchEvent(new Event('input')); await esperar();
   ok(D().querySelectorAll('.carta').length >= 1 && D().querySelector('.carta__termino').textContent.startsWith('Identificador'), 'buscador glosario');
@@ -122,7 +125,7 @@ async function correr() {
   ok(D().body.textContent.includes('RONDA TERMINADA'), 'repaso: ronda completa');
   // Modo clase
   await ir('#/clase/1');
-  ok(D().body.classList.contains('modo-clase') && D().querySelector('.clase-titulo')?.textContent === 'Centro Cultural', 'modo clase: portada');
+  ok(D().body.classList.contains('modo-clase') && D().querySelector('.clase-titulo')?.textContent === 'La Tienda del Barrio', 'modo clase: portada');
   for (let k = 0; k < 4; k++) await clic(D().querySelector('[aria-label="Diapositiva siguiente"]'));
   ok(/#\/clase\/1\/5$/.test(W().location.hash), 'modo clase: navega y guarda la diapositiva');
   W().document.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight' })); await esperar();
