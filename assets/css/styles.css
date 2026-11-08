@@ -997,3 +997,40 @@ body.modo-clase main { padding: 0; }
 .banda-previa { margin: 0 0 1rem; padding: 0.6rem 0.9rem; border: 3px dashed var(--magenta); background: var(--superficie); font-size: 0.98rem; }
 .banda-previa .chips { margin-top: 0.4rem; }
 .banda-previa a { color: var(--magenta-texto); }
+
+/* ---------- Mapa: detalles de Medellín ---------- */
+.m-montana { fill: #3D6B58; }
+.m-ladrillo { fill: #9A4A2C; }
+.m-casa--ladrillo .m-muro { fill: #B5532E; }
+.m-edificio { fill: #6E6890; stroke: #3B3550; stroke-width: 1; }
+.m-edificio--b { fill: #8780A8; }
+.m-aguja { fill: #A8A2C4; }
+.m-viaducto { fill: #8E88A8; }
+.m-vagon { fill: #E9E5F0; stroke: #3B3550; stroke-width: 1; }
+.m-franja { fill: #7FC200; }
+.m-loma { fill: var(--m-copa); }
+.m-paso { fill: #C9C3D6; }
+.m-techo-escalera { fill: #FF7C1A; }
+.m-grafiti--a { fill: #CB318E; }
+.m-grafiti--b { fill: #2F9ED8; }
+.m-grafiti--c { fill: #F5C431; }
+.m-madera { fill: #8A6338; }
+.m-flor-s--a { fill: #F5C431; }
+.m-flor-s--b { fill: #CB318E; }
+.m-flor-s--c { fill: #FF7C1A; }
+.m-flor-s--d { fill: #F3EEE3; }
+.m-chiva-cuerpo { fill: #F5C431; stroke: #3B3550; stroke-width: 1; }
+.m-vidrio { fill: #9FD8F5; }
+.m-rueda { fill: #2B2B2B; }
+.m-guayacan .m-copa, .m-guayacan .m-copa--alta { fill: #F5C431; }
+.m-guayacan--rosa .m-copa, .m-guayacan--rosa .m-copa--alta { fill: #E68AC0; }
+:root[data-theme='light'] .m-montana { fill: #7FAF7E; }
+:root[data-theme='light'] .m-ladrillo { fill: #C0603A; }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) .m-montana { fill: #7FAF7E; }
+  :root:not([data-theme='dark']) .m-ladrillo { fill: #C0603A; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .m-tren { animation: m-tren 14s linear infinite; }
+  @keyframes m-tren { from { transform: translateX(-110px); } to { transform: translateX(135px); } }
+}

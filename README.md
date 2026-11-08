@@ -1,6 +1,6 @@
 # Arcade de Datos
 
-Página web de apoyo, con estética de videojuego arcade, para que los estudiantes de **Estud-IA · Análisis de datos (Capa 1)** repasen y practiquen entre sesiones. Una misión por sesión (8 en total) en un mapa de mundo tipo videojuego. Cada misión trae una **guía de teoría** («Recordemos»: qué se ve en Platzi y los conceptos que necesitas para el reto), 3 niveles, pistas, retroalimentación que explica el porqué, cuaderno local, hoja imprimible e insignia.
+Página web de apoyo, con estética de videojuego arcade, hecha por Sebastian Torres para que sus estudiantes de análisis de datos repasen y practiquen entre sesiones. Una misión por sesión (8 en total) en un mapa de mundo tipo videojuego. Cada misión trae una **guía de teoría** («Recordemos»: qué se ve en las clases asincrónicas y los conceptos que necesitas para el reto), 3 niveles, pistas, retroalimentación que explica el porqué, cuaderno local, hoja imprimible e insignia.
 
 - **Personaje personalizable** (estilo de cabeza, colores, nombre de jugador opcional y accesorios que se desbloquean con cada insignia). Recorre el mapa y aparece en la barra superior.
 - **Profe Dato**, un guía pixel que cuenta la historia y acompaña cada acierto y cada error en cajas de diálogo (sus frases están en `content/sitio.json` → `guia`).
@@ -69,7 +69,7 @@ Con el sitio corriendo, abre <http://localhost:5180/tests/e2e.html>. Juega la Mi
 ```
 index.html                  Esqueleto de la página
 .docker/                    Dockerfile, docker-compose.yml y entrypoint.sh del devcontainer
-assets/css/styles.css       Estilos: acentos de EstudIA_PlantillaPPT.pptx sobre fondos arcade suaves
+assets/css/styles.css       Estilos: acentos naranja, magenta y verde sobre fondos arcade suaves
                             (oscuro: índigo #1E1B33 · claro: crema #F3ECDD; nada de negro ni blanco puros)
 assets/fonts/               Jersey 10 recortada al español (licencia OFL)
 js/main.js                  Rutas, ajustes y arranque
@@ -185,6 +185,6 @@ En ambos casos el repositorio no contiene material de la universidad: solo los d
 
 ## Antes de publicar (pendiente de decidir)
 
-- Nombre del sitio (hoy «Arcade de Datos», se cambia en `content/sitio.json`) y cómo referirse al programa. No se usan logos de EAFIT, Alcaldía de Medellín ni Platzi.
+- Nombre del sitio (hoy «Arcade de Datos», se cambia en `content/sitio.json`). El sitio no usa logos ni nombres de instituciones.
 - Si se usará también durante la clase (proyectada) o solo como repaso.
 - Contenido de las misiones 2 a 8, después de preparar cada clase.

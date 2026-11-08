@@ -16,8 +16,10 @@ async function correr() {
   // 1. Como estudiante: todo bloqueado menos la misión 1.
   await cargar('/?previa=0#/');
   W().localStorage.clear(); W().sessionStorage.clear(); W().location.reload(); await esperar(900);
-  ok(D().querySelectorAll('.cp--pronto').length === 7, 'estudiante: 7 misiones bloqueadas');
-  await ir('#/mision/4/nivel/1/1'); ok(D().body.textContent.includes('PRÓXIMAMENTE') || D().body.textContent.includes('Próximamente'), 'estudiante: no puede entrar a un nivel bloqueado');
+  const panel = (await import('/content/panel-de-control.js?v=' + Date.now())).default;
+  const cerradas = [1, 2, 3, 4, 5, 6, 7, 8].filter((n) => !(panel[n] && [true, 'si', 'sí', 'on'].includes(panel[n].abierta)));
+  ok(D().querySelectorAll('.cp--pronto').length === cerradas.length, `estudiante: ${cerradas.length} misiones bloqueadas según el panel`);
+  await ir(`#/mision/${cerradas[cerradas.length - 1] || 8}/nivel/1/1`); ok(D().body.textContent.includes('PRÓXIMAMENTE') || D().body.textContent.includes('Próximamente'), 'estudiante: no puede entrar a un nivel bloqueado');
   log.push('OK   vista de estudiante');
 
   // 2. Vista previa: cada misión y cada caso.

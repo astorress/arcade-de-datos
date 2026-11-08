@@ -17,10 +17,12 @@ async function correr() {
   W().localStorage.clear(); W().location.reload(); await esperar(900);
   ok(D().querySelector('.portada__titulo')?.textContent === 'Arcade de Datos', 'portada');
   ok(D().querySelectorAll('.cp').length === 8, '8 checkpoints en el mapa');
-  ok(D().querySelectorAll('.cp--pronto').length === 7, '7 próximamente');
+  const panel = (await import('/content/panel-de-control.js?v=' + Date.now())).default;
+  const cerradas = [1, 2, 3, 4, 5, 6, 7, 8].filter((n) => !(panel[n] && [true, 'si', 'sí', 'on'].includes(panel[n].abierta)));
+  ok(D().querySelectorAll('.cp--pronto').length === cerradas.length, `${cerradas.length} próximamente según el panel`);
   ok(D().querySelector('.mundo__jugador svg'), 'personaje en la misión actual');
   ok(D().documentElement.scrollWidth <= 360, 'sin scroll horizontal en el mapa (' + D().documentElement.scrollWidth + ')');
-  await ir('#/mision/2'); ok(D().body.textContent.includes('PRÓXIMAMENTE'), 'misión 2 próximamente');
+  if (cerradas.length) { await ir('#/mision/' + cerradas[0]); ok(D().body.textContent.includes('PRÓXIMAMENTE'), `misión ${cerradas[0]} próximamente`); }
   await ir('#/mision/1/teoria'); ok(D().querySelectorAll('.tema').length === 7 && D().querySelectorAll('.curso-platzi').length === 3, 'guía de teoría: 7 temas y 3 cursos Platzi');
   ok(D().documentElement.scrollWidth <= 360, 'teoría sin scroll horizontal');
   // Nivel 1
