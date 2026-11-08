@@ -18,7 +18,7 @@
 
 export default {
   1: { abierta: true }, // La tienda de doña Marta (un solo caso)
-  2: { abierta: false, caso: 'guia' }, // Limpieza
+  2: { abierta: true, caso: 'guia' }, // Limpieza
   3: { abierta: false, caso: 'guia' }, // Media, mediana y extremos
   4: { abierta: false, caso: 'guia' }, // Tasas con denominador
   5: { abierta: false, caso: 'guia' }, // Filtros y agrupar
