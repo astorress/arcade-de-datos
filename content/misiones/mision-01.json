@@ -1,872 +1,1629 @@
 {
   "numero": 1,
   "estado": "disponible",
-  "titulo": "La Tienda del Barrio",
+  "titulo": "Preguntas que los datos sí responden",
   "sesion": "Formular preguntas que podemos responder con datos",
   "habilidad": "Leer qué representa una fila, reconocer variables, distinguir preguntas contestables, comprobar una respuesta y ponerle un límite.",
   "caso": "Ventas de una tienda de barrio",
   "color": "naranja",
-  "historia": "Doña Marta tiene una tienda en el barrio, ficticia, y anota cada venta en un cuaderno. Quiere hacer el pedido de la próxima semana, pero no sabe qué le dicen esas anotaciones. Tú le vas a ayudar. Pero antes de contestar, hay que aprender a hacer las preguntas correctas.",
   "insignia": {
     "nombre": "Detective de filas",
     "descripcion": "Sabes qué cuenta una fila, haces preguntas que la tabla sí puede responder y dices con honestidad hasta dónde llega tu respuesta.",
     "simbolo": "lupa"
   },
-  "datos": {
-    "titulo": "Ventas de la tienda de doña Marta",
-    "unidad": [
-      "venta",
-      "ventas"
-    ],
-    "columnas": [
-      "Código",
-      "Producto",
-      "Fecha",
-      "Jornada",
-      "Cantidad",
-      "Valor total",
-      "Pagada"
-    ],
-    "filas": [
-      [
-        "01",
-        "Papitas",
-        "03/10",
-        "Mañana",
-        "2",
-        "$4.000",
-        "Sí"
-      ],
-      [
-        "02",
-        "Gaseosa",
-        "03/10",
-        "Tarde",
-        "1",
-        "$3.500",
-        "No"
-      ],
-      [
-        "03",
-        "Papitas",
-        "04/10",
-        "Tarde",
-        "1",
-        "$2.000",
-        "Sí"
-      ],
-      [
-        "04",
-        "Pan",
-        "04/10",
-        "Noche",
-        "6",
-        "$3.000",
-        "Sí"
-      ],
-      [
-        "05",
-        "Gaseosa",
-        "05/10",
-        "Noche",
-        "2",
-        "$7.000",
-        "Sí"
-      ],
-      [
-        "06",
-        "Papitas",
-        "05/10",
-        "Mañana",
-        "3",
-        "$6.000",
-        "No"
-      ]
-    ],
-    "definiciones": [
-      "Cada **código** identifica una **venta**.",
-      "**Fecha** es el día de la venta (octubre de 2026). **Jornada** es el momento del día en que se anotó.",
-      "**Cantidad** es cuántas unidades se llevaron. **Valor total** es lo que cuesta esa venta, en pesos.",
-      "**Pagada** indica si la venta se pagó en el momento (Sí) o quedó fiada (No).",
-      "**No hay** un dato que permita reconocer a un mismo cliente entre ventas."
-    ],
-    "aviso": "Datos ficticios, solo para practicar."
-  },
-  "niveles": [
-    {
-      "numero": 1,
-      "titulo": "Leer la fila",
-      "objetivo": "Entender qué cuenta una fila y qué describe cada columna.",
-      "cierre": "Nivel 1 listo: ya sabes leer una fila.",
-      "actividades": [
-        {
-          "id": "n1-toca-fila",
-          "tipo": "leer-filas",
-          "fase": "hacer",
-          "titulo": "Toca una fila",
-          "consigna": "Toca una fila de la tabla y escucha lo que nos cuenta. Lee al menos **2 filas** para continuar.",
-          "minimo": 2,
-          "lecturas": {
-            "01": "El registro 01 es una venta de 2 papitas, el 3 de octubre en la mañana, por $4.000, pagada en el momento.",
-            "02": "El registro 02 es una venta de 1 gaseosa, el 3 de octubre en la tarde, por $3.500, que quedó fiada.",
-            "03": "El registro 03 es una venta de 1 paquete de papitas, el 4 de octubre en la tarde, por $2.000, pagada en el momento.",
-            "04": "El registro 04 es una venta de 6 panes, el 4 de octubre en la noche, por $3.000, pagada en el momento.",
-            "05": "El registro 05 es una venta de 2 gaseosas, el 5 de octubre en la noche, por $7.000, pagada en el momento.",
-            "06": "El registro 06 es una venta de 3 papitas, el 5 de octubre en la mañana, por $6.000, que quedó fiada."
-          },
-          "explicacion": "Fíjate en que cada lectura empieza igual: **«es una venta de…»**. Eso es lo que cuenta cada fila.",
-          "tema": "tabla-fila-columna"
-        },
-        {
-          "id": "n1-que-es-fila",
-          "tipo": "seleccion",
-          "fase": "observar",
-          "titulo": "¿Qué representa una fila?",
-          "consigna": "Después de leer algunas filas, ¿qué representa cada fila de esta tabla?",
-          "usaDatos": true,
-          "opciones": [
-            {
-              "texto": "Un cliente",
-              "feedback": "Cada venta se le hizo a alguien, pero la tabla no tiene un dato que permita saber si dos ventas son del mismo cliente. Lo que está registrado es una venta."
-            },
-            {
-              "texto": "Una venta",
-              "correcta": true
-            },
-            {
-              "texto": "Un producto",
-              "feedback": "El producto es una de las columnas: una característica de cada fila. Mira: hay 3 productos distintos, pero 6 filas. ¿Qué es lo que se repite 6 veces?"
-            },
-            {
-              "texto": "Un día",
-              "feedback": "La fecha es una columna: dice qué día se hizo cada venta. Hay 3 días y 6 filas. ¿Qué identifica el código de cada fila?"
-            }
-          ],
-          "pistas": [
-            "Vuelve a leer una fila completa: ¿cómo empieza la frase?",
-            "El código de cada fila identifica algo. Lo dicen las definiciones debajo de la tabla."
-          ],
-          "explicacion": "A lo que representa una fila le llamamos **unidad de análisis**. Aquí, la unidad de análisis es la **venta**.",
-          "tema": "unidad-analisis"
-        },
-        {
-          "id": "n1-une-columnas",
-          "tipo": "emparejar",
-          "fase": "entender",
-          "titulo": "Une columna y tipo",
-          "consigna": "Cada columna guarda un tipo de dato distinto. Para cada columna, toca el tipo que le corresponde.",
-          "usaDatos": true,
-          "tipos": [
-            {
-              "id": "categorica",
-              "texto": "Categórica",
-              "ayuda": "grupos con nombre, como Papitas o Pan"
-            },
-            {
-              "id": "temporal",
-              "texto": "Temporal",
-              "ayuda": "ubica el registro en el tiempo, como una fecha"
-            },
-            {
-              "id": "booleana",
-              "texto": "Sí / No",
-              "ayuda": "booleana: solo dos valores posibles"
-            },
-            {
-              "id": "identificador",
-              "texto": "Identificador",
-              "ayuda": "una etiqueta para reconocer el registro"
-            },
-            {
-              "id": "cantidad",
-              "texto": "Cantidad",
-              "ayuda": "un número que tiene sentido sumar o promediar"
-            }
-          ],
-          "pares": [
-            {
-              "item": "Producto",
-              "correcto": "categorica",
-              "feedback": "Producto toma valores como Papitas, Gaseosa o Pan: son grupos con nombre. Eso es una variable categórica."
-            },
-            {
-              "item": "Jornada",
-              "correcto": "categorica",
-              "feedback": "Jornada toma valores como Mañana, Tarde o Noche: son grupos con nombre, igual que Producto."
-            },
-            {
-              "item": "Fecha",
-              "correcto": "temporal",
-              "feedback": "Fecha ubica cada venta en el tiempo: es una variable temporal."
-            },
-            {
-              "item": "Cantidad",
-              "correcto": "cantidad",
-              "feedback": "Cantidad es un número que sí tiene sentido sumar: 2 papitas más 1 papita son 3 papitas."
-            },
-            {
-              "item": "Valor total",
-              "correcto": "cantidad",
-              "feedback": "Valor total son pesos: tiene sentido sumarlos para saber cuánta plata suman las ventas."
-            },
-            {
-              "item": "Pagada",
-              "correcto": "booleana",
-              "feedback": "Pagada solo puede valer Sí o No. A eso le llamamos booleana."
-            },
-            {
-              "item": "Código",
-              "correcto": "identificador",
-              "feedback": "El código identifica una venta; no es una cantidad."
-            }
-          ],
-          "pistas": [
-            "Dos columnas sí son cantidades: tiene sentido sumarlas. El código, aunque tenga números, no es una de ellas.",
-            "Pregúntate para cada columna: ¿qué valores puede tomar? ¿Nombres, fechas, Sí/No, etiquetas o números que se suman?"
-          ],
-          "explicacion": "A cada columna le llamamos **variable**: una característica que se registra en cada fila. **Cantidad** y **Valor total** son numéricas: tiene sentido sumarlas. El **código** también tiene números, pero funciona como **identificador**: sirve para reconocer el registro, no para hacer cuentas.",
-          "tema": "tipos-variables"
-        },
-        {
-          "id": "n1-cambia-hecho",
-          "tipo": "seleccion",
-          "fase": "entender",
-          "titulo": "¿Cambia el hecho?",
-          "consigna": "Si cambio el código **01** por **A01**, ¿cambia el valor de esa venta?",
-          "opciones": [
-            {
-              "texto": "Sí, cambia el valor",
-              "feedback": "El código es como el número de un turno: si le cambias el nombre, la venta sigue siendo la misma, con su mismo valor de $4.000."
-            },
-            {
-              "texto": "No: cambia la etiqueta, no el hecho registrado",
-              "correcta": true
-            },
-            {
-              "texto": "Depende de si A01 es mayor que 01",
-              "feedback": "El código no es una cantidad: no tiene sentido decir que uno es «mayor» que otro. Solo sirve para reconocer el registro."
-            }
-          ],
-          "explicacion": "Cambia la etiqueta, no el hecho registrado. Por eso un código con números **no se suma ni se promedia**: 01 + 02 no significa nada, son etiquetas.",
-          "tema": "tipos-variables"
-        },
-        {
-          "id": "n1-completa-frase",
-          "tipo": "completar",
-          "fase": "entender",
-          "titulo": "Completa la frase",
-          "consigna": "Elige las palabras que completan la idea.",
-          "frase": "Una fila representa {0} y una columna nos dice {1}.",
-          "huecos": [
-            {
-              "opciones": [
-                {
-                  "texto": "una venta",
-                  "correcta": true
-                },
-                {
-                  "texto": "un cliente",
-                  "feedback": "Cada fila es una venta. La tabla no permite saber si son seis clientes distintos."
-                },
-                {
-                  "texto": "un producto",
-                  "feedback": "El producto es una columna. Hay 3 productos y 6 filas: la fila es otra cosa."
-                }
-              ]
-            },
-            {
-              "opciones": [
-                {
-                  "texto": "una característica registrada en cada venta",
-                  "correcta": true
-                },
-                {
-                  "texto": "cuántos clientes hay",
-                  "feedback": "Ninguna columna cuenta clientes. Cada columna registra una característica de la venta, como el producto o la jornada."
-                },
-                {
-                  "texto": "el total de la tabla",
-                  "feedback": "Una columna no es un total: guarda un dato de cada fila, por ejemplo el valor de cada venta."
-                }
-              ]
-            }
-          ],
-          "textoLibre": {
-            "etiqueta": "Si quieres, escríbelo con tus palabras (opcional, queda en tu cuaderno):",
-            "clave": "frase-fila-columna"
-          },
-          "explicacion": "**Fila = unidad de análisis** (aquí, una venta). **Columna = variable** (una característica registrada).",
-          "tema": "tabla-fila-columna"
-        }
-      ]
-    },
-    {
-      "numero": 2,
-      "titulo": "Preguntar bien",
-      "objetivo": "Distinguir una pregunta contestable de una que no lo es, y contar con una condición.",
-      "cierre": "Nivel 2 listo: ya sabes preguntar bien.",
-      "actividades": [
-        {
-          "id": "n2-dos-versiones",
-          "tipo": "seleccion",
-          "multiple": true,
-          "fase": "observar",
-          "titulo": "Dos versiones de una pregunta",
-          "consigna": "Compara estas dos preguntas. **Marca todo lo que cambió** de la primera a la segunda.",
-          "apoyo": {
-            "tipo": "comparacion",
-            "items": [
-              {
-                "etiqueta": "Antes",
-                "texto": "¿Cómo nos va con el transporte?"
-              },
-              {
-                "etiqueta": "Después",
-                "texto": "Durante cinco días, ¿cuántos minutos tardé en llegar al lugar de estudio?"
-              }
-            ]
-          },
-          "opciones": [
-            {
-              "texto": "Dice qué se mide",
-              "correcta": true,
-              "siFalta": "Mira otra vez: ¿la segunda dice qué vamos a observar? (minutos de trayecto)."
-            },
-            {
-              "texto": "Dice de qué conjunto habla",
-              "correcta": true,
-              "siFalta": "Mira otra vez: ¿la segunda dice durante cuánto tiempo o a quién se refiere? (cinco días, mi trayecto)."
-            },
-            {
-              "texto": "Se puede comprobar con registros",
-              "correcta": true,
-              "siFalta": "Mira otra vez: ¿podrías anotar una cifra por día y comprobar la respuesta?"
-            },
-            {
-              "texto": "Usa palabras más técnicas",
-              "feedback": "La segunda no es más técnica: es más concreta. Usa palabras cotidianas, pero dice exactamente qué observar."
-            }
-          ],
-          "explicacion": "Estos tres rasgos son tu **lupa** para revisar cualquier pregunta: dice **qué se mide**, dice **de qué conjunto** habla y se puede **comprobar con registros**.",
-          "tema": "pregunta-contestable"
-        },
-        {
-          "id": "n2-contestable",
-          "tipo": "tarjetas",
-          "fase": "entender",
-          "titulo": "¿Contestable o no?",
-          "consigna": "Para cada pregunta, decide si se puede responder **con esta tabla**.",
-          "usaDatos": true,
-          "botones": {
-            "si": "Se puede con esta tabla",
-            "no": "No se puede"
-          },
-          "tarjetas": [
-            {
-              "texto": "¿Qué producto es el que más compra la gente de Medellín?",
-              "respuesta": "no",
-              "explicacion": "La tabla es de una sola tienda y tiene seis ventas. Aunque tuviera más filas de la misma tienda, seguiría sin representar a toda la ciudad."
-            },
-            {
-              "texto": "¿Qué producto tiene más ventas (filas) en estos registros?",
-              "respuesta": "si",
-              "explicacion": "Se cuenta la columna Producto: Papitas tiene 3 ventas. Ojo: si contaras **unidades** habría empate entre Papitas y Pan (6 y 6). «Más vendido» depende de qué se mide."
-            },
-            {
-              "texto": "¿Cuántos clientes distintos tuvo la tienda?",
-              "respuesta": "no",
-              "explicacion": "Cada fila es una venta; no hay un dato que identifique al cliente."
-            },
-            {
-              "texto": "¿Cuántas ventas hay por jornada?",
-              "respuesta": "si",
-              "explicacion": "Se cuenta la columna Jornada: Mañana 2, Tarde 2 y Noche 2."
-            },
-            {
-              "texto": "¿Cuánta plata suman todas las ventas de esta tabla?",
-              "respuesta": "si",
-              "explicacion": "Se suma la columna Valor total: $25.500. Ojo: eso es lo vendido, no lo que ya se pagó."
-            }
-          ],
-          "explicacion": "Que la tabla tenga **más filas** no basta: también importa la **cobertura**, es decir, a quién representa la tabla. Seis ventas de una tienda no hablan por toda la ciudad.",
-          "tema": "pregunta-contestable"
-        },
-        {
-          "id": "n2-arregla",
-          "tipo": "seleccion",
-          "fase": "aplicar",
-          "titulo": "Arregla la pregunta",
-          "consigna": "Esta pregunta **no** se puede contestar: «¿Qué producto es el que más compra la gente de Medellín?». ¿Cuál de estas versiones **sí** se puede responder con la tabla?",
-          "usaDatos": true,
-          "opciones": [
-            {
-              "texto": "¿Qué producto es el que más compra la gente del barrio?",
-              "feedback": "Achicaste el conjunto, ¡bien pensado! Pero sigue hablando de todo un barrio, y la tabla solo tiene seis ventas de una tienda."
-            },
-            {
-              "texto": "¿Qué producto tiene más ventas en estos registros?",
-              "correcta": true
-            },
-            {
-              "texto": "¿Cuál es el mejor producto de la tienda?",
-              "feedback": "«Mejor» no se puede medir con estas columnas. ¿Qué columna diría algo sobre qué producto es mejor?"
-            }
-          ],
-          "explicacion": "La versión que funciona dice **qué se mide** (ventas), **de qué conjunto** habla (estos registros) y se **comprueba** contando la columna Producto.",
-          "tema": "pregunta-contestable"
-        },
-        {
-          "id": "n2-filas-si",
-          "tipo": "seleccionar-filas",
-          "fase": "aplicar",
-          "titulo": "Cuenta con condición · Paso 1",
-          "consigna": "Pregunta: «En estos seis registros, ¿qué producto tiene más ventas con Pagada en **Sí**?». Primero, **toca las filas que cumplen la condición**.",
-          "esperadas": [
+  "casoActivo": "cotidiano",
+  "casos": {
+    "cotidiano": {
+      "nombre": "Cotidiano: la tienda de doña Marta",
+      "idsSinPrefijo": true,
+      "titulo": "La Tienda del Barrio",
+      "caso": "Ventas de una tienda de barrio",
+      "historia": "Doña Marta tiene una tienda en el barrio y anota cada venta en un cuaderno. Quiere hacer el pedido de la próxima semana, pero no sabe qué le dicen esas anotaciones. Tú le vas a ayudar. Pero antes de contestar, hay que aprender a hacer las preguntas correctas.",
+      "datos": {
+        "titulo": "Ventas de la tienda de doña Marta",
+        "unidad": [
+          "venta",
+          "ventas"
+        ],
+        "columnas": [
+          "Código",
+          "Producto",
+          "Fecha",
+          "Jornada",
+          "Cantidad",
+          "Valor total",
+          "Pagada"
+        ],
+        "filas": [
+          [
             "01",
-            "03",
-            "04",
-            "05"
-          ],
-          "feedback": {
-            "sobran": "¿Qué significa el «Sí» y cuál es la condición de tu pregunta? Revisa la columna Pagada de las filas que marcaste.",
-            "faltan": "Vas bien. Todavía hay filas con Pagada en Sí que no has marcado. Recorre la columna Pagada de arriba abajo."
-          },
-          "pistas": [
-            "Mira solo la columna Pagada.",
-            "Son las filas donde Pagada dice «Sí». Hay cuatro."
-          ],
-          "explicacion": "Las filas que cumplen la condición son **01, 03, 04 y 05**. Las otras no se borran: simplemente no entran en este conteo.",
-          "tema": "contar-condicion"
-        },
-        {
-          "id": "n2-conteo-si",
-          "tipo": "conteo",
-          "fase": "aplicar",
-          "titulo": "Cuenta con condición · Paso 2",
-          "consigna": "Ahora cuenta, **solo entre las filas con Sí**, cuántas ventas hay de cada producto.",
-          "usaDatos": true,
-          "resaltar": [
-            "01",
-            "03",
-            "04",
-            "05"
-          ],
-          "categorias": [
             "Papitas",
-            "Gaseosa",
-            "Pan"
+            "03/10",
+            "Mañana",
+            "2",
+            "$4.000",
+            "Sí"
           ],
-          "esperado": {
-            "Papitas": 2,
-            "Gaseosa": 1,
-            "Pan": 1
-          },
-          "erroresComunes": [
+          [
+            "02",
+            "Gaseosa",
+            "03/10",
+            "Tarde",
+            "1",
+            "$3.500",
+            "No"
+          ],
+          [
+            "03",
+            "Papitas",
+            "04/10",
+            "Tarde",
+            "1",
+            "$2.000",
+            "Sí"
+          ],
+          [
+            "04",
+            "Pan",
+            "04/10",
+            "Noche",
+            "6",
+            "$3.000",
+            "Sí"
+          ],
+          [
+            "05",
+            "Gaseosa",
+            "05/10",
+            "Noche",
+            "2",
+            "$7.000",
+            "Sí"
+          ],
+          [
+            "06",
+            "Papitas",
+            "05/10",
+            "Mañana",
+            "3",
+            "$6.000",
+            "No"
+          ]
+        ],
+        "definiciones": [
+          "Cada **código** identifica una **venta**.",
+          "**Fecha** es el día de la venta (octubre de 2026). **Jornada** es el momento del día en que se anotó.",
+          "**Cantidad** es cuántas unidades se llevaron. **Valor total** es lo que cuesta esa venta, en pesos.",
+          "**Pagada** indica si la venta se pagó en el momento (Sí) o quedó fiada (No).",
+          "**No hay** un dato que permita reconocer a un mismo cliente entre ventas."
+        ],
+        "aviso": "Datos ficticios, solo para practicar."
+      },
+      "niveles": [
+        {
+          "numero": 1,
+          "titulo": "Leer la fila",
+          "objetivo": "Entender qué cuenta una fila y qué describe cada columna.",
+          "cierre": "Nivel 1 listo: ya sabes leer una fila.",
+          "actividades": [
             {
-              "valores": {
-                "Papitas": 3,
-                "Gaseosa": 2,
+              "id": "n1-toca-fila",
+              "tipo": "leer-filas",
+              "fase": "hacer",
+              "titulo": "Toca una fila",
+              "consigna": "Toca una fila de la tabla y escucha lo que nos cuenta. Lee al menos **2 filas** para continuar.",
+              "minimo": 2,
+              "lecturas": {
+                "01": "El registro 01 es una venta de 2 papitas, el 3 de octubre en la mañana, por $4.000, pagada en el momento.",
+                "02": "El registro 02 es una venta de 1 gaseosa, el 3 de octubre en la tarde, por $3.500, que quedó fiada.",
+                "03": "El registro 03 es una venta de 1 paquete de papitas, el 4 de octubre en la tarde, por $2.000, pagada en el momento.",
+                "04": "El registro 04 es una venta de 6 panes, el 4 de octubre en la noche, por $3.000, pagada en el momento.",
+                "05": "El registro 05 es una venta de 2 gaseosas, el 5 de octubre en la noche, por $7.000, pagada en el momento.",
+                "06": "El registro 06 es una venta de 3 papitas, el 5 de octubre en la mañana, por $6.000, que quedó fiada."
+              },
+              "explicacion": "Fíjate en que cada lectura empieza igual: **«es una venta de…»**. Eso es lo que cuenta cada fila.",
+              "tema": "tabla-fila-columna"
+            },
+            {
+              "id": "n1-que-es-fila",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "¿Qué representa una fila?",
+              "consigna": "Después de leer algunas filas, ¿qué representa cada fila de esta tabla?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Un cliente",
+                  "feedback": "Cada venta se le hizo a alguien, pero la tabla no tiene un dato que permita saber si dos ventas son del mismo cliente. Lo que está registrado es una venta."
+                },
+                {
+                  "texto": "Una venta",
+                  "correcta": true
+                },
+                {
+                  "texto": "Un producto",
+                  "feedback": "El producto es una de las columnas: una característica de cada fila. Mira: hay 3 productos distintos, pero 6 filas. ¿Qué es lo que se repite 6 veces?"
+                },
+                {
+                  "texto": "Un día",
+                  "feedback": "La fecha es una columna: dice qué día se hizo cada venta. Hay 3 días y 6 filas. ¿Qué identifica el código de cada fila?"
+                }
+              ],
+              "pistas": [
+                "Vuelve a leer una fila completa: ¿cómo empieza la frase?",
+                "El código de cada fila identifica algo. Lo dicen las definiciones debajo de la tabla."
+              ],
+              "explicacion": "A lo que representa una fila le llamamos **unidad de análisis**. Aquí, la unidad de análisis es la **venta**.",
+              "tema": "unidad-analisis"
+            },
+            {
+              "id": "n1-une-columnas",
+              "tipo": "emparejar",
+              "fase": "entender",
+              "titulo": "Une columna y tipo",
+              "consigna": "Cada columna guarda un tipo de dato distinto. Para cada columna, toca el tipo que le corresponde.",
+              "usaDatos": true,
+              "tipos": [
+                {
+                  "id": "categorica",
+                  "texto": "Categórica",
+                  "ayuda": "grupos con nombre, como Papitas o Pan"
+                },
+                {
+                  "id": "temporal",
+                  "texto": "Temporal",
+                  "ayuda": "ubica el registro en el tiempo, como una fecha"
+                },
+                {
+                  "id": "booleana",
+                  "texto": "Sí / No",
+                  "ayuda": "booleana: solo dos valores posibles"
+                },
+                {
+                  "id": "identificador",
+                  "texto": "Identificador",
+                  "ayuda": "una etiqueta para reconocer el registro"
+                },
+                {
+                  "id": "cantidad",
+                  "texto": "Cantidad",
+                  "ayuda": "un número que tiene sentido sumar o promediar"
+                }
+              ],
+              "pares": [
+                {
+                  "item": "Producto",
+                  "correcto": "categorica",
+                  "feedback": "Producto toma valores como Papitas, Gaseosa o Pan: son grupos con nombre. Eso es una variable categórica."
+                },
+                {
+                  "item": "Jornada",
+                  "correcto": "categorica",
+                  "feedback": "Jornada toma valores como Mañana, Tarde o Noche: son grupos con nombre, igual que Producto."
+                },
+                {
+                  "item": "Fecha",
+                  "correcto": "temporal",
+                  "feedback": "Fecha ubica cada venta en el tiempo: es una variable temporal."
+                },
+                {
+                  "item": "Cantidad",
+                  "correcto": "cantidad",
+                  "feedback": "Cantidad es un número que sí tiene sentido sumar: 2 papitas más 1 papita son 3 papitas."
+                },
+                {
+                  "item": "Valor total",
+                  "correcto": "cantidad",
+                  "feedback": "Valor total son pesos: tiene sentido sumarlos para saber cuánta plata suman las ventas."
+                },
+                {
+                  "item": "Pagada",
+                  "correcto": "booleana",
+                  "feedback": "Pagada solo puede valer Sí o No. A eso le llamamos booleana."
+                },
+                {
+                  "item": "Código",
+                  "correcto": "identificador",
+                  "feedback": "El código identifica una venta; no es una cantidad."
+                }
+              ],
+              "pistas": [
+                "Dos columnas sí son cantidades: tiene sentido sumarlas. El código, aunque tenga números, no es una de ellas.",
+                "Pregúntate para cada columna: ¿qué valores puede tomar? ¿Nombres, fechas, Sí/No, etiquetas o números que se suman?"
+              ],
+              "explicacion": "A cada columna le llamamos **variable**: una característica que se registra en cada fila. **Cantidad** y **Valor total** son numéricas: tiene sentido sumarlas. El **código** también tiene números, pero funciona como **identificador**: sirve para reconocer el registro, no para hacer cuentas.",
+              "tema": "tipos-variables"
+            },
+            {
+              "id": "n1-cambia-hecho",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "¿Cambia el hecho?",
+              "consigna": "Si cambio el código **01** por **A01**, ¿cambia el valor de esa venta?",
+              "opciones": [
+                {
+                  "texto": "Sí, cambia el valor",
+                  "feedback": "El código es como el número de un turno: si le cambias el nombre, la venta sigue siendo la misma, con su mismo valor de $4.000."
+                },
+                {
+                  "texto": "No: cambia la etiqueta, no el hecho registrado",
+                  "correcta": true
+                },
+                {
+                  "texto": "Depende de si A01 es mayor que 01",
+                  "feedback": "El código no es una cantidad: no tiene sentido decir que uno es «mayor» que otro. Solo sirve para reconocer el registro."
+                }
+              ],
+              "explicacion": "Cambia la etiqueta, no el hecho registrado. Por eso un código con números **no se suma ni se promedia**: 01 + 02 no significa nada, son etiquetas.",
+              "tema": "tipos-variables"
+            },
+            {
+              "id": "n1-completa-frase",
+              "tipo": "completar",
+              "fase": "entender",
+              "titulo": "Completa la frase",
+              "consigna": "Elige las palabras que completan la idea.",
+              "frase": "Una fila representa {0} y una columna nos dice {1}.",
+              "huecos": [
+                {
+                  "opciones": [
+                    {
+                      "texto": "una venta",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "un cliente",
+                      "feedback": "Cada fila es una venta. La tabla no permite saber si son seis clientes distintos."
+                    },
+                    {
+                      "texto": "un producto",
+                      "feedback": "El producto es una columna. Hay 3 productos y 6 filas: la fila es otra cosa."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "una característica registrada en cada venta",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "cuántos clientes hay",
+                      "feedback": "Ninguna columna cuenta clientes. Cada columna registra una característica de la venta, como el producto o la jornada."
+                    },
+                    {
+                      "texto": "el total de la tabla",
+                      "feedback": "Una columna no es un total: guarda un dato de cada fila, por ejemplo el valor de cada venta."
+                    }
+                  ]
+                }
+              ],
+              "textoLibre": {
+                "etiqueta": "Si quieres, escríbelo con tus palabras (opcional, queda en tu cuaderno):",
+                "clave": "frase-fila-columna"
+              },
+              "explicacion": "**Fila = unidad de análisis** (aquí, una venta). **Columna = variable** (una característica registrada).",
+              "tema": "tabla-fila-columna"
+            }
+          ]
+        },
+        {
+          "numero": 2,
+          "titulo": "Preguntar bien",
+          "objetivo": "Distinguir una pregunta contestable de una que no lo es, y contar con una condición.",
+          "cierre": "Nivel 2 listo: ya sabes preguntar bien.",
+          "actividades": [
+            {
+              "id": "n2-dos-versiones",
+              "tipo": "seleccion",
+              "multiple": true,
+              "fase": "observar",
+              "titulo": "Dos versiones de una pregunta",
+              "consigna": "Compara estas dos preguntas. **Marca todo lo que cambió** de la primera a la segunda.",
+              "apoyo": {
+                "tipo": "comparacion",
+                "items": [
+                  {
+                    "etiqueta": "Antes",
+                    "texto": "¿Cómo nos va con el transporte?"
+                  },
+                  {
+                    "etiqueta": "Después",
+                    "texto": "Durante cinco días, ¿cuántos minutos tardé en llegar al lugar de estudio?"
+                  }
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Dice qué se mide",
+                  "correcta": true,
+                  "siFalta": "Mira otra vez: ¿la segunda dice qué vamos a observar? (minutos de trayecto)."
+                },
+                {
+                  "texto": "Dice de qué conjunto habla",
+                  "correcta": true,
+                  "siFalta": "Mira otra vez: ¿la segunda dice durante cuánto tiempo o a quién se refiere? (cinco días, mi trayecto)."
+                },
+                {
+                  "texto": "Se puede comprobar con registros",
+                  "correcta": true,
+                  "siFalta": "Mira otra vez: ¿podrías anotar una cifra por día y comprobar la respuesta?"
+                },
+                {
+                  "texto": "Usa palabras más técnicas",
+                  "feedback": "La segunda no es más técnica: es más concreta. Usa palabras cotidianas, pero dice exactamente qué observar."
+                }
+              ],
+              "explicacion": "Estos tres rasgos son tu **lupa** para revisar cualquier pregunta: dice **qué se mide**, dice **de qué conjunto** habla y se puede **comprobar con registros**.",
+              "tema": "pregunta-contestable"
+            },
+            {
+              "id": "n2-contestable",
+              "tipo": "tarjetas",
+              "fase": "entender",
+              "titulo": "¿Contestable o no?",
+              "consigna": "Para cada pregunta, decide si se puede responder **con esta tabla**.",
+              "usaDatos": true,
+              "botones": {
+                "si": "Se puede con esta tabla",
+                "no": "No se puede"
+              },
+              "tarjetas": [
+                {
+                  "texto": "¿Qué producto es el que más compra la gente de Medellín?",
+                  "respuesta": "no",
+                  "explicacion": "La tabla es de una sola tienda y tiene seis ventas. Aunque tuviera más filas de la misma tienda, seguiría sin representar a toda la ciudad."
+                },
+                {
+                  "texto": "¿Qué producto tiene más ventas (filas) en estos registros?",
+                  "respuesta": "si",
+                  "explicacion": "Se cuenta la columna Producto: Papitas tiene 3 ventas. Ojo: si contaras **unidades** habría empate entre Papitas y Pan (6 y 6). «Más vendido» depende de qué se mide."
+                },
+                {
+                  "texto": "¿Cuántos clientes distintos tuvo la tienda?",
+                  "respuesta": "no",
+                  "explicacion": "Cada fila es una venta; no hay un dato que identifique al cliente."
+                },
+                {
+                  "texto": "¿Cuántas ventas hay por jornada?",
+                  "respuesta": "si",
+                  "explicacion": "Se cuenta la columna Jornada: Mañana 2, Tarde 2 y Noche 2."
+                },
+                {
+                  "texto": "¿Cuánta plata suman todas las ventas de esta tabla?",
+                  "respuesta": "si",
+                  "explicacion": "Se suma la columna Valor total: $25.500. Ojo: eso es lo vendido, no lo que ya se pagó."
+                }
+              ],
+              "explicacion": "Que la tabla tenga **más filas** no basta: también importa la **cobertura**, es decir, a quién representa la tabla. Seis ventas de una tienda no hablan por toda la ciudad.",
+              "tema": "pregunta-contestable"
+            },
+            {
+              "id": "n2-arregla",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Arregla la pregunta",
+              "consigna": "Esta pregunta **no** se puede contestar: «¿Qué producto es el que más compra la gente de Medellín?». ¿Cuál de estas versiones **sí** se puede responder con la tabla?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "¿Qué producto es el que más compra la gente del barrio?",
+                  "feedback": "Achicaste el conjunto, ¡bien pensado! Pero sigue hablando de todo un barrio, y la tabla solo tiene seis ventas de una tienda."
+                },
+                {
+                  "texto": "¿Qué producto tiene más ventas en estos registros?",
+                  "correcta": true
+                },
+                {
+                  "texto": "¿Cuál es el mejor producto de la tienda?",
+                  "feedback": "«Mejor» no se puede medir con estas columnas. ¿Qué columna diría algo sobre qué producto es mejor?"
+                }
+              ],
+              "explicacion": "La versión que funciona dice **qué se mide** (ventas), **de qué conjunto** habla (estos registros) y se **comprueba** contando la columna Producto.",
+              "tema": "pregunta-contestable"
+            },
+            {
+              "id": "n2-filas-si",
+              "tipo": "seleccionar-filas",
+              "fase": "aplicar",
+              "titulo": "Cuenta con condición · Paso 1",
+              "consigna": "Pregunta: «En estos seis registros, ¿qué producto tiene más ventas con Pagada en **Sí**?». Primero, **toca las filas que cumplen la condición**.",
+              "esperadas": [
+                "01",
+                "03",
+                "04",
+                "05"
+              ],
+              "feedback": {
+                "sobran": "¿Qué significa el «Sí» y cuál es la condición de tu pregunta? Revisa la columna Pagada de las filas que marcaste.",
+                "faltan": "Vas bien. Todavía hay filas con Pagada en Sí que no has marcado. Recorre la columna Pagada de arriba abajo."
+              },
+              "pistas": [
+                "Mira solo la columna Pagada.",
+                "Son las filas donde Pagada dice «Sí». Hay cuatro."
+              ],
+              "explicacion": "Las filas que cumplen la condición son **01, 03, 04 y 05**. Las otras no se borran: simplemente no entran en este conteo.",
+              "tema": "contar-condicion"
+            },
+            {
+              "id": "n2-conteo-si",
+              "tipo": "conteo",
+              "fase": "aplicar",
+              "titulo": "Cuenta con condición · Paso 2",
+              "consigna": "Ahora cuenta, **solo entre las filas con Sí**, cuántas ventas hay de cada producto.",
+              "usaDatos": true,
+              "resaltar": [
+                "01",
+                "03",
+                "04",
+                "05"
+              ],
+              "categorias": [
+                "Papitas",
+                "Gaseosa",
+                "Pan"
+              ],
+              "esperado": {
+                "Papitas": 2,
+                "Gaseosa": 1,
                 "Pan": 1
               },
-              "mensaje": "¿Qué significa el «Sí» y cuál es la condición de tu pregunta? Contaste todas las ventas; cuenta solo las filas resaltadas."
-            }
-          ],
-          "mensajeGeneral": "Vas por buen camino. Revisa {categorias}: cuenta solo las filas resaltadas (las que tienen Sí).",
-          "pistas": [
-            "Las filas resaltadas son 01, 03, 04 y 05. Mira el producto de cada una.",
-            "01 y 03 son Papitas; 04 es Pan; 05 es Gaseosa."
-          ],
-          "explicacion": "Con Pagada en Sí: **Papitas 2 · Gaseosa 1 · Pan 1**. Papitas tiene más ventas pagadas en esta tabla.",
-          "tema": "contar-condicion"
-        },
-        {
-          "id": "n2-por-que-cambio",
-          "tipo": "seleccion",
-          "fase": "observar",
-          "titulo": "¿Por qué cambiaron las cifras?",
-          "consigna": "Ahora mira el conteo de **todas** las ventas junto al que acabas de hacer. ¿Por qué cambiaron las cifras?",
-          "apoyo": {
-            "tipo": "tabla",
-            "columnas": [
-              "Producto",
-              "Todas las ventas",
-              "Ventas pagadas (Sí)"
-            ],
-            "filas": [
-              [
-                "Papitas",
-                "3",
-                "2"
+              "erroresComunes": [
+                {
+                  "valores": {
+                    "Papitas": 3,
+                    "Gaseosa": 2,
+                    "Pan": 1
+                  },
+                  "mensaje": "¿Qué significa el «Sí» y cuál es la condición de tu pregunta? Contaste todas las ventas; cuenta solo las filas resaltadas."
+                }
               ],
-              [
-                "Gaseosa",
-                "2",
-                "1"
-              ],
-              [
-                "Pan",
-                "1",
-                "1"
-              ]
-            ]
-          },
-          "opciones": [
-            {
-              "texto": "Porque uno de los dos conteos está mal hecho",
-              "feedback": "Los dos conteos están bien hechos. Mira qué filas entraron en cada uno: ¿se usó la misma condición?"
-            },
-            {
-              "texto": "Porque respondimos dos preguntas distintas: todas las ventas vs. las ventas pagadas",
-              "correcta": true
-            },
-            {
-              "texto": "Porque algunos clientes compraron dos veces",
-              "feedback": "La tabla no permite saber si un cliente compró dos veces: no hay un dato del cliente. La diferencia está en la condición que aplicamos."
-            }
-          ],
-          "explicacion": "Respondimos **dos preguntas diferentes**. Papitas encabeza ambos conteos, pero eso **no hace equivalentes** vender y cobrar.",
-          "tema": "contar-condicion"
-        },
-        {
-          "id": "n2-frase-honesta",
-          "tipo": "seleccion",
-          "fase": "entender",
-          "titulo": "Dilo con honestidad",
-          "consigna": "Con lo que contaste, ¿cuál frase describe con honestidad lo que encontraste?",
-          "opciones": [
-            {
-              "texto": "Hubo 4 clientes que pagaron.",
-              "feedback": "Hay cuatro ventas con Sí. Para hablar de clientes distintos faltan datos."
-            },
-            {
-              "texto": "Hay 4 ventas pagadas en el momento en esta tabla.",
-              "correcta": true
-            },
-            {
-              "texto": "Las papitas son lo que más compra la gente de Medellín.",
-              "feedback": "Completa: mi respuesta describe únicamente… (estas seis ventas de una tienda, no a toda la ciudad)."
-            },
-            {
-              "texto": "La suma de los códigos con Sí es 13.",
-              "feedback": "El código identifica una venta; no es una cantidad."
-            }
-          ],
-          "explicacion": "**Venta ≠ cliente ≠ pago.** Una buena frase dice qué se contó (ventas con Sí) y de qué conjunto (esta tabla).",
-          "tema": "limites"
-        },
-        {
-          "id": "n2-plata",
-          "tipo": "seleccion",
-          "fase": "aplicar",
-          "titulo": "¿Cuánta plata entró?",
-          "consigna": "Doña Marta pregunta: «En estas seis ventas, **¿cuánta plata me entró de verdad?**». Revisa las columnas Valor total y Pagada.",
-          "usaDatos": true,
-          "opciones": [
-            {
-              "texto": "$25.500",
-              "feedback": "Eso es todo lo vendido, incluido lo fiado. ¿Qué significa el «Sí» en Pagada? Suma solo las ventas pagadas."
-            },
-            {
-              "texto": "$16.000",
-              "correcta": true
-            },
-            {
-              "texto": "$9.500",
-              "feedback": "Esa es la plata que quedó fiada (ventas 02 y 06): todavía no ha entrado. ¿Cuánto suman las otras?"
-            },
-            {
-              "texto": "4",
-              "feedback": "Cuatro es el número de ventas pagadas. La pregunta es por pesos: suma su Valor total."
-            }
-          ],
-          "pistas": [
-            "Primero marca las ventas con Pagada en Sí: 01, 03, 04 y 05.",
-            "Suma su Valor total: 4.000 + 2.000 + 3.000 + 7.000."
-          ],
-          "explicacion": "Entraron **$16.000** en el momento (ventas 01, 03, 04 y 05). Se vendieron $25.500, pero $9.500 quedaron fiados. Primero la condición, después la cuenta: lo único que cambia es que ahora sumamos pesos. Y un límite: la tabla no dice si lo fiado **ya se cobró después**.",
-          "tema": "contar-condicion"
-        },
-        {
-          "id": "n2-deja-plata",
-          "tipo": "seleccion",
-          "fase": "observar",
-          "titulo": "¿Cuál le deja más plata?",
-          "consigna": "Mira lo vendido y lo que entró, por producto. **¿Qué producto le dejó más plata en la mano a doña Marta?**",
-          "apoyo": {
-            "tipo": "tabla",
-            "columnas": [
-              "Producto",
-              "Lo vendido",
-              "Lo que entró"
-            ],
-            "filas": [
-              [
-                "Papitas",
-                "$12.000",
-                "$6.000"
-              ],
-              [
-                "Gaseosa",
-                "$10.500",
-                "$7.000"
-              ],
-              [
-                "Pan",
-                "$3.000",
-                "$3.000"
-              ]
-            ]
-          },
-          "opciones": [
-            {
-              "texto": "Papitas",
-              "feedback": "Papitas gana en lo **vendido** ($12.000), ¡bien leído! Pero la pregunta es por la plata que **entró**. Mira la última columna."
-            },
-            {
-              "texto": "Gaseosa",
-              "correcta": true
-            },
-            {
-              "texto": "Pan",
-              "feedback": "Pan cobró todo lo que vendió, pero fueron $3.000. ¿Cuál tiene más en la columna «Lo que entró»?"
-            },
-            {
-              "texto": "Empatan Papitas y Pan",
-              "feedback": "Papitas y Pan empatan en **unidades** (6 y 6), pero la pregunta es por plata que entró. Otra pregunta, otra respuesta."
-            }
-          ],
-          "explicacion": "**Gaseosa** ($7.000), aunque Papitas vendió más ($12.000): la mitad de las papitas quedó fiada. Aquí el ganador **sí cambia**: vender no es lo mismo que cobrar. Por eso, antes de decir «lo más vendido», pregunta: **¿según qué: ventas, unidades o plata?**",
-          "tema": "contar-condicion"
-        }
-      ]
-    },
-    {
-      "numero": 3,
-      "titulo": "Comprobar y poner límites",
-      "objetivo": "Formular una pregunta propia, comprobarla y escribir un límite. Es el reto de la clase, en versión autoguiada.",
-      "cierre": "Nivel 3 listo: comprobaste tu respuesta y le pusiste un límite.",
-      "actividades": [
-        {
-          "id": "n3-reto",
-          "tipo": "constructor",
-          "fase": "aplicar",
-          "titulo": "El reto: tu respuesta comprobable",
-          "consigna": "Prepara una respuesta breve y comprobable sobre esta tabla. Elige qué quieres conocer, formula una pregunta y muestra con qué datos la respondes. Al final, explica qué **no** permite afirmar tu respuesta.",
-          "rutas": [
-            {
-              "id": "mapa",
-              "nombre": "Ruta Mapa",
-              "descripcion": "La pregunta ya viene dada. Te concentras en comprobarla y ponerle un límite.",
-              "preguntaDada": "En estos seis registros, ¿cuántas ventas hay de cada producto?"
-            },
-            {
-              "id": "brujula",
-              "nombre": "Ruta Brújula",
-              "descripcion": "Formulas tu propia pregunta. Ideas para empezar: producto, fecha, jornada, cantidad o pagada."
-            },
-            {
-              "id": "telescopio",
-              "nombre": "Ruta Telescopio",
-              "descripcion": "Comparas lo vendido con lo que de verdad entró (ventas pagadas), por producto, y explicas por qué son medidas distintas.",
-              "preguntaDada": "En esta tabla, ¿cómo se compara el valor vendido con el valor pagado, por producto?"
-            }
-          ],
-          "pasos": [
-            {
-              "clave": "pregunta",
-              "titulo": "1 · Mi pregunta",
-              "ayuda": "Empieza con «En esta tabla…» o «Entre estas seis ventas…».",
+              "mensajeGeneral": "Vas por buen camino. Revisa {categorias}: cuenta solo las filas resaltadas (las que tienen Sí).",
               "pistas": [
-                "Elige una sola columna para empezar: Producto, Fecha, Jornada o Pagada.",
-                "Ejemplo de forma: «Entre estas seis ventas, ¿cuántas hay por ___?»"
-              ]
-            },
-            {
-              "clave": "fila-columnas",
-              "titulo": "2 · Qué representa una fila y qué columnas uso",
-              "ayuda": "Una fila representa… Uso las columnas…",
-              "pistas": [
-                "Recuerda lo que descubriste en el Nivel 1: ¿qué identifica cada código?",
-                "Escribe «Cada fila representa una venta» y nombra las columnas que necesitas contar o sumar."
-              ]
-            },
-            {
-              "clave": "comprobacion",
-              "titulo": "3 · Cómo lo comprobé",
-              "ayuda": "Anota los códigos o el conteo, de modo que otra persona lo pueda repetir. Puedes marcar filas en la tabla y agregarlas aquí.",
-              "pistas": [
-                "¿Qué fila o conteo respalda lo que afirmas?",
-                "Escribe los códigos que usaste y el resultado de contar, por ejemplo: «Códigos 01, 03 y 06 → 3».",
-                "Si tu pregunta tiene una condición (como «con Sí»), dilo: primero filtras, después cuentas."
+                "Las filas resaltadas son 01, 03, 04 y 05. Mira el producto de cada una.",
+                "01 y 03 son Papitas; 04 es Pan; 05 es Gaseosa."
               ],
-              "permiteFilas": true
+              "explicacion": "Con Pagada en Sí: **Papitas 2 · Gaseosa 1 · Pan 1**. Papitas tiene más ventas pagadas en esta tabla.",
+              "tema": "contar-condicion"
             },
             {
-              "clave": "respuesta-limite",
-              "titulo": "4 · Mi respuesta y lo que todavía no puedo afirmar",
-              "ayuda": "«Mi respuesta describe únicamente… pero aún no permite saber…»",
-              "pistas": [
-                "¿Tu respuesta habla de ventas o de clientes?",
-                "Piensa en algo que la tabla no tiene: clientes distintos, si el fiado ya se pagó, otras tiendas, el resto del mes…"
-              ]
-            }
-          ],
-          "verificacion": [
-            "¿Mi pregunta dice «en esta tabla» o «entre estas seis ventas»?",
-            "¿Escribí qué es una fila?",
-            "¿Anoté los códigos o el conteo?",
-            "¿Dije qué no puedo concluir?"
-          ],
-          "ejemplo": "«En estos seis registros, ¿qué producto tiene más ventas pagadas? Cada fila representa una venta. Uso Producto y Pagada. Selecciono los códigos 01, 03, 04 y 05 porque dicen sí y cuento por producto: papitas dos, gaseosa uno y pan uno. Las papitas tienen más ventas pagadas en esta tabla. Esto no permite saber cuántos clientes distintos hubo, si lo fiado ya se cobró ni qué se venderá el próximo mes.»",
-          "explicacion": "No se busca un texto largo: una respuesta breve sirve si otra persona puede seguirla y comprobarla.",
-          "tema": "limites"
-        },
-        {
-          "id": "n3-contraste",
-          "tipo": "seleccion",
-          "fase": "observar",
-          "titulo": "Contraste final",
-          "consigna": "¿Cuál de estas dos preguntas puedes responder **con esta tabla**?",
-          "usaDatos": true,
-          "apoyo": {
-            "tipo": "comparacion",
-            "items": [
-              {
-                "etiqueta": "A",
-                "texto": "¿Qué día hubo más ventas en estos registros?"
+              "id": "n2-por-que-cambio",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "¿Por qué cambiaron las cifras?",
+              "consigna": "Ahora mira el conteo de **todas** las ventas junto al que acabas de hacer. ¿Por qué cambiaron las cifras?",
+              "apoyo": {
+                "tipo": "tabla",
+                "columnas": [
+                  "Producto",
+                  "Todas las ventas",
+                  "Ventas pagadas (Sí)"
+                ],
+                "filas": [
+                  [
+                    "Papitas",
+                    "3",
+                    "2"
+                  ],
+                  [
+                    "Gaseosa",
+                    "2",
+                    "1"
+                  ],
+                  [
+                    "Pan",
+                    "1",
+                    "1"
+                  ]
+                ]
               },
-              {
-                "etiqueta": "B",
-                "texto": "¿Cuántos clientes fieles tiene la tienda?"
-              }
-            ]
-          },
-          "opciones": [
-            {
-              "texto": "Solo la A",
-              "correcta": true
+              "opciones": [
+                {
+                  "texto": "Porque uno de los dos conteos está mal hecho",
+                  "feedback": "Los dos conteos están bien hechos. Mira qué filas entraron en cada uno: ¿se usó la misma condición?"
+                },
+                {
+                  "texto": "Porque respondimos dos preguntas distintas: todas las ventas vs. las ventas pagadas",
+                  "correcta": true
+                },
+                {
+                  "texto": "Porque algunos clientes compraron dos veces",
+                  "feedback": "La tabla no permite saber si un cliente compró dos veces: no hay un dato del cliente. La diferencia está en la condición que aplicamos."
+                }
+              ],
+              "explicacion": "Respondimos **dos preguntas diferentes**. Papitas encabeza ambos conteos, pero eso **no hace equivalentes** vender y cobrar.",
+              "tema": "contar-condicion"
             },
             {
-              "texto": "Solo la B",
-              "feedback": "La tabla no tiene un dato del cliente: no se puede saber quién vuelve a comprar."
+              "id": "n2-frase-honesta",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "Dilo con honestidad",
+              "consigna": "Con lo que contaste, ¿cuál frase describe con honestidad lo que encontraste?",
+              "opciones": [
+                {
+                  "texto": "Hubo 4 clientes que pagaron.",
+                  "feedback": "Hay cuatro ventas con Sí. Para hablar de clientes distintos faltan datos."
+                },
+                {
+                  "texto": "Hay 4 ventas pagadas en el momento en esta tabla.",
+                  "correcta": true
+                },
+                {
+                  "texto": "Las papitas son lo que más compra la gente de Medellín.",
+                  "feedback": "Completa: mi respuesta describe únicamente… (estas seis ventas de una tienda, no a toda la ciudad)."
+                },
+                {
+                  "texto": "La suma de los códigos con Sí es 13.",
+                  "feedback": "El código identifica una venta; no es una cantidad."
+                }
+              ],
+              "explicacion": "**Venta ≠ cliente ≠ pago.** Una buena frase dice qué se contó (ventas con Sí) y de qué conjunto (esta tabla).",
+              "tema": "limites"
             },
             {
-              "texto": "Las dos",
-              "feedback": "La A sí se puede, ¡bien! Pero la B no: la tabla no tiene un dato del cliente, así que no se puede saber quién vuelve a comprar."
+              "id": "n2-plata",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "¿Cuánta plata entró?",
+              "consigna": "Doña Marta pregunta: «En estas seis ventas, **¿cuánta plata me entró de verdad?**». Revisa las columnas Valor total y Pagada.",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "$25.500",
+                  "feedback": "Eso es todo lo vendido, incluido lo fiado. ¿Qué significa el «Sí» en Pagada? Suma solo las ventas pagadas."
+                },
+                {
+                  "texto": "$16.000",
+                  "correcta": true
+                },
+                {
+                  "texto": "$9.500",
+                  "feedback": "Esa es la plata que quedó fiada (ventas 02 y 06): todavía no ha entrado. ¿Cuánto suman las otras?"
+                },
+                {
+                  "texto": "4",
+                  "feedback": "Cuatro es el número de ventas pagadas. La pregunta es por pesos: suma su Valor total."
+                }
+              ],
+              "pistas": [
+                "Primero marca las ventas con Pagada en Sí: 01, 03, 04 y 05.",
+                "Suma su Valor total: 4.000 + 2.000 + 3.000 + 7.000."
+              ],
+              "explicacion": "Entraron **$16.000** en el momento (ventas 01, 03, 04 y 05). Se vendieron $25.500, pero $9.500 quedaron fiados. Primero la condición, después la cuenta: lo único que cambia es que ahora sumamos pesos. Y un límite: la tabla no dice si lo fiado **ya se cobró después**.",
+              "tema": "contar-condicion"
             },
             {
-              "texto": "Ninguna",
-              "feedback": "Mira la columna Fecha: ¿puedes contar cuántas ventas hay en cada día?"
+              "id": "n2-deja-plata",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "¿Cuál le deja más plata?",
+              "consigna": "Mira lo vendido y lo que entró, por producto. **¿Qué producto le dejó más plata en la mano a doña Marta?**",
+              "apoyo": {
+                "tipo": "tabla",
+                "columnas": [
+                  "Producto",
+                  "Lo vendido",
+                  "Lo que entró"
+                ],
+                "filas": [
+                  [
+                    "Papitas",
+                    "$12.000",
+                    "$6.000"
+                  ],
+                  [
+                    "Gaseosa",
+                    "$10.500",
+                    "$7.000"
+                  ],
+                  [
+                    "Pan",
+                    "$3.000",
+                    "$3.000"
+                  ]
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Papitas",
+                  "feedback": "Papitas gana en lo **vendido** ($12.000), ¡bien leído! Pero la pregunta es por la plata que **entró**. Mira la última columna."
+                },
+                {
+                  "texto": "Gaseosa",
+                  "correcta": true
+                },
+                {
+                  "texto": "Pan",
+                  "feedback": "Pan cobró todo lo que vendió, pero fueron $3.000. ¿Cuál tiene más en la columna «Lo que entró»?"
+                },
+                {
+                  "texto": "Empatan Papitas y Pan",
+                  "feedback": "Papitas y Pan empatan en **unidades** (6 y 6), pero la pregunta es por plata que entró. Otra pregunta, otra respuesta."
+                }
+              ],
+              "explicacion": "**Gaseosa** ($7.000), aunque Papitas vendió más ($12.000): la mitad de las papitas quedó fiada. Aquí el ganador **sí cambia**: vender no es lo mismo que cobrar. Por eso, antes de decir «lo más vendido», pregunta: **¿según qué: ventas, unidades o plata?**",
+              "tema": "contar-condicion"
             }
-          ],
-          "explicacion": "La A se responde con la columna **Fecha**. La B necesitaría datos que no están. Antes de responder, pregúntate: **¿estoy preguntando por lo que esta columna registra, o le estoy atribuyendo otro significado?**",
-          "tema": "pregunta-contestable"
+          ]
         },
         {
-          "id": "n3-que-dia",
-          "tipo": "seleccion",
-          "fase": "aplicar",
-          "titulo": "Responde la pregunta A",
-          "consigna": "En estos registros, ¿qué día hubo más ventas?",
-          "usaDatos": true,
-          "opciones": [
+          "numero": 3,
+          "titulo": "Comprobar y poner límites",
+          "objetivo": "Formular una pregunta propia, comprobarla y escribir un límite. Es el reto de la clase, en versión autoguiada.",
+          "cierre": "Nivel 3 listo: comprobaste tu respuesta y le pusiste un límite.",
+          "actividades": [
             {
-              "texto": "El 03/10",
-              "feedback": "El 3 de octubre tiene 2 ventas. Cuenta también los otros dos días antes de decidir."
+              "id": "n3-reto",
+              "tipo": "constructor",
+              "fase": "aplicar",
+              "titulo": "El reto: tu respuesta comprobable",
+              "consigna": "Prepara una respuesta breve y comprobable sobre esta tabla. Elige qué quieres conocer, formula una pregunta y muestra con qué datos la respondes. Al final, explica qué **no** permite afirmar tu respuesta.",
+              "rutas": [
+                {
+                  "id": "mapa",
+                  "nombre": "Ruta Mapa",
+                  "descripcion": "La pregunta ya viene dada. Te concentras en comprobarla y ponerle un límite.",
+                  "preguntaDada": "En estos seis registros, ¿cuántas ventas hay de cada producto?"
+                },
+                {
+                  "id": "brujula",
+                  "nombre": "Ruta Brújula",
+                  "descripcion": "Formulas tu propia pregunta. Ideas para empezar: producto, fecha, jornada, cantidad o pagada."
+                },
+                {
+                  "id": "telescopio",
+                  "nombre": "Ruta Telescopio",
+                  "descripcion": "Comparas lo vendido con lo que de verdad entró (ventas pagadas), por producto, y explicas por qué son medidas distintas.",
+                  "preguntaDada": "En esta tabla, ¿cómo se compara el valor vendido con el valor pagado, por producto?"
+                }
+              ],
+              "pasos": [
+                {
+                  "clave": "pregunta",
+                  "titulo": "1 · Mi pregunta",
+                  "ayuda": "Empieza con «En esta tabla…» o «Entre estas seis ventas…».",
+                  "pistas": [
+                    "Elige una sola columna para empezar: Producto, Fecha, Jornada o Pagada.",
+                    "Ejemplo de forma: «Entre estas seis ventas, ¿cuántas hay por ___?»"
+                  ]
+                },
+                {
+                  "clave": "fila-columnas",
+                  "titulo": "2 · Qué representa una fila y qué columnas uso",
+                  "ayuda": "Una fila representa… Uso las columnas…",
+                  "pistas": [
+                    "Recuerda lo que descubriste en el Nivel 1: ¿qué identifica cada código?",
+                    "Escribe «Cada fila representa una venta» y nombra las columnas que necesitas contar o sumar."
+                  ]
+                },
+                {
+                  "clave": "comprobacion",
+                  "titulo": "3 · Cómo lo comprobé",
+                  "ayuda": "Anota los códigos o el conteo, de modo que otra persona lo pueda repetir. Puedes marcar filas en la tabla y agregarlas aquí.",
+                  "pistas": [
+                    "¿Qué fila o conteo respalda lo que afirmas?",
+                    "Escribe los códigos que usaste y el resultado de contar, por ejemplo: «Códigos 01, 03 y 06 → 3».",
+                    "Si tu pregunta tiene una condición (como «con Sí»), dilo: primero filtras, después cuentas."
+                  ],
+                  "permiteFilas": true
+                },
+                {
+                  "clave": "respuesta-limite",
+                  "titulo": "4 · Mi respuesta y lo que todavía no puedo afirmar",
+                  "ayuda": "«Mi respuesta describe únicamente… pero aún no permite saber…»",
+                  "pistas": [
+                    "¿Tu respuesta habla de ventas o de clientes?",
+                    "Piensa en algo que la tabla no tiene: clientes distintos, si el fiado ya se pagó, otras tiendas, el resto del mes…"
+                  ]
+                }
+              ],
+              "verificacion": [
+                "¿Mi pregunta dice «en esta tabla» o «entre estas seis ventas»?",
+                "¿Escribí qué es una fila?",
+                "¿Anoté los códigos o el conteo?",
+                "¿Dije qué no puedo concluir?"
+              ],
+              "ejemplo": "«En estos seis registros, ¿qué producto tiene más ventas pagadas? Cada fila representa una venta. Uso Producto y Pagada. Selecciono los códigos 01, 03, 04 y 05 porque dicen sí y cuento por producto: papitas dos, gaseosa uno y pan uno. Las papitas tienen más ventas pagadas en esta tabla. Esto no permite saber cuántos clientes distintos hubo, si lo fiado ya se cobró ni qué se venderá el próximo mes.»",
+              "explicacion": "No se busca un texto largo: una respuesta breve sirve si otra persona puede seguirla y comprobarla.",
+              "tema": "limites"
             },
             {
-              "texto": "El 05/10",
-              "feedback": "El 5 de octubre tiene 2 ventas. ¿Cuántas tienen los otros días?"
+              "id": "n3-contraste",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "Contraste final",
+              "consigna": "¿Cuál de estas dos preguntas puedes responder **con esta tabla**?",
+              "usaDatos": true,
+              "apoyo": {
+                "tipo": "comparacion",
+                "items": [
+                  {
+                    "etiqueta": "A",
+                    "texto": "¿Qué día hubo más ventas en estos registros?"
+                  },
+                  {
+                    "etiqueta": "B",
+                    "texto": "¿Cuántos clientes fieles tiene la tienda?"
+                  }
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Solo la A",
+                  "correcta": true
+                },
+                {
+                  "texto": "Solo la B",
+                  "feedback": "La tabla no tiene un dato del cliente: no se puede saber quién vuelve a comprar."
+                },
+                {
+                  "texto": "Las dos",
+                  "feedback": "La A sí se puede, ¡bien! Pero la B no: la tabla no tiene un dato del cliente, así que no se puede saber quién vuelve a comprar."
+                },
+                {
+                  "texto": "Ninguna",
+                  "feedback": "Mira la columna Fecha: ¿puedes contar cuántas ventas hay en cada día?"
+                }
+              ],
+              "explicacion": "La A se responde con la columna **Fecha**. La B necesitaría datos que no están. Antes de responder, pregúntate: **¿estoy preguntando por lo que esta columna registra, o le estoy atribuyendo otro significado?**",
+              "tema": "pregunta-contestable"
             },
             {
-              "texto": "Hay empate: 2 ventas en cada fecha",
-              "correcta": true
+              "id": "n3-que-dia",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Responde la pregunta A",
+              "consigna": "En estos registros, ¿qué día hubo más ventas?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "El 03/10",
+                  "feedback": "El 3 de octubre tiene 2 ventas. Cuenta también los otros dos días antes de decidir."
+                },
+                {
+                  "texto": "El 05/10",
+                  "feedback": "El 5 de octubre tiene 2 ventas. ¿Cuántas tienen los otros días?"
+                },
+                {
+                  "texto": "Hay empate: 2 ventas en cada fecha",
+                  "correcta": true
+                }
+              ],
+              "pistas": [
+                "Cuenta las filas de cada fecha: 03/10, 04/10 y 05/10."
+              ],
+              "explicacion": "**Empate**: 2 ventas el 3, 2 el 4 y 2 el 5 de octubre. Una respuesta honesta también puede ser «no hay un día con más». Ojo: si la pregunta fuera por **plata** y no por número de ventas, el 5 de octubre sí sumaría más ($13.000). Otra pregunta, otra respuesta.",
+              "tema": "contar-condicion"
+            },
+            {
+              "id": "n3-cierre",
+              "tipo": "escritura",
+              "fase": "observar",
+              "titulo": "Cierre de la misión",
+              "consigna": "Completa estas dos frases. Quedan guardadas en tu cuaderno (solo en este navegador).",
+              "frases": [
+                {
+                  "clave": "cierre-porque",
+                  "inicio": "Mi pregunta se puede responder porque…"
+                },
+                {
+                  "clave": "cierre-no-puedo",
+                  "inicio": "Con esta tabla todavía no puedo afirmar…"
+                }
+              ],
+              "explicacion": "El procedimiento en una línea: **entender el registro → precisar la pregunta → escoger columnas → comprobar → limitar la conclusión.**"
             }
-          ],
-          "pistas": [
-            "Cuenta las filas de cada fecha: 03/10, 04/10 y 05/10."
-          ],
-          "explicacion": "**Empate**: 2 ventas el 3, 2 el 4 y 2 el 5 de octubre. Una respuesta honesta también puede ser «no hay un día con más». Ojo: si la pregunta fuera por **plata** y no por número de ventas, el 5 de octubre sí sumaría más ($13.000). Otra pregunta, otra respuesta.",
-          "tema": "contar-condicion"
-        },
-        {
-          "id": "n3-cierre",
-          "tipo": "escritura",
-          "fase": "observar",
-          "titulo": "Cierre de la misión",
-          "consigna": "Completa estas dos frases. Quedan guardadas en tu cuaderno (solo en este navegador).",
-          "frases": [
-            {
-              "clave": "cierre-porque",
-              "inicio": "Mi pregunta se puede responder porque…"
-            },
-            {
-              "clave": "cierre-no-puedo",
-              "inicio": "Con esta tabla todavía no puedo afirmar…"
-            }
-          ],
-          "explicacion": "El procedimiento en una línea: **entender el registro → precisar la pregunta → escoger columnas → comprobar → limitar la conclusión.**"
+          ]
         }
-      ]
+      ],
+      "conceptos": [
+        {
+          "termino": "Dato / registro / fila",
+          "definicion": "Cada fila es un registro. En esta tabla, una fila es una venta.",
+          "ejemplo": "La fila 01 es la venta de 2 papitas del 3 de octubre."
+        },
+        {
+          "termino": "Unidad de análisis",
+          "definicion": "Lo que representa una fila.",
+          "ejemplo": "Aquí es la venta, no el cliente."
+        },
+        {
+          "termino": "Variable",
+          "definicion": "Una característica registrada en una columna. Puede ser categórica, temporal, sí/no (booleana), numérica o un identificador.",
+          "ejemplo": "Producto es categórica; Fecha es temporal; Pagada es sí/no; Valor total es numérica."
+        },
+        {
+          "termino": "Identificador",
+          "definicion": "Una etiqueta para reconocer un registro. No es una cantidad.",
+          "ejemplo": "El código 01 no se suma ni se promedia; el Valor total sí se suma."
+        },
+        {
+          "termino": "Pregunta contestable",
+          "definicion": "Se puede responder con los datos que tenemos: dice qué se mide, de qué conjunto habla y se comprueba con registros.",
+          "ejemplo": "«¿Qué producto tiene más ventas en estos registros?»"
+        },
+        {
+          "termino": "Cobertura",
+          "definicion": "A quién representa (o no) la tabla.",
+          "ejemplo": "Seis ventas de una tienda no representan a toda Medellín."
+        },
+        {
+          "termino": "Venta ≠ cliente ≠ pago",
+          "definicion": "Son tres cosas distintas. La tabla cuenta ventas; no puede contar clientes distintos, y vender no es lo mismo que cobrar.",
+          "ejemplo": "Hay 4 ventas pagadas, no «4 clientes». Papitas vendió más ($12.000), pero Gaseosa dejó más plata en la mano ($7.000)."
+        },
+        {
+          "termino": "Límite de una conclusión",
+          "definicion": "Lo que los datos no permiten afirmar.",
+          "ejemplo": "«Esto no permite saber cuántos clientes distintos hubo»."
+        }
+      ],
+      "fraseClave": "Antes de responder, revisamos qué significa cada fila, qué columnas necesitamos y a qué conjunto se refiere la pregunta.",
+      "paraLlevar": {
+        "consigna": "Prepara una respuesta breve y comprobable sobre esta tabla. Elige qué quieres conocer, formula una pregunta y muestra con qué datos la respondes. Al final, explica qué no permite afirmar tu respuesta.",
+        "pasos": [
+          "Mi pregunta (empieza con «En esta tabla…» o «Entre estas seis ventas…»).",
+          "Qué representa una fila y qué columnas uso.",
+          "Cómo lo comprobé (los códigos o el conteo, para que otra persona lo repita).",
+          "Mi respuesta y lo que todavía no puedo afirmar («Mi respuesta describe únicamente… pero aún no permite saber…»)."
+        ],
+        "lupa": [
+          "Dice qué se mide.",
+          "Dice de qué conjunto habla.",
+          "Se puede comprobar con registros.",
+          "Dice qué no puedo concluir."
+        ]
+      }
+    },
+    "guia": {
+      "nombre": "Guía: inscripciones del centro cultural",
+      "titulo": "Centro Cultural",
+      "caso": "Inscripciones de un centro cultural de barrio",
+      "historia": "Un centro cultural de barrio tiene unas inscripciones anotadas y no sabe qué le dicen. Tú eres parte del equipo de análisis. Pero antes de contestar, hay que aprender a hacer las preguntas correctas.",
+      "datos": {
+        "titulo": "Inscripciones del centro cultural",
+        "columnas": [
+          "Código",
+          "Taller",
+          "Fecha",
+          "Barrio",
+          "Asistencia"
+        ],
+        "filas": [
+          [
+            "01",
+            "Dibujo",
+            "03/10/2026",
+            "Laureles",
+            "Sí"
+          ],
+          [
+            "02",
+            "Música",
+            "03/10/2026",
+            "Centro",
+            "No"
+          ],
+          [
+            "03",
+            "Dibujo",
+            "04/10/2026",
+            "Centro",
+            "Sí"
+          ],
+          [
+            "04",
+            "Programación",
+            "04/10/2026",
+            "Robledo",
+            "Sí"
+          ],
+          [
+            "05",
+            "Música",
+            "05/10/2026",
+            "Robledo",
+            "Sí"
+          ],
+          [
+            "06",
+            "Dibujo",
+            "05/10/2026",
+            "Laureles",
+            "No"
+          ]
+        ],
+        "definiciones": [
+          "Cada **código** identifica una **inscripción**.",
+          "**Fecha** es el día de inscripción. **Barrio** es el declarado en esa inscripción.",
+          "**Asistencia** indica si se marcó asistencia para esa inscripción.",
+          "**No hay** un identificador que permita reconocer a una misma persona entre registros."
+        ],
+        "aviso": "Datos ficticios, solo para practicar.",
+        "unidad": [
+          "inscripción",
+          "inscripciones"
+        ]
+      },
+      "niveles": [
+        {
+          "numero": 1,
+          "titulo": "Leer la fila",
+          "objetivo": "Entender qué cuenta una fila y qué describe cada columna.",
+          "cierre": "Nivel 1 listo: ya sabes leer una fila.",
+          "actividades": [
+            {
+              "id": "n1-toca-fila",
+              "tipo": "leer-filas",
+              "fase": "hacer",
+              "titulo": "Toca una fila",
+              "consigna": "Toca una fila de la tabla y escucha lo que nos cuenta. Lee al menos **2 filas** para continuar.",
+              "minimo": 2,
+              "lecturas": {
+                "01": "El registro 01 es una inscripción a Dibujo, hecha el 3 de octubre, declarada desde Laureles, con asistencia marcada.",
+                "02": "El registro 02 es una inscripción a Música, hecha el 3 de octubre, declarada desde Centro, sin asistencia marcada.",
+                "03": "El registro 03 es una inscripción a Dibujo, hecha el 4 de octubre, declarada desde Centro, con asistencia marcada.",
+                "04": "El registro 04 es una inscripción a Programación, hecha el 4 de octubre, declarada desde Robledo, con asistencia marcada.",
+                "05": "El registro 05 es una inscripción a Música, hecha el 5 de octubre, declarada desde Robledo, con asistencia marcada.",
+                "06": "El registro 06 es una inscripción a Dibujo, hecha el 5 de octubre, declarada desde Laureles, sin asistencia marcada."
+              },
+              "explicacion": "Fíjate en que cada lectura empieza igual: **«es una inscripción a…»**. Eso es lo que cuenta cada fila.",
+              "tema": "tabla-fila-columna"
+            },
+            {
+              "id": "n1-que-es-fila",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "¿Qué representa una fila?",
+              "consigna": "Después de leer algunas filas, ¿qué representa cada fila de esta tabla?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "Una persona",
+                  "feedback": "Cada inscripción se refiere a alguien, pero la tabla no tiene un identificador que permita saber si dos inscripciones son de la misma persona. Lo que está registrado es una inscripción."
+                },
+                {
+                  "texto": "Una inscripción",
+                  "correcta": true
+                },
+                {
+                  "texto": "Un taller",
+                  "feedback": "El taller es una de las columnas: una característica de cada fila. Mira: hay 3 talleres distintos, pero 6 filas. ¿Qué es lo que se repite 6 veces?"
+                },
+                {
+                  "texto": "Un barrio",
+                  "feedback": "El barrio es una columna: dice desde dónde se declaró cada inscripción. Hay 3 barrios y 6 filas. ¿Qué identifica el código de cada fila?"
+                }
+              ],
+              "pistas": [
+                "Vuelve a leer una fila completa: ¿cómo empieza la frase?",
+                "El código de cada fila identifica algo. Lo dicen las definiciones debajo de la tabla."
+              ],
+              "explicacion": "A lo que representa una fila le llamamos **unidad de análisis**. Aquí, la unidad de análisis es la **inscripción**.",
+              "tema": "unidad-analisis"
+            },
+            {
+              "id": "n1-une-columnas",
+              "tipo": "emparejar",
+              "fase": "entender",
+              "titulo": "Une columna y tipo",
+              "consigna": "Cada columna guarda un tipo de dato distinto. Para cada columna, toca el tipo que le corresponde.",
+              "usaDatos": true,
+              "tipos": [
+                {
+                  "id": "categorica",
+                  "texto": "Categórica",
+                  "ayuda": "grupos con nombre, como Dibujo o Música"
+                },
+                {
+                  "id": "temporal",
+                  "texto": "Temporal",
+                  "ayuda": "ubica el registro en el tiempo, como una fecha"
+                },
+                {
+                  "id": "booleana",
+                  "texto": "Sí / No",
+                  "ayuda": "booleana: solo dos valores posibles"
+                },
+                {
+                  "id": "identificador",
+                  "texto": "Identificador",
+                  "ayuda": "una etiqueta para reconocer el registro"
+                },
+                {
+                  "id": "cantidad",
+                  "texto": "Cantidad",
+                  "ayuda": "un número que tiene sentido sumar o promediar"
+                }
+              ],
+              "pares": [
+                {
+                  "item": "Taller",
+                  "correcto": "categorica",
+                  "feedback": "Taller toma valores como Dibujo, Música o Programación: son grupos con nombre. Eso es una variable categórica."
+                },
+                {
+                  "item": "Barrio",
+                  "correcto": "categorica",
+                  "feedback": "Barrio toma valores como Laureles, Centro o Robledo: son grupos con nombre, igual que Taller."
+                },
+                {
+                  "item": "Fecha",
+                  "correcto": "temporal",
+                  "feedback": "Fecha ubica cada inscripción en el tiempo: es una variable temporal."
+                },
+                {
+                  "item": "Asistencia",
+                  "correcto": "booleana",
+                  "feedback": "Asistencia solo puede valer Sí o No. A eso le llamamos booleana."
+                },
+                {
+                  "item": "Código",
+                  "correcto": "identificador",
+                  "feedback": "El código identifica una inscripción; no es una cantidad."
+                }
+              ],
+              "pistas": [
+                "Ninguna columna de esta tabla es una cantidad que tenga sentido sumar.",
+                "Pregúntate para cada columna: ¿qué valores puede tomar? ¿Nombres, fechas, Sí/No o etiquetas?"
+              ],
+              "explicacion": "A cada columna le llamamos **variable**: una característica que se registra en cada fila. El **código** tiene números, pero funciona como **identificador**: sirve para reconocer el registro, no para hacer cuentas.",
+              "tema": "tipos-variables"
+            },
+            {
+              "id": "n1-cambia-hecho",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "¿Cambia el hecho?",
+              "consigna": "Si cambio el código **01** por **A01**, ¿cambia la asistencia de esa inscripción?",
+              "opciones": [
+                {
+                  "texto": "Sí, cambia la asistencia",
+                  "feedback": "El código es como el número de un turno: si le cambias el nombre, la inscripción sigue siendo la misma, con su misma asistencia."
+                },
+                {
+                  "texto": "No: cambia la etiqueta, no el hecho registrado",
+                  "correcta": true
+                },
+                {
+                  "texto": "Depende de si A01 es mayor que 01",
+                  "feedback": "El código no es una cantidad: no tiene sentido decir que uno es «mayor» que otro. Solo sirve para reconocer el registro."
+                }
+              ],
+              "explicacion": "Cambia la etiqueta, no el hecho registrado. Por eso un código con números **no se suma ni se promedia**: 01 + 02 no significa nada, son etiquetas.",
+              "tema": "tipos-variables"
+            },
+            {
+              "id": "n1-completa-frase",
+              "tipo": "completar",
+              "fase": "entender",
+              "titulo": "Completa la frase",
+              "consigna": "Elige las palabras que completan la idea.",
+              "frase": "Una fila representa {0} y una columna nos dice {1}.",
+              "huecos": [
+                {
+                  "opciones": [
+                    {
+                      "texto": "una inscripción",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "una persona",
+                      "feedback": "Cada fila es una inscripción. La tabla no permite saber si son seis personas distintas."
+                    },
+                    {
+                      "texto": "un taller",
+                      "feedback": "El taller es una columna. Hay 3 talleres y 6 filas: la fila es otra cosa."
+                    }
+                  ]
+                },
+                {
+                  "opciones": [
+                    {
+                      "texto": "una característica registrada en cada inscripción",
+                      "correcta": true
+                    },
+                    {
+                      "texto": "cuántas personas hay",
+                      "feedback": "Ninguna columna cuenta personas. Cada columna registra una característica de la inscripción, como el taller o el barrio."
+                    },
+                    {
+                      "texto": "el total de la tabla",
+                      "feedback": "Una columna no es un total: guarda un dato de cada fila, por ejemplo la fecha de cada inscripción."
+                    }
+                  ]
+                }
+              ],
+              "textoLibre": {
+                "etiqueta": "Si quieres, escríbelo con tus palabras (opcional, queda en tu cuaderno):",
+                "clave": "frase-fila-columna"
+              },
+              "explicacion": "**Fila = unidad de análisis** (aquí, una inscripción). **Columna = variable** (una característica registrada).",
+              "tema": "tabla-fila-columna"
+            }
+          ]
+        },
+        {
+          "numero": 2,
+          "titulo": "Preguntar bien",
+          "objetivo": "Distinguir una pregunta contestable de una que no lo es, y contar con una condición.",
+          "cierre": "Nivel 2 listo: ya sabes preguntar bien.",
+          "actividades": [
+            {
+              "id": "n2-dos-versiones",
+              "tipo": "seleccion",
+              "multiple": true,
+              "fase": "observar",
+              "titulo": "Dos versiones de una pregunta",
+              "consigna": "Compara estas dos preguntas. **Marca todo lo que cambió** de la primera a la segunda.",
+              "apoyo": {
+                "tipo": "comparacion",
+                "items": [
+                  {
+                    "etiqueta": "Antes",
+                    "texto": "¿Cómo nos va con el transporte?"
+                  },
+                  {
+                    "etiqueta": "Después",
+                    "texto": "Durante cinco días, ¿cuántos minutos tardé en llegar al lugar de estudio?"
+                  }
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Dice qué se mide",
+                  "correcta": true,
+                  "siFalta": "Mira otra vez: ¿la segunda dice qué vamos a observar? (minutos de trayecto)."
+                },
+                {
+                  "texto": "Dice de qué conjunto habla",
+                  "correcta": true,
+                  "siFalta": "Mira otra vez: ¿la segunda dice durante cuánto tiempo o a quién se refiere? (cinco días, mi trayecto)."
+                },
+                {
+                  "texto": "Se puede comprobar con registros",
+                  "correcta": true,
+                  "siFalta": "Mira otra vez: ¿podrías anotar una cifra por día y comprobar la respuesta?"
+                },
+                {
+                  "texto": "Usa palabras más técnicas",
+                  "feedback": "La segunda no es más técnica: es más concreta. Usa palabras cotidianas, pero dice exactamente qué observar."
+                }
+              ],
+              "explicacion": "Estos tres rasgos son tu **lupa** para revisar cualquier pregunta: dice **qué se mide**, dice **de qué conjunto** habla y se puede **comprobar con registros**.",
+              "tema": "pregunta-contestable"
+            },
+            {
+              "id": "n2-contestable",
+              "tipo": "tarjetas",
+              "fase": "entender",
+              "titulo": "¿Contestable o no?",
+              "consigna": "Para cada pregunta, decide si se puede responder **con esta tabla**.",
+              "usaDatos": true,
+              "botones": {
+                "si": "Se puede con esta tabla",
+                "no": "No se puede"
+              },
+              "tarjetas": [
+                {
+                  "texto": "¿Qué taller prefieren todos los habitantes de Medellín?",
+                  "respuesta": "no",
+                  "explicacion": "La tabla no cubre a toda la ciudad y no tiene datos de preferencia. Aunque tuviera más filas del mismo centro, seguiría sin representar a toda la ciudad."
+                },
+                {
+                  "texto": "¿Qué taller tiene más inscripciones en estos registros?",
+                  "respuesta": "si",
+                  "explicacion": "Se cuenta la columna Taller. Dibujo tiene 3."
+                },
+                {
+                  "texto": "¿Cuántas personas distintas asistieron?",
+                  "respuesta": "no",
+                  "explicacion": "Cada fila es una inscripción; no hay identificador de persona."
+                },
+                {
+                  "texto": "¿Cuántas inscripciones hay por barrio?",
+                  "respuesta": "si",
+                  "explicacion": "Se cuenta la columna Barrio: 2, 2 y 2."
+                }
+              ],
+              "explicacion": "Que la tabla tenga **más filas** no basta: también importa la **cobertura**, es decir, a quién representa la tabla. Seis inscripciones de un centro no hablan por toda la ciudad.",
+              "tema": "pregunta-contestable"
+            },
+            {
+              "id": "n2-arregla",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Arregla la pregunta",
+              "consigna": "Esta pregunta **no** se puede contestar: «¿Qué taller prefieren todos los habitantes de Medellín?». ¿Cuál de estas versiones **sí** se puede responder con la tabla?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "¿Qué taller prefieren los habitantes de Laureles?",
+                  "feedback": "Achicaste el conjunto, ¡bien pensado! Pero sigue preguntando por preferencias y por todo un barrio. La tabla solo registra inscripciones."
+                },
+                {
+                  "texto": "¿Qué taller tiene más inscripciones en estos registros?",
+                  "correcta": true
+                },
+                {
+                  "texto": "¿Qué taller es el mejor del centro cultural?",
+                  "feedback": "«Mejor» no se puede medir con estas columnas. ¿Qué columna diría algo sobre qué taller es mejor?"
+                }
+              ],
+              "explicacion": "La versión que funciona dice **qué se mide** (inscripciones), **de qué conjunto** habla (estos registros) y se **comprueba** contando la columna Taller.",
+              "tema": "pregunta-contestable"
+            },
+            {
+              "id": "n2-filas-si",
+              "tipo": "seleccionar-filas",
+              "fase": "aplicar",
+              "titulo": "Cuenta con condición · Paso 1",
+              "consigna": "Pregunta: «En estos seis registros, ¿qué taller tiene más inscripciones con asistencia marcada en **Sí**?». Primero, **toca las filas que cumplen la condición**.",
+              "esperadas": [
+                "01",
+                "03",
+                "04",
+                "05"
+              ],
+              "feedback": {
+                "sobran": "¿Qué significa el «Sí» y cuál es la condición de tu pregunta? Revisa la columna Asistencia de las filas que marcaste.",
+                "faltan": "Vas bien. Todavía hay filas con asistencia en Sí que no has marcado. Recorre la columna Asistencia de arriba abajo."
+              },
+              "pistas": [
+                "Mira solo la columna Asistencia.",
+                "Son las filas donde Asistencia dice «Sí». Hay cuatro."
+              ],
+              "explicacion": "Las filas que cumplen la condición son **01, 03, 04 y 05**. Las otras no se borran: simplemente no entran en este conteo.",
+              "tema": "contar-condicion"
+            },
+            {
+              "id": "n2-conteo-si",
+              "tipo": "conteo",
+              "fase": "aplicar",
+              "titulo": "Cuenta con condición · Paso 2",
+              "consigna": "Ahora cuenta, **solo entre las filas con Sí**, cuántas hay de cada taller.",
+              "usaDatos": true,
+              "resaltar": [
+                "01",
+                "03",
+                "04",
+                "05"
+              ],
+              "categorias": [
+                "Dibujo",
+                "Música",
+                "Programación"
+              ],
+              "esperado": {
+                "Dibujo": 2,
+                "Música": 1,
+                "Programación": 1
+              },
+              "erroresComunes": [
+                {
+                  "valores": {
+                    "Dibujo": 3,
+                    "Música": 2,
+                    "Programación": 1
+                  },
+                  "mensaje": "¿Qué significa el «Sí» y cuál es la condición de tu pregunta? Contaste todas las inscripciones; cuenta solo las filas resaltadas."
+                }
+              ],
+              "mensajeGeneral": "Vas por buen camino. Revisa {categorias}: cuenta solo las filas resaltadas (las que tienen Sí).",
+              "pistas": [
+                "Las filas resaltadas son 01, 03, 04 y 05. Mira el taller de cada una.",
+                "01 y 03 son Dibujo; 04 es Programación; 05 es Música."
+              ],
+              "explicacion": "Con asistencia en Sí: **Dibujo 2 · Música 1 · Programación 1**. Dibujo tiene más registros con Sí en esta tabla.",
+              "tema": "contar-condicion"
+            },
+            {
+              "id": "n2-por-que-cambio",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "¿Por qué cambiaron las cifras?",
+              "consigna": "Ahora mira el conteo de **todas** las inscripciones junto al que acabas de hacer. ¿Por qué cambiaron las cifras?",
+              "apoyo": {
+                "tipo": "tabla",
+                "columnas": [
+                  "Taller",
+                  "Todas las inscripciones",
+                  "Inscripciones con Sí"
+                ],
+                "filas": [
+                  [
+                    "Dibujo",
+                    "3",
+                    "2"
+                  ],
+                  [
+                    "Música",
+                    "2",
+                    "1"
+                  ],
+                  [
+                    "Programación",
+                    "1",
+                    "1"
+                  ]
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Porque uno de los dos conteos está mal hecho",
+                  "feedback": "Los dos conteos están bien hechos. Mira qué filas entraron en cada uno: ¿se usó la misma condición?"
+                },
+                {
+                  "texto": "Porque respondimos dos preguntas distintas: todas las inscripciones vs. las inscripciones con Sí",
+                  "correcta": true
+                },
+                {
+                  "texto": "Porque algunas personas se inscribieron dos veces",
+                  "feedback": "La tabla no permite saber si una persona se inscribió dos veces: no hay identificador de persona. La diferencia está en la condición que aplicamos."
+                }
+              ],
+              "explicacion": "Respondimos **dos preguntas diferentes**. Dibujo encabeza ambos conteos, pero eso **no hace equivalentes** inscripción y asistencia.",
+              "tema": "contar-condicion"
+            },
+            {
+              "id": "n2-frase-honesta",
+              "tipo": "seleccion",
+              "fase": "entender",
+              "titulo": "Dilo con honestidad",
+              "consigna": "Con lo que contaste, ¿cuál frase describe con honestidad lo que encontraste?",
+              "opciones": [
+                {
+                  "texto": "Vinieron 4 personas.",
+                  "feedback": "Hay cuatro registros con Sí. Para hablar de personas únicas faltan datos."
+                },
+                {
+                  "texto": "Hay 4 inscripciones con asistencia marcada en Sí en esta tabla.",
+                  "correcta": true
+                },
+                {
+                  "texto": "Dibujo es el taller que más le gusta a la gente de Medellín.",
+                  "feedback": "Completa: mi respuesta describe únicamente… (estas seis inscripciones, no a toda la ciudad)."
+                },
+                {
+                  "texto": "La suma de los códigos con Sí es 13.",
+                  "feedback": "El código identifica una inscripción; no es una cantidad."
+                }
+              ],
+              "explicacion": "**Inscripción ≠ persona ≠ asistencia.** Una buena frase dice qué se contó (inscripciones con Sí) y de qué conjunto (esta tabla).",
+              "tema": "limites"
+            }
+          ]
+        },
+        {
+          "numero": 3,
+          "titulo": "Comprobar y poner límites",
+          "objetivo": "Formular una pregunta propia, comprobarla y escribir un límite. Es el reto de la clase, en versión autoguiada.",
+          "cierre": "Nivel 3 listo: comprobaste tu respuesta y le pusiste un límite.",
+          "actividades": [
+            {
+              "id": "n3-reto",
+              "tipo": "constructor",
+              "fase": "aplicar",
+              "titulo": "El reto: tu respuesta comprobable",
+              "consigna": "Prepara una respuesta breve y comprobable sobre esta tabla. Elige qué quieres conocer, formula una pregunta y muestra con qué datos la respondes. Al final, explica qué **no** permite afirmar tu respuesta.",
+              "rutas": [
+                {
+                  "id": "mapa",
+                  "nombre": "Ruta Mapa",
+                  "descripcion": "La pregunta ya viene dada. Te concentras en comprobarla y ponerle un límite.",
+                  "preguntaDada": "En estos seis registros, ¿cuántas inscripciones corresponden a cada taller?"
+                },
+                {
+                  "id": "brujula",
+                  "nombre": "Ruta Brújula",
+                  "descripcion": "Formulas tu propia pregunta. Ideas para empezar: taller, fecha, barrio o asistencia."
+                },
+                {
+                  "id": "telescopio",
+                  "nombre": "Ruta Telescopio",
+                  "descripcion": "Comparas las inscripciones totales con los registros con Sí por taller (y, si quieres, por barrio) y explicas por qué son medidas distintas.",
+                  "preguntaDada": "En esta tabla, ¿cómo se comparan las inscripciones totales con las inscripciones con asistencia en Sí, por taller?"
+                }
+              ],
+              "pasos": [
+                {
+                  "clave": "pregunta",
+                  "titulo": "1 · Mi pregunta",
+                  "ayuda": "Empieza con «En esta tabla…» o «Entre estas seis inscripciones…».",
+                  "pistas": [
+                    "Elige una sola columna para empezar: Taller, Fecha, Barrio o Asistencia.",
+                    "Ejemplo de forma: «Entre estas seis inscripciones, ¿cuántas hay por ___?»"
+                  ]
+                },
+                {
+                  "clave": "fila-columnas",
+                  "titulo": "2 · Qué representa una fila y qué columnas uso",
+                  "ayuda": "Una fila representa… Uso las columnas…",
+                  "pistas": [
+                    "Recuerda lo que descubriste en el Nivel 1: ¿qué identifica cada código?",
+                    "Escribe «Cada fila representa una inscripción» y nombra las columnas que necesitas contar."
+                  ]
+                },
+                {
+                  "clave": "comprobacion",
+                  "titulo": "3 · Cómo lo comprobé",
+                  "ayuda": "Anota los códigos o el conteo, de modo que otra persona lo pueda repetir. Puedes marcar filas en la tabla y agregarlas aquí.",
+                  "pistas": [
+                    "¿Qué fila o conteo respalda lo que afirmas?",
+                    "Escribe los códigos que usaste y el resultado de contar, por ejemplo: «Códigos 01, 03 y 06 → 3».",
+                    "Si tu pregunta tiene una condición (como «con Sí»), dilo: primero filtras, después cuentas."
+                  ],
+                  "permiteFilas": true
+                },
+                {
+                  "clave": "respuesta-limite",
+                  "titulo": "4 · Mi respuesta y lo que todavía no puedo afirmar",
+                  "ayuda": "«Mi respuesta describe únicamente… pero aún no permite saber…»",
+                  "pistas": [
+                    "¿Tu respuesta habla de inscripciones o de personas?",
+                    "Piensa en algo que la tabla no tiene: personas distintas, preferencias, toda la ciudad, población…"
+                  ]
+                }
+              ],
+              "verificacion": [
+                "¿Mi pregunta dice «en esta tabla» o «entre estas seis inscripciones»?",
+                "¿Escribí qué es una fila?",
+                "¿Anoté los códigos o el conteo?",
+                "¿Dije qué no puedo concluir?"
+              ],
+              "ejemplo": "«En estos seis registros, ¿qué taller tiene más inscripciones con asistencia marcada en sí? Cada fila representa una inscripción. Uso taller y asistencia. Selecciono los códigos 01, 03, 04 y 05 porque dicen sí y cuento por taller: dibujo dos, música uno y programación uno. Dibujo tiene más registros con sí en esta tabla. Esto no permite saber cuántas personas distintas asistieron ni qué taller preferirá toda la ciudad.»",
+              "explicacion": "No se busca un texto largo: una respuesta breve sirve si otra persona puede seguirla y comprobarla.",
+              "tema": "limites"
+            },
+            {
+              "id": "n3-contraste",
+              "tipo": "seleccion",
+              "fase": "observar",
+              "titulo": "Contraste final",
+              "consigna": "¿Cuál de estas dos preguntas puedes responder **con esta tabla**?",
+              "usaDatos": true,
+              "apoyo": {
+                "tipo": "comparacion",
+                "items": [
+                  {
+                    "etiqueta": "A",
+                    "texto": "¿Qué día hubo más inscripciones en estos registros?"
+                  },
+                  {
+                    "etiqueta": "B",
+                    "texto": "¿Qué barrio tiene más población?"
+                  }
+                ]
+              },
+              "opciones": [
+                {
+                  "texto": "Solo la A",
+                  "correcta": true
+                },
+                {
+                  "texto": "Solo la B",
+                  "feedback": "La tabla no tiene datos de población. «Barrio» solo describe el barrio declarado en cada inscripción."
+                },
+                {
+                  "texto": "Las dos",
+                  "feedback": "La A sí se puede, ¡bien! Pero la B no: la tabla no tiene datos de población. «Barrio» solo describe el barrio declarado en cada inscripción."
+                },
+                {
+                  "texto": "Ninguna",
+                  "feedback": "Mira la columna Fecha: ¿puedes contar cuántas inscripciones hay en cada día?"
+                }
+              ],
+              "explicacion": "La A se responde con la columna **Fecha**. La B necesitaría datos que no están. Antes de responder, pregúntate: **¿estoy preguntando por lo que esta columna registra, o le estoy atribuyendo otro significado?**",
+              "tema": "pregunta-contestable"
+            },
+            {
+              "id": "n3-que-dia",
+              "tipo": "seleccion",
+              "fase": "aplicar",
+              "titulo": "Responde la pregunta A",
+              "consigna": "En estos registros, ¿qué día hubo más inscripciones?",
+              "usaDatos": true,
+              "opciones": [
+                {
+                  "texto": "El 03/10/2026",
+                  "feedback": "El 3 de octubre tiene 2 inscripciones. Cuenta también los otros dos días antes de decidir."
+                },
+                {
+                  "texto": "El 05/10/2026",
+                  "feedback": "El 5 de octubre tiene 2 inscripciones. ¿Cuántas tienen los otros días?"
+                },
+                {
+                  "texto": "Hay empate: 2 inscripciones en cada fecha",
+                  "correcta": true
+                }
+              ],
+              "pistas": [
+                "Cuenta las filas de cada fecha: 03/10, 04/10 y 05/10."
+              ],
+              "explicacion": "**Empate**: 2 inscripciones el 3, 2 el 4 y 2 el 5 de octubre. Una respuesta honesta también puede ser «no hay un día con más».",
+              "tema": "contar-condicion"
+            },
+            {
+              "id": "n3-cierre",
+              "tipo": "escritura",
+              "fase": "observar",
+              "titulo": "Cierre de la misión",
+              "consigna": "Completa estas dos frases. Quedan guardadas en tu cuaderno (solo en este navegador).",
+              "frases": [
+                {
+                  "clave": "cierre-porque",
+                  "inicio": "Mi pregunta se puede responder porque…"
+                },
+                {
+                  "clave": "cierre-no-puedo",
+                  "inicio": "Con esta tabla todavía no puedo afirmar…"
+                }
+              ],
+              "explicacion": "El procedimiento en una línea: **entender el registro → precisar la pregunta → escoger columnas → comprobar → limitar la conclusión.**"
+            }
+          ]
+        }
+      ],
+      "conceptos": [
+        {
+          "termino": "Dato / registro / fila",
+          "definicion": "Cada fila es un registro. En esta tabla, una fila es una inscripción.",
+          "ejemplo": "La fila 01 es la inscripción a Dibujo del 3 de octubre."
+        },
+        {
+          "termino": "Unidad de análisis",
+          "definicion": "Lo que representa una fila.",
+          "ejemplo": "Aquí es la inscripción, no la persona."
+        },
+        {
+          "termino": "Variable",
+          "definicion": "Una característica registrada en una columna. Puede ser categórica, temporal, sí/no (booleana) o un identificador.",
+          "ejemplo": "Taller es categórica; Fecha es temporal; Asistencia es sí/no."
+        },
+        {
+          "termino": "Identificador",
+          "definicion": "Una etiqueta para reconocer un registro. No es una cantidad.",
+          "ejemplo": "El código 01 no se suma ni se promedia."
+        },
+        {
+          "termino": "Pregunta contestable",
+          "definicion": "Se puede responder con los datos que tenemos: dice qué se mide, de qué conjunto habla y se comprueba con registros.",
+          "ejemplo": "«¿Qué taller tiene más inscripciones en estos registros?»"
+        },
+        {
+          "termino": "Cobertura",
+          "definicion": "A quién representa (o no) la tabla.",
+          "ejemplo": "Seis inscripciones de un centro no representan a toda Medellín."
+        },
+        {
+          "termino": "Inscripción ≠ persona ≠ asistencia",
+          "definicion": "Son tres cosas distintas. La tabla cuenta inscripciones; no puede contar personas distintas.",
+          "ejemplo": "Hay 4 inscripciones con Sí, no «4 personas»."
+        },
+        {
+          "termino": "Límite de una conclusión",
+          "definicion": "Lo que los datos no permiten afirmar.",
+          "ejemplo": "«Esto no permite saber cuántas personas distintas asistieron»."
+        }
+      ],
+      "fraseClave": "Antes de responder, revisamos qué significa cada fila, qué columnas necesitamos y a qué conjunto se refiere la pregunta.",
+      "paraLlevar": {
+        "consigna": "Prepara una respuesta breve y comprobable sobre esta tabla. Elige qué quieres conocer, formula una pregunta y muestra con qué datos la respondes. Al final, explica qué no permite afirmar tu respuesta.",
+        "pasos": [
+          "Mi pregunta (empieza con «En esta tabla…» o «Entre estas seis inscripciones…»).",
+          "Qué representa una fila y qué columnas uso.",
+          "Cómo lo comprobé (los códigos o el conteo, para que otra persona lo repita).",
+          "Mi respuesta y lo que todavía no puedo afirmar («Mi respuesta describe únicamente… pero aún no permite saber…»)."
+        ],
+        "lupa": [
+          "Dice qué se mide.",
+          "Dice de qué conjunto habla.",
+          "Se puede comprobar con registros.",
+          "Dice qué no puedo concluir."
+        ]
+      }
     }
-  ],
-  "conceptos": [
-    {
-      "termino": "Dato / registro / fila",
-      "definicion": "Cada fila es un registro. En esta tabla, una fila es una venta.",
-      "ejemplo": "La fila 01 es la venta de 2 papitas del 3 de octubre."
-    },
-    {
-      "termino": "Unidad de análisis",
-      "definicion": "Lo que representa una fila.",
-      "ejemplo": "Aquí es la venta, no el cliente."
-    },
-    {
-      "termino": "Variable",
-      "definicion": "Una característica registrada en una columna. Puede ser categórica, temporal, sí/no (booleana), numérica o un identificador.",
-      "ejemplo": "Producto es categórica; Fecha es temporal; Pagada es sí/no; Valor total es numérica."
-    },
-    {
-      "termino": "Identificador",
-      "definicion": "Una etiqueta para reconocer un registro. No es una cantidad.",
-      "ejemplo": "El código 01 no se suma ni se promedia; el Valor total sí se suma."
-    },
-    {
-      "termino": "Pregunta contestable",
-      "definicion": "Se puede responder con los datos que tenemos: dice qué se mide, de qué conjunto habla y se comprueba con registros.",
-      "ejemplo": "«¿Qué producto tiene más ventas en estos registros?»"
-    },
-    {
-      "termino": "Cobertura",
-      "definicion": "A quién representa (o no) la tabla.",
-      "ejemplo": "Seis ventas de una tienda no representan a toda Medellín."
-    },
-    {
-      "termino": "Venta ≠ cliente ≠ pago",
-      "definicion": "Son tres cosas distintas. La tabla cuenta ventas; no puede contar clientes distintos, y vender no es lo mismo que cobrar.",
-      "ejemplo": "Hay 4 ventas pagadas, no «4 clientes». Papitas vendió más ($12.000), pero Gaseosa dejó más plata en la mano ($7.000)."
-    },
-    {
-      "termino": "Límite de una conclusión",
-      "definicion": "Lo que los datos no permiten afirmar.",
-      "ejemplo": "«Esto no permite saber cuántos clientes distintos hubo»."
-    }
-  ],
-  "fraseClave": "Antes de responder, revisamos qué significa cada fila, qué columnas necesitamos y a qué conjunto se refiere la pregunta.",
-  "paraLlevar": {
-    "consigna": "Prepara una respuesta breve y comprobable sobre esta tabla. Elige qué quieres conocer, formula una pregunta y muestra con qué datos la respondes. Al final, explica qué no permite afirmar tu respuesta.",
-    "pasos": [
-      "Mi pregunta (empieza con «En esta tabla…» o «Entre estas seis ventas…»).",
-      "Qué representa una fila y qué columnas uso.",
-      "Cómo lo comprobé (los códigos o el conteo, para que otra persona lo repita).",
-      "Mi respuesta y lo que todavía no puedo afirmar («Mi respuesta describe únicamente… pero aún no permite saber…»)."
-    ],
-    "lupa": [
-      "Dice qué se mide.",
-      "Dice de qué conjunto habla.",
-      "Se puede comprobar con registros.",
-      "Dice qué no puedo concluir."
-    ]
   },
   "teoria": {
     "intro": "Para esta misión necesitas tres ideas: cómo se lee una tabla, qué tipos de datos guarda y qué hace que una pregunta se pueda responder con esos datos. Ya las usas todos los días: cuando miras cuánta plata tienes antes de comprar unas papitas, tienes un dato, una pregunta (¿me alcanza?) y una decisión.",

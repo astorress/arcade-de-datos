@@ -859,7 +859,7 @@
       "nombre": "Guía: tiempos de espera del programa cultural (sesión 3)",
       "titulo": "Esperas en el programa cultural",
       "caso": "Tiempos de espera de siete atenciones",
-      "historia": "Un programa cultural, ficticio, registró cuánto esperaron siete atenciones durante una jornada. El equipo quiere contarle a la gente cuánto se espera, en un resumen fácil de entender, pero sin ocultar una espera excepcionalmente larga. Alguien ya escribió: «El tiempo promedio fue de unos trece minutos». ¿Eso significa que casi todos esperaron trece minutos? Vamos a averiguarlo.",
+      "historia": "Un programa cultural registró cuánto esperaron siete atenciones durante una jornada. El equipo quiere contarle a la gente cuánto se espera, en un resumen fácil de entender, pero sin ocultar una espera excepcionalmente larga. Alguien ya escribió: «El tiempo promedio fue de unos trece minutos». ¿Eso significa que casi todos esperaron trece minutos? Vamos a averiguarlo.",
       "datos": {
         "titulo": "Tiempos de espera del programa cultural",
         "unidad": [

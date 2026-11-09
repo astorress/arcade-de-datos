@@ -1034,3 +1034,8 @@ body.modo-clase main { padding: 0; }
   .m-tren { animation: m-tren 14s linear infinite; }
   @keyframes m-tren { from { transform: translateX(-110px); } to { transform: translateX(135px); } }
 }
+
+/* ---------- Misión con varios casos a la vez ---------- */
+.grupo-caso { margin: 0 0 1.6rem; }
+.grupo-caso__titulo { font-size: 1.15rem; margin: 0 0 0.4rem; }
+.grupo-caso__titulo .pixel, .grupo-caso__titulo span:first-child { color: var(--magenta-texto); }

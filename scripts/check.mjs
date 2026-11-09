@@ -143,11 +143,11 @@ for (const archivo of indice?.misiones || []) {
   const idsTema = new Set((m.teoria?.temas || []).map((t) => t.id));
   let casos = [[donde, m]];
   if (m.casos) {
-    if (!m.casos[m.casoActivo]) errores.push(`${donde}: "casoActivo" ("${m.casoActivo}") no es ninguna de las claves de "casos": ${Object.keys(m.casos).join(', ')}`);
+    if (!m.casos[m.casoActivo] && m.casoActivo !== 'ambos') errores.push(`${donde}: el caso "${m.casoActivo}" no existe. Opciones: ${[...Object.keys(m.casos), 'ambos'].map((k) => `'${k}'`).join(', ')}`);
     casos = Object.entries(m.casos).map(([k, c]) => [`${donde} (caso ${k})`, { ...m, ...c }]);
     Object.entries(m.casos).forEach(([k, c]) => { if (!c.nombre) errores.push(`${donde}: el caso "${k}" necesita "nombre" (se muestra en la vista previa)`); });
   }
-  resumenPanel.push(`  Misión ${m.numero}  ${m.estado === 'disponible' ? '🟢 abierta  ' : '🔒 bloqueada'}  ${m.casos ? `caso: ${m.casoActivo}` : '(un solo caso)'}${m.casos || m.niveles?.length ? '' : '  · sin niveles todavía'}`);
+  resumenPanel.push(`  Misión ${m.numero}  ${m.estado === 'disponible' ? '🟢 abierta  ' : '🔒 bloqueada'}  ${m.casos ? `caso: ${m.casoActivo === 'ambos' ? `ambos (${Object.keys(m.casos).join(' + ')})` : m.casoActivo}` : '(un solo caso)'}${m.casos || m.niveles?.length ? '' : '  · sin niveles todavía'}`);
   for (const [dondeCaso, c] of casos) {
     const tieneNiveles = c.niveles?.length > 0;
     if (m.estado === 'disponible' && !tieneNiveles) errores.push(`${dondeCaso}: está "disponible" pero no tiene niveles`);

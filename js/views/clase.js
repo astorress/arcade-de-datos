@@ -13,6 +13,12 @@ function opcionesConLetras(opciones, correctaFn) {
 }
 
 function diapositivas(c, m) {
+  // Con varios casos a la vez: las diapositivas de cada caso, una tras otra.
+  if (m.grupos?.length > 1) return m.grupos.flatMap((g) => diapositivasCaso(c, g.mision));
+  return diapositivasCaso(c, m);
+}
+
+function diapositivasCaso(c, m) {
   const d = [];
   const g = c.sitio.guia || {};
   d.push({ titulo: `Misión ${m.numero}`, cuerpo: () => [
@@ -34,7 +40,7 @@ function diapositivas(c, m) {
         h('h2', { class: 'clase-h2' }, a.titulo),
         h('div', { class: 'clase-consigna', html: md(a.consigna) }),
         a.apoyo ? apoyo(a.apoyo) : null,
-        a.usaDatos || ['seleccionar-filas', 'leer-filas'].includes(a.tipo) ? tablaDatos(m.datos, { compacta: true, resaltar: a.resaltar || [] }) : null,
+        a.usaDatos || ['seleccionar-filas', 'leer-filas'].includes(a.tipo) ? tablaDatos(a.datosCaso || m.datos, { compacta: true, resaltar: a.resaltar || [] }) : null,
         ...extra,
         h('div', { class: 'clase-respuesta', hidden: true },
           ...respuesta,

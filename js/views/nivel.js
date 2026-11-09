@@ -2,7 +2,7 @@ import { h, md, anunciar, aviso, reducirMovimiento, rotulo } from '../util.js';
 import * as store from '../store.js';
 import { TIPOS } from '../actividades/index.js';
 import { apoyo } from '../actividades/apoyo.js';
-import { claveTexto } from '../content.js';
+import { claveTexto, misionTerminada } from '../content.js';
 import { tablaDatos } from '../components/tabla.js';
 import { kolb } from '../components/kolb.js';
 import { insignia } from '../components/insignia.js';
@@ -17,14 +17,28 @@ import { nombreJugador } from './personaje.js';
 
 const guia = (c) => c.sitio.guia || { nombre: 'Profe Dato', bien: ['¡Bien visto!'], casi: ['Miremos juntos.'], intro: [], nivel: ['¡Nivel superado!'] };
 
-export function vistaNivel(c, m, numNivel, paso) {
-  const nivel = m.niveles.find((n) => n.numero === Number(numNivel));
+export function vistaNivel(c, mision, numNivel, paso) {
+  const nivel = mision.niveles.find((n) => n.numero === Number(numNivel));
   if (!nivel) return null;
+  // Con varios casos a la vez, cada nivel trae su propia tabla.
+  const m = nivel.datos ? { ...mision, datos: nivel.datos } : mision;
   if (paso === undefined) return intro(c, m, nivel);
   if (paso === 'fin') return fin(c, m, nivel);
   const i = Number(paso) - 1;
   if (!nivel.actividades[i]) return null;
   return actividad(c, m, nivel, i);
+}
+
+/** «Nivel 2» o, con varios casos a la vez, «Caso 1 · Nivel 2». */
+export function nombreNivel(m, nivel) {
+  const i = (m.grupos || []).findIndex((g) => g.clave === nivel.casoClave);
+  return m.grupos?.length > 1 && i >= 0 ? `Caso ${i + 1} · Nivel ${nivel.numeroEnCaso}` : `Nivel ${nivel.numeroEnCaso || nivel.numero}`;
+}
+
+/** Primer nivel pendiente de otro caso (solo cuando la misión muestra varios casos). */
+function otroCaso(m) {
+  if (!(m.grupos?.length > 1)) return null;
+  return m.niveles.find((n) => !store.nivelHecho(m.numero, n.numero)) || null;
 }
 
 function ruta(m, nivel, paso) {
@@ -34,9 +48,9 @@ function ruta(m, nivel, paso) {
 function intro(c, m, nivel) {
   const primeraPendiente = nivel.actividades.findIndex((a) => !store.actividadHecha(m.numero, a.id));
   const inicio = primeraPendiente >= 0 ? primeraPendiente + 1 : 1;
-  return h('div', { class: 'vista vista-intro' }, migas(m, `Nivel ${nivel.numero}`),
+  return h('div', { class: 'vista vista-intro' }, migas(m, `${nombreNivel(m, nivel)}`),
     h('div', { class: `pantalla-nivel color-${m.color || 'naranja'}` },
-      h('p', { class: 'pantalla-nivel__pre' }, rotulo(`Misión ${m.numero} · Nivel ${nivel.numero}`)),
+      h('p', { class: 'pantalla-nivel__pre' }, rotulo(`Misión ${m.numero} · ${nombreNivel(m, nivel)}`)),
       h('h1', { tabindex: '-1', class: 'pantalla-nivel__titulo' }, nivel.titulo),
       h('p', { class: 'pantalla-nivel__obj' }, h('strong', {}, 'Objetivo: '), nivel.objetivo),
       h('p', {}, `${nivel.actividades.length} actividades · sin tiempo límite · las pistas no restan puntos.`),
@@ -79,8 +93,8 @@ function actividad(c, m, nivel, i) {
     mision: m,
     hecho: hechoAntes,
     tabla: (op) => tablaDatos(m.datos, op),
-    texto: (k) => store.texto(m.numero, claveTexto(m, k)),
-    guardar: (k, v) => store.guardarTexto(m.numero, claveTexto(m, k), v),
+    texto: (k) => store.texto(m.numero, claveTexto(nivel, k)),
+    guardar: (k, v) => store.guardarTexto(m.numero, claveTexto(nivel, k), v),
     pista: () => store.sumarPista(m.numero),
     bien: (msg) => {
       feedback.replaceChildren(dialogoGuia(msg || '', { nombre: guia(c).nombre, tono: 'bien', titulo: `✓ ${elegir(guia(c).bien)}`, compacto: true }));
@@ -125,9 +139,9 @@ function actividad(c, m, nivel, i) {
     : h('a', { class: 'btn', href: ruta(m, nivel) }, '← Nivel');
 
   return h('div', { class: `vista vista-actividad color-${m.color || 'naranja'}` },
-    migas(m, `Nivel ${nivel.numero}`),
+    migas(m, `${nombreNivel(m, nivel)}`),
     h('div', { class: 'hud' },
-      h('p', { class: 'hud__nivel' }, rotulo(`Nivel ${nivel.numero} · ${nivel.titulo}`)),
+      h('p', { class: 'hud__nivel' }, rotulo(`${nombreNivel(m, nivel)} · ${nivel.titulo}`)),
       pasosNivel(m, nivel, i),
       kolb(c.sitio.fases, act.fase)),
     h('article', { class: 'actividad' },
@@ -148,18 +162,18 @@ function actividad(c, m, nivel, i) {
 function fin(c, m, nivel) {
   const pendientes = nivel.actividades.filter((a) => !store.actividadHecha(m.numero, a.id));
   if (pendientes.length) {
-    return h('div', { class: 'vista' }, migas(m, `Nivel ${nivel.numero}`),
+    return h('div', { class: 'vista' }, migas(m, `${nombreNivel(m, nivel)}`),
       h('h1', { tabindex: '-1' }, 'Te faltan algunas actividades'),
       h('ul', {}, pendientes.map((a) => h('li', {}, h('a', { href: ruta(m, nivel, nivel.actividades.indexOf(a) + 1) }, a.titulo)))));
   }
   const nuevoNivel = store.marcarNivel(m.numero, nivel.numero);
-  const todos = m.niveles.every((n) => store.nivelHecho(m.numero, n.numero));
+  const todos = misionTerminada(m, store.nivelHecho);
   const nuevaMision = todos && store.marcarMision(m.numero);
   if (nuevoNivel) aviso(`+${c.sitio.puntos.nivel} puntos`);
   setTimeout(() => (nuevaMision ? sonido.insignia() : sonido.nivel()), 150);
 
-  const siguiente = m.niveles.find((n) => n.numero === nivel.numero + 1);
-  const pantalla = h('div', { class: 'vista vista-fin' }, migas(m, `Nivel ${nivel.numero}`),
+  const siguiente = m.niveles.find((n) => n.numero === nivel.numero + 1 && n.casoClave === nivel.casoClave);
+  const pantalla = h('div', { class: 'vista vista-fin' }, migas(m, `${nombreNivel(m, nivel)}`),
     h('div', { class: `pantalla-nivel pantalla-nivel--fin color-${m.color || 'naranja'}` },
       h('div', { class: 'pantalla-nivel__sprite', 'aria-hidden': 'true', html: miSprite(96, 'sprite--festeja') }),
       h('p', { class: 'pantalla-nivel__pre', 'aria-hidden': 'true' }, '★ ★ ★'),
@@ -174,7 +188,8 @@ function fin(c, m, nivel) {
         accesorioDeMision(m.numero) ? h('p', { class: 'desbloqueo' }, `🎁 Desbloqueaste un accesorio para tu personaje: ${accesorioDeMision(m.numero).nombre.toLowerCase()}. `,
           h('a', { href: '#/personaje' }, 'Pruébalo')) : null) : null,
       h('div', { class: 'acciones acciones--envolver acciones--centro' },
-        siguiente ? h('a', { class: 'btn btn--start', href: ruta(m, siguiente) }, `▶ NIVEL ${siguiente.numero}`) : null,
+        siguiente ? h('a', { class: 'btn btn--start', href: ruta(m, siguiente) }, `▶ ${nombreNivel(m, siguiente).toUpperCase()}`) : null,
+        !siguiente && otroCaso(m) ? h('a', { class: 'btn btn--start', href: ruta(m, otroCaso(m)) }, '▶ PRACTICAR CON EL OTRO CASO') : null,
         todos ? h('button', { type: 'button', class: 'btn btn--primario', onclick: () => compartirInsignia({ mision: m, sprite: miSprite(96), nombreJugador: nombreJugador(), nombreSitio: c.sitio.nombre }) }, '📤 Compartir mi insignia') : null,
         todos ? h('a', { class: 'btn', href: `#/mision/${m.numero}/llevar` }, '🖨 Hoja para llevar') : null,
         h('a', { class: 'btn', href: `#/mision/${m.numero}` }, 'Volver a la misión'),

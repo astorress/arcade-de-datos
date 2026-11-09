@@ -74,16 +74,26 @@ async function json(ruta) {
   return r.json();
 }
 
-/** Aplana la misión con su caso activo. Los id de actividad llevan el caso delante para no mezclar progreso. */
-function conCaso(m) {
-  if (!m || !m.casos) return m;
-  const claves = Object.keys(m.casos);
-  const elegido = enPrevia() ? casosPrevia()[m.numero] : null;
-  const clave = (elegido && m.casos[elegido]) ? elegido : (m.casos[m.casoActivo] ? m.casoActivo : claves[0]);
+/**
+ * Aplana la misión con su caso activo. Con caso "ambos", la misión trae los niveles de todos los casos
+ * (numerados seguidos: 1-3 el primero, 4-6 el segundo) y la insignia se gana al terminar cualquiera de ellos.
+ * Los id de actividad y las claves del cuaderno llevan el caso delante para no mezclar progreso, salvo que
+ * el caso tenga "idsSinPrefijo": true (para conservar el progreso de una misión que antes tenía un solo caso).
+ */
+export const AMBOS = 'ambos';
+
+function aplanarCaso(m, clave, desde = 0) {
   const caso = m.casos[clave];
+  const prefijo = caso.idsSinPrefijo ? '' : `${clave}:`;
   const niveles = (caso.niveles || []).map((n) => ({
     ...n,
-    actividades: n.actividades.map((a) => ({ ...a, id: `${clave}:${a.id}` })),
+    numero: desde + n.numero,
+    numeroEnCaso: n.numero,
+    casoClave: clave,
+    casoNombre: caso.nombre || clave,
+    prefijo,
+    datos: caso.datos,
+    actividades: n.actividades.map((a) => ({ ...a, id: `${prefijo}${a.id}`, datosCaso: caso.datos })),
   }));
   return {
     ...m,
@@ -91,8 +101,50 @@ function conCaso(m) {
     insignia: { ...m.insignia, ...(caso.insignia || {}) },
     niveles,
     casoClave: clave,
-    casosDisponibles: claves.map((k) => ({ clave: k, nombre: m.casos[k].nombre || k })),
   };
+}
+
+function conCaso(m) {
+  if (!m) return m;
+  if (!m.casos) {
+    const niveles = (m.niveles || []).map((n) => ({ ...n, prefijo: '', datos: m.datos }));
+    return { ...m, niveles, grupos: [{ clave: 'unico', nombre: m.caso, mision: { ...m, niveles } }] };
+  }
+  const claves = Object.keys(m.casos);
+  const elegido = enPrevia() ? casosPrevia()[m.numero] : null;
+  const pedido = elegido || m.casoActivo;
+  const casosDisponibles = claves.map((k) => ({ clave: k, nombre: m.casos[k].nombre || k }));
+
+  if (pedido === AMBOS && claves.length > 1) {
+    let desde = 0;
+    const grupos = claves.map((k) => {
+      const sub = aplanarCaso(m, k, desde);
+      desde += sub.niveles.length;
+      return { clave: k, nombre: m.casos[k].nombre || k, mision: sub };
+    });
+    const primero = grupos[0].mision;
+    const vistos = new Set();
+    const conceptos = grupos.flatMap((g) => g.mision.conceptos || []).filter((k) => !vistos.has(k.termino) && vistos.add(k.termino));
+    return {
+      ...primero,
+      titulo: m.titulo,
+      caso: grupos.map((g) => g.mision.caso).join(' · '),
+      historia: m.historiaAmbos || `Esta misión trae ${grupos.length} casos. Con terminar uno ganas la insignia; el otro es práctica extra para afianzar lo aprendido. ¡Tú eliges por dónde empezar!`,
+      niveles: grupos.flatMap((g) => g.mision.niveles),
+      conceptos,
+      grupos,
+      casoClave: AMBOS,
+      casosDisponibles,
+    };
+  }
+  const clave = m.casos[pedido] ? pedido : claves[0];
+  const sub = aplanarCaso(m, clave);
+  return { ...sub, grupos: [{ clave, nombre: m.casos[clave].nombre || clave, mision: sub }], casosDisponibles };
+}
+
+/** ¿La misión está terminada? Basta con terminar todos los niveles de uno de sus casos. */
+export function misionTerminada(m, nivelHecho) {
+  return (m.grupos || [{ mision: m }]).some((g) => g.mision.niveles.length && g.mision.niveles.every((n) => nivelHecho(m.numero, n.numero)));
 }
 
 export async function cargarTodo() {
@@ -128,7 +180,7 @@ export function buscarMision(contenido, n) {
   return contenido.misiones.find((m) => m.numero === Number(n));
 }
 
-/** Clave del cuaderno: en misiones con varios casos, lo escrito queda separado por caso. */
-export function claveTexto(m, k) {
-  return m?.casoClave ? `${m.casoClave}:${k}` : k;
+/** Clave del cuaderno: en misiones con varios casos, lo escrito queda separado por caso (prefijo del nivel). */
+export function claveTexto(nivel, k) {
+  return `${nivel?.prefijo || ''}${k}`;
 }

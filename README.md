@@ -91,7 +91,7 @@ Todo se maneja desde **un solo archivo**: `content/panel-de-control.js`.
 
 ```js
 export default {
-  1: { abierta: true },
+  1: { abierta: true, caso: 'ambos' },
   2: { abierta: false, caso: 'cotidiano' },
   3: { abierta: false, caso: 'guia' },
   // …
@@ -99,7 +99,7 @@ export default {
 ```
 
 - `abierta`: `true` para que los estudiantes la jueguen, `false` para verla bloqueada («Próximamente», con la teoría disponible). También vale `'si'`/`'no'` u `'on'`/`'off'`.
-- `caso`: las misiones 2 a 8 traen dos casos completos: `'cotidiano'` (vida diaria) y `'guia'` (el de la guía oficial).
+- `caso`: todas las misiones traen dos casos completos: `'cotidiano'` (vida diaria) y `'guia'` (el de la guía oficial). Con `'ambos'` la misión muestra los dos casos para practicar más; la insignia se gana terminando cualquiera de los dos.
 
 **Antes de cada clase:**
 1. Revisa la misión bloqueada abriendo el sitio con `?previa` (por ejemplo `https://astorress.github.io/arcade-de-datos/?previa`). Ves todas las misiones y, arriba de cada una, botones para cambiar de caso. Solo afecta a tu pestaña; `?previa=0` la apaga.

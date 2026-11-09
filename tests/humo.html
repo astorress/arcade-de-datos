@@ -25,17 +25,19 @@ async function correr() {
   // 2. Vista previa: cada misión y cada caso.
   await cargar('/?previa#/');
   ok(D().querySelector('.banda-previa'), 'banda de vista previa en el mapa');
-  const misiones = [2, 3, 4, 5, 6, 7, 8];
+  const misiones = [1, 2, 3, 4, 5, 6, 7, 8];
   let actividades = 0;
   for (const n of misiones) {
-    for (const caso of ['cotidiano', 'guia']) {
+    for (const caso of ['cotidiano', 'guia', 'ambos']) {
       W().sessionStorage.setItem('arcade-datos:previa-casos', JSON.stringify({ [n]: caso }));
-      await cargar(`/#/mision/${n}`);
+      await cargar(`/?r=${Date.now()}#/mision/${n}`);
       errores = [];
       const etiqueta = `M${n} ${caso}`;
       ok(D().querySelector('.banda-previa .btn--primario')?.getAttribute('aria-pressed') === 'true', `${etiqueta}: selector de caso`);
       const niveles = D().querySelectorAll('.nivel-item').length;
-      ok(niveles === 3, `${etiqueta}: 3 niveles (hay ${niveles})`);
+      const esperados = caso === 'ambos' ? 6 : 3;
+      ok(niveles === esperados, `${etiqueta}: ${esperados} niveles (hay ${niveles})`);
+      if (caso === 'ambos') ok(D().querySelectorAll('.grupo-caso').length === 2, `${etiqueta}: dos bloques de caso`);
       for (let nv = 1; nv <= niveles; nv++) {
         await ir(`#/mision/${n}/nivel/${nv}`);
         const total = Number((D().body.textContent.match(/(\d+) actividades/) || [])[1] || 0);

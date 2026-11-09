@@ -24,7 +24,7 @@ function banco(c) {
           a.tarjetas.forEach((t, i) => preguntas.push({
             m,
             act: {
-              id: `rep-${a.id}-${i}`, tipo: 'seleccion', titulo: a.titulo, usaDatos: a.usaDatos,
+              id: `rep-${a.id}-${i}`, tipo: 'seleccion', titulo: a.titulo, usaDatos: a.usaDatos, datosCaso: a.datosCaso,
               consigna: `¿Esta pregunta se puede responder **con esta tabla**? «${t.texto}»`,
               opciones: [
                 { texto: a.botones.si, correcta: t.respuesta === 'si', feedback: t.explicacion },
@@ -80,7 +80,7 @@ export function vistaRepaso(c) {
 
     const ctx = {
       mision: m, hecho: false,
-      tabla: (op) => tablaDatos(m.datos, op),
+      tabla: (op) => tablaDatos(act.datosCaso || m.datos, op),
       texto: () => '', guardar: () => {}, pista: () => {},
       bien: () => {
         if (resuelta) return;

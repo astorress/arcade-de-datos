@@ -122,8 +122,12 @@ export function vistaAyuda(c) {
 }
 
 // ---------- Para llevar ----------
-export function vistaLlevar(c, m) {
-  const hoja = () => {
+export function vistaLlevar(c, mision) {
+  const hoja = () => h('div', {}, (mision.grupos || [{ mision }]).map((g) => hojaCaso(c, g.mision)));
+  return vistaLlevarCon(c, mision, hoja);
+}
+
+function hojaCaso(c, m) {
     const pl = m.paraLlevar || {};
     return h('div', { class: 'hoja' },
       h('p', { class: 'hoja__pre' }, `${c.sitio.nombre} · Misión ${m.numero}`),
@@ -138,7 +142,9 @@ export function vistaLlevar(c, m) {
       pl.pasos ? h('ol', {}, pl.pasos.map((p) => h('li', {}, p))) : null,
       pl.lupa ? [h('h2', {}, `La lupa: ${(pl.lupaTitulo || 'Una buena pregunta…').replace(/^./, (c) => c.toLowerCase())}`), h('ul', { class: 'lista-check' }, pl.lupa.map((x) => h('li', {}, x)))] : null,
       m.fraseClave ? h('p', { class: 'frase-clave' }, '«', m.fraseClave, '»') : null);
-  };
+}
+
+function vistaLlevarCon(c, m, hoja) {
   return h('div', { class: 'vista' }, migas(m, 'Para llevar'),
     h('div', { class: 'acciones acciones--envolver' },
       h('button', { type: 'button', class: 'btn btn--primario', onclick: () => imprimir(hoja()) }, '🖨 Imprimir o guardar como PDF')),
@@ -150,12 +156,15 @@ export function vistaLlevar(c, m) {
 export function vistaCuaderno(c, m) {
   const textos = store.obtener().cuaderno[String(m.numero)] || {};
   const etiquetas = {};
+  const varios = m.grupos?.length > 1;
   (m.niveles || []).forEach((n) => n.actividades.forEach((a) => {
-    if (a.textoLibre) etiquetas[a.textoLibre.clave] = a.titulo;
-    (a.pasos || []).forEach((p) => { etiquetas[`reto-${p.clave}`] = `Reto · ${p.titulo}`; });
-    (a.frases || []).forEach((f) => { etiquetas[f.clave] = f.inicio; });
+    const pre = varios ? `Caso ${m.grupos.findIndex((g) => g.clave === n.casoClave) + 1} · ` : '';
+    const poner = (k, titulo) => { etiquetas[claveTexto(n, k)] = `${pre}${titulo}`; };
+    if (a.textoLibre) poner(a.textoLibre.clave, a.titulo);
+    (a.pasos || []).forEach((p) => poner(`reto-${p.clave}`, `Reto · ${p.titulo}`));
+    (a.frases || []).forEach((f) => poner(f.clave, f.inicio));
   }));
-  const t = (k) => (textos[claveTexto(m, k)] || '').trim();
+  const t = (k) => (textos[k] || '').trim();
   const entradas = Object.keys(etiquetas).filter((k) => t(k)).map((k) => ({ titulo: etiquetas[k], texto: t(k) }));
   const comoTexto = () => [`MI CUADERNO · Misión ${m.numero}: ${m.titulo}`, ...entradas.map((e) => `${e.titulo}\n${e.texto}`)].join('\n\n');
   const hoja = () => h('div', { class: 'hoja' }, h('h1', {}, `Mi cuaderno · Misión ${m.numero}: ${m.titulo}`),
