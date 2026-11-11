@@ -701,25 +701,6 @@
               "fase": "aplicar",
               "titulo": "El reto: un resumen que no esconda nada",
               "consigna": "Prepara un resumen para Valentina: calcula los indicadores de su espera, elige cómo describirías un día típico y advierte qué pasa con la espera de 45 minutos. Tu explicación debe permitir comprobar tanto los cálculos como la decisión de qué contar.",
-              "rutas": [
-                {
-                  "id": "mapa",
-                  "nombre": "Ruta Mapa",
-                  "descripcion": "La pregunta ya viene dada. Te concentras en calcular con rastro y escribir las dos frases.",
-                  "preguntaDada": "En estos nueve días, ¿cuánto esperó Valentina en un día típico y qué tan distinta fue la espera más larga?"
-                },
-                {
-                  "id": "brujula",
-                  "nombre": "Ruta Brújula",
-                  "descripcion": "Formulas tu propia pregunta sobre las esperas. Ideas: un día típico, la variación, cuántos días esperó poco."
-                },
-                {
-                  "id": "telescopio",
-                  "nombre": "Ruta Telescopio",
-                  "descripcion": "Te enfocas en el contraste: qué le pasa a cada medida sin el 45 y por qué, con 8 datos, la mediana es el promedio de los dos del centro.",
-                  "preguntaDada": "¿Qué cambia en la media y en la mediana si dejo aparte el día del aguacero, y por qué igual lo conservo en el resumen?"
-                }
-              ],
               "pasos": [
                 {
                   "clave": "pregunta",
@@ -1487,25 +1468,6 @@
               "fase": "aplicar",
               "titulo": "El reto: un resumen que no esconda nada",
               "consigna": "Prepara un resumen para el equipo del programa: calcula los indicadores de espera, elige cómo describirías la experiencia típica y advierte qué ocurre con la observación de 42 minutos. Tu explicación debe permitir comprobar tanto los cálculos como la decisión de qué comunicar.",
-              "rutas": [
-                {
-                  "id": "mapa",
-                  "nombre": "Ruta Mapa",
-                  "descripcion": "La pregunta ya viene dada. Te concentras en calcular con rastro y escribir las dos frases.",
-                  "preguntaDada": "En estas siete atenciones, ¿cuánto fue la espera típica y qué tan distinta fue la más larga?"
-                },
-                {
-                  "id": "brujula",
-                  "nombre": "Ruta Brújula",
-                  "descripcion": "Formulas tu propia pregunta sobre las esperas. Ideas: la espera típica, la variación, cuántas atenciones esperaron poco."
-                },
-                {
-                  "id": "telescopio",
-                  "nombre": "Ruta Telescopio",
-                  "descripcion": "Te enfocas en el contraste: qué le pasa a cada medida sin el 42 y por qué, con 6 datos, la mediana es el promedio de los dos del centro.",
-                  "preguntaDada": "¿Qué cambia en la media y en la mediana si dejo aparte la espera de 42 minutos, y por qué igual la conservo en el informe?"
-                }
-              ],
               "pasos": [
                 {
                   "clave": "pregunta",

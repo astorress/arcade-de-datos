@@ -69,7 +69,6 @@ function revisarActividad(a, m, donde, ids) {
       break;
     case 'constructor':
       if (!a.pasos?.length) err('faltan "pasos"');
-      if (!a.rutas?.length) err('faltan "rutas"');
       break;
     case 'escritura':
       if (!a.frases?.length) err('faltan "frases"');

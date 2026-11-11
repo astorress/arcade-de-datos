@@ -19,7 +19,7 @@ Página web de apoyo, con estética de videojuego arcade, hecha por Sebastian To
 
 | Principio | Cómo se ve en la página |
 |---|---|
-| Aprendizaje basado en retos | El Nivel 3 de cada misión es el reto de la clase, con contexto, restricciones, producto, criterios (lista de verificación) y tres rutas. |
+| Aprendizaje basado en retos | El Nivel 3 de cada misión es el reto de la clase, con contexto, restricciones, producto, criterios (lista de verificación). Cada estudiante formula su propia pregunta sobre la tabla. |
 | Ciclo de Kolb | Cada actividad está marcada con su fase (Hacer → Observar → Entender → Aplicar) y el indicador la muestra arriba. |
 | Hacer antes que leer | La misión empieza con una actividad. La teoría está siempre a mano pero plegada («Recordemos» en cada actividad) o en su propia guía. |
 | Conexión con las clases asincrónicas | La guía de teoría dice qué módulo de Data1, Data2 y Data3 se aplica, se anticipa o se retoma en esa sesión (según la matriz metodológica). |
@@ -166,7 +166,7 @@ Para mostrar un tema dentro de una actividad (caja plegable «📘 Recordemos»)
 | `tarjetas` | Tarjetas de a una con dos botones | `botones: { si, no }`, `tarjetas: [{ texto, respuesta: "si"/"no", explicacion }]` |
 | `seleccionar-filas` | Marcar las filas que cumplen una condición | `esperadas: ["01", …]`, `feedback: { sobran, faltan }` |
 | `conteo` | Contar por categoría con botones − / + | `categorias`, `esperado`, `resaltar?`, `erroresComunes: [{ valores, mensaje }]`, `mensajeGeneral` |
-| `constructor` | El reto: rutas, pasos con pistas, verificación, ejemplo, copiar e imprimir | `rutas`, `pasos`, `verificacion`, `ejemplo` |
+| `constructor` | El reto: la tabla, pasos con pistas, verificación, ejemplo, copiar e imprimir | `pasos`, `verificacion`, `ejemplo` |
 | `escritura` | Frases abiertas que van al cuaderno (no se califican) | `frases: [{ clave, inicio }]` |
 
 `apoyo` (opcional en `seleccion`) muestra algo antes de las opciones: `{ "tipo": "comparacion", "items": [{ etiqueta, texto }] }`, `{ "tipo": "tabla", "columnas", "filas" }` o `{ "tipo": "texto", "texto" }`.

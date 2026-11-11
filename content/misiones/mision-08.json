@@ -760,25 +760,6 @@
               "fase": "aplicar",
               "titulo": "El reto: tu recomendación para doña Marta",
               "consigna": "Prepara un análisis breve para recomendarle a doña Marta qué sector revisar primero. Conserva la fuente, justifica la limpieza, compara sectores con tasas y volúmenes, elige un gráfico y explica el alcance de tu recomendación. Quien te escuche debe poder reconstruir de dónde salen tus cifras.",
-              "rutas": [
-                {
-                  "id": "mapa",
-                  "nombre": "Ruta Mapa",
-                  "descripcion": "La pregunta y el criterio ya vienen dados. Te concentras en limpiar, calcular, graficar y recomendar.",
-                  "preguntaDada": "En las semanas 1 y 2 de octubre, ¿qué sector tiene la menor tasa de domicilios a tiempo y conviene revisar primero?"
-                },
-                {
-                  "id": "brujula",
-                  "nombre": "Ruta Brújula",
-                  "descripcion": "Declaras tu propio criterio de prioridad antes de calcular (por ejemplo, más pedidos tarde) y lo sostienes hasta el final."
-                },
-                {
-                  "id": "telescopio",
-                  "nombre": "Ruta Telescopio",
-                  "descripcion": "Además de recomendar, comparas tus resultados con y sin la copia de la fila 05, y explicas por qué un porcentaje igual no prueba que la base esté limpia.",
-                  "preguntaDada": "En las semanas 1 y 2 de octubre, ¿qué sector tiene la menor tasa de domicilios a tiempo, y qué cambia si no quito la copia?"
-                }
-              ],
               "pasos": [
                 {
                   "clave": "pregunta",
@@ -1626,25 +1607,6 @@
               "fase": "aplicar",
               "titulo": "El reto: tu recomendación para el programa",
               "consigna": "Prepara un análisis breve para recomendar dónde revisar primero el seguimiento de asistencia. Conserva la fuente, justifica la limpieza, compara sedes con tasas y volúmenes, construye una figura y explica el alcance de tu recomendación. Quien te escuche debe poder reconstruir de dónde salen tus cifras.",
-              "rutas": [
-                {
-                  "id": "mapa",
-                  "nombre": "Ruta Mapa",
-                  "descripcion": "La pregunta y el criterio ya vienen dados. Te concentras en limpiar, calcular, graficar y recomendar.",
-                  "preguntaDada": "En este periodo, ¿qué sede presenta menor tasa de asistencia sobre reservas y conviene revisar primero?"
-                },
-                {
-                  "id": "brujula",
-                  "nombre": "Ruta Brújula",
-                  "descripcion": "Declaras tu propio criterio de prioridad antes de calcular (por ejemplo, más reservas no asistidas) y lo sostienes hasta el final."
-                },
-                {
-                  "id": "telescopio",
-                  "nombre": "Ruta Telescopio",
-                  "descripcion": "Además de recomendar, comparas tus resultados con y sin la copia de R04, y propones qué información permitiría evaluar los recordatorios sin afirmar que funcionan.",
-                  "preguntaDada": "En este periodo, ¿qué sede presenta menor tasa de asistencia sobre reservas, y qué cambia si no quito la copia de R04?"
-                }
-              ],
               "pasos": [
                 {
                   "clave": "pregunta",

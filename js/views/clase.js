@@ -72,7 +72,6 @@ function diapositivasCaso(c, m) {
           h('h2', { class: 'clase-h2' }, 'El reto'),
           h('div', { class: 'clase-consigna', html: md(a.consigna) }),
           h('ol', { class: 'clase-pasos' }, a.pasos.map((p) => h('li', {}, h('strong', {}, p.titulo.replace(/^\d+ · /, '')), ' — ', h('span', { html: md(p.ayuda) })))),
-          h('p', { class: 'clase-voto' }, `Rutas: ${a.rutas.map((r) => r.nombre).join(' · ')}`),
           h('div', { class: 'clase-respuesta', hidden: true }, h('p', { class: 'clase-pre' }, 'RESPUESTA DE REFERENCIA'), h('blockquote', { html: md(a.ejemplo) })),
         ] });
       } else if (a.tipo === 'escritura') {

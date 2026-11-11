@@ -1,28 +1,13 @@
 import { h, md, plano, copiar, aviso, imprimir } from '../util.js';
 
-// Constructor guiado del reto: rutas, pasos con pistas, lista de verificación, ejemplo resuelto, copiar e imprimir.
-// La página NO califica el texto libre: ofrece criterios para que la persona se autoevalúe.
+// Constructor guiado del reto: la tabla, pasos con pistas, lista de verificación, ejemplo resuelto, copiar e imprimir.
+// Cada persona formula su propia pregunta. La página NO califica el texto libre: ofrece criterios para autoevaluarse.
 export function constructor(act, ctx) {
   const k = (clave) => `reto-${clave}`;
   const cont = h('div', { class: 'constructor' });
-
-  // 1. Rutas
-  const rutaGuardada = ctx.texto(k('ruta'));
-  const rutas = h('fieldset', { class: 'rutas' },
-    h('legend', {}, 'Elige tu ruta (todas valen lo mismo):'),
-    act.rutas.map((r) => {
-      const id = `${act.id}-ruta-${r.id}`;
-      const input = h('input', { type: 'radio', name: `${act.id}-ruta`, id, value: r.id, onchange: () => elegirRuta(r) });
-      if (rutaGuardada === r.id) input.checked = true;
-      return h('label', { class: 'ruta', for: id }, input,
-        h('span', { class: 'ruta__nombre' }, r.nombre),
-        h('span', { class: 'ruta__desc' }, r.descripcion));
-    }));
-
-  const consignaRuta = h('div', { class: 'consigna-ruta', 'aria-live': 'polite' });
   const campos = {};
 
-  // 2. Pasos
+  // 1. Pasos
   const pasos = act.pasos.map((paso) => {
     const id = `${act.id}-${paso.clave}`;
     const ta = h('textarea', { id, rows: '3', class: 'campo', 'aria-describedby': `${id}-ayuda` });
@@ -65,29 +50,12 @@ export function constructor(act, ctx) {
       h('div', { class: 'paso__pistas' }, btnPista, pistasEl));
   });
 
-  function elegirRuta(r) {
-    ctx.guardar(k('ruta'), r.id);
-    consignaRuta.replaceChildren(
-      r.preguntaDada
-        ? h('p', {}, h('strong', {}, `${r.nombre}: `), 'tu pregunta es ', h('q', {}, r.preguntaDada), '. Ya la pusimos en el paso 1.')
-        : h('p', {}, h('strong', {}, `${r.nombre}: `), r.descripcion));
-    if (r.preguntaDada) {
-      const ta = campos[act.pasos[0].clave];
-      if (!ta.value.trim() || act.rutas.some((o) => o.preguntaDada && o.preguntaDada === ta.value.trim())) {
-        ta.value = r.preguntaDada;
-        ctx.guardar(k(act.pasos[0].clave), ta.value);
-      }
-    }
-  }
-  const rutaInicial = act.rutas.find((r) => r.id === rutaGuardada);
-  if (rutaInicial) elegirRuta(rutaInicial);
-
-  // 3. Papel
+  // 2. Papel
   const papel = h('input', { type: 'checkbox', id: `${act.id}-papel` });
   papel.checked = ctx.texto(k('papel')) === 'si';
   papel.addEventListener('change', () => { ctx.guardar(k('papel'), papel.checked ? 'si' : ''); revisarEjemplo(); });
 
-  // 4. Lista de verificación
+  // 3. Lista de verificación
   const checks = act.verificacion.map((txt, i) => {
     const id = `${act.id}-v${i}`;
     const input = h('input', { type: 'checkbox', id });
@@ -96,7 +64,7 @@ export function constructor(act, ctx) {
     return { input, el: h('label', { class: 'casilla', for: id }, input, h('span', {}, txt)) };
   });
 
-  // 5. Ejemplo resuelto (se abre después de intentarlo)
+  // 4. Ejemplo resuelto (se abre después de intentarlo)
   const ejemploBtn = h('button', { type: 'button', class: 'btn', disabled: true }, '🔒 Ver ejemplo resuelto');
   const ejemplo = h('div', { class: 'ejemplo', hidden: true },
     h('p', { class: 'ejemplo__titulo' }, 'Ejemplo resuelto (una de muchas respuestas posibles)'),
@@ -106,8 +74,7 @@ export function constructor(act, ctx) {
     ejemplo.hidden = !ejemplo.hidden;
     ejemploBtn.textContent = ejemplo.hidden ? 'Ver ejemplo resuelto' : 'Ocultar ejemplo';
   });
-  const dadas = new Set(act.rutas.map((r) => r.preguntaDada).filter(Boolean));
-  const intentado = () => papel.checked || Object.values(campos).some((t) => t.value.trim() && !dadas.has(t.value.trim()));
+  const intentado = () => papel.checked || Object.values(campos).some((t) => t.value.trim());
   function revisarEjemplo() {
     if (intentado() && ejemploBtn.disabled) {
       ejemploBtn.disabled = false;
@@ -116,7 +83,7 @@ export function constructor(act, ctx) {
   }
   revisarEjemplo();
 
-  // 6. Copiar / imprimir
+  // 5. Copiar / imprimir
   const textoReto = () => [
     `MI RETO · ${ctx.mision.titulo}`,
     ...act.pasos.map((p) => `${p.titulo}\n${campos[p.clave].value.trim() || '(pendiente)'}`),
@@ -133,7 +100,7 @@ export function constructor(act, ctx) {
       h('p', { class: 'hoja__pie' }, 'Datos ficticios, solo para practicar.')));
   } }, '🖨 Imprimir');
 
-  // 7. Terminar
+  // 6. Terminar
   const terminar = h('button', { type: 'button', class: 'btn btn--primario', onclick: () => {
     const vacios = act.pasos.filter((p) => !campos[p.clave].value.trim());
     if (vacios.length && !papel.checked) {
@@ -148,8 +115,6 @@ export function constructor(act, ctx) {
 
   cont.append(
     ctx.tabla(),
-    rutas,
-    consignaRuta,
     h('div', { class: 'pasos' }, pasos),
     h('label', { class: 'casilla casilla--papel', for: papel.id }, papel, h('span', {}, 'Lo hice en mi cuaderno de papel (no necesito escribir aquí).')),
     h('fieldset', { class: 'verificacion' }, h('legend', {}, '✔ Lista de verificación'), checks.map((c) => c.el)),

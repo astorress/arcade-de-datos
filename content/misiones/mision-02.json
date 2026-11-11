@@ -729,25 +729,6 @@
               "fase": "aplicar",
               "titulo": "El reto: la hoja limpia de Juan",
               "consigna": "Prepara una versión revisada de los pedidos de Juan y una explicación que otra persona pueda seguir. Muestra **qué corregiste, qué conservaste y qué todavía no puedes calcular con certeza**. No basta con que la tabla se vea ordenada: cada cambio debe tener su porqué.",
-              "rutas": [
-                {
-                  "id": "mapa",
-                  "nombre": "Ruta Mapa",
-                  "descripcion": "Usas las reglas que ya acordamos (nombres, fechas, copia de W03, faltantes) y te concentras en explicar cada cambio.",
-                  "preguntaDada": "En la hoja de Juan, ¿cuántas filas y cuántas unidades conocidas hay antes y después de limpiar?"
-                },
-                {
-                  "id": "brujula",
-                  "nombre": "Ruta Brújula",
-                  "descripcion": "Eliges tú tres controles de calidad, decides en qué orden aplicarlos y justificas cada uno."
-                },
-                {
-                  "id": "telescopio",
-                  "nombre": "Ruta Telescopio",
-                  "descripcion": "Además de limpiar, comparas la hoja original, la limpia y la copia de contraste (W04 = 4 arepas), y explicas por qué «desconocido» y «cero» no eran lo mismo.",
-                  "preguntaDada": "¿Cómo cambian las cifras de Juan entre la hoja original, la hoja limpia y la copia de contraste?"
-                }
-              ],
               "pasos": [
                 {
                   "clave": "fuente",
@@ -1554,25 +1535,6 @@
               "fase": "aplicar",
               "titulo": "El reto: la versión revisada",
               "consigna": "Prepara una versión revisada de los préstamos de la biblioteca y una explicación que otra persona pueda seguir. Muestra **qué corregiste, qué conservaste y qué todavía no puedes calcular con certeza**. No basta con que la tabla se vea ordenada: los cambios deben estar justificados.",
-              "rutas": [
-                {
-                  "id": "mapa",
-                  "nombre": "Ruta Mapa",
-                  "descripcion": "Usas las reglas que ya acordamos (Lectura, fechas, copia de P03, P04) y te concentras en explicar cada cambio.",
-                  "preguntaDada": "En la tabla de la biblioteca, ¿cuántas filas y cuántos préstamos conocidos hay antes y después de revisar?"
-                },
-                {
-                  "id": "brujula",
-                  "nombre": "Ruta Brújula",
-                  "descripcion": "Eliges tú tres controles de calidad, decides en qué orden aplicarlos y justificas cada uno."
-                },
-                {
-                  "id": "telescopio",
-                  "nombre": "Ruta Telescopio",
-                  "descripcion": "Además de revisar, comparas la tabla original, la revisada y la copia de contraste (P04 = 2), y explicas qué pasaría si P03 fueran dos operaciones distintas.",
-                  "preguntaDada": "¿Cómo cambian las cifras de la biblioteca entre la tabla original, la revisada y la copia de contraste?"
-                }
-              ],
               "pasos": [
                 {
                   "clave": "fuente",

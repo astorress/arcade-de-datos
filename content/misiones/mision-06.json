@@ -869,25 +869,6 @@
               "fase": "aplicar",
               "titulo": "El reto: dos gráficos que se leen solos",
               "consigna": "Prepara dos gráficos para Sofía: uno que permita seguir el consumo mes a mes y otro que compare los usos de octubre. Dibújalos en tu cuaderno o en la hoja de cálculo. Deben leerse sin que tú estés al lado. Acompáñalos con una conclusión que la tabla respalde y una causa que todavía no podrías afirmar.",
-              "rutas": [
-                {
-                  "id": "mapa",
-                  "nombre": "Ruta Mapa",
-                  "descripcion": "Las dos preguntas ya vienen dadas. Te concentras en elegir el gráfico, revisarlo y escribir la conclusión.",
-                  "preguntaDada": "Gráfico 1: ¿cómo cambió el consumo de la casa de mayo a octubre de 2026? Gráfico 2: ¿qué uso gastó más energía en octubre de 2026?"
-                },
-                {
-                  "id": "brujula",
-                  "nombre": "Ruta Brújula",
-                  "descripcion": "Formulas tus propias dos preguntas: una sobre el tiempo y otra que compare categorías. Ideas: el tramo de julio a agosto, nevera frente a luces."
-                },
-                {
-                  "id": "telescopio",
-                  "nombre": "Ruta Telescopio",
-                  "descripcion": "Haces las dos preguntas de la ruta Mapa, calculas la variación relativa de mayo a octubre y explicas cómo corregirías el gráfico de eje recortado.",
-                  "preguntaDada": "Gráfico 1: ¿cómo cambió el consumo de mayo a octubre de 2026, y en qué porcentaje? Gráfico 2: ¿qué uso gastó más en octubre? Extra: ¿qué cambiarías en un gráfico con el eje desde 145 kWh?"
-                }
-              ],
               "pasos": [
                 {
                   "clave": "preguntas",
@@ -1809,25 +1790,6 @@
               "fase": "aplicar",
               "titulo": "El reto: dos gráficos que se leen solos",
               "consigna": "Prepara dos gráficos para el programa: uno que permita seguir la asistencia mensual y otro que compare los temas de septiembre. Dibújalos en tu cuaderno o en la hoja de cálculo. Deben poder leerse sin una explicación oral extensa. Acompáñalos con una conclusión respaldada y una afirmación causal que todavía no podrías sostener.",
-              "rutas": [
-                {
-                  "id": "mapa",
-                  "nombre": "Ruta Mapa",
-                  "descripcion": "Las dos preguntas ya vienen dadas. Te concentras en elegir el gráfico, revisarlo y escribir la conclusión.",
-                  "preguntaDada": "Gráfico 1: ¿cómo cambió la asistencia entre julio y septiembre de 2026? Gráfico 2: ¿qué tema registró más asistencias en septiembre de 2026?"
-                },
-                {
-                  "id": "brujula",
-                  "nombre": "Ruta Brújula",
-                  "descripcion": "Formulas tus propias dos preguntas: una sobre el tiempo y otra que compare categorías. Ideas: el paso de julio a agosto, Datos frente a Seguridad."
-                },
-                {
-                  "id": "telescopio",
-                  "nombre": "Ruta Telescopio",
-                  "descripcion": "Haces las dos preguntas de la ruta Mapa, calculas la variación relativa con julio como base y explicas cómo corregirías el gráfico de eje truncado en 39.",
-                  "preguntaDada": "Gráfico 1: ¿cómo cambió la asistencia entre julio y septiembre de 2026, y en qué porcentaje? Gráfico 2: ¿qué tema registró más asistencias en septiembre? Extra: ¿qué cambiarías en las barras con el eje desde 39?"
-                }
-              ],
               "pasos": [
                 {
                   "clave": "preguntas",

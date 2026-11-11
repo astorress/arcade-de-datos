@@ -749,25 +749,6 @@
               "fase": "aplicar",
               "titulo": "El reto: un procedimiento que otro pueda repetir",
               "consigna": "Responde la pregunta de Mercado en octubre con un procedimiento que otra persona pueda repetir y comprobar. Después adáptalo a la pregunta nueva sobre la Tienda. Puedes usar filtros, marcar filas o escribir SQL (opcional): en todos los casos muestra las condiciones y las filas que entraron.",
-              "rutas": [
-                {
-                  "id": "mapa",
-                  "nombre": "Ruta Mapa",
-                  "descripcion": "La pregunta ya viene dada. Te concentras en filtrar, agrupar, sumar y explicar tus pasos.",
-                  "preguntaDada": "En octubre de 2026, ¿cuánto gastó la familia de Camilo en Mercado y cómo se reparte por lugar?"
-                },
-                {
-                  "id": "brujula",
-                  "nombre": "Ruta Brújula",
-                  "descripcion": "Haces tu propia pregunta con dos condiciones. Ideas: Aseo en septiembre por lugar, todo lo de la Plaza en octubre por categoría, Aseo o Antojos en septiembre…"
-                },
-                {
-                  "id": "telescopio",
-                  "nombre": "Ruta Telescopio",
-                  "descripcion": "Misma pregunta, pero además escribes la consulta SQL y explicas qué hace cada parte (opcional, sin instalar nada).",
-                  "preguntaDada": "En octubre de 2026, ¿cuánto gastó la familia de Camilo en Mercado y cómo se reparte por lugar?"
-                }
-              ],
               "pasos": [
                 {
                   "clave": "pregunta",
@@ -1577,25 +1558,6 @@
               "fase": "aplicar",
               "titulo": "El reto: un procedimiento que otro pueda repetir",
               "consigna": "Responde la pregunta de Tecnología en octubre con un procedimiento que otra persona pueda repetir y verificar. Después adáptalo a una pregunta nueva sobre Centro. Puedes usar filtros, marcar filas o escribir SQL (opcional): en todos los casos muestra las condiciones y las filas que entraron.",
-              "rutas": [
-                {
-                  "id": "mapa",
-                  "nombre": "Ruta Mapa",
-                  "descripcion": "La pregunta ya viene dada. Te concentras en filtrar, agrupar, sumar y explicar tus pasos.",
-                  "preguntaDada": "¿Cuántas asistencias se registraron en talleres de Tecnología durante octubre y cómo se distribuyen por sede?"
-                },
-                {
-                  "id": "brujula",
-                  "nombre": "Ruta Brújula",
-                  "descripcion": "Haces tu propia pregunta con dos condiciones. Ideas: Arte en octubre por sede, la sede Sur en los dos meses por tema, Norte o Sur en octubre…"
-                },
-                {
-                  "id": "telescopio",
-                  "nombre": "Ruta Telescopio",
-                  "descripcion": "Misma pregunta, pero además escribes la consulta SQL y explicas qué hace cada parte (opcional, sin instalar nada).",
-                  "preguntaDada": "¿Cuántas asistencias se registraron en talleres de Tecnología durante octubre y cómo se distribuyen por sede?"
-                }
-              ],
               "pasos": [
                 {
                   "clave": "pregunta",

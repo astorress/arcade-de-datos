@@ -861,25 +861,6 @@
               "fase": "aplicar",
               "titulo": "El reto: ¿qué ruta revisar primero?",
               "consigna": "Prepara una comparación de las tres rutas para orientar cuál revisar primero. Apóyate en tasas, muestra sus denominadores, separa la base de cualquier escenario y escribe qué información te falta antes de pedir un cambio concreto.",
-              "rutas": [
-                {
-                  "id": "mapa",
-                  "nombre": "Ruta Mapa",
-                  "descripcion": "La pregunta ya viene dada. Te concentras en calcular, ordenar y recomendar.",
-                  "preguntaDada": "En estas dos semanas, entre las 6:00 y las 8:00 a. m., ¿qué ruta tuvo la mayor proporción de viajes que llegaron tarde?"
-                },
-                {
-                  "id": "brujula",
-                  "nombre": "Ruta Brújula",
-                  "descripcion": "Formulas tu propia pregunta. Ideas: comparar las dos semanas, comparar solo dos rutas o mirar la tasa global."
-                },
-                {
-                  "id": "telescopio",
-                  "nombre": "Ruta Telescopio",
-                  "descripcion": "Comparas la base con el escenario de 2 viajes tarde menos en Colegio, y la tasa global con el promedio de tasas en los dos casos.",
-                  "preguntaDada": "¿Cómo cambian las tasas por ruta y la tasa global si la Ruta Colegio hubiera tenido 2 viajes tarde menos? ¿Cambia la ruta que conviene revisar primero?"
-                }
-              ],
               "pasos": [
                 {
                   "clave": "bus-pregunta",
@@ -1872,25 +1853,6 @@
               "fase": "aplicar",
               "titulo": "El reto: ¿qué sede revisar primero?",
               "consigna": "Prepara una comparación de las tres sedes para orientar dónde revisar primero la ocupación. Tu recomendación debe apoyarse en tasas, mostrar sus denominadores y distinguir la base de una actualización. Incluye información que aún necesitarías antes de proponer una intervención concreta.",
-              "rutas": [
-                {
-                  "id": "mapa",
-                  "nombre": "Ruta Mapa",
-                  "descripcion": "La pregunta ya viene dada. Te concentras en calcular, ordenar y recomendar.",
-                  "preguntaDada": "En este periodo, ¿qué sede ocupa la menor proporción de sus cupos?"
-                },
-                {
-                  "id": "brujula",
-                  "nombre": "Ruta Brújula",
-                  "descripcion": "Formulas tu propia pregunta. Ideas: comparar talleres dentro de una sede, comparar dos sedes o mirar la ocupación global."
-                },
-                {
-                  "id": "telescopio",
-                  "nombre": "Ruta Telescopio",
-                  "descripcion": "Comparas la base con la actualización de 2 inscritos más en Centro, y la ocupación global con el promedio de tasas en los dos casos.",
-                  "preguntaDada": "¿Cómo cambian la ocupación de Centro y la ocupación global si Centro registra dos inscripciones adicionales? ¿Cambia la sede con menor ocupación?"
-                }
-              ],
               "pasos": [
                 {
                   "clave": "sedes-pregunta",

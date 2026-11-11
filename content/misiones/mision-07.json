@@ -897,25 +897,6 @@
               "fase": "aplicar",
               "titulo": "El reto: el tablero de Juan",
               "consigna": "Prepara un tablero de una sola vista para Juan. Debe mostrar **dos indicadores de octubre**, la **tendencia mensual de la tasa de cancelados** y la **distribución de pedidos entregados por producto en octubre**. Añade un texto corto que ayude a leerlo y diga lo que todavía no se puede concluir.",
-              "rutas": [
-                {
-                  "id": "mapa",
-                  "nombre": "Ruta Mapa",
-                  "descripcion": "La pregunta ya viene dada. Te concentras en los indicadores, los dos gráficos y el texto.",
-                  "preguntaDada": "¿Cómo cambiaron los pedidos y la proporción de pedidos cancelados de agosto a octubre de 2026, y qué productos concentraron los pedidos entregados en octubre?"
-                },
-                {
-                  "id": "brujula",
-                  "nombre": "Ruta Brújula",
-                  "descripcion": "Formulas tu propia pregunta para el tablero de Juan (por ejemplo, sobre domicilio y recoger) y eliges tus dos indicadores y tus dos gráficos."
-                },
-                {
-                  "id": "telescopio",
-                  "nombre": "Ruta Telescopio",
-                  "descripcion": "Haces el tablero de la Ruta Mapa y le agregas un tercer indicador: la plata promedio por pedido entregado en octubre. Explicas por qué el denominador son los entregados.",
-                  "preguntaDada": "¿Cómo cambiaron los pedidos y la proporción de cancelados de agosto a octubre de 2026, qué productos concentraron los pedidos entregados en octubre y cuánta plata dejó, en promedio, cada pedido entregado en octubre?"
-                }
-              ],
               "pasos": [
                 {
                   "clave": "pregunta",
@@ -1927,25 +1908,6 @@
               "fase": "aplicar",
               "titulo": "El reto: el tablero de la biblioteca",
               "consigna": "Prepara un tablero de una sola vista para la coordinación de la biblioteca. Debe mostrar **dos indicadores de septiembre**, la **tendencia mensual de tasas** y la **distribución de asistencias por tema**. Añade un texto corto que ayude a interpretarlo y haga visible lo que todavía no puede concluirse.",
-              "rutas": [
-                {
-                  "id": "mapa",
-                  "nombre": "Ruta Mapa",
-                  "descripcion": "La pregunta ya viene dada. Te concentras en los indicadores, los dos gráficos y el texto.",
-                  "preguntaDada": "¿Cómo cambió la asistencia de julio a septiembre de 2026 y qué temas concentraron asistencias en septiembre?"
-                },
-                {
-                  "id": "brujula",
-                  "nombre": "Ruta Brújula",
-                  "descripcion": "Formulas tu propia pregunta para el tablero de la biblioteca (por ejemplo, sobre la mañana y la tarde) y eliges tus dos indicadores y tus dos gráficos."
-                },
-                {
-                  "id": "telescopio",
-                  "nombre": "Ruta Telescopio",
-                  "descripcion": "Haces el tablero de la Ruta Mapa y comparas además la tasa de la mañana y la de la tarde en septiembre, diciendo qué no permite concluir esa diferencia.",
-                  "preguntaDada": "¿Cómo cambió la asistencia de julio a septiembre de 2026, qué temas concentraron asistencias en septiembre y cómo se compara la asistencia de la mañana y la tarde en septiembre?"
-                }
-              ],
               "pasos": [
                 {
                   "clave": "pregunta",
