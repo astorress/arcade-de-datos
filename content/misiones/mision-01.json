@@ -1670,7 +1670,7 @@
     }
   },
   "teoria": {
-    "intro": "Para esta misión necesitas tres ideas: cómo se lee una tabla, qué tipos de datos guarda y qué hace que una pregunta se pueda responder con esos datos. Ya las usas todos los días: cuando miras cuánta plata tienes antes de comprar unas papitas, tienes un dato, una pregunta (¿me alcanza?) y una decisión.",
+    "intro": "Para esta misión necesitas tres ideas: cómo se lee una tabla, qué tipos de datos guarda y qué hace que una pregunta se pueda responder con esos datos. Ya las usas todos los días: cuando vas a comprar un celular te preguntas si lo necesitas, cuál te conviene, cuánto vale y si te alcanza la plata. Cada pregunta busca un dato, y con esos datos decides.",
     "platzi": [
       {
         "curso": "Data1 · Fundamentos del análisis de datos",
@@ -1728,7 +1728,7 @@
         "titulo": "Dato, información y conocimiento",
         "idea": "Un dato suelto dice poco; organizado y con una pregunta se vuelve información que ayuda a decidir.",
         "explicacion": "Un **dato** es un valor anotado: «Sí», «Papitas», «03/10». Cuando organizamos varios datos y los miramos con una pregunta, se vuelven **información** («se vendieron más papitas que pan»). Y cuando usamos esa información para decidir o entender algo, hablamos de **conocimiento**.",
-        "cotidiano": "«Tengo 5.000 pesos» es un dato. «Las papitas cuestan 3.500 y me alcanza» es información. «Si compro papitas hoy, mañana no me alcanza para el bus» ya es conocimiento para decidir.",
+        "cotidiano": "«Tengo 800.000 pesos» es un dato. «El celular que me sirve cuesta 750.000 en Mercado Libre y me alcanza» es información. «Si lo compro hoy, no me alcanza para el mercado del mes» ya es conocimiento para decidir.",
         "ejemplo": "En el recibo de energía ficticio de una casa, «150 kWh» es un dato. «Este mes gastamos más energía que el mes pasado» es información.",
         "enElReto": "Tu respuesta del reto debe pasar de datos sueltos (las filas) a una frase con información, sin inventar lo que la tabla no dice."
       },
