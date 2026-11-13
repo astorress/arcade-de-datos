@@ -109,6 +109,11 @@ export default {
 
 Las cifras de control de cada caso, para la clase, están en `Planeación/Clase_0N/Clase_0N_Casos_y_cifras.md`.
 
+### Otros ajustes en `content/sitio.json`
+
+- `padlet`: pega aquí el enlace del muro del grupo. Mientras esté vacío (`""`), no aparece en ninguna parte; con enlace, sale como herramienta en cada misión y en «Cómo funciona».
+- `versionPequena`: misiones que muestran el aviso «esta es la versión pequeña del caso; en clase usamos una tabla más grande». Quita un número de `misiones` para ocultarlo en esa misión.
+
 ## Cómo editar el contenido de una misión
 
 1. Abre `content/misiones/mision-0N.json`. Las misiones con dos casos tienen `casos.cotidiano` y `casos.guia`, cada uno con `nombre`, `titulo`, `caso`, `historia`, `datos`, `niveles`, `conceptos`, `fraseClave` y `paraLlevar`. La teoría (`teoria`) es común a los dos casos.

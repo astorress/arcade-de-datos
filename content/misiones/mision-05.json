@@ -878,7 +878,61 @@
           "La medida es la correcta (sumar, no contar) y está rotulada.",
           "Otra persona puede repetir los pasos."
         ]
-      }
+      },
+      "enClase": [
+        {
+          "tipo": "texto",
+          "texto": "En clase usamos el **cuaderno completo** de Camilo: 84 compras de septiembre y octubre, con dos categorías más (**Transporte** y **Servicios**). Esta misión trae solo 10 de esas compras (G01 a G10, las mismas de la clase), de tres categorías: por eso aquí no hay pasajes ni recibos."
+        },
+        {
+          "tipo": "tabla",
+          "titulo": "Resumen del cuaderno completo de la clase (84 compras)",
+          "columnas": [
+            "Categoría",
+            "Septiembre",
+            "Octubre",
+            "Total"
+          ],
+          "filas": [
+            [
+              "Mercado",
+              "$499.000",
+              "$516.000",
+              "$1.015.000"
+            ],
+            [
+              "Aseo",
+              "$111.500",
+              "$113.500",
+              "$225.000"
+            ],
+            [
+              "Antojos",
+              "$51.500",
+              "$80.000",
+              "$131.500"
+            ],
+            [
+              "Transporte",
+              "$85.500",
+              "$109.500",
+              "$195.000"
+            ],
+            [
+              "Servicios",
+              "$342.500",
+              "$334.000",
+              "$676.500"
+            ],
+            [
+              "Total",
+              "$1.090.000",
+              "$1.153.000",
+              "$2.243.000"
+            ]
+          ]
+        }
+      ]
     },
     "guia": {
       "nombre": "Guía: talleres por tema y mes",

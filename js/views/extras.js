@@ -118,6 +118,7 @@ export function vistaAyuda(c) {
     h('p', {}, 'Con el botón «Ajustes» de arriba puedes cambiar el tamaño de la letra, el modo claro u oscuro, activar los sonidos 8-bit (vienen apagados) y quitar el efecto retro de la pantalla.'),
     h('h2', {}, 'Sobre esta página'),
     h('p', {}, c.sitio.autoria),
+    c.sitio.padlet ? h('p', {}, '📌 Muro del grupo para dejar dudas y hallazgos: ', h('a', { href: c.sitio.padlet, target: '_blank', rel: 'noopener' }, 'abrir el Padlet')) : null,
     h('p', { class: 'nota' }, 'Tipografía pixel: «Jersey 10» de Sarah Cadigan-Fried, licencia SIL Open Font License.'));
 }
 
@@ -147,9 +148,23 @@ function hojaCaso(c, m) {
 function vistaLlevarCon(c, m, hoja) {
   return h('div', { class: 'vista' }, migas(m, 'Para llevar'),
     h('div', { class: 'acciones acciones--envolver' },
-      h('button', { type: 'button', class: 'btn btn--primario', onclick: () => imprimir(hoja()) }, '🖨 Imprimir o guardar como PDF')),
-    h('p', { class: 'nota' }, 'En el celular: al imprimir, elige «Guardar como PDF» para tenerla sin conexión.'),
+      h('button', { type: 'button', class: 'btn btn--primario', onclick: () => imprimir(hoja()) }, '🖨 Imprimir o guardar como PDF'),
+      (m.grupos || [{ clave: 'unico', mision: m }]).map((g, i, todos) => h('button', { type: 'button', class: 'btn', onclick: () => descargarCSV(g.mision, g.clave) },
+        todos.length > 1 ? `⬇ Tabla del caso ${i + 1} (CSV)` : '⬇ Descargar la tabla (CSV)'))),
+    h('p', { class: 'nota' }, 'En el celular: al imprimir, elige «Guardar como PDF» para tenerla sin conexión. El CSV se abre en Excel, Google Sheets o Python.'),
     h('div', { class: 'hoja-previa' }, hoja()));
+}
+
+/** Descarga la tabla del caso como CSV (separado por «;», como lo abre Excel en español). */
+function descargarCSV(m, clave) {
+  const celda = (v) => (/[;"\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : String(v));
+  const filas = [m.datos.columnas, ...m.datos.filas].map((f) => f.map(celda).join(';'));
+  const blob = new Blob(['\uFEFF' + filas.join('\r\n')], { type: 'text/csv;charset=utf-8' });
+  const a = h('a', { href: URL.createObjectURL(blob), download: `mision-${String(m.numero).padStart(2, '0')}${clave && clave !== 'unico' ? `-${clave}` : ''}.csv` });
+  document.body.append(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
 }
 
 // ---------- Mi cuaderno ----------

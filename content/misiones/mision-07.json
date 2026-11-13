@@ -1029,7 +1029,49 @@
           "Separa cantidades de tasas.",
           "Dice qué no se puede concluir todavía."
         ]
-      }
+      },
+      "enClase": [
+        {
+          "tipo": "texto",
+          "texto": "En clase usamos los **185 pedidos** de Juan, uno por fila. Con esa tabla agosto da **16 %** (8 de 50); aquí da 15 %. Septiembre (10 %) y octubre (12 %) dan igual en las dos. Lo que se repite: de agosto a octubre los cancelados **suben** y la tasa **baja**. Cantidad y tasa no son lo mismo."
+        },
+        {
+          "tipo": "tabla",
+          "titulo": "Resumen de la tabla grande de la clase (185 pedidos)",
+          "columnas": [
+            "Mes",
+            "Pedidos",
+            "Cancelados",
+            "Tasa de cancelados"
+          ],
+          "filas": [
+            [
+              "Agosto",
+              "50",
+              "8",
+              "16 %"
+            ],
+            [
+              "Septiembre",
+              "60",
+              "6",
+              "10 %"
+            ],
+            [
+              "Octubre",
+              "75",
+              "9",
+              "12 %"
+            ],
+            [
+              "3 meses",
+              "185",
+              "23",
+              "12,4 %"
+            ]
+          ]
+        }
+      ]
     },
     "guia": {
       "nombre": "Guía oficial: biblioteca, 3 meses",

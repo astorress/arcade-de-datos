@@ -38,6 +38,19 @@
     ]
   },
   "autoria": "Herramienta de apoyo hecha por Sebastian Torres, tu tutor.",
+  "padlet": "",
+  "versionPequena": {
+    "misiones": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "texto": "Esta es la versión pequeña del caso (en clase la llamamos «caso mínimo»), para practicar con calma. En clase trabajamos además con una tabla más grande, así que algunos números pueden no coincidir: lo que importa es el razonamiento."
+  },
   "avisoPrivacidad": "Aquí no hay cuentas ni registro. Tu progreso y lo que escribes se guardan solo en este navegador, en este dispositivo. Nadie más lo ve. Puedes borrarlo cuando quieras desde «Mi progreso».",
   "avisoDatos": "Todos los datos de las misiones son ficticios, solo para practicar.",
   "fases": {

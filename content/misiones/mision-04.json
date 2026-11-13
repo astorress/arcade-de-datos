@@ -997,7 +997,49 @@
           "Base y escenario van separados.",
           "Recomiendo sin afirmar causas."
         ]
-      }
+      },
+      "enClase": [
+        {
+          "tipo": "texto",
+          "texto": "En clase trabajamos con **otra tabla, más grande**: 140 viajes, uno por fila. Por eso los números de Estación cambian (allá da **20 %**; aquí, 10 %). Lo que se repite en las dos: la ruta con **más** viajes tarde (Estación) **no** es la de mayor tasa, y **Colegio** sigue siendo la que llega tarde con más frecuencia (**40 %**)."
+        },
+        {
+          "tipo": "tabla",
+          "titulo": "Resumen de la tabla grande de la clase (140 viajes)",
+          "columnas": [
+            "Ruta",
+            "Viajes",
+            "Llegaron tarde",
+            "Tasa"
+          ],
+          "filas": [
+            [
+              "Estación",
+              "80",
+              "16",
+              "20 %"
+            ],
+            [
+              "Parque",
+              "40",
+              "10",
+              "25 %"
+            ],
+            [
+              "Colegio",
+              "20",
+              "8",
+              "40 %"
+            ],
+            [
+              "Total",
+              "140",
+              "34",
+              "24,3 %"
+            ]
+          ]
+        }
+      ]
     },
     "guia": {
       "nombre": "Guía oficial: tres sedes de talleres",

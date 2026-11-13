@@ -20,11 +20,11 @@
 
 export default {
   1: { abierta: true, caso: 'ambos' }, // Leer la fila y preguntar bien
-  2: { abierta: false, caso: 'ambos' }, // Limpieza
-  3: { abierta: false, caso: 'ambos' }, // Media, mediana y extremos
-  4: { abierta: false, caso: 'ambos' }, // Tasas con denominador
-  5: { abierta: false, caso: 'ambos' }, // Filtros y agrupar
-  6: { abierta: false, caso: 'ambos' }, // Gráficos
-  7: { abierta: false, caso: 'ambos' }, // Tablero
-  8: { abierta: false, caso: 'ambos' }, // Caso integral
+  2: { abierta: false, caso: 'ambos' }, // Limpieza · abrir el 18 nov
+  3: { abierta: false, caso: 'ambos' }, // Media, mediana y extremos · abrir el 23 nov
+  4: { abierta: false, caso: 'ambos' }, // Tasas con denominador · abrir el 25 nov
+  5: { abierta: false, caso: 'ambos' }, // Filtros y agrupar · abrir el 30 nov
+  6: { abierta: false, caso: 'ambos' }, // Gráficos · abrir el 2 dic
+  7: { abierta: false, caso: 'ambos' }, // Tablero · abrir el 7 dic
+  8: { abierta: false, caso: 'ambos' }, // Caso integral · abrir el 9 dic
 }

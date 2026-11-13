@@ -160,6 +160,7 @@ for (const archivo of indice?.misiones || []) {
       if (!c.datos.aviso) avisos.push(`${dondeCaso}: "datos.aviso" vacío; se usará «Datos ficticios, solo para practicar.»`);
     }
     if (!c.conceptos?.length) errores.push(`${dondeCaso}: faltan "conceptos"`);
+    if (c.enClase) revisarApoyo(c.enClase, `${dondeCaso} [enClase]`);
     const ids = new Set();
     c.niveles.forEach((nv) => {
       if (!nv.actividades?.length) errores.push(`${dondeCaso} nivel ${nv.numero}: no tiene actividades`);

@@ -4,6 +4,7 @@ import { disponible, enPrevia, verCasoEnPrevia } from '../content.js';
 import { insignia } from '../components/insignia.js';
 import { leyendaKolb } from '../components/kolb.js';
 import { dialogoGuia } from '../components/guia.js';
+import { apoyo } from '../actividades/apoyo.js';
 
 export function vistaMision(c, m) {
   const cabecera = h('header', { class: `cabecera-mision color-${m.color || 'naranja'}` },
@@ -44,13 +45,16 @@ export function vistaMision(c, m) {
     ? m.grupos.map((g, i) => h('section', { class: 'grupo-caso', 'aria-labelledby': `caso-${i}` },
       h('h3', { class: 'grupo-caso__titulo', id: `caso-${i}` }, rotulo(`Caso ${i + 1}`), ' · ', g.mision.titulo),
       dialogoGuia(g.mision.historia, { nombre: c.sitio.guia?.nombre, compacto: true, animado: false }),
+      resumenClase(g.mision),
       listaNiveles(g.mision.niveles)))
     : listaNiveles(m.niveles);
 
   return h('div', { class: 'vista' }, migas(m), bandaPrevia(m), cabecera,
     h('section', { 'aria-label': 'La historia' },
       m.numero === 1 && c.sitio.guia?.presentacion ? dialogoGuia(c.sitio.guia.presentacion, { nombre: c.sitio.guia.nombre, animado: false }) : null,
-      dialogoGuia(m.historia, { nombre: c.sitio.guia?.nombre })),
+      dialogoGuia(m.historia, { nombre: c.sitio.guia?.nombre }),
+      c.sitio.versionPequena?.misiones?.includes(m.numero) ? h('p', { class: 'nota nota--version' }, '📏 ', c.sitio.versionPequena.texto) : null,
+      varios ? null : resumenClase(m)),
     h('h2', { class: 'titulo-seccion' }, varios ? 'Elige un caso (o juega los dos)' : 'Niveles'),
     niveles,
     h('section', { class: 'panel panel--insignia' },
@@ -64,6 +68,7 @@ export function vistaMision(c, m) {
       m.teoria ? herramienta(`#/mision/${m.numero}/teoria`, '📘', 'Guía de teoría', 'Recordemos: lo que ves en las clases asincrónicas y lo que necesitas para el reto.') : null,
       herramienta(`#/mision/${m.numero}/cuaderno`, '📓', 'Mi cuaderno', 'Lo que has escrito en esta misión. Para copiar o imprimir.'),
       herramienta(`#/mision/${m.numero}/llevar`, '🖨', 'Para llevar', 'Una hoja con la tabla, las definiciones y la consigna.'),
+      c.sitio.padlet ? herramienta(c.sitio.padlet, '📌', 'Muro del grupo', 'El Padlet de la clase: deja tus dudas, hallazgos y preguntas locas.', true) : null,
       herramienta('#/repaso', '⚡', 'Repaso relámpago', '5 preguntas al azar de lo que ya jugaste. Sin tiempo.'),
       herramienta(`#/clase/${m.numero}`, '📽', 'Modo clase', 'Para proyectar en la sesión: una pregunta por pantalla y votación por el chat.')),
     h('details', { class: 'conceptos' },
@@ -76,6 +81,14 @@ export function vistaMision(c, m) {
       h('summary', {}, '🔄 ¿Cómo está armada cada misión?'),
       h('p', {}, 'Cada actividad está en una fase del ciclo de aprendizaje. Verás el indicador arriba de cada actividad:'),
       leyendaKolb(c.sitio.fases)));
+}
+
+/** Puente con la clase: resumen de la tabla grande que se usó en vivo (campo "enClase" del caso). */
+function resumenClase(m) {
+  if (!m.enClase) return null;
+  return h('details', { class: 'conceptos en-clase' },
+    h('summary', {}, '🏫 ¿En clase te dio otro número? Mira la tabla grande'),
+    apoyo(m.enClase));
 }
 
 /** Solo visible con ?previa: estado real de la misión y selector de caso. */
@@ -94,8 +107,8 @@ export function bandaPrevia(m) {
     h('p', { class: 'nota' }, h('a', { href: '?previa=0#/' }, 'Salir de la vista previa')));
 }
 
-function herramienta(href, icono, titulo, texto) {
-  return h('a', { class: 'herramienta', href }, h('span', { class: 'herramienta__icono', 'aria-hidden': 'true' }, icono), h('span', { class: 'herramienta__titulo' }, titulo), h('span', { class: 'herramienta__texto' }, texto));
+function herramienta(href, icono, titulo, texto, externo = false) {
+  return h('a', { class: 'herramienta', href, ...(externo ? { target: '_blank', rel: 'noopener' } : {}) }, h('span', { class: 'herramienta__icono', 'aria-hidden': 'true' }, icono), h('span', { class: 'herramienta__titulo' }, titulo), h('span', { class: 'herramienta__texto' }, texto));
 }
 
 export function migas(m, extra) {
