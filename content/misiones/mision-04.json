@@ -4,7 +4,7 @@
   "titulo": "Comparar con justicia",
   "sesion": "Agrupar y comparar segmentos",
   "habilidad": "Tasas con denominador; tasa global frente a promedio de tasas.",
-  "caso": "Tres rutas de bus de un barrio",
+  "caso": "Los domicilios de doña Marta",
   "color": "naranja",
   "insignia": {
     "nombre": "Balanza justa",
@@ -14,82 +14,82 @@
   "casoActivo": "cotidiano",
   "casos": {
     "cotidiano": {
-      "nombre": "Cotidiano: rutas de bus que llegan tarde",
-      "titulo": "Las rutas del barrio",
-      "caso": "Puntualidad de tres rutas de bus",
-      "historia": "Por el paradero del parque de un barrio pasan tres rutas de bus: Estación, Parque y Colegio. En el grupo de vecinos todos dicen que «la Estación siempre llega tarde». Don Hernán, de la junta de acción comunal (ficticia), organizó a unos voluntarios que anotaron durante dos semanas cuántos viajes pasaron y cuántos llegaron tarde. La junta quiere pedirle a la empresa que revise primero una ruta. ¿Cuál? Tú le vas a ayudar a comparar con justicia.",
+      "nombre": "Cotidiano: los domicilios de doña Marta",
+      "titulo": "Los domicilios de doña Marta",
+      "caso": "Domicilios fiados en tres barrios",
+      "historia": "Doña Marta, la de la tienda, empezó a hacer domicilios a tres barrios: Buenos Aires (donde queda la tienda), Miraflores y Caicedo. A veces fía: entrega el pedido y se lo pagan después. Siente que en Buenos Aires es donde más le fían, porque es donde más anota en el cuaderno. En octubre anotó cada domicilio y quiere saber en qué barrio le fían con más frecuencia, para decidir dónde revisar primero cómo está fiando. Tú le vas a ayudar a comparar con justicia.",
       "datos": {
-        "titulo": "Viajes observados en el paradero del parque",
+        "titulo": "Domicilios de doña Marta en octubre, por quincena",
         "unidad": [
           "registro",
           "registros"
         ],
         "columnas": [
           "Código",
-          "Ruta",
-          "Semana",
-          "Viajes observados",
-          "Llegaron tarde"
+          "Barrio",
+          "Quincena",
+          "Domicilios",
+          "Fiados"
         ],
         "filas": [
           [
             "01",
-            "Estación",
-            "1",
-            "70",
-            "6"
+            "Buenos Aires",
+            "1 al 15 oct",
+            "40",
+            "7"
           ],
           [
             "02",
-            "Parque",
-            "1",
+            "Miraflores",
+            "1 al 15 oct",
             "20",
             "4"
           ],
           [
             "03",
-            "Colegio",
-            "1",
+            "Caicedo",
+            "1 al 15 oct",
             "10",
             "3"
           ],
           [
             "04",
-            "Estación",
-            "2",
-            "70",
-            "8"
+            "Buenos Aires",
+            "16 al 31 oct",
+            "40",
+            "9"
           ],
           [
             "05",
-            "Parque",
-            "2",
+            "Miraflores",
+            "16 al 31 oct",
             "20",
             "6"
           ],
           [
             "06",
-            "Colegio",
-            "2",
+            "Caicedo",
+            "16 al 31 oct",
             "10",
             "5"
           ]
         ],
         "definiciones": [
-          "Cada **código** es un **registro**: lo que se observó de **una ruta durante una semana**.",
-          "**Semana 1** va del 19 al 23 de octubre de 2026 y **semana 2** del 26 al 30 de octubre (de lunes a viernes).",
-          "**Viajes observados**: cuántos buses de esa ruta pasaron por el paradero entre las 6:00 y las 8:00 a. m.",
-          "**Llegaron tarde**: de esos viajes, cuántos pasaron más de 5 minutos después de la hora del horario publicado.",
-          "**No hay** datos de por qué se retrasó un bus (tráfico, lluvia, varadas) ni de otras horas, otros días u otros paraderos."
+          "Cada **código** es un **registro**: lo que pasó con **un barrio durante una quincena**.",
+          "**Domicilios**: cuántos pedidos llevó doña Marta a ese barrio en esa quincena.",
+          "**Fiados**: de esos domicilios, cuántos entregó sin cobrar en el momento (se los pagan después).",
+          "**No hay** datos de si ya le pagaron, de por qué le piden fiado ni de otros meses.",
+          "Es la misma información de la clase (140 domicilios, uno por fila), ya contada por quincena."
         ],
-        "aviso": "Datos ficticios, solo para practicar. Las rutas y la junta son inventadas."
+        "aviso": "Datos ficticios, solo para practicar. Doña Marta y sus clientes son inventados."
       },
       "niveles": [
         {
           "numero": 1,
           "titulo": "Leer y resumir",
-          "objetivo": "Entender qué cuenta cada fila, armar una fila por ruta y saber qué va arriba y qué va abajo en una tasa.",
-          "cierre": "Nivel 1 listo: ya tienes una fila por ruta y sabes preguntar «¿de cuántos?».",
+          "objetivo": "Entender qué cuenta cada fila, armar una fila por barrio y saber qué va arriba y qué va abajo en una tasa.",
+          "cierre": "Nivel 1 listo: ya tienes una fila por barrio y sabes preguntar «¿de cuántos?».",
           "actividades": [
             {
               "id": "n1-toca-fila",
@@ -99,14 +99,14 @@
               "consigna": "Toca una fila de la tabla y escucha lo que nos cuenta. Lee al menos **2 filas** para continuar.",
               "minimo": 2,
               "lecturas": {
-                "01": "El registro 01 cuenta que, en la semana 1, por el paradero pasaron 70 viajes de la Ruta Estación entre las 6:00 y las 8:00 a. m., y 6 de ellos llegaron tarde.",
-                "02": "El registro 02 cuenta que, en la semana 1, por el paradero pasaron 20 viajes de la Ruta Parque entre las 6:00 y las 8:00 a. m., y 4 de ellos llegaron tarde.",
-                "03": "El registro 03 cuenta que, en la semana 1, por el paradero pasaron 10 viajes de la Ruta Colegio entre las 6:00 y las 8:00 a. m., y 3 de ellos llegaron tarde.",
-                "04": "El registro 04 cuenta que, en la semana 2, por el paradero pasaron 70 viajes de la Ruta Estación entre las 6:00 y las 8:00 a. m., y 8 de ellos llegaron tarde.",
-                "05": "El registro 05 cuenta que, en la semana 2, por el paradero pasaron 20 viajes de la Ruta Parque entre las 6:00 y las 8:00 a. m., y 6 de ellos llegaron tarde.",
-                "06": "El registro 06 cuenta que, en la semana 2, por el paradero pasaron 10 viajes de la Ruta Colegio entre las 6:00 y las 8:00 a. m., y 5 de ellos llegaron tarde."
+                "01": "El registro 01 cuenta que, del 1 al 15 de octubre, doña Marta hizo 40 domicilios a Buenos Aires y 7 de ellos quedaron fiados.",
+                "02": "El registro 02 cuenta que, del 1 al 15 de octubre, doña Marta hizo 20 domicilios a Miraflores y 4 de ellos quedaron fiados.",
+                "03": "El registro 03 cuenta que, del 1 al 15 de octubre, doña Marta hizo 10 domicilios a Caicedo y 3 de ellos quedaron fiados.",
+                "04": "El registro 04 cuenta que, del 16 al 31 de octubre, doña Marta hizo 40 domicilios a Buenos Aires y 9 de ellos quedaron fiados.",
+                "05": "El registro 05 cuenta que, del 16 al 31 de octubre, doña Marta hizo 20 domicilios a Miraflores y 6 de ellos quedaron fiados.",
+                "06": "El registro 06 cuenta que, del 16 al 31 de octubre, doña Marta hizo 10 domicilios a Caicedo y 5 de ellos quedaron fiados."
               },
-              "explicacion": "Cada lectura habla de **una ruta en una semana**: cuántos viajes pasaron y cuántos de ellos llegaron tarde. Los viajes tarde son **parte** de los viajes observados, no algo aparte.",
+              "explicacion": "Cada lectura habla de **un barrio en una quincena**: cuántos domicilios hubo y cuántos quedaron fiados. Los fiados son **parte** de los domicilios, no algo aparte.",
               "tema": "tabla-resumen"
             },
             {
@@ -118,27 +118,27 @@
               "usaDatos": true,
               "opciones": [
                 {
-                  "texto": "Un bus",
-                  "feedback": "Una fila habla de muchos viajes: la 01 tiene 70. Lo que cuenta cada fila es lo que pasó con una ruta durante una semana."
+                  "texto": "Un domicilio",
+                  "feedback": "Una fila habla de muchos domicilios: la 01 tiene 40. Lo que cuenta cada fila es lo que pasó con un barrio durante una quincena."
                 },
                 {
-                  "texto": "Una ruta durante una semana",
+                  "texto": "Un barrio durante una quincena",
                   "correcta": true
                 },
                 {
-                  "texto": "Una ruta",
-                  "feedback": "¡Casi! Pero cada ruta aparece en dos filas, una por semana. Para tener una sola fila por ruta hay que juntarlas: eso es lo que harás enseguida."
+                  "texto": "Un barrio",
+                  "feedback": "¡Casi! Pero cada barrio aparece en dos filas, una por quincena. Para tener una sola fila por barrio hay que juntarlas: eso es lo que harás enseguida."
                 },
                 {
-                  "texto": "Un viaje que llegó tarde",
-                  "feedback": "Los viajes tarde son una columna: una cantidad dentro de cada fila. Mira la 01: 70 viajes, 6 tarde."
+                  "texto": "Un pedido fiado",
+                  "feedback": "Los fiados son una columna: una cantidad dentro de cada fila. Mira la 01: 40 domicilios, 7 fiados."
                 }
               ],
               "pistas": [
-                "Mira la columna Ruta: ¿cuántas veces aparece la Ruta Estación?",
+                "Mira la columna Barrio: ¿cuántas veces aparece Caicedo?",
                 "Lee las definiciones debajo de la tabla: dicen qué es cada código."
               ],
-              "explicacion": "Cada fila es **una ruta en una semana**. Para comparar rutas necesitamos **una fila por ruta**: una **tabla resumen**.",
+              "explicacion": "Cada fila es **un barrio en una quincena**. Para comparar barrios necesitamos **una fila por barrio**: una **tabla resumen**.",
               "tema": "tabla-resumen"
             },
             {
@@ -146,99 +146,99 @@
               "tipo": "conteo",
               "fase": "hacer",
               "titulo": "Arma la tabla resumen",
-              "consigna": "Junta las dos semanas de cada ruta: suma cuántos viajes **llegaron tarde** en cada una.",
+              "consigna": "Junta las dos quincenas de cada barrio: suma cuántos domicilios **quedaron fiados** en cada uno.",
               "usaDatos": true,
               "categorias": [
-                "Estación",
-                "Parque",
-                "Colegio"
+                "Buenos Aires",
+                "Miraflores",
+                "Caicedo"
               ],
               "esperado": {
-                "Estación": 14,
-                "Parque": 10,
-                "Colegio": 8
+                "Buenos Aires": 16,
+                "Miraflores": 10,
+                "Caicedo": 8
               },
               "erroresComunes": [
                 {
                   "valores": {
-                    "Estación": 2,
-                    "Parque": 2,
-                    "Colegio": 2
+                    "Buenos Aires": 2,
+                    "Miraflores": 2,
+                    "Caicedo": 2
                   },
-                  "mensaje": "Contaste filas: cada ruta tiene 2. La pregunta es cuántos viajes llegaron tarde: suma la columna «Llegaron tarde» de sus dos filas."
+                  "mensaje": "Contaste filas: cada barrio tiene 2. La pregunta es cuántos quedaron fiados: suma la columna «Fiados» de sus dos filas."
                 },
                 {
                   "valores": {
-                    "Estación": 6,
-                    "Parque": 4,
-                    "Colegio": 3
+                    "Buenos Aires": 7,
+                    "Miraflores": 4,
+                    "Caicedo": 3
                   },
-                  "mensaje": "Esos son solo los de la semana 1. Suma también los de la semana 2."
+                  "mensaje": "Esos son solo los de la primera quincena. Suma también los de la segunda."
                 },
                 {
                   "valores": {
-                    "Estación": 8,
-                    "Parque": 6,
-                    "Colegio": 5
+                    "Buenos Aires": 9,
+                    "Miraflores": 6,
+                    "Caicedo": 5
                   },
-                  "mensaje": "Esos son solo los de la semana 2. Suma también los de la semana 1."
+                  "mensaje": "Esos son solo los de la segunda quincena. Suma también los de la primera."
                 }
               ],
-              "mensajeGeneral": "Vas por buen camino. Revisa {categorias}: busca sus dos filas (una por semana) y suma la columna «Llegaron tarde».",
+              "mensajeGeneral": "Vas por buen camino. Revisa {categorias}: busca sus dos filas (una por quincena) y suma la columna «Fiados».",
               "pistas": [
-                "La Ruta Estación está en las filas 01 y 04.",
-                "Estación: 6 + 8. Parque: 4 + 6. Colegio: 3 + 5."
+                "Buenos Aires está en las filas 01 y 04.",
+                "Buenos Aires: 7 + 9. Miraflores: 4 + 6. Caicedo: 3 + 5."
               ],
-              "explicacion": "Viajes tarde por ruta: **Estación 14 · Parque 10 · Colegio 8**. Con los viajes observados se hace lo mismo: Estación 70 + 70 = **140**, Parque **40** y Colegio **20**. En total, 32 viajes tarde de 200 observados. Eso es una **tabla resumen**: una fila por ruta.",
+              "explicacion": "Fiados por barrio: **Buenos Aires 16 · Miraflores 10 · Caicedo 8**. Con los domicilios se hace lo mismo: Buenos Aires 40 + 40 = **80**, Miraflores **40** y Caicedo **20**. En total, 34 fiados de 140 domicilios. Eso es una **tabla resumen**: una fila por barrio.",
               "tema": "tabla-resumen"
             },
             {
               "id": "n1-mas-tarde",
               "tipo": "seleccion",
               "fase": "observar",
-              "titulo": "¿La que más falla?",
-              "consigna": "En el grupo de vecinos dicen: «La Ruta Estación es la que más falla». Con **solo** este gráfico, ¿qué puedes afirmar?",
+              "titulo": "¿Dónde le fían más?",
+              "consigna": "Doña Marta mira este gráfico y dice: «En Buenos Aires es donde más me fían». Con **solo** este gráfico, ¿qué puedes afirmar?",
               "apoyo": {
                 "tipo": "grafico",
                 "forma": "barras",
-                "titulo": "Viajes que llegaron tarde, por ruta",
+                "titulo": "Domicilios fiados, por barrio",
                 "etiquetas": [
-                  "Estación",
-                  "Parque",
-                  "Colegio"
+                  "Buenos Aires",
+                  "Miraflores",
+                  "Caicedo"
                 ],
                 "series": [
                   {
-                    "nombre": "Llegaron tarde",
+                    "nombre": "Fiados",
                     "valores": [
-                      14,
+                      16,
                       10,
                       8
                     ]
                   }
                 ],
-                "unidad": "viajes",
-                "nota": "Dos semanas, de 6:00 a 8:00 a. m."
+                "unidad": "domicilios",
+                "nota": "Octubre, las dos quincenas."
               },
               "opciones": [
                 {
-                  "texto": "La Ruta Estación es la menos puntual.",
-                  "feedback": "El gráfico muestra cuántos viajes llegaron tarde, pero no de cuántos. ¿Y si la Ruta Estación pasó muchas más veces que las otras?"
+                  "texto": "En Buenos Aires le fían con más frecuencia.",
+                  "feedback": "El gráfico muestra cuántos quedaron fiados, pero no de cuántos domicilios. ¿Y si a Buenos Aires llevó muchos más pedidos que a los otros?"
                 },
                 {
-                  "texto": "La Ruta Estación tuvo más viajes tarde, pero falta saber de cuántos viajes.",
+                  "texto": "En Buenos Aires quedaron más fiados, pero falta saber de cuántos domicilios.",
                   "correcta": true
                 },
                 {
-                  "texto": "La Ruta Colegio es la más puntual porque tuvo menos viajes tarde.",
-                  "feedback": "Menos retrasos en cantidad no es lo mismo que más puntual: Colegio también pudo pasar muy pocas veces. Falta la base."
+                  "texto": "En Caicedo casi no le fían, porque tiene menos fiados.",
+                  "feedback": "Menos fiados en cantidad no es menos frecuencia: a Caicedo pudo llevar muy pocos domicilios. Falta la base."
                 },
                 {
-                  "texto": "Las tres rutas son igual de puntuales.",
-                  "feedback": "Las cantidades son distintas (14, 10 y 8) y además no sabemos de cuántos viajes. Con este gráfico no se puede decir que sean iguales."
+                  "texto": "En los tres barrios le fían igual.",
+                  "feedback": "Las cantidades son distintas (16, 10 y 8) y además no sabemos de cuántos domicilios. Con este gráfico no se puede decir que sean iguales."
                 }
               ],
-              "explicacion": "Una cantidad sola no dice si es mucho o poco: **14 retrasos** pueden ser muchísimos de 20 viajes o pocos de 140. La pregunta que destapa todo es: **¿de cuántos?**",
+              "explicacion": "Una cantidad sola no dice si es mucho o poco: **16 fiados** pueden ser muchísimos de 20 domicilios o pocos de 80. La pregunta que destapa todo es: **¿de cuántos?**",
               "tema": "cantidad-vs-tasa"
             },
             {
@@ -246,7 +246,7 @@
               "tipo": "emparejar",
               "fase": "entender",
               "titulo": "¿Arriba o abajo?",
-              "consigna": "Para comparar con justicia vas a usar una división: la **tasa de retraso** de cada ruta. Para cada dato, toca qué papel cumple.",
+              "consigna": "Para comparar con justicia vas a usar una división: la **parte fiada** de cada barrio. Para cada dato, toca qué papel cumple.",
               "tipos": [
                 {
                   "id": "numerador",
@@ -266,19 +266,19 @@
               ],
               "pares": [
                 {
-                  "item": "Llegaron tarde (Estación: 14)",
+                  "item": "Fiados (Buenos Aires: 16)",
                   "correcto": "numerador",
                   "feedback": "Es lo que pasó y queremos medir: va arriba."
                 },
                 {
-                  "item": "Viajes observados (Estación: 140)",
+                  "item": "Domicilios (Buenos Aires: 80)",
                   "correcto": "denominador",
-                  "feedback": "Es la base: de cuántos viajes hablamos. Va abajo."
+                  "feedback": "Es la base: de cuántos domicilios hablamos. Va abajo."
                 },
                 {
-                  "item": "Semana (1 o 2)",
+                  "item": "Quincena (1 al 15 o 16 al 31)",
                   "correcto": "fuera",
-                  "feedback": "La semana ubica el registro en el tiempo. Ya la usaste para juntar filas, pero no va en la división."
+                  "feedback": "La quincena ubica el registro en el tiempo. Ya la usaste para juntar filas, pero no va en la división."
                 },
                 {
                   "item": "Código (01 a 06)",
@@ -289,7 +289,7 @@
               "pistas": [
                 "Pregúntate «¿tantos de cuántos?»: los «tantos» van arriba y los «cuántos» van abajo."
               ],
-              "explicacion": "**Tasa de retraso = viajes que llegaron tarde ÷ viajes observados.** Arriba va lo que pasó (**numerador**); abajo, la base (**denominador**).",
+              "explicacion": "**Parte fiada = fiados ÷ domicilios.** Arriba va lo que pasó (**numerador**); abajo, la base (**denominador**).",
               "tema": "tasa"
             },
             {
@@ -297,63 +297,63 @@
               "tipo": "completar",
               "fase": "entender",
               "titulo": "Completa la división",
-              "consigna": "Elige lo que completa la tasa de la Ruta Estación (usa la tabla resumen).",
-              "frase": "La tasa de retraso de la Ruta Estación es {0} ÷ {1} = 0,10 = 10 %. Eso quiere decir que llegaron tarde 10 de cada {2}.",
+              "consigna": "Elige lo que completa la parte fiada de Buenos Aires (usa la tabla resumen).",
+              "frase": "La parte fiada de Buenos Aires es {0} ÷ {1} = 0,20 = 20 %. Eso quiere decir que quedaron fiados 20 de cada {2}.",
               "huecos": [
                 {
                   "opciones": [
                     {
-                      "texto": "14",
+                      "texto": "16",
                       "correcta": true
                     },
                     {
-                      "texto": "140",
-                      "feedback": "140 es la base (los viajes observados): va abajo. Arriba va lo que pasó."
+                      "texto": "80",
+                      "feedback": "80 es la base (los domicilios): va abajo. Arriba va lo que pasó."
                     },
                     {
-                      "texto": "6",
-                      "feedback": "6 son solo los retrasos de la semana 1. La tabla resumen junta las dos semanas: 6 + 8."
+                      "texto": "7",
+                      "feedback": "7 son solo los fiados de la primera quincena. La tabla resumen junta las dos: 7 + 9."
                     }
                   ]
                 },
                 {
                   "opciones": [
                     {
-                      "texto": "140",
+                      "texto": "80",
                       "correcta": true
                     },
                     {
-                      "texto": "14",
-                      "feedback": "14 ya va arriba. Abajo va de cuántos viajes hablamos: los observados de esa ruta."
+                      "texto": "16",
+                      "feedback": "16 ya va arriba. Abajo va de cuántos domicilios hablamos: los de ese barrio."
                     },
                     {
-                      "texto": "200",
-                      "feedback": "200 son los viajes de las tres rutas juntas. Para la tasa de Estación, la base son solo sus viajes."
+                      "texto": "140",
+                      "feedback": "140 son los domicilios de los tres barrios juntos. Para Buenos Aires, la base son solo sus domicilios."
                     }
                   ]
                 },
                 {
                   "opciones": [
                     {
-                      "texto": "100 viajes",
+                      "texto": "100 domicilios",
                       "correcta": true
                     },
                     {
-                      "texto": "140 viajes",
-                      "feedback": "De 140 viajes llegaron tarde 14. Pero el porcentaje siempre se lee «de cada 100»."
+                      "texto": "80 domicilios",
+                      "feedback": "De 80 domicilios quedaron fiados 16. Pero el porcentaje siempre se lee «de cada 100»."
                     },
                     {
-                      "texto": "10 viajes",
-                      "feedback": "«10 de cada 10» sería que todos llegaron tarde. El porcentaje se lee «de cada 100»."
+                      "texto": "20 domicilios",
+                      "feedback": "«20 de cada 20» sería que todos quedaron fiados. El porcentaje se lee «de cada 100»."
                     }
                   ]
                 }
               ],
               "textoLibre": {
-                "etiqueta": "Si quieres, escribe con tus palabras qué significa ese 10 % (opcional, queda en tu cuaderno):",
-                "clave": "bus-que-es-10"
+                "etiqueta": "Si quieres, escribe con tus palabras qué significa ese 20 % (opcional, queda en tu cuaderno):",
+                "clave": "marta-que-es-20"
               },
-              "explicacion": "14 ÷ 140 = 0,10. En la hoja de cálculo, si a 0,10 le das formato de porcentaje ya se ve **10 %**: no hay que multiplicar otra vez por 100. Y 10 % no son «10 buses»: son **10 de cada 100 viajes**.",
+              "explicacion": "16 ÷ 80 = 0,20. En la hoja de cálculo, si a 0,20 le das formato de porcentaje ya se ve **20 %**: no hay que multiplicar otra vez por 100. Y 20 % no son «20 pedidos»: son **20 de cada 100 domicilios**.",
               "tema": "tasa"
             }
           ]
@@ -361,7 +361,7 @@
         {
           "numero": 2,
           "titulo": "Comparar con justicia",
-          "objetivo": "Calcular la tasa de cada ruta, ordenar con el criterio de la pregunta y sacar la tasa global sin trampas.",
+          "objetivo": "Calcular la parte fiada de cada barrio, ordenar con el criterio de la pregunta y sacar la tasa global sin trampas.",
           "cierre": "Nivel 2 listo: comparas con tasas y sabes sacar el total.",
           "actividades": [
             {
@@ -369,28 +369,28 @@
               "tipo": "seleccion",
               "fase": "hacer",
               "titulo": "Las tres tasas",
-              "consigna": "Calcula la tasa de retraso de cada ruta (llegaron tarde ÷ viajes observados). ¿Qué resultado te da?",
+              "consigna": "Calcula la parte fiada de cada barrio (fiados ÷ domicilios). ¿Qué resultado te da?",
               "apoyo": {
                 "tipo": "tabla",
-                "titulo": "Tabla resumen por ruta (dos semanas)",
+                "titulo": "Tabla resumen por barrio (octubre)",
                 "columnas": [
-                  "Ruta",
-                  "Viajes observados",
-                  "Llegaron tarde"
+                  "Barrio",
+                  "Domicilios",
+                  "Fiados"
                 ],
                 "filas": [
                   [
-                    "Estación",
-                    "140",
-                    "14"
+                    "Buenos Aires",
+                    "80",
+                    "16"
                   ],
                   [
-                    "Parque",
+                    "Miraflores",
                     "40",
                     "10"
                   ],
                   [
-                    "Colegio",
+                    "Caicedo",
                     "20",
                     "8"
                   ]
@@ -398,35 +398,35 @@
               },
               "opciones": [
                 {
-                  "texto": "Estación 10 % · Parque 25 % · Colegio 40 %",
+                  "texto": "Buenos Aires 20 % · Miraflores 25 % · Caicedo 40 %",
                   "correcta": true
                 },
                 {
-                  "texto": "Estación 14 % · Parque 10 % · Colegio 8 %",
-                  "feedback": "Leíste las cantidades como si fueran porcentajes. 14 retrasos no son 14 %: hay que dividir entre los viajes de cada ruta."
+                  "texto": "Buenos Aires 16 % · Miraflores 10 % · Caicedo 8 %",
+                  "feedback": "Leíste las cantidades como si fueran porcentajes. 16 fiados no son 16 %: hay que dividir entre los domicilios de cada barrio."
                 },
                 {
-                  "texto": "Estación 10 · Parque 4 · Colegio 2,5",
-                  "feedback": "Dividiste al revés: viajes ÷ retrasos. Pregúntate «¿tantos de cuántos?»: los retrasos van arriba."
+                  "texto": "Buenos Aires 5 · Miraflores 4 · Caicedo 2,5",
+                  "feedback": "Dividiste al revés: domicilios ÷ fiados. Pregúntate «¿tantos de cuántos?»: los fiados van arriba."
                 },
                 {
-                  "texto": "Estación 7 % · Parque 5 % · Colegio 4 %",
-                  "feedback": "Dividiste entre los 200 viajes de las tres rutas. Para la tasa de una ruta, la base son **sus** viajes: 140, 40 o 20."
+                  "texto": "Buenos Aires 11,4 % · Miraflores 7,1 % · Caicedo 5,7 %",
+                  "feedback": "Dividiste entre los 140 domicilios de los tres barrios. Para la tasa de un barrio, la base son **sus** domicilios: 80, 40 o 20."
                 }
               ],
               "pistas": [
-                "Parque: 10 ÷ 40.",
-                "Colegio: 8 ÷ 20 = 0,4. ¿Cómo se ve con formato de porcentaje?"
+                "Miraflores: 10 ÷ 40.",
+                "Caicedo: 8 ÷ 20 = 0,4. ¿Cómo se ve con formato de porcentaje?"
               ],
-              "explicacion": "**Estación 14 ÷ 140 = 10 % · Parque 10 ÷ 40 = 25 % · Colegio 8 ÷ 20 = 40 %.** Escribe siempre la división completa: así cualquiera ve qué fue arriba y qué abajo.",
+              "explicacion": "**Buenos Aires 16 ÷ 80 = 20 % · Miraflores 10 ÷ 40 = 25 % · Caicedo 8 ÷ 20 = 40 %.** Escribe siempre la división completa: así cualquiera ve qué fue arriba y qué abajo.",
               "tema": "tasa"
             },
             {
               "id": "n2-orden",
               "tipo": "seleccion",
               "fase": "aplicar",
-              "titulo": "¿Cuál revisar primero?",
-              "consigna": "La junta quiere pedir que revisen primero **la ruta que llega tarde con más frecuencia**. Con ese criterio, ¿cuál va primero?",
+              "titulo": "¿Dónde revisar primero?",
+              "consigna": "Doña Marta quiere revisar primero cómo fía en **el barrio donde le fían con más frecuencia**. Con ese criterio, ¿cuál va primero?",
               "apoyo": {
                 "tipo": "comparacion",
                 "items": [
@@ -435,23 +435,23 @@
                     "grafico": {
                       "tipo": "grafico",
                       "forma": "barras",
-                      "titulo": "Viajes que llegaron tarde",
+                      "titulo": "Domicilios fiados",
                       "etiquetas": [
-                        "Estación",
-                        "Parque",
-                        "Colegio"
+                        "Buenos Aires",
+                        "Miraflores",
+                        "Caicedo"
                       ],
                       "series": [
                         {
-                          "nombre": "Llegaron tarde",
+                          "nombre": "Fiados",
                           "valores": [
-                            14,
+                            16,
                             10,
                             8
                           ]
                         }
                       ],
-                      "unidad": "viajes"
+                      "unidad": "domicilios"
                     }
                   },
                   {
@@ -459,17 +459,17 @@
                     "grafico": {
                       "tipo": "grafico",
                       "forma": "barras",
-                      "titulo": "Tasa de retraso",
+                      "titulo": "Parte fiada",
                       "etiquetas": [
-                        "Estación",
-                        "Parque",
-                        "Colegio"
+                        "Buenos Aires",
+                        "Miraflores",
+                        "Caicedo"
                       ],
                       "series": [
                         {
-                          "nombre": "Tasa de retraso",
+                          "nombre": "Parte fiada",
                           "valores": [
-                            10,
+                            20,
                             25,
                             40
                           ],
@@ -483,23 +483,23 @@
               },
               "opciones": [
                 {
-                  "texto": "Estación, porque tuvo más viajes tarde (14)",
-                  "feedback": "Estación tiene más retrasos en cantidad, ¡bien leído! Pero también pasó muchas más veces: 140 viajes. De cada 100, llegaron tarde 10: la menor proporción de las tres."
+                  "texto": "Buenos Aires, porque quedaron más fiados (16)",
+                  "feedback": "Buenos Aires tiene más fiados en cantidad, ¡bien leído! Pero también tuvo muchos más domicilios: 80. De cada 100, quedaron fiados 20: la menor proporción de los tres."
                 },
                 {
-                  "texto": "Colegio, porque llegaron tarde 40 de cada 100 viajes",
+                  "texto": "Caicedo, porque quedaron fiados 40 de cada 100 domicilios",
                   "correcta": true
                 },
                 {
-                  "texto": "Parque, porque queda en la mitad",
-                  "feedback": "Parque tiene 25 %: queda de segunda. ¿Cuál tiene la tasa más alta?"
+                  "texto": "Miraflores, porque queda en la mitad",
+                  "feedback": "Miraflores tiene 25 %: queda de segundo. ¿Cuál tiene la parte fiada más alta?"
                 },
                 {
-                  "texto": "Ninguna: basta con mirar cuántos buses pasan",
-                  "feedback": "Cuántos pasan es la base, pero sola no responde. La pregunta es por la frecuencia de los retrasos: retrasos ÷ viajes."
+                  "texto": "Ninguno: basta con mirar cuántos domicilios hizo",
+                  "feedback": "Cuántos domicilios hizo es la base, pero sola no responde. La pregunta es por la frecuencia de los fiados: fiados ÷ domicilios."
                 }
               ],
-              "explicacion": "Por tasa, de mayor a menor: **Colegio 40 % → Parque 25 % → Estación 10 %**. Es justo al revés que por cantidad (14, 10, 8): la ruta con **más** retrasos es la **más puntual** en proporción. El criterio sale de la pregunta: «con más frecuencia» pide una tasa.",
+              "explicacion": "Por tasa, de mayor a menor: **Caicedo 40 % → Miraflores 25 % → Buenos Aires 20 %**. Es justo al revés que por cantidad (16, 10, 8): el barrio con **más** fiados es donde **menos** le fían en proporción. El criterio sale de la pregunta: «con más frecuencia» pide una tasa.",
               "tema": "cantidad-vs-tasa"
             },
             {
@@ -507,28 +507,28 @@
               "tipo": "tarjetas",
               "fase": "entender",
               "titulo": "¿Lo respaldan los datos?",
-              "consigna": "Para cada frase, decide si los datos de estas dos semanas la respaldan.",
+              "consigna": "Para cada frase, decide si los datos de octubre la respaldan.",
               "apoyo": {
                 "tipo": "tabla",
-                "titulo": "Tabla resumen por ruta (dos semanas)",
+                "titulo": "Tabla resumen por barrio (octubre)",
                 "columnas": [
-                  "Ruta",
-                  "Viajes observados",
-                  "Llegaron tarde"
+                  "Barrio",
+                  "Domicilios",
+                  "Fiados"
                 ],
                 "filas": [
                   [
-                    "Estación",
-                    "140",
-                    "14"
+                    "Buenos Aires",
+                    "80",
+                    "16"
                   ],
                   [
-                    "Parque",
+                    "Miraflores",
                     "40",
                     "10"
                   ],
                   [
-                    "Colegio",
+                    "Caicedo",
                     "20",
                     "8"
                   ]
@@ -540,29 +540,29 @@
               },
               "tarjetas": [
                 {
-                  "texto": "La Ruta Estación tuvo más viajes tarde que las otras dos.",
+                  "texto": "En Buenos Aires quedaron más domicilios fiados que en los otros dos barrios.",
                   "respuesta": "si",
-                  "explicacion": "Sí: 14 frente a 10 y 8. Es una frase sobre **cantidad**, y es cierta."
+                  "explicacion": "Sí: 16 frente a 10 y 8. Es una frase sobre **cantidad**, y es cierta."
                 },
                 {
-                  "texto": "La Ruta Estación es la que más incumple el horario.",
+                  "texto": "Buenos Aires es el barrio donde más le fían a doña Marta, en proporción.",
                   "respuesta": "no",
-                  "explicacion": "En proporción es la que menos: 10 %. Más retrasos en cantidad no es más incumplimiento en proporción."
+                  "explicacion": "En proporción es donde menos: 20 %. Más fiados en cantidad no es más fiado en proporción."
                 },
                 {
-                  "texto": "En la Ruta Colegio llegaron tarde 40 buses.",
+                  "texto": "En Caicedo le fiaron 40 pedidos.",
                   "respuesta": "no",
-                  "explicacion": "40 % no son 40 buses: fueron 8 de 20 viajes. El porcentaje se lee «40 de cada 100»."
+                  "explicacion": "40 % no son 40 pedidos: fueron 8 de 20. El porcentaje se lee «40 de cada 100»."
                 },
                 {
-                  "texto": "En la Ruta Parque, más o menos 1 de cada 4 viajes llegó tarde.",
+                  "texto": "En Miraflores, más o menos 1 de cada 4 domicilios quedó fiado.",
                   "respuesta": "si",
                   "explicacion": "25 % es 1 de cada 4: 10 de 40."
                 },
                 {
-                  "texto": "Si mañana tomas la Ruta Colegio, vas a llegar tarde.",
+                  "texto": "En Caicedo la gente es mala paga.",
                   "respuesta": "no",
-                  "explicacion": "La tasa describe estas dos semanas en esa franja. No dice qué va a pasar en un viaje concreto."
+                  "explicacion": "La tabla dice cuántos quedaron fiados, no si ya pagaron ni por qué pidieron fiado."
                 }
               ],
               "explicacion": "Una **cantidad** responde «¿cuántos?»; una **tasa** responde «¿cuántos de cuántos?». Las dos pueden ser ciertas a la vez: lo que cambia es la pregunta.",
@@ -573,31 +573,31 @@
               "tipo": "seleccion",
               "fase": "hacer",
               "titulo": "Un solo número para todo",
-              "consigna": "La junta también quiere un solo número: **¿qué proporción de todos los viajes observados llegó tarde?**",
+              "consigna": "Doña Marta quiere un solo número: **¿qué parte de todos sus domicilios de octubre quedó fiada?**",
               "apoyo": {
                 "tipo": "tabla",
                 "titulo": "Tabla resumen con fila de total",
                 "columnas": [
-                  "Ruta",
-                  "Viajes observados",
-                  "Llegaron tarde",
-                  "Tasa"
+                  "Barrio",
+                  "Domicilios",
+                  "Fiados",
+                  "Parte fiada"
                 ],
                 "filas": [
                   [
-                    "Estación",
-                    "140",
-                    "14",
-                    "10 %"
+                    "Buenos Aires",
+                    "80",
+                    "16",
+                    "20 %"
                   ],
                   [
-                    "Parque",
+                    "Miraflores",
                     "40",
                     "10",
                     "25 %"
                   ],
                   [
-                    "Colegio",
+                    "Caicedo",
                     "20",
                     "8",
                     "40 %"
@@ -612,27 +612,27 @@
               },
               "opciones": [
                 {
-                  "texto": "16 %",
+                  "texto": "Más o menos 24,3 %",
                   "correcta": true
                 },
                 {
-                  "texto": "25 %",
-                  "feedback": "Ese es el promedio de las tres tasas: (10 + 25 + 40) ÷ 3. Coincide con la tasa de Parque por pura casualidad. Trata a Colegio (20 viajes) igual que a Estación (140). Suma primero retrasos y viajes, y divide al final."
+                  "texto": "Más o menos 28,3 %",
+                  "feedback": "Ese es el promedio de las tres tasas: (20 + 25 + 40) ÷ 3. Trata a Caicedo (20 domicilios) igual que a Buenos Aires (80). Suma primero fiados y domicilios, y divide al final."
                 },
                 {
-                  "texto": "75 %",
-                  "feedback": "Sumaste las tres tasas: 10 + 25 + 40. Los porcentajes de grupos distintos no se suman así. Suma cantidades: retrasos con retrasos y viajes con viajes."
+                  "texto": "85 %",
+                  "feedback": "Sumaste las tres tasas: 20 + 25 + 40. Los porcentajes de grupos distintos no se suman así. Suma cantidades: fiados con fiados y domicilios con domicilios."
                 },
                 {
-                  "texto": "32 %",
-                  "feedback": "32 es el total de viajes tarde, no un porcentaje. Te falta dividir entre el total de viajes observados."
+                  "texto": "34 %",
+                  "feedback": "34 es el total de fiados, no un porcentaje. Te falta dividir entre el total de domicilios."
                 }
               ],
               "pistas": [
-                "Suma los viajes tarde de las tres rutas: 14 + 10 + 8.",
-                "Suma los viajes observados: 140 + 40 + 20. Ahora divide: 32 ÷ 200."
+                "Suma los fiados de los tres barrios: 16 + 10 + 8.",
+                "Suma los domicilios: 80 + 40 + 20. Ahora divide: 34 ÷ 140."
               ],
-              "explicacion": "**Tasa global = (14 + 10 + 8) ÷ (140 + 40 + 20) = 32 ÷ 200 = 0,16 = 16 %.** En la fila de total se **suman cantidades**, no tasas; la tasa del total se vuelve a calcular.",
+              "explicacion": "**Tasa global = (16 + 10 + 8) ÷ (80 + 40 + 20) = 34 ÷ 140 ≈ 0,243 ≈ 24,3 %.** En la fila de total se **suman cantidades**, no tasas; la tasa del total se vuelve a calcular.",
               "tema": "global-vs-promedio"
             },
             {
@@ -640,63 +640,63 @@
               "tipo": "seleccion",
               "fase": "entender",
               "titulo": "¿Por qué no coinciden?",
-              "consigna": "Mira las dos cuentas y el gráfico de viajes. ¿Por qué los dos números no coinciden?",
+              "consigna": "Mira las dos cuentas y el gráfico de domicilios. ¿Por qué los dos números no coinciden?",
               "apoyo": [
                 {
                   "tipo": "comparacion",
                   "items": [
                     {
                       "etiqueta": "Tasa global",
-                      "texto": "(14 + 10 + 8) ÷ (140 + 40 + 20) = 32 ÷ 200 = **16 %**"
+                      "texto": "(16 + 10 + 8) ÷ (80 + 40 + 20) = 34 ÷ 140 ≈ **24,3 %**"
                     },
                     {
                       "etiqueta": "Promedio simple de tasas",
-                      "texto": "(10 % + 25 % + 40 %) ÷ 3 = **25 %**"
+                      "texto": "(20 % + 25 % + 40 %) ÷ 3 ≈ **28,3 %**"
                     }
                   ]
                 },
                 {
                   "tipo": "grafico",
                   "forma": "barras",
-                  "titulo": "Viajes observados por ruta",
+                  "titulo": "Domicilios por barrio",
                   "etiquetas": [
-                    "Estación",
-                    "Parque",
-                    "Colegio"
+                    "Buenos Aires",
+                    "Miraflores",
+                    "Caicedo"
                   ],
                   "series": [
                     {
-                      "nombre": "Viajes observados",
+                      "nombre": "Domicilios",
                       "valores": [
-                        140,
+                        80,
                         40,
                         20
                       ],
                       "color": "verde"
                     }
                   ],
-                  "unidad": "viajes"
+                  "unidad": "domicilios"
                 }
               ],
               "opciones": [
                 {
                   "texto": "Porque uno de los dos cálculos está mal hecho",
-                  "feedback": "Las dos cuentas están bien hechas. Responden preguntas distintas: mira cuántos viajes aporta cada ruta."
+                  "feedback": "Las dos cuentas están bien hechas. Responden preguntas distintas: mira cuántos domicilios aporta cada barrio."
                 },
                 {
-                  "texto": "Porque el promedio le da el mismo peso a cada ruta, aunque Estación pone 140 de los 200 viajes",
+                  "texto": "Porque el promedio le da el mismo peso a cada barrio, aunque Buenos Aires pone 80 de los 140 domicilios",
                   "correcta": true
                 },
                 {
                   "texto": "Porque la tasa global siempre da menos que el promedio",
-                  "feedback": "No siempre. Aquí da menos porque la ruta grande (Estación) es la más puntual. Si la ruta grande fuera la más impuntual, la global daría más que el promedio."
+                  "feedback": "No siempre. Aquí da menos porque el barrio grande (Buenos Aires) es donde menos fían. Si el barrio grande fuera el de más fiados, la global daría más que el promedio."
                 },
                 {
                   "texto": "Porque en una de las dos hay que multiplicar otra vez por 100",
-                  "feedback": "El formato de porcentaje no cambia el resultado. La diferencia viene del peso de cada ruta."
+                  "feedback": "El formato de porcentaje no cambia el resultado. La diferencia viene del peso de cada barrio."
                 }
               ],
-              "explicacion": "El **promedio simple de tasas** le da el mismo peso a cada ruta. La **tasa global** le da el mismo peso a cada **viaje**: por eso Estación, con 140 viajes y solo 10 % de retrasos, la jala hacia abajo. El promedio no es «malo»: responde otra pregunta, pero no dice qué parte de todos los viajes llegó tarde. Dato curioso: dentro de cada ruta las dos semanas tienen los mismos viajes, y ahí promediar o sumar da igual. Cuando los grupos pesan distinto, ya no.",
+              "explicacion": "El **promedio simple de tasas** le da el mismo peso a cada barrio. La **tasa global** le da el mismo peso a cada **domicilio**: por eso Buenos Aires, con 80 domicilios y solo 20 % fiados, la jala hacia abajo. El promedio no es «malo»: responde otra pregunta, pero no dice qué parte de todos los domicilios quedó fiada.",
               "tema": "global-vs-promedio"
             }
           ]
@@ -715,9 +715,9 @@
               "consigna": "Trabaja en una **copia rotulada «escenario»**, sin borrar la tabla base. Elige lo que completa la frase.",
               "apoyo": {
                 "tipo": "texto",
-                "texto": "**Escenario de prueba:** la empresa promete ajustar el horario de la Ruta Colegio. ¿Qué pasaría si en estas dos semanas hubiera tenido **2 viajes tarde menos**? Los viajes observados no cambian (siguen siendo 20)."
+                "texto": "**Escenario de prueba:** doña Marta piensa pedir el pago al entregar en Caicedo. ¿Qué pasaría si en octubre **2 de sus 8 fiados** se hubieran pagado de una vez? Los domicilios no cambian (siguen siendo 20)."
               },
-              "frase": "En el escenario, la Ruta Colegio queda en {0}, la tasa global queda en {1} y la ruta con mayor proporción de retrasos {2}.",
+              "frase": "En el escenario, Caicedo queda en {0}, todo el mes queda en {1} y el barrio con mayor parte fiada {2}.",
               "huecos": [
                 {
                   "opciones": [
@@ -727,48 +727,48 @@
                     },
                     {
                       "texto": "6 ÷ 18 ≈ 33 %",
-                      "feedback": "Los viajes observados no cambian: siguen siendo 20. Solo cambia cuántos llegaron tarde."
+                      "feedback": "Los domicilios no cambian: siguen siendo 20. Solo cambia cuántos quedaron fiados."
                     },
                     {
                       "texto": "40 % − 2 % = 38 %",
-                      "feedback": "Quitar 2 retrasos no es quitar 2 puntos. Recalcula la división: (8 − 2) ÷ 20."
+                      "feedback": "Quitar 2 fiados no es quitar 2 puntos. Recalcula la división: (8 − 2) ÷ 20."
                     }
                   ]
                 },
                 {
                   "opciones": [
                     {
-                      "texto": "30 ÷ 200 = 15 %",
+                      "texto": "32 ÷ 140 ≈ 22,9 %",
                       "correcta": true
                     },
                     {
-                      "texto": "16 %, igual que antes",
-                      "feedback": "Si cambian los retrasos de una ruta, cambia también el total: 32 − 2 = 30 retrasos de 200 viajes."
+                      "texto": "24,3 %, igual que antes",
+                      "feedback": "Si cambian los fiados de un barrio, cambia también el total: 34 − 2 = 32 fiados de 140 domicilios."
                     },
                     {
-                      "texto": "(10 % + 25 % + 30 %) ÷ 3 ≈ 21,7 %",
-                      "feedback": "Ese es el promedio simple de las tasas del escenario. Para la global, suma cantidades: 30 ÷ 200."
+                      "texto": "(20 % + 25 % + 30 %) ÷ 3 = 25 %",
+                      "feedback": "Ese es el promedio simple de las tasas del escenario. Para el total, suma cantidades: 32 ÷ 140."
                     }
                   ]
                 },
                 {
                   "opciones": [
                     {
-                      "texto": "sigue siendo Colegio",
+                      "texto": "sigue siendo Caicedo",
                       "correcta": true
                     },
                     {
-                      "texto": "pasa a ser Parque",
-                      "feedback": "Parque tiene 25 % y Colegio queda en 30 %: Colegio sigue arriba, aunque la distancia se achicó."
+                      "texto": "pasa a ser Miraflores",
+                      "feedback": "Miraflores tiene 25 % y Caicedo queda en 30 %: Caicedo sigue arriba, aunque la distancia se achicó."
                     },
                     {
-                      "texto": "pasa a ser Estación",
-                      "feedback": "Estación sigue con 10 %: sus datos no cambian en el escenario."
+                      "texto": "pasa a ser Buenos Aires",
+                      "feedback": "Buenos Aires sigue con 20 %: sus datos no cambian en el escenario."
                     }
                   ]
                 }
               ],
-              "explicacion": "Escenario: **Colegio 6 ÷ 20 = 30 %** y **global 30 ÷ 200 = 15 %**. La prioridad **no cambia**: Colegio (30 %) sigue por encima de Parque (25 %). Rotula siempre «base» y «escenario»: en la base, Colegio sigue en 40 %.",
+              "explicacion": "Escenario: **Caicedo 6 ÷ 20 = 30 %** y **todo el mes 32 ÷ 140 ≈ 22,9 %**. La prioridad **no cambia**: Caicedo (30 %) sigue por encima de Miraflores (25 %). Rotula siempre «base» y «escenario»: en la base, Caicedo sigue en 40 %.",
               "tema": "escenario-y-puntos"
             },
             {
@@ -776,31 +776,31 @@
               "tipo": "seleccion",
               "fase": "entender",
               "titulo": "¿Diez qué?",
-              "consigna": "Alguien escribe en el grupo de vecinos: «En el escenario, la Ruta Colegio mejoró 10 viajes». ¿Cómo se dice bien el cambio?",
+              "consigna": "Una vecina comenta: «En el escenario, en Caicedo bajaron 10 fiados». ¿Cómo se dice bien el cambio?",
               "apoyo": {
                 "tipo": "tabla",
-                "titulo": "Ruta Colegio: base y escenario",
+                "titulo": "Caicedo: base y escenario",
                 "columnas": [
-                  "Ruta Colegio",
+                  "Caicedo",
                   "Base",
                   "Escenario",
                   "Cambio"
                 ],
                 "filas": [
                   [
-                    "Viajes observados",
+                    "Domicilios",
                     "20",
                     "20",
                     "0"
                   ],
                   [
-                    "Llegaron tarde",
+                    "Fiados",
                     "8",
                     "6",
                     "2 menos"
                   ],
                   [
-                    "Tasa de retraso",
+                    "Parte fiada",
                     "40 %",
                     "30 %",
                     "?"
@@ -809,12 +809,12 @@
               },
               "opciones": [
                 {
-                  "texto": "Bajó 10 puntos porcentuales: de 40 % a 30 %, con 2 viajes tarde menos",
+                  "texto": "Bajó 10 puntos porcentuales: de 40 % a 30 %, con 2 fiados menos",
                   "correcta": true
                 },
                 {
-                  "texto": "Bajó 10 viajes tarde",
-                  "feedback": "En el escenario solo hay 2 viajes tarde menos (de 8 a 6). Lo que bajó 10 fue la tasa, y eso se mide en puntos porcentuales."
+                  "texto": "Bajaron 10 fiados",
+                  "feedback": "En el escenario solo hay 2 fiados menos (de 8 a 6). Lo que bajó 10 fue la parte fiada, y eso se mide en puntos porcentuales."
                 },
                 {
                   "texto": "Bajó 10 %",
@@ -822,94 +822,94 @@
                 },
                 {
                   "texto": "Bajó 2 puntos porcentuales",
-                  "feedback": "2 es el cambio en viajes tarde. La tasa pasó de 40 % a 30 %: ¿cuántos puntos son?"
+                  "feedback": "2 es el cambio en fiados. La parte fiada pasó de 40 % a 30 %: ¿cuántos puntos son?"
                 }
               ],
-              "explicacion": "Los **puntos porcentuales** miden la distancia entre dos porcentajes: de 40 % a 30 % hay **10 puntos**. Con solo 20 viajes de base, cada retraso pesa 5 puntos; por eso 2 retrasos menos mueven 10 puntos. Mira siempre las dos filas: viajes y tasa.",
+              "explicacion": "Los **puntos porcentuales** miden la distancia entre dos porcentajes: de 40 % a 30 % hay **10 puntos**. Con solo 20 domicilios de base, cada fiado pesa 5 puntos; por eso 2 fiados menos mueven 10 puntos. Mira siempre las dos filas: domicilios y parte fiada.",
               "tema": "escenario-y-puntos"
             },
             {
               "id": "n3-frase",
               "tipo": "seleccion",
               "fase": "observar",
-              "titulo": "El mensaje a la empresa",
-              "consigna": "Don Hernán va a escribirle a la empresa de buses. ¿Cuál mensaje recomienda con datos y sin pasarse?",
+              "titulo": "La nota en el cuaderno",
+              "consigna": "Doña Marta va a anotar en su cuaderno qué decidió. ¿Cuál nota recomienda con datos y sin pasarse?",
               "opciones": [
                 {
-                  "texto": "Revisen primero la Ruta Estación: tuvo 14 viajes tarde, más que ninguna.",
-                  "feedback": "Usa la cantidad, no la tasa. Estación pasó 140 veces y llegó tarde 10 de cada 100: es la más puntual en proporción."
+                  "texto": "Revisar primero Buenos Aires: ahí quedaron 16 fiados, más que en ningún barrio.",
+                  "feedback": "Usa la cantidad, no la tasa. A Buenos Aires llevó 80 domicilios y quedaron fiados 20 de cada 100: es donde menos fía en proporción."
                 },
                 {
-                  "texto": "Revisen primero la Ruta Colegio: en dos semanas, 8 de sus 20 viajes de 6:00 a 8:00 a. m. llegaron tarde (40 %), la mayor proporción de las tres. ¿Nos pueden contar qué pasa en esa franja?",
+                  "texto": "Revisar primero cómo fío en Caicedo: en octubre quedaron fiados 8 de sus 20 domicilios (40 %), la mayor proporción de los tres. Antes de cambiar algo, preguntar si esos fiados ya se pagaron.",
                   "correcta": true
                 },
                 {
-                  "texto": "Los conductores de la Ruta Colegio son irresponsables: tienen 40 % de retrasos.",
-                  "feedback": "La tabla dice dónde mirar, no por qué pasa. El retraso puede venir del tráfico, la lluvia, el horario o los buses disponibles. Convierte la causa en una pregunta."
+                  "texto": "En Caicedo la gente es mala paga: 40 % de fiados.",
+                  "feedback": "La tabla dice dónde mirar, no por qué pasa. Puede que ya le hayan pagado, o que allá pidan a fin de mes. Convierte la causa en una pregunta."
                 },
                 {
-                  "texto": "Revisen la Ruta Colegio, aunque ya bajó a 30 %.",
-                  "feedback": "Ese 30 % es del escenario de prueba, no de lo que pasó. Rotula cada cifra: en la base, Colegio está en 40 %."
+                  "texto": "Revisar Caicedo, aunque ya bajó a 30 %.",
+                  "feedback": "Ese 30 % es del escenario de prueba, no de lo que pasó. Rotula cada cifra: en la base, Caicedo está en 40 %."
                 }
               ],
-              "explicacion": "Una recomendación prudente dice **ruta, tasa con su denominador y criterio**, y deja una **pregunta pendiente**. Afirmar la causa («son irresponsables») es una hipótesis que necesita otros datos.",
+              "explicacion": "Una recomendación prudente dice **barrio, tasa con su denominador y criterio**, y deja una **pregunta pendiente**. Afirmar la causa («son mala paga») es una hipótesis que necesita otros datos.",
               "tema": "prioridad-prudente"
             },
             {
               "id": "n3-reto",
               "tipo": "constructor",
               "fase": "aplicar",
-              "titulo": "El reto: ¿qué ruta revisar primero?",
-              "consigna": "Prepara una comparación de las tres rutas para orientar cuál revisar primero. Apóyate en tasas, muestra sus denominadores, separa la base de cualquier escenario y escribe qué información te falta antes de pedir un cambio concreto.",
+              "titulo": "El reto: ¿dónde revisar primero?",
+              "consigna": "Prepara una comparación de los tres barrios para orientar dónde revisar primero cómo está fiando doña Marta. Apóyate en tasas, muestra sus denominadores, separa la base de cualquier escenario y escribe qué información te falta antes de proponer un cambio concreto.",
               "pasos": [
                 {
-                  "clave": "bus-pregunta",
+                  "clave": "marta-pregunta",
                   "titulo": "1 · Mi pregunta",
-                  "ayuda": "Empieza con «En estas dos semanas…» o «Entre estas tres rutas…».",
+                  "ayuda": "Empieza con «En octubre…» o «Entre estos tres barrios…».",
                   "pistas": [
-                    "Elige qué comparar: rutas, semanas, o base frente a escenario.",
-                    "Ejemplo de forma: «En estas dos semanas, ¿qué ruta tuvo la mayor proporción de ___?»"
+                    "Elige qué comparar: barrios, quincenas, o base frente a escenario.",
+                    "Ejemplo de forma: «En octubre, ¿en qué barrio quedó fiada la mayor parte de ___?»"
                   ]
                 },
                 {
-                  "clave": "bus-tabla",
+                  "clave": "marta-tabla",
                   "titulo": "2 · Mi tabla resumen y mis tasas",
-                  "ayuda": "Una fila por ruta: viajes observados, llegaron tarde y la división completa. Puedes marcar filas en la tabla y agregarlas aquí.",
+                  "ayuda": "Una fila por barrio: domicilios, fiados y la división completa. Puedes marcar filas en la tabla y agregarlas aquí.",
                   "pistas": [
-                    "Junta las dos semanas de cada ruta: Estación son las filas 01 y 04.",
-                    "Escribe la división completa, por ejemplo: «Colegio: 8 ÷ 20 = 40 %».",
-                    "Revisa: ¿los viajes tarde nunca superan a los viajes observados?"
+                    "Junta las dos quincenas de cada barrio: Buenos Aires son las filas 01 y 04.",
+                    "Escribe la división completa, por ejemplo: «Caicedo: 8 ÷ 20 = 40 %».",
+                    "Revisa: ¿los fiados nunca superan a los domicilios?"
                   ],
                   "permiteFilas": true
                 },
                 {
-                  "clave": "bus-total",
+                  "clave": "marta-total",
                   "titulo": "3 · El total (y el escenario, si lo usas)",
                   "ayuda": "Escribe la tasa global con sus dos cantidades. Si usas el escenario, ponlo aparte con su rótulo.",
                   "pistas": [
-                    "Para el total, suma retrasos y viajes, y divide al final.",
-                    "Si te da 25 %, promediaste las tasas: ¿cada ruta tiene los mismos viajes?",
+                    "Para el total, suma fiados y domicilios, y divide al final.",
+                    "Si te da 28,3 %, promediaste las tasas: ¿cada barrio tiene los mismos domicilios?",
                     "Escenario: rotúlalo «¿y si…?» y no borres la base."
                   ]
                 },
                 {
-                  "clave": "bus-recomendacion",
+                  "clave": "marta-recomendacion",
                   "titulo": "4 · Mi recomendación y lo que todavía no sé",
-                  "ayuda": "«Conviene revisar primero… porque… (tasa y criterio). Antes de pedir un cambio, preguntaría…»",
+                  "ayuda": "«Conviene revisar primero… porque… (tasa y criterio). Antes de cambiar algo, preguntaría…»",
                   "pistas": [
-                    "Nombra la ruta, su tasa con la división y el criterio («la mayor proporción de retrasos»).",
-                    "Piensa en lo que la tabla no tiene: por qué se retrasan, otras horas, fines de semana, otros paraderos, días de lluvia."
+                    "Nombra el barrio, su tasa con la división y el criterio («la mayor parte fiada»).",
+                    "Piensa en lo que la tabla no tiene: si ya le pagaron, por qué piden fiado, otros meses, cuánta plata es."
                   ]
                 }
               ],
               "verificacion": [
-                "¿Cada tasa muestra su división (arriba los retrasos, abajo los viajes)?",
+                "¿Cada tasa muestra su división (arriba los fiados, abajo los domicilios)?",
                 "¿Ordené por tasa y dije por qué ese criterio responde la pregunta?",
                 "¿El total sale de sumar cantidades antes de dividir?",
                 "¿Separé la base del escenario?",
                 "¿Mi recomendación deja una pregunta en vez de afirmar una causa?"
               ],
-              "ejemplo": "«En estas dos semanas, entre las 6:00 y las 8:00 a. m., ¿qué ruta tuvo la mayor proporción de viajes que llegaron tarde? Junté las dos semanas de cada ruta (filas 01 y 04, 02 y 05, 03 y 06): Estación 14 ÷ 140 = 10 %, Parque 10 ÷ 40 = 25 % y Colegio 8 ÷ 20 = 40 %. En total, 32 ÷ 200 = 16 % de los viajes llegó tarde; el promedio de las tres tasas (25 %) es otra medida. Conviene revisar primero la Ruta Colegio, que tiene la mayor proporción de retrasos, aunque Estación tuvo más retrasos en cantidad. Antes de pedir un cambio, preguntaría si los retrasos se repiten a otras horas y qué explica la empresa sobre el horario de esa ruta.»",
+              "ejemplo": "«En octubre, ¿en qué barrio quedó fiada la mayor parte de los domicilios de doña Marta? Junté las dos quincenas de cada barrio (filas 01 y 04, 02 y 05, 03 y 06): Buenos Aires 16 ÷ 80 = 20 %, Miraflores 10 ÷ 40 = 25 % y Caicedo 8 ÷ 20 = 40 %. En todo el mes, 34 ÷ 140 ≈ 24,3 % quedó fiado; el promedio de las tres tasas (28,3 %) es otra medida. Conviene revisar primero cómo fía en Caicedo, que tiene la mayor parte fiada, aunque en Buenos Aires quedaron más fiados en cantidad. Antes de cambiar algo, preguntaría si esos fiados ya se pagaron.»",
               "explicacion": "No se busca un texto largo: sirve si otra persona puede repetir tus divisiones y ver de dónde sale tu prioridad.",
               "tema": "prioridad-prudente"
             },
@@ -921,12 +921,12 @@
               "consigna": "Completa estas dos frases. Quedan guardadas en tu cuaderno (solo en este navegador).",
               "frases": [
                 {
-                  "clave": "bus-cierre-necesito",
+                  "clave": "marta-cierre-necesito",
                   "inicio": "Para comparar con justicia necesito…"
                 },
                 {
-                  "clave": "bus-cierre-preguntaria",
-                  "inicio": "Antes de pedir un cambio, preguntaría…"
+                  "clave": "marta-cierre-preguntaria",
+                  "inicio": "Antes de cambiar algo, preguntaría…"
                 }
               ],
               "explicacion": "El procedimiento en una línea: **tabla resumen → tasa con su denominador → ordenar según la pregunta → total sumando cantidades → escenario aparte → recomendación con una pregunta pendiente.**"
@@ -938,57 +938,57 @@
         {
           "termino": "Tabla resumen",
           "definicion": "Una fila por grupo con las cantidades que necesitas para comparar.",
-          "ejemplo": "Estación: 140 viajes y 14 tarde, juntando sus dos semanas."
+          "ejemplo": "Buenos Aires: 80 domicilios y 16 fiados, juntando sus dos quincenas."
         },
         {
           "termino": "Tasa",
           "definicion": "Una división que compara una parte con su base: «tantos de cuántos».",
-          "ejemplo": "Colegio: 8 viajes tarde ÷ 20 viajes = 40 %."
+          "ejemplo": "Caicedo: 8 fiados ÷ 20 domicilios = 40 %."
         },
         {
           "termino": "Numerador y denominador",
           "definicion": "Arriba va lo que pasó; abajo, la base.",
-          "ejemplo": "En 14 ÷ 140, 14 son los viajes tarde y 140 los viajes observados."
+          "ejemplo": "En 16 ÷ 80, 16 son los fiados y 80 los domicilios."
         },
         {
           "termino": "Cantidad frente a proporción",
           "definicion": "«¿Cuántos?» y «¿cuántos de cuántos?» son preguntas distintas y pueden dar ganadores distintos.",
-          "ejemplo": "Estación tuvo más retrasos (14), pero la menor proporción (10 %)."
+          "ejemplo": "Buenos Aires tuvo más fiados (16), pero la menor proporción (20 %)."
         },
         {
           "termino": "Tasa global",
           "definicion": "Se suman las cantidades de todos los grupos y se divide al final.",
-          "ejemplo": "32 ÷ 200 = 16 % de todos los viajes llegó tarde."
+          "ejemplo": "34 ÷ 140 ≈ 24,3 % de todos los domicilios quedó fiado."
         },
         {
           "termino": "Promedio simple de tasas",
           "definicion": "Suma las tasas y divide entre el número de grupos: cada grupo pesa igual. Responde otra pregunta.",
-          "ejemplo": "(10 % + 25 % + 40 %) ÷ 3 = 25 %, distinto del 16 % global."
+          "ejemplo": "(20 % + 25 % + 40 %) ÷ 3 ≈ 28,3 %, distinto del 24,3 % global."
         },
         {
           "termino": "Escenario",
           "definicion": "Una copia rotulada para probar «¿y si…?» sin borrar la base.",
-          "ejemplo": "Colegio con 2 retrasos menos: 30 %; global 15 %."
+          "ejemplo": "Caicedo con 2 fiados menos: 30 %; todo el mes ≈ 22,9 %."
         },
         {
           "termino": "Punto porcentual",
           "definicion": "La distancia entre dos porcentajes.",
-          "ejemplo": "De 40 % a 30 % son 10 puntos porcentuales, con solo 2 viajes tarde menos."
+          "ejemplo": "De 40 % a 30 % son 10 puntos porcentuales, con solo 2 fiados menos."
         },
         {
           "termino": "Recomendación prudente",
           "definicion": "Dice dónde mirar, con qué tasa y criterio, y qué falta saber. No afirma causas.",
-          "ejemplo": "«Revisen primero Colegio (8 de 20, 40 %). ¿Qué pasa en esa franja?»"
+          "ejemplo": "«Revisar primero Caicedo (8 de 20, 40 %). ¿Ya me pagaron esos fiados?»"
         }
       ],
       "fraseClave": "Antes de comparar, pregunto «¿de cuántos?»: una tasa necesita su denominador, y el total se calcula sumando cantidades antes de dividir.",
       "paraLlevar": {
-        "consigna": "Prepara una comparación de las tres rutas para orientar cuál revisar primero. Apóyate en tasas, muestra sus denominadores, separa la base de cualquier escenario y escribe qué información te falta antes de pedir un cambio concreto.",
+        "consigna": "Prepara una comparación de los tres barrios para orientar dónde revisar primero cómo está fiando doña Marta. Apóyate en tasas, muestra sus denominadores, separa la base de cualquier escenario y escribe qué información te falta antes de proponer un cambio concreto.",
         "pasos": [
-          "Mi pregunta (empieza con «En estas dos semanas…» o «Entre estas tres rutas…»).",
-          "Mi tabla resumen: una fila por ruta, con viajes observados, viajes tarde y la división de cada tasa.",
+          "Mi pregunta (empieza con «En octubre…» o «Entre estos tres barrios…»).",
+          "Mi tabla resumen: una fila por barrio, con domicilios, fiados y la división de cada tasa.",
           "El total: sumo cantidades y divido al final. Si pruebo un escenario, lo rotulo aparte.",
-          "Mi recomendación (ruta, tasa y criterio) y una pregunta sobre lo que todavía no sé."
+          "Mi recomendación (barrio, tasa y criterio) y una pregunta sobre lo que todavía no sé."
         ],
         "lupa": [
           "Cada tasa muestra su división.",
@@ -1001,32 +1001,32 @@
       "enClase": [
         {
           "tipo": "texto",
-          "texto": "En clase trabajamos con **otra tabla, más grande**: 140 viajes, uno por fila. Por eso los números de Estación cambian (allá da **20 %**; aquí, 10 %). Lo que se repite en las dos: la ruta con **más** viajes tarde (Estación) **no** es la de mayor tasa, y **Colegio** sigue siendo la que llega tarde con más frecuencia (**40 %**)."
+          "texto": "En clase trabajamos con la **tabla grande**: 140 domicilios, uno por fila. Aquí están **contados por quincena**, y los números son los mismos: el barrio con **más** fiados (Buenos Aires) **no** es el de mayor proporción, y **Caicedo** es donde le fían con más frecuencia (**40 %**)."
         },
         {
           "tipo": "tabla",
-          "titulo": "Resumen de la tabla grande de la clase (140 viajes)",
+          "titulo": "Resumen de la tabla grande de la clase (140 domicilios)",
           "columnas": [
-            "Ruta",
-            "Viajes",
-            "Llegaron tarde",
-            "Tasa"
+            "Barrio",
+            "Domicilios",
+            "Fiados",
+            "Parte fiada"
           ],
           "filas": [
             [
-              "Estación",
+              "Buenos Aires",
               "80",
               "16",
               "20 %"
             ],
             [
-              "Parque",
+              "Miraflores",
               "40",
               "10",
               "25 %"
             ],
             [
-              "Colegio",
+              "Caicedo",
               "20",
               "8",
               "40 %"
@@ -1231,8 +1231,8 @@
               "id": "n1-mas-inscritos",
               "tipo": "seleccion",
               "fase": "observar",
-              "titulo": "¿La que mejor aprovecha?",
-              "consigna": "Alguien dice: «Sur es la sede que mejor aprovecha sus cupos: tiene más inscritos». Con **solo** este gráfico, ¿qué puedes afirmar?",
+              "titulo": "¿Solo con los inscritos?",
+              "consigna": "Lucía mira este gráfico antes de calcular nada. Con **solo** este gráfico, ¿qué puede afirmar sobre cómo se llenaron los cupos?",
               "apoyo": {
                 "tipo": "grafico",
                 "forma": "barras",
@@ -1256,7 +1256,7 @@
               },
               "opciones": [
                 {
-                  "texto": "Sur es la que mejor aprovecha sus cupos.",
+                  "texto": "Sur es la que mejor llenó sus cupos.",
                   "feedback": "El gráfico muestra cuántas personas se inscribieron, pero no de cuántos cupos. ¿Y si Sur tiene muchos más cupos que las otras?"
                 },
                 {
@@ -1264,11 +1264,11 @@
                   "correcta": true
                 },
                 {
-                  "texto": "Centro es la que peor aprovecha, porque tiene menos inscritos.",
+                  "texto": "Centro es la que peor llenó sus cupos, porque tiene menos inscritos.",
                   "feedback": "Menos inscritos en cantidad no es menor ocupación: Centro también pudo tener muy pocos cupos. Falta la base."
                 },
                 {
-                  "texto": "Las tres sedes aprovechan igual sus cupos.",
+                  "texto": "Las tres sedes llenaron igual sus cupos.",
                   "feedback": "Las cantidades son distintas (30, 18 y 36) y además no sabemos de cuántos cupos. Con este gráfico no se puede decir que sean iguales."
                 }
               ],
@@ -2076,7 +2076,7 @@
         "id": "tabla-resumen",
         "titulo": "Tabla resumen por grupo",
         "idea": "Una tabla resumen pone en una fila lo de cada grupo para poder compararlo.",
-        "explicacion": "Cuando quieres comparar sedes, grupos o barrios, lo primero es una **tabla resumen**: una fila por grupo y columnas con las cantidades que necesitas. En Excel se puede hacer con una **tabla dinámica**, que agrupa y suma por ti, o a mano. Antes de calcular, pregúntate qué representa cada fila y qué mide cada columna.",
+        "explicacion": "Cuando quieres comparar sedes, grupos o barrios, lo primero es una **tabla resumen**: una fila por grupo y columnas con las cantidades que necesitas. En Excel se puede hacer con una **tabla dinámica**, que agrupa y suma por ti, o a mano. Antes de calcular, pregúntate qué representa cada fila y qué mide cada columna. **Cómo se calcula:** una fila por grupo; cuenta las filas de cada grupo (en Excel, CONTAR.SI) y suma sus cantidades (SUMAR.SI), o arma una tabla dinámica. **Úsala cuando:** vas a comparar grupos: siempre es el primer paso. **Cuidado:** contar filas no es lo mismo que sumar cantidades; revisa qué representa cada fila.",
         "cotidiano": "En un torneo de microfútbol del barrio, la planilla anota partido por partido. Para comparar equipos, se arma una fila por equipo con sus partidos jugados y ganados.",
         "ejemplo": "Datos ficticios de un curso de natación: Grupo mañana: 50 cupos, 33 inscritos. Grupo tarde: 20 cupos, 19 inscritos.",
         "enElReto": "Arma la tabla con una fila por sede y deja visibles los cupos y los inscritos antes de agregar cualquier cálculo."
@@ -2085,7 +2085,7 @@
         "id": "tasa",
         "titulo": "Tasa: numerador y denominador",
         "idea": "Una tasa compara una parte con su base: «tantos de cuántos».",
-        "explicacion": "Una **tasa** es una división: arriba va lo que pasó (**numerador**) y abajo la base posible (**denominador**). La **ocupación** es inscritos ÷ cupos. El resultado se puede leer como porcentaje. Ojo en Excel: si a 0,66 le das formato de porcentaje, ya se muestra como 66 %; no hace falta multiplicar otra vez por 100.",
+        "explicacion": "Una **tasa** es una división: arriba va lo que pasó (**numerador**) y abajo la base posible (**denominador**). La **ocupación** es inscritos ÷ cupos. El resultado se puede leer como porcentaje. Ojo en Excel: si a 0,66 le das formato de porcentaje, ya se muestra como 66 %; no hace falta multiplicar otra vez por 100. Y un porcentaje siempre se lee «de cada 100»: 80 % de ocupación son **80 de cada 100 cupos**, no 80 personas (en una sede de 10 cupos son 8 inscritos). **Cómo se calcula:** la parte ÷ el total de ESE grupo; en Excel, =parte/total y el botón %. **Úsala cuando:** comparas grupos de distinto tamaño. **Cuidado:** escríbela siempre con su «de cuántos» (8 de 20, no solo 40 %); con grupos muy pequeños, un solo dato la mueve mucho.",
         "cotidiano": "Si sembraste 10 semillas de frijol y germinaron 8, germinó el 80 %: 8 de 10.",
         "ejemplo": "Curso ficticio: mañana 33 ÷ 50 = 0,66 = 66 %. Tarde 19 ÷ 20 = 0,95 = 95 %. Ese 95 % no son «95 personas»: son 95 de cada 100 cupos.",
         "enElReto": "Calcula la tasa de cada sede escribiendo la división completa, para que se vea qué va arriba y qué va abajo."
@@ -2094,7 +2094,7 @@
         "id": "cantidad-vs-tasa",
         "titulo": "Más cantidad no es mayor proporción",
         "idea": "Un grupo puede tener más inscritos y aun así llenar menos sus cupos.",
-        "explicacion": "Las cantidades (cuántos) y las tasas (cuántos de cuántos) responden preguntas distintas. Un grupo grande puede tener más gente y menor ocupación, porque tiene muchos más cupos. Para decidir dónde revisar, define primero tu **criterio** según la pregunta.",
+        "explicacion": "Las cantidades (cuántos) y las tasas (cuántos de cuántos) responden preguntas distintas. Un grupo grande puede tener más gente y menor ocupación, porque tiene muchos más cupos. Para decidir dónde revisar, define primero tu **criterio** según la pregunta. **Cantidad · úsala cuando:** necesitas el volumen (cuántos pedidos llevar, cuánta gente atender). **Tasa · úsala cuando:** quieres saber dónde pasa algo con más frecuencia. **Cuidado:** el grupo grande casi siempre «gana» en cantidad; no lo confundas con «le va peor».",
         "cotidiano": "Una jugadora que cobró 10 penaltis y metió 7 tiene más goles que otra que cobró 4 y metió los 4. Pero la segunda acertó todos.",
         "ejemplo": "Curso ficticio: el grupo de la mañana tiene más inscritos (33 frente a 19), pero menor ocupación (66 % frente a 95 %).",
         "enElReto": "Ordena las sedes por tasa, no solo por cantidad, y explica por qué ese es el criterio que responde la pregunta."
@@ -2103,7 +2103,7 @@
         "id": "global-vs-promedio",
         "titulo": "Tasa global frente a promedio de tasas",
         "idea": "Para el total, primero sumas las cantidades y después divides.",
-        "explicacion": "La **tasa global** responde por todos los cupos juntos: sumas todos los inscritos, sumas todos los cupos y divides. El **promedio simple de tasas** suma los porcentajes y los divide entre el número de grupos: trata a cada grupo como si pesara igual, aunque sean de tamaños distintos. No es un error en sí, pero responde otra pregunta y no reemplaza la ocupación conjunta.",
+        "explicacion": "La **tasa global** responde por todos los cupos juntos: sumas todos los inscritos, sumas todos los cupos y divides. El **promedio simple de tasas** suma los porcentajes y los divide entre el número de grupos: trata a cada grupo como si pesara igual, aunque sean de tamaños distintos. No es un error en sí, pero responde otra pregunta y no reemplaza la ocupación conjunta. **Tasa global · cómo se calcula:** suma de las partes ÷ suma de los totales. **Úsala cuando:** preguntas por todo junto (el mes, la red). **Promedio simple · cómo se calcula:** las tasas sumadas ÷ el número de grupos. **Úsalo cuando:** quieres describir un grupo «típico» sin importar su tamaño. **Cuidado:** en la fila de total se suman cantidades, nunca porcentajes.",
         "cotidiano": "Si en un quiz corto sacaste 9 de 10 preguntas (90 %) y en el examen 30 de 60 (50 %), promediar da 70 %. Pero de todas las preguntas acertaste 39 de 70, más o menos 56 %.",
         "ejemplo": "Curso ficticio: global = (33 + 19) ÷ (50 + 20) = 52 ÷ 70 ≈ 74,3 %. Promedio simple = (66 % + 95 %) ÷ 2 = 80,5 %. Son medidas distintas.",
         "enElReto": "Para el total, suma inscritos y cupos y divide al final. Si te sale el promedio de los porcentajes, pregúntate si cada sede tiene los mismos cupos."
@@ -2112,7 +2112,7 @@
         "id": "escenario-y-puntos",
         "titulo": "Escenarios y puntos porcentuales",
         "idea": "Una actualización va en una copia aparte, y la diferencia entre dos porcentajes se mide en puntos porcentuales.",
-        "explicacion": "Un **escenario** es una versión de prueba: «¿qué pasa si cambian estos datos?». Se hace en una **copia rotulada**, sin borrar la base original. Cuando una tasa cambia, la diferencia entre dos porcentajes se dice en **puntos porcentuales**: pasar de 40 % a 45 % es subir 5 puntos porcentuales. Eso no equivale a 5 personas más.",
+        "explicacion": "Un **escenario** es una versión de prueba: «¿qué pasa si cambian estos datos?». Se hace en una **copia rotulada**, sin borrar la base original. Cuando una tasa cambia, la diferencia entre dos porcentajes se dice en **puntos porcentuales**: pasar de 40 % a 45 % es subir 5 puntos porcentuales. Eso no equivale a 5 personas más. **Puntos porcentuales · cómo se calcula:** porcentaje nuevo − porcentaje de antes. **Úsalos cuando:** dices cuánto cambió una tasa. **Cuidado:** no son personas ni pedidos (10 puntos pueden ser 2 personas), y no es lo mismo que el cambio relativo (de 40 % a 30 % es bajar la cuarta parte). El escenario siempre en una copia rotulada.",
         "cotidiano": "Si en tu barrio la cobertura de internet pasa de 52 % a 55 % de las casas, subió 3 puntos porcentuales, no 3 casas.",
         "ejemplo": "Escenario ficticio: el grupo de la mañana suma 4 inscritos más: 37 ÷ 50 = 74 %. Subió 8 puntos porcentuales (de 66 % a 74 %), pero solo llegaron 4 personas nuevas.",
         "enElReto": "Haz la actualización en una copia rotulada, recalcula la tasa de la sede y la global, y revisa si cambia la sede con menor ocupación."
@@ -2121,10 +2121,19 @@
         "id": "prioridad-prudente",
         "titulo": "Priorizar no es explicar la causa",
         "idea": "Los datos pueden decirte dónde mirar primero, no por qué pasa algo.",
-        "explicacion": "Una **recomendación prudente** dice qué sede revisar, con qué tasa y con qué criterio, y añade qué información falta. Decir «aquí hay menor ocupación» es un hallazgo; decir «aquí la convocatoria es mala» es una **hipótesis** que necesita más datos (horarios, cancelaciones, motivos).",
+        "explicacion": "Una **recomendación prudente** dice qué sede revisar, con qué tasa y con qué criterio, y añade qué información falta. Decir «aquí hay menor ocupación» es un hallazgo; decir «aquí la convocatoria es mala» es una **hipótesis** que necesita más datos (horarios, cancelaciones, motivos). **Cómo se hace:** una frase con grupo, tasa con su denominador y criterio, más una pregunta pendiente. **Úsala cuando:** tienes que orientar dónde revisar o apoyar primero. **Cuidado:** «aquí la gente es mala paga» o «la convocatoria es mala» son hipótesis, no datos.",
         "cotidiano": "Si en una matera germinaron menos semillas que en otra, no sabes si fue el sol, el agua o la semilla hasta que lo averiguas.",
         "ejemplo": "Curso ficticio: «Conviene revisar primero el grupo de la mañana, que tiene 66 % de ocupación. Antes de cambiar algo, preguntaríamos si el horario le sirve a la gente».",
         "enElReto": "Escribe una frase con sede, tasa y criterio, y una pregunta sobre lo que todavía necesitas saber."
+      },
+      {
+        "id": "cual-uso",
+        "titulo": "¿Cuál uso?",
+        "idea": "Cada cifra responde una pregunta distinta: primero decide qué quieres saber y después escoge la cifra.",
+        "explicacion": "Antes de calcular, pregúntate qué quieres contar. **¿Dónde pasa más VECES?** → **Cantidad** (Buenos Aires: 16 fiados). **¿Dónde pasa con más FRECUENCIA?** → **Tasa, con su denominador** (Caicedo: 8 de 20 = 40 %). **¿Qué parte de TODO?** → **Tasa global: sumo y divido al final** (34 de 140 ≈ 24,3 %). **¿Cómo le va a un grupo «típico», sin importar su tamaño?** → **Promedio simple de tasas** (≈ 28,3 %). **¿Cuánto cambió una tasa?** → **Puntos porcentuales** (de 40 % a 30 %: −10 puntos). **¿Cuántas personas o pedidos cambiaron?** → **Cantidad** (2 pedidos; Centro: 2 inscritos, no 10). **Regla de oro:** toda tasa va con su «de cuántos», y el total se calcula sumando cantidades antes de dividir.",
+        "cotidiano": "Si un amigo dice «en mi colegio pierden más estudiantes que en el tuyo», la primera pregunta es: ¿de cuántos estudiantes?",
+        "ejemplo": "Cantidad y tasa dieron ganadores distintos: más fiados en Buenos Aires (16), más frecuencia en Caicedo (40 %). Con las sedes: más inscritos en Sur (36), menor ocupación también en Sur (60 %).",
+        "enElReto": "Antes de escribir tu recomendación, revisa que cada cifra responda la pregunta: dónde revisar primero pide una tasa con su denominador."
       }
     ],
     "pasos": [
