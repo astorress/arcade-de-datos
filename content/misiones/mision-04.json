@@ -246,7 +246,7 @@
               "tipo": "emparejar",
               "fase": "entender",
               "titulo": "¿Arriba o abajo?",
-              "consigna": "Para comparar con justicia vas a usar una división: la **parte fiada** de cada barrio. Para cada dato, toca qué papel cumple.",
+              "consigna": "Para comparar con justicia vas a usar una división: la **parte que quedó fiado** de cada barrio. Para cada dato, toca qué papel cumple.",
               "tipos": [
                 {
                   "id": "numerador",
@@ -289,7 +289,7 @@
               "pistas": [
                 "Pregúntate «¿tantos de cuántos?»: los «tantos» van arriba y los «cuántos» van abajo."
               ],
-              "explicacion": "**Parte fiada = fiados ÷ domicilios.** Arriba va lo que pasó (**numerador**); abajo, la base (**denominador**).",
+              "explicacion": "**Lo fiado = fiados ÷ domicilios.** Arriba va lo que pasó (**numerador**); abajo, la base (**denominador**).",
               "tema": "tasa"
             },
             {
@@ -297,8 +297,8 @@
               "tipo": "completar",
               "fase": "entender",
               "titulo": "Completa la división",
-              "consigna": "Elige lo que completa la parte fiada de Buenos Aires (usa la tabla resumen).",
-              "frase": "La parte fiada de Buenos Aires es {0} ÷ {1} = 0,20 = 20 %. Eso quiere decir que quedaron fiados 20 de cada {2}.",
+              "consigna": "Elige lo que completa la parte que quedó fiado de Buenos Aires (usa la tabla resumen).",
+              "frase": "La parte que quedó fiado de Buenos Aires es {0} ÷ {1} = 0,20 = 20 %. Eso quiere decir que quedaron fiados 20 de cada {2}.",
               "huecos": [
                 {
                   "opciones": [
@@ -361,7 +361,7 @@
         {
           "numero": 2,
           "titulo": "Comparar con justicia",
-          "objetivo": "Calcular la parte fiada de cada barrio, ordenar con el criterio de la pregunta y sacar la tasa global sin trampas.",
+          "objetivo": "Calcular la parte que quedó fiado de cada barrio, ordenar con el criterio de la pregunta y sacar la tasa global sin trampas.",
           "cierre": "Nivel 2 listo: comparas con tasas y sabes sacar el total.",
           "actividades": [
             {
@@ -369,7 +369,7 @@
               "tipo": "seleccion",
               "fase": "hacer",
               "titulo": "Las tres tasas",
-              "consigna": "Calcula la parte fiada de cada barrio (fiados ÷ domicilios). ¿Qué resultado te da?",
+              "consigna": "Doña Marta quiere saber en qué barrio le fían con más frecuencia: ¿qué parte de los domicilios de cada barrio quedó fiado?",
               "apoyo": {
                 "tipo": "tabla",
                 "titulo": "Tabla resumen por barrio (octubre)",
@@ -459,7 +459,7 @@
                     "grafico": {
                       "tipo": "grafico",
                       "forma": "barras",
-                      "titulo": "Parte fiada",
+                      "titulo": "Lo fiado",
                       "etiquetas": [
                         "Buenos Aires",
                         "Miraflores",
@@ -467,7 +467,7 @@
                       ],
                       "series": [
                         {
-                          "nombre": "Parte fiada",
+                          "nombre": "Lo fiado",
                           "valores": [
                             20,
                             25,
@@ -492,7 +492,7 @@
                 },
                 {
                   "texto": "Miraflores, porque queda en la mitad",
-                  "feedback": "Miraflores tiene 25 %: queda de segundo. ¿Cuál tiene la parte fiada más alta?"
+                  "feedback": "Miraflores tiene 25 %: queda de segundo. ¿Cuál tiene la parte que quedó fiado más alta?"
                 },
                 {
                   "texto": "Ninguno: basta con mirar cuántos domicilios hizo",
@@ -573,7 +573,7 @@
               "tipo": "seleccion",
               "fase": "hacer",
               "titulo": "Un solo número para todo",
-              "consigna": "Doña Marta quiere un solo número: **¿qué parte de todos sus domicilios de octubre quedó fiada?**",
+              "consigna": "Doña Marta quiere un solo número: **¿qué parte de todos sus domicilios de octubre quedó fiado?**",
               "apoyo": {
                 "tipo": "tabla",
                 "titulo": "Tabla resumen con fila de total",
@@ -581,7 +581,7 @@
                   "Barrio",
                   "Domicilios",
                   "Fiados",
-                  "Parte fiada"
+                  "Lo fiado"
                 ],
                 "filas": [
                   [
@@ -696,7 +696,7 @@
                   "feedback": "El formato de porcentaje no cambia el resultado. La diferencia viene del peso de cada barrio."
                 }
               ],
-              "explicacion": "El **promedio simple de tasas** le da el mismo peso a cada barrio. La **tasa global** le da el mismo peso a cada **domicilio**: por eso Buenos Aires, con 80 domicilios y solo 20 % fiados, la jala hacia abajo. El promedio no es «malo»: responde otra pregunta, pero no dice qué parte de todos los domicilios quedó fiada.",
+              "explicacion": "El **promedio simple de tasas** le da el mismo peso a cada barrio. La **tasa global** le da el mismo peso a cada **domicilio**: por eso Buenos Aires, con 80 domicilios y solo 20 % fiados, la jala hacia abajo. El promedio no es «malo»: responde otra pregunta, pero no dice qué parte de todos los domicilios quedó fiado.",
               "tema": "global-vs-promedio"
             }
           ]
@@ -717,7 +717,7 @@
                 "tipo": "texto",
                 "texto": "**Escenario de prueba:** doña Marta piensa pedir el pago al entregar en Caicedo. ¿Qué pasaría si en octubre **2 de sus 8 fiados** se hubieran pagado de una vez? Los domicilios no cambian (siguen siendo 20)."
               },
-              "frase": "En el escenario, Caicedo queda en {0}, todo el mes queda en {1} y el barrio con mayor parte fiada {2}.",
+              "frase": "En el escenario, Caicedo queda en {0}, todo el mes queda en {1} y el barrio con mayor parte que quedó fiado {2}.",
               "huecos": [
                 {
                   "opciones": [
@@ -800,7 +800,7 @@
                     "2 menos"
                   ],
                   [
-                    "Parte fiada",
+                    "Lo fiado",
                     "40 %",
                     "30 %",
                     "?"
@@ -814,7 +814,7 @@
                 },
                 {
                   "texto": "Bajaron 10 fiados",
-                  "feedback": "En el escenario solo hay 2 fiados menos (de 8 a 6). Lo que bajó 10 fue la parte fiada, y eso se mide en puntos porcentuales."
+                  "feedback": "En el escenario solo hay 2 fiados menos (de 8 a 6). Lo que bajó 10 fue la parte que quedó fiado, y eso se mide en puntos porcentuales."
                 },
                 {
                   "texto": "Bajó 10 %",
@@ -822,10 +822,10 @@
                 },
                 {
                   "texto": "Bajó 2 puntos porcentuales",
-                  "feedback": "2 es el cambio en fiados. La parte fiada pasó de 40 % a 30 %: ¿cuántos puntos son?"
+                  "feedback": "2 es el cambio en fiados. La parte que quedó fiado pasó de 40 % a 30 %: ¿cuántos puntos son?"
                 }
               ],
-              "explicacion": "Los **puntos porcentuales** miden la distancia entre dos porcentajes: de 40 % a 30 % hay **10 puntos**. Con solo 20 domicilios de base, cada fiado pesa 5 puntos; por eso 2 fiados menos mueven 10 puntos. Mira siempre las dos filas: domicilios y parte fiada.",
+              "explicacion": "Los **puntos porcentuales** miden la distancia entre dos porcentajes: de 40 % a 30 % hay **10 puntos**. Con solo 20 domicilios de base, cada fiado pesa 5 puntos; por eso 2 fiados menos mueven 10 puntos. Mira siempre las dos filas: domicilios y parte que quedó fiado.",
               "tema": "escenario-y-puntos"
             },
             {
@@ -868,7 +868,7 @@
                   "ayuda": "Empieza con «En octubre…» o «Entre estos tres barrios…».",
                   "pistas": [
                     "Elige qué comparar: barrios, quincenas, o base frente a escenario.",
-                    "Ejemplo de forma: «En octubre, ¿en qué barrio quedó fiada la mayor parte de ___?»"
+                    "Ejemplo de forma: «En octubre, ¿en qué barrio quedó fiado la mayor parte de ___?»"
                   ]
                 },
                 {
@@ -897,7 +897,7 @@
                   "titulo": "4 · Mi recomendación y lo que todavía no sé",
                   "ayuda": "«Conviene revisar primero… porque… (tasa y criterio). Antes de cambiar algo, preguntaría…»",
                   "pistas": [
-                    "Nombra el barrio, su tasa con la división y el criterio («la mayor parte fiada»).",
+                    "Nombra el barrio, su tasa con la división y el criterio («la mayor parte que quedó fiado»).",
                     "Piensa en lo que la tabla no tiene: si ya le pagaron, por qué piden fiado, otros meses, cuánta plata es."
                   ]
                 }
@@ -909,7 +909,7 @@
                 "¿Separé la base del escenario?",
                 "¿Mi recomendación deja una pregunta en vez de afirmar una causa?"
               ],
-              "ejemplo": "«En octubre, ¿en qué barrio quedó fiada la mayor parte de los domicilios de doña Marta? Junté las dos quincenas de cada barrio (filas 01 y 04, 02 y 05, 03 y 06): Buenos Aires 16 ÷ 80 = 20 %, Miraflores 10 ÷ 40 = 25 % y Caicedo 8 ÷ 20 = 40 %. En todo el mes, 34 ÷ 140 ≈ 24,3 % quedó fiado; el promedio de las tres tasas (28,3 %) es otra medida. Conviene revisar primero cómo fía en Caicedo, que tiene la mayor parte fiada, aunque en Buenos Aires quedaron más fiados en cantidad. Antes de cambiar algo, preguntaría si esos fiados ya se pagaron.»",
+              "ejemplo": "«En octubre, ¿en qué barrio quedó fiado la mayor parte de los domicilios de doña Marta? Junté las dos quincenas de cada barrio (filas 01 y 04, 02 y 05, 03 y 06): Buenos Aires 16 ÷ 80 = 20 %, Miraflores 10 ÷ 40 = 25 % y Caicedo 8 ÷ 20 = 40 %. En todo el mes, 34 ÷ 140 ≈ 24,3 % quedó fiado; el promedio de las tres tasas (28,3 %) es otra medida. Conviene revisar primero cómo fía en Caicedo, que tiene la mayor parte que quedó fiado, aunque en Buenos Aires quedaron más fiados en cantidad. Antes de cambiar algo, preguntaría si esos fiados ya se pagaron.»",
               "explicacion": "No se busca un texto largo: sirve si otra persona puede repetir tus divisiones y ver de dónde sale tu prioridad.",
               "tema": "prioridad-prudente"
             },
@@ -1010,7 +1010,7 @@
             "Barrio",
             "Domicilios",
             "Fiados",
-            "Parte fiada"
+            "Lo fiado"
           ],
           "filas": [
             [
@@ -1042,79 +1042,121 @@
       ]
     },
     "guia": {
-      "nombre": "Guía oficial: tres sedes de talleres",
-      "titulo": "Tres sedes de talleres",
-      "caso": "Ocupación de tres sedes de talleres",
-      "historia": "Una red de talleres (ficticia) tiene tres sedes: Norte, Centro y Sur, cada una con cupos distintos. Lucía, de la coordinación, quiere saber dónde revisar primero las condiciones de ocupación para orientar apoyo. Ojo: revisar no es juzgar a una sede ni explicar por qué se inscribió menos gente. Tú le vas a ayudar a comparar con justicia.",
+      "nombre": "Guía oficial (contexto laboral): el curso de SST en tres plantas",
+      "titulo": "El curso de SST en tres plantas",
+      "caso": "Curso de SST por planta",
+      "historia": "Confecciones La Ladera (ficticia; la empresa de la nómina de la clase 3) le exige a todo su personal el curso de Seguridad y Salud en el Trabajo (SST); el plazo era el 31 de octubre. Tiene tres plantas: Norte (40 personas), Centro (20) y Sur (60). Ya pasó el plazo y no todos lo terminaron. Lucía, de gestión humana, quiere saber en qué planta hacer seguimiento primero. Ojo: revisar no es culpar a nadie ni explicar por qué alguien no lo terminó. Tú le vas a ayudar a comparar con justicia.",
       "datos": {
-        "titulo": "Cupos e inscritos de la red de talleres",
+        "titulo": "Curso de SST por planta y área (resumen de las 120 personas)",
         "unidad": [
-          "taller",
-          "talleres"
+          "registro",
+          "registros"
         ],
         "columnas": [
           "Código",
-          "Sede",
-          "Taller",
-          "Cupos",
-          "Inscritos"
+          "Planta",
+          "Área",
+          "Empleados",
+          "Terminaron el curso"
         ],
         "filas": [
           [
             "01",
             "Norte",
-            "Dibujo",
-            "20",
-            "16"
+            "Producción",
+            "13",
+            "7"
           ],
           [
             "02",
-            "Sur",
-            "Cocina",
-            "20",
-            "12"
-          ],
-          [
-            "03",
-            "Centro",
-            "Teatro",
-            "10",
+            "Norte",
+            "Ventas",
+            "12",
             "9"
           ],
           [
+            "03",
+            "Norte",
+            "Administración",
+            "8",
+            "8"
+          ],
+          [
             "04",
-            "Sur",
-            "Danza",
-            "20",
-            "14"
+            "Norte",
+            "Diseño",
+            "4",
+            "3"
           ],
           [
             "05",
             "Norte",
-            "Fotografía",
-            "20",
-            "14"
+            "Dirección",
+            "3",
+            "3"
           ],
           [
             "06",
             "Centro",
-            "Música",
-            "10",
-            "9"
+            "Producción",
+            "12",
+            "10"
           ],
           [
             "07",
+            "Centro",
+            "Ventas",
+            "4",
+            "4"
+          ],
+          [
+            "08",
+            "Centro",
+            "Administración",
+            "2",
+            "2"
+          ],
+          [
+            "09",
+            "Centro",
+            "Diseño",
+            "2",
+            "2"
+          ],
+          [
+            "10",
             "Sur",
-            "Huerta",
-            "20",
-            "10"
+            "Producción",
+            "40",
+            "19"
+          ],
+          [
+            "11",
+            "Sur",
+            "Ventas",
+            "10",
+            "8"
+          ],
+          [
+            "12",
+            "Sur",
+            "Administración",
+            "6",
+            "6"
+          ],
+          [
+            "13",
+            "Sur",
+            "Diseño",
+            "4",
+            "3"
           ]
         ],
         "definiciones": [
-          "Cada **código** es **un taller** de una sede.",
-          "Todas las filas son del **mismo periodo** (octubre de 2026) y usan la **misma definición de inscripción**.",
-          "**Cupos**: cuántas personas caben en el taller. **Inscritos**: cuántas personas se inscribieron.",
-          "**No hay** datos de horarios, cancelaciones ni motivos de no inscripción."
+          "Cada **código** es **un área de una planta**: cuántas personas tiene y cuántas terminaron el curso.",
+          "Todas las filas son del **mismo corte** (plazo: 31 de octubre de 2026) y usan la **misma regla**: «terminó» = aprobó el curso completo.",
+          "**Empleados**: cuántas personas trabajan en esa área de esa planta. **Terminaron el curso**: cuántas de ellas aprobaron el curso de SST.",
+          "Es el registro de la clase (120 personas, una por fila, con 1 si terminó y 0 si no) ya contado por planta y área. **No hay** datos de horarios del curso, incapacidades ni motivos."
         ],
         "aviso": "Datos ficticios, solo para practicar."
       },
@@ -1122,8 +1164,8 @@
         {
           "numero": 1,
           "titulo": "Leer y resumir",
-          "objetivo": "Entender qué cuenta cada fila, armar una fila por sede y saber qué va arriba y qué va abajo en una tasa.",
-          "cierre": "Nivel 1 listo: ya tienes una fila por sede y sabes preguntar «¿de cuántos?».",
+          "objetivo": "Entender qué cuenta cada fila, armar una fila por planta y saber qué va arriba y qué va abajo en una proporción.",
+          "cierre": "Nivel 1 listo: ya tienes una fila por planta y sabes preguntar «¿de cuántos?».",
           "actividades": [
             {
               "id": "n1-toca-fila",
@@ -1133,15 +1175,21 @@
               "consigna": "Toca una fila de la tabla y escucha lo que nos cuenta. Lee al menos **2 filas** para continuar.",
               "minimo": 2,
               "lecturas": {
-                "01": "El registro 01 es el taller de Dibujo de la sede Norte: tiene 20 cupos y se inscribieron 16 personas.",
-                "02": "El registro 02 es el taller de Cocina de la sede Sur: tiene 20 cupos y se inscribieron 12 personas.",
-                "03": "El registro 03 es el taller de Teatro de la sede Centro: tiene 10 cupos y se inscribieron 9 personas.",
-                "04": "El registro 04 es el taller de Danza de la sede Sur: tiene 20 cupos y se inscribieron 14 personas.",
-                "05": "El registro 05 es el taller de Fotografía de la sede Norte: tiene 20 cupos y se inscribieron 14 personas.",
-                "06": "El registro 06 es el taller de Música de la sede Centro: tiene 10 cupos y se inscribieron 9 personas.",
-                "07": "El registro 07 es el taller de Huerta de la sede Sur: tiene 20 cupos y se inscribieron 10 personas."
+                "01": "El registro 01 es el área de Producción de la planta Norte: tiene 13 empleados y 7 terminaron el curso de SST.",
+                "02": "El registro 02 es el área de Ventas de la planta Norte: tiene 12 empleados y 9 terminaron el curso de SST.",
+                "03": "El registro 03 es el área de Administración de la planta Norte: tiene 8 empleados y 8 terminaron el curso de SST.",
+                "04": "El registro 04 es el área de Diseño de la planta Norte: tiene 4 empleados y 3 terminaron el curso de SST.",
+                "05": "El registro 05 es el área de Dirección de la planta Norte: tiene 3 empleados y 3 terminaron el curso de SST.",
+                "06": "El registro 06 es el área de Producción de la planta Centro: tiene 12 empleados y 10 terminaron el curso de SST.",
+                "07": "El registro 07 es el área de Ventas de la planta Centro: tiene 4 empleados y 4 terminaron el curso de SST.",
+                "08": "El registro 08 es el área de Administración de la planta Centro: tiene 2 empleados y 2 terminaron el curso de SST.",
+                "09": "El registro 09 es el área de Diseño de la planta Centro: tiene 2 empleados y 2 terminaron el curso de SST.",
+                "10": "El registro 10 es el área de Producción de la planta Sur: tiene 40 empleados y 19 terminaron el curso de SST.",
+                "11": "El registro 11 es el área de Ventas de la planta Sur: tiene 10 empleados y 8 terminaron el curso de SST.",
+                "12": "El registro 12 es el área de Administración de la planta Sur: tiene 6 empleados y 6 terminaron el curso de SST.",
+                "13": "El registro 13 es el área de Diseño de la planta Sur: tiene 4 empleados y 3 terminaron el curso de SST."
               },
-              "explicacion": "Cada lectura habla de **un taller**: cuántos cupos tiene y cuántas personas se inscribieron. Los inscritos ocupan **parte** de los cupos; no son algo aparte.",
+              "explicacion": "Cada lectura habla de **un área de una planta**: cuántos empleados tiene y cuántos terminaron el curso. Quienes terminaron son **parte** de los empleados; no son algo aparte.",
               "tema": "tabla-resumen"
             },
             {
@@ -1153,27 +1201,27 @@
               "usaDatos": true,
               "opciones": [
                 {
-                  "texto": "Una persona inscrita",
-                  "feedback": "Una fila habla de varias personas: en la 01 hay 16 inscritas. Lo que cuenta cada fila es un taller."
+                  "texto": "Una persona que terminó el curso",
+                  "feedback": "Una fila habla de varias personas: en la 01 terminaron 7. Lo que cuenta cada fila es un área de una planta."
                 },
                 {
-                  "texto": "Un taller de una sede",
+                  "texto": "Un área de una planta",
                   "correcta": true
                 },
                 {
-                  "texto": "Una sede",
-                  "feedback": "¡Casi! Pero la sede Sur aparece en tres filas y Norte en dos. Para tener una fila por sede hay que juntarlas: eso es lo que harás enseguida."
+                  "texto": "Una planta",
+                  "feedback": "¡Casi! Pero cada planta aparece en varias filas, una por área. Para tener una fila por planta hay que juntarlas: eso es lo que harás enseguida."
                 },
                 {
-                  "texto": "Un cupo",
-                  "feedback": "Los cupos son una columna: una cantidad dentro de cada fila. Mira la 01: 20 cupos, 16 inscritos."
+                  "texto": "Un empleado",
+                  "feedback": "Los empleados son una columna: una cantidad dentro de cada fila. Mira la 01: 13 empleados, 7 terminaron."
                 }
               ],
               "pistas": [
-                "Mira la columna Sede: ¿cuántas veces aparece Sur?",
+                "Mira la columna Planta: ¿cuántas veces aparece Sur?",
                 "Lee las definiciones debajo de la tabla: dicen qué es cada código."
               ],
-              "explicacion": "Cada fila es **un taller de una sede**. Para comparar sedes necesitamos **una fila por sede**: una **tabla resumen**.",
+              "explicacion": "Cada fila es **un área de una planta**. Para comparar plantas necesitamos **una fila por planta**: una **tabla resumen** (en Excel, una tabla dinámica con Planta en Filas).",
               "tema": "tabla-resumen"
             },
             {
@@ -1181,7 +1229,7 @@
               "tipo": "conteo",
               "fase": "hacer",
               "titulo": "Arma la tabla resumen",
-              "consigna": "Junta los talleres de cada sede: suma cuántas personas se **inscribieron** en cada una.",
+              "consigna": "Junta las áreas de cada planta: suma cuántas personas **terminaron el curso** en cada una.",
               "usaDatos": true,
               "categorias": [
                 "Norte",
@@ -1196,11 +1244,11 @@
               "erroresComunes": [
                 {
                   "valores": {
-                    "Norte": 2,
-                    "Centro": 2,
-                    "Sur": 3
+                    "Norte": 5,
+                    "Centro": 4,
+                    "Sur": 4
                   },
-                  "mensaje": "Contaste filas (talleres). La pregunta es cuántas personas se inscribieron: suma la columna «Inscritos» de los talleres de cada sede."
+                  "mensaje": "Contaste filas (áreas). La pregunta es cuántas personas terminaron el curso: suma la columna «Terminaron el curso» de las áreas de cada planta."
                 },
                 {
                   "valores": {
@@ -1208,35 +1256,35 @@
                     "Centro": 20,
                     "Sur": 60
                   },
-                  "mensaje": "Sumaste los cupos. ¡También los vamos a necesitar! Pero aquí la pregunta es por los inscritos."
+                  "mensaje": "Sumaste los empleados. ¡También los vamos a necesitar! Pero aquí la pregunta es por quienes terminaron el curso."
                 },
                 {
                   "valores": {
-                    "Norte": 16,
-                    "Centro": 9,
-                    "Sur": 12
+                    "Norte": 7,
+                    "Centro": 10,
+                    "Sur": 19
                   },
-                  "mensaje": "Tomaste solo el primer taller de cada sede. Suma todos los talleres de la sede: Sur tiene tres."
+                  "mensaje": "Tomaste solo la primera área de cada planta (Producción). Suma todas las áreas de la planta."
                 }
               ],
-              "mensajeGeneral": "Vas por buen camino. Revisa {categorias}: busca todos sus talleres y suma la columna «Inscritos».",
+              "mensajeGeneral": "Vas por buen camino. Revisa {categorias}: busca todas sus áreas y suma la columna «Terminaron el curso».",
               "pistas": [
-                "Norte está en las filas 01 y 05; Sur en 02, 04 y 07.",
-                "Norte: 16 + 14. Centro: 9 + 9. Sur: 12 + 14 + 10."
+                "Norte está en las filas 01 a 05; Centro, 06 a 09; Sur, 10 a 13.",
+                "Norte: 7 + 9 + 8 + 3 + 3. Centro: 10 + 4 + 2 + 2. Sur: 19 + 8 + 6 + 3."
               ],
-              "explicacion": "Inscritos por sede: **Norte 30 · Centro 18 · Sur 36**. Con los cupos se hace lo mismo: Norte **40**, Centro **20** y Sur **60**. En total, 84 inscritos en 120 cupos. Eso es una **tabla resumen**: una fila por sede.",
+              "explicacion": "Terminaron el curso, por planta: **Norte 30 · Centro 18 · Sur 36**. Con los empleados se hace lo mismo: Norte **40**, Centro **20** y Sur **60**. En total, 84 de 120 empleados. Eso es una **tabla resumen**: una fila por planta (en Excel, una tabla dinámica con Planta en Filas).",
               "tema": "tabla-resumen"
             },
             {
               "id": "n1-mas-inscritos",
               "tipo": "seleccion",
               "fase": "observar",
-              "titulo": "¿Solo con los inscritos?",
-              "consigna": "Lucía mira este gráfico antes de calcular nada. Con **solo** este gráfico, ¿qué puede afirmar sobre cómo se llenaron los cupos?",
+              "titulo": "¿Solo con quienes terminaron?",
+              "consigna": "Lucía mira este gráfico antes de calcular nada. Con **solo** este gráfico, ¿qué puede afirmar sobre cómo va el curso en cada planta?",
               "apoyo": {
                 "tipo": "grafico",
                 "forma": "barras",
-                "titulo": "Inscritos por sede",
+                "titulo": "Personas que terminaron el curso, por planta",
                 "etiquetas": [
                   "Norte",
                   "Centro",
@@ -1244,7 +1292,7 @@
                 ],
                 "series": [
                   {
-                    "nombre": "Inscritos",
+                    "nombre": "Terminaron",
                     "valores": [
                       30,
                       18,
@@ -1256,23 +1304,23 @@
               },
               "opciones": [
                 {
-                  "texto": "Sur es la que mejor llenó sus cupos.",
-                  "feedback": "El gráfico muestra cuántas personas se inscribieron, pero no de cuántos cupos. ¿Y si Sur tiene muchos más cupos que las otras?"
+                  "texto": "En Sur es donde mejor va el curso.",
+                  "feedback": "El gráfico muestra cuántas personas terminaron, pero no de cuántos empleados. ¿Y si Sur tiene muchos más empleados que las otras?"
                 },
                 {
-                  "texto": "Sur tiene más inscritos, pero falta saber de cuántos cupos.",
+                  "texto": "En Sur terminaron más personas, pero falta saber de cuántos empleados.",
                   "correcta": true
                 },
                 {
-                  "texto": "Centro es la que peor llenó sus cupos, porque tiene menos inscritos.",
-                  "feedback": "Menos inscritos en cantidad no es menor ocupación: Centro también pudo tener muy pocos cupos. Falta la base."
+                  "texto": "En Centro es donde peor va, porque terminaron menos personas.",
+                  "feedback": "Menos personas en cantidad no es menor proporción: Centro también pudo tener muy pocos empleados. Falta la base."
                 },
                 {
-                  "texto": "Las tres sedes llenaron igual sus cupos.",
-                  "feedback": "Las cantidades son distintas (30, 18 y 36) y además no sabemos de cuántos cupos. Con este gráfico no se puede decir que sean iguales."
+                  "texto": "En las tres plantas va igual.",
+                  "feedback": "Las cantidades son distintas (30, 18 y 36) y además no sabemos de cuántos empleados. Con este gráfico no se puede decir que sean iguales."
                 }
               ],
-              "explicacion": "Una cantidad sola no dice si es mucho o poco: **36 inscritos** pueden llenar 40 cupos o dejar vacíos muchos de 60. La pregunta que destapa todo es: **¿de cuántos?**",
+              "explicacion": "Una cantidad sola no dice si es mucho o poco: **36 personas** pueden ser casi todos de 40 empleados o poco más de la mitad de 60. La pregunta que destapa todo es: **¿de cuántos?**",
               "tema": "cantidad-vs-tasa"
             },
             {
@@ -1280,7 +1328,7 @@
               "tipo": "emparejar",
               "fase": "entender",
               "titulo": "¿Arriba o abajo?",
-              "consigna": "Para comparar con justicia vas a usar una división: la **ocupación** de cada sede. Para cada dato, toca qué papel cumple.",
+              "consigna": "Para comparar con justicia vas a usar una división: la **parte que terminó el curso** en cada planta. Para cada dato, toca qué papel cumple.",
               "tipos": [
                 {
                   "id": "numerador",
@@ -1300,22 +1348,22 @@
               ],
               "pares": [
                 {
-                  "item": "Inscritos (Norte: 30)",
+                  "item": "Terminaron el curso (Norte: 30)",
                   "correcto": "numerador",
                   "feedback": "Es lo que pasó y queremos medir: va arriba."
                 },
                 {
-                  "item": "Cupos (Norte: 40)",
+                  "item": "Empleados (Norte: 40)",
                   "correcto": "denominador",
-                  "feedback": "Es la base: de cuántos cupos hablamos. Va abajo."
+                  "feedback": "Es la base: de cuántos empleados hablamos. Va abajo."
                 },
                 {
-                  "item": "Taller (Dibujo, Teatro…)",
+                  "item": "Área (Producción, Ventas…)",
                   "correcto": "fuera",
-                  "feedback": "El nombre del taller describe la fila. Ya lo usaste para juntar filas, pero no va en la división."
+                  "feedback": "El área describe la fila. Ya lo usaste para juntar filas, pero no va en la división."
                 },
                 {
-                  "item": "Código (01 a 07)",
+                  "item": "Código (01 a 13)",
                   "correcto": "fuera",
                   "feedback": "El código identifica la fila: no se suma ni se divide."
                 }
@@ -1323,7 +1371,7 @@
               "pistas": [
                 "Pregúntate «¿tantos de cuántos?»: los «tantos» van arriba y los «cuántos» van abajo."
               ],
-              "explicacion": "**Ocupación = inscritos ÷ cupos.** Arriba va lo que pasó (**numerador**); abajo, la base (**denominador**). Con 8 inscritos y 10 cupos: 8 ÷ 10 = 80 %, es decir, 80 de cada 100 cupos, no 80 personas.",
+              "explicacion": "**Parte que terminó = terminaron ÷ empleados.** Arriba va lo que pasó (**numerador**); abajo, la base (**denominador**). Con 8 de 10 empleados: 8 ÷ 10 = 80 %, es decir, 80 de cada 100 empleados, no 80 personas.",
               "tema": "tasa"
             },
             {
@@ -1331,8 +1379,8 @@
               "tipo": "completar",
               "fase": "entender",
               "titulo": "Completa la división",
-              "consigna": "Elige lo que completa la ocupación de la sede Norte (usa la tabla resumen).",
-              "frase": "La ocupación de la sede Norte es {0} ÷ {1} = 0,75 = 75 %. Eso quiere decir que se ocuparon 75 de cada {2}.",
+              "consigna": "Elige lo que completa la parte que terminó el curso en la planta Norte (usa la tabla resumen).",
+              "frase": "En la planta Norte terminó el curso {0} ÷ {1} = 0,75 = 75 %. Eso quiere decir que terminaron 75 de cada {2}.",
               "huecos": [
                 {
                   "opciones": [
@@ -1342,11 +1390,11 @@
                     },
                     {
                       "texto": "40",
-                      "feedback": "40 es la base (los cupos): va abajo. Arriba va lo que pasó: los inscritos."
+                      "feedback": "40 es la base (los empleados): va abajo. Arriba va lo que pasó: quienes terminaron."
                     },
                     {
-                      "texto": "16",
-                      "feedback": "16 son solo los inscritos de Dibujo. La tabla resumen junta los talleres: 16 + 14."
+                      "texto": "7",
+                      "feedback": "7 son solo los de Producción. La tabla resumen junta las áreas: 7 + 9 + 8 + 3 + 3."
                     }
                   ]
                 },
@@ -1358,26 +1406,26 @@
                     },
                     {
                       "texto": "30",
-                      "feedback": "30 ya va arriba. Abajo va de cuántos cupos hablamos."
+                      "feedback": "30 ya va arriba. Abajo va de cuántos empleados hablamos."
                     },
                     {
                       "texto": "120",
-                      "feedback": "120 son los cupos de las tres sedes juntas. Para la ocupación de Norte, la base son solo sus cupos."
+                      "feedback": "120 son los empleados de las tres plantas juntas. Para Norte, la base son solo sus empleados."
                     }
                   ]
                 },
                 {
                   "opciones": [
                     {
-                      "texto": "100 cupos",
+                      "texto": "100 empleados",
                       "correcta": true
                     },
                     {
-                      "texto": "40 cupos",
-                      "feedback": "De 40 cupos se ocuparon 30. Pero el porcentaje siempre se lee «de cada 100»."
+                      "texto": "40 empleados",
+                      "feedback": "De 40 empleados terminaron 30. Pero el porcentaje siempre se lee «de cada 100»."
                     },
                     {
-                      "texto": "10 cupos",
+                      "texto": "10 empleados",
                       "feedback": "«75 de cada 10» no tiene sentido: el porcentaje se lee «de cada 100»."
                     }
                   ]
@@ -1385,9 +1433,9 @@
               ],
               "textoLibre": {
                 "etiqueta": "Si quieres, escribe con tus palabras qué significa ese 75 % (opcional, queda en tu cuaderno):",
-                "clave": "sedes-que-es-75"
+                "clave": "sst-que-es-75"
               },
-              "explicacion": "30 ÷ 40 = 0,75. En la hoja de cálculo, si a 0,75 le das formato de porcentaje ya se ve **75 %**: no hay que multiplicar otra vez por 100. Y 75 % no son «75 personas»: son **75 de cada 100 cupos**.",
+              "explicacion": "30 ÷ 40 = 0,75. En la hoja de cálculo, si a 0,75 le das formato de porcentaje ya se ve **75 %**: no hay que multiplicar otra vez por 100. Y 75 % no son «75 personas»: son **75 de cada 100 empleados**.",
               "tema": "tasa"
             }
           ]
@@ -1395,22 +1443,22 @@
         {
           "numero": 2,
           "titulo": "Comparar con justicia",
-          "objetivo": "Calcular la ocupación de cada sede, ordenar con el criterio de la pregunta y sacar la ocupación global sin trampas.",
+          "objetivo": "Calcular la parte que terminó el curso en cada planta, ordenar con el criterio de la pregunta y sacar la proporción de toda la empresa sin trampas.",
           "cierre": "Nivel 2 listo: comparas con tasas y sabes sacar el total.",
           "actividades": [
             {
               "id": "n2-tasas",
               "tipo": "seleccion",
               "fase": "hacer",
-              "titulo": "Las tres ocupaciones",
-              "consigna": "Calcula la ocupación de cada sede (inscritos ÷ cupos). ¿Qué resultado te da?",
+              "titulo": "Las tres proporciones",
+              "consigna": "Gestión humana quiere comparar las plantas con justicia: ¿qué parte de sus empleados terminó el curso en cada una?",
               "apoyo": {
                 "tipo": "tabla",
-                "titulo": "Tabla resumen por sede",
+                "titulo": "Tabla resumen por planta",
                 "columnas": [
-                  "Sede",
-                  "Cupos",
-                  "Inscritos"
+                  "Planta",
+                  "Empleados",
+                  "Terminaron"
                 ],
                 "filas": [
                   [
@@ -1437,15 +1485,15 @@
                 },
                 {
                   "texto": "Norte 30 % · Centro 18 % · Sur 36 %",
-                  "feedback": "Leíste las cantidades como si fueran porcentajes. 30 inscritos no son 30 %: hay que dividir entre los cupos de cada sede."
+                  "feedback": "Leíste las cantidades como si fueran porcentajes. 30 personas no son 30 %: hay que dividir entre los empleados de cada planta."
                 },
                 {
                   "texto": "Norte 133 % · Centro 111 % · Sur 167 %",
-                  "feedback": "Dividiste al revés: cupos ÷ inscritos. Una ocupación mayor que 100 % diría que hay más inscritos que cupos, y en esta tabla eso no pasa."
+                  "feedback": "Dividiste al revés: empleados ÷ terminaron. Un resultado mayor que 100 % diría que terminaron más personas de las que trabajan ahí, y en esta tabla eso no pasa."
                 },
                 {
                   "texto": "Norte 25 % · Centro 15 % · Sur 30 %",
-                  "feedback": "Dividiste entre los 120 cupos de las tres sedes. Para la ocupación de una sede, la base son **sus** cupos: 40, 20 o 60."
+                  "feedback": "Dividiste entre los 120 empleados de las tres plantas. Para una planta, la base son **sus** empleados: 40, 20 o 60."
                 }
               ],
               "pistas": [
@@ -1460,7 +1508,7 @@
               "tipo": "seleccion",
               "fase": "aplicar",
               "titulo": "¿Cuál revisar primero?",
-              "consigna": "Lucía quiere revisar primero **la sede que ocupa la menor proporción de sus cupos**. Con ese criterio, ¿cuál va primero?",
+              "consigna": "Lucía quiere revisar primero **la planta con la menor parte de sus empleados con el curso**. Con ese criterio, ¿cuál va primero?",
               "apoyo": {
                 "tipo": "comparacion",
                 "items": [
@@ -1469,7 +1517,7 @@
                     "grafico": {
                       "tipo": "grafico",
                       "forma": "barras",
-                      "titulo": "Inscritos",
+                      "titulo": "Terminaron el curso",
                       "etiquetas": [
                         "Norte",
                         "Centro",
@@ -1477,7 +1525,7 @@
                       ],
                       "series": [
                         {
-                          "nombre": "Inscritos",
+                          "nombre": "Terminaron",
                           "valores": [
                             30,
                             18,
@@ -1493,7 +1541,7 @@
                     "grafico": {
                       "tipo": "grafico",
                       "forma": "barras",
-                      "titulo": "Ocupación",
+                      "titulo": "Parte que terminó",
                       "etiquetas": [
                         "Norte",
                         "Centro",
@@ -1501,7 +1549,7 @@
                       ],
                       "series": [
                         {
-                          "nombre": "Ocupación",
+                          "nombre": "Parte que terminó",
                           "valores": [
                             75,
                             90,
@@ -1517,23 +1565,23 @@
               },
               "opciones": [
                 {
-                  "texto": "Centro, porque tiene menos inscritos (18)",
-                  "feedback": "Centro tiene menos inscritos, pero también menos cupos: llenó 18 de 20, el 90 %. Es la que más ocupa."
+                  "texto": "Centro, porque terminaron menos personas (18)",
+                  "feedback": "En Centro terminaron menos personas, pero también tiene menos empleados: 18 de 20, el 90 %. Es la que mejor va."
                 },
                 {
-                  "texto": "Sur, porque solo se ocupan 60 de cada 100 cupos",
+                  "texto": "Sur, porque solo terminaron 60 de cada 100 empleados",
                   "correcta": true
                 },
                 {
                   "texto": "Norte, porque queda en la mitad",
-                  "feedback": "Norte tiene 75 %: queda en la mitad. ¿Cuál tiene la ocupación más baja?"
+                  "feedback": "Norte tiene 75 %: queda en la mitad. ¿Cuál tiene la proporción más baja?"
                 },
                 {
-                  "texto": "Ninguna: Sur tiene más inscritos, así que todo está bien",
-                  "feedback": "Más inscritos en cantidad no es mayor ocupación: Sur también tiene muchos más cupos (60)."
+                  "texto": "Ninguna: en Sur terminaron más personas, así que todo está bien",
+                  "feedback": "Más personas en cantidad no es mayor proporción: Sur también tiene muchos más empleados (60)."
                 }
               ],
-              "explicacion": "Por ocupación, de menor a mayor: **Sur 60 % → Norte 75 % → Centro 90 %**. Sur tiene **más** inscritos (36) y aun así la **menor** ocupación. Si alguien usa otro criterio, como los cupos vacíos (Sur 24, Norte 10, Centro 2), también puede valer, pero es otra medida y hay que decirlo.",
+              "explicacion": "Por proporción, de menor a mayor: **Sur 60 % → Norte 75 % → Centro 90 %**. Sur tiene **más** gente con el curso (36) y aun así la **menor** proporción. Si alguien usa otro criterio, como cuántos faltan (Sur 24, Norte 10, Centro 2), también puede valer, pero es otra medida y hay que decirlo.",
               "tema": "cantidad-vs-tasa"
             },
             {
@@ -1544,11 +1592,11 @@
               "consigna": "Para cada frase, decide si los datos de este periodo la respaldan.",
               "apoyo": {
                 "tipo": "tabla",
-                "titulo": "Tabla resumen por sede",
+                "titulo": "Tabla resumen por planta",
                 "columnas": [
-                  "Sede",
-                  "Cupos",
-                  "Inscritos"
+                  "Planta",
+                  "Empleados",
+                  "Terminaron"
                 ],
                 "filas": [
                   [
@@ -1574,29 +1622,29 @@
               },
               "tarjetas": [
                 {
-                  "texto": "La sede Sur tiene más inscritos que las otras dos.",
+                  "texto": "En la planta Sur terminaron el curso más personas que en las otras dos.",
                   "respuesta": "si",
                   "explicacion": "Sí: 36 frente a 30 y 18. Es una frase sobre **cantidad**, y es cierta."
                 },
                 {
-                  "texto": "La sede Sur es la que mejor llena sus cupos.",
+                  "texto": "La planta Sur es donde mejor va el curso.",
                   "respuesta": "no",
-                  "explicacion": "En proporción es la que menos llena: 60 %. Más inscritos en cantidad no es mayor ocupación."
+                  "explicacion": "En proporción es donde peor va: 60 %. Más personas en cantidad no es mayor proporción."
                 },
                 {
-                  "texto": "En Centro se inscribieron 90 personas.",
+                  "texto": "En Centro terminaron el curso 90 personas.",
                   "respuesta": "no",
-                  "explicacion": "90 % no son 90 personas: fueron 18 de 20 cupos. El porcentaje se lee «90 de cada 100»."
+                  "explicacion": "90 % no son 90 personas: fueron 18 de 20 empleados. El porcentaje se lee «90 de cada 100»."
                 },
                 {
-                  "texto": "En Norte se ocuparon 3 de cada 4 cupos.",
+                  "texto": "En Norte terminaron 3 de cada 4 empleados.",
                   "respuesta": "si",
                   "explicacion": "75 % es 3 de cada 4: 30 de 40."
                 },
                 {
-                  "texto": "En Sur la convocatoria es mala.",
+                  "texto": "En Sur no les importa la seguridad.",
                   "respuesta": "no",
-                  "explicacion": "La tabla no dice por qué se inscribió menos gente: puede ser el horario, la difusión o las cancelaciones. Es una hipótesis por verificar."
+                  "explicacion": "La tabla no dice por qué menos gente terminó: pueden ser los horarios del curso, las incapacidades o el personal nuevo. Es una hipótesis por verificar."
                 }
               ],
               "explicacion": "Una **cantidad** responde «¿cuántos?»; una **tasa** responde «¿cuántos de cuántos?». Las dos pueden ser ciertas a la vez: lo que cambia es la pregunta.",
@@ -1607,15 +1655,15 @@
               "tipo": "seleccion",
               "fase": "hacer",
               "titulo": "Un solo número para todo",
-              "consigna": "Lucía también quiere un solo número: **¿qué proporción de todos los cupos de la red está ocupada?**",
+              "consigna": "Lucía también quiere un solo número: **¿qué proporción de todos los empleados de la empresa terminó el curso?**",
               "apoyo": {
                 "tipo": "tabla",
                 "titulo": "Tabla resumen con fila de total",
                 "columnas": [
-                  "Sede",
-                  "Cupos",
-                  "Inscritos",
-                  "Ocupación"
+                  "Planta",
+                  "Empleados",
+                  "Terminaron",
+                  "Parte que terminó"
                 ],
                 "filas": [
                   [
@@ -1651,22 +1699,22 @@
                 },
                 {
                   "texto": "75 %",
-                  "feedback": "Ese es el promedio de las tres ocupaciones: (75 + 90 + 60) ÷ 3. Coincide con la ocupación de Norte por pura casualidad. Trata a Centro (20 cupos) igual que a Sur (60). Suma primero inscritos y cupos, y divide al final."
+                  "feedback": "Ese es el promedio de las tres proporciones: (75 + 90 + 60) ÷ 3. Coincide con la de Norte por pura casualidad. Trata a Centro (20 empleados) igual que a Sur (60). Suma primero personas y empleados, y divide al final."
                 },
                 {
                   "texto": "225 %",
-                  "feedback": "Sumaste las tres ocupaciones: 75 + 90 + 60. Los porcentajes de grupos distintos no se suman así. Suma cantidades: inscritos con inscritos y cupos con cupos."
+                  "feedback": "Sumaste las tres proporciones: 75 + 90 + 60. Los porcentajes de grupos distintos no se suman así. Suma cantidades: personas con personas y empleados con empleados."
                 },
                 {
                   "texto": "84 %",
-                  "feedback": "84 es el total de inscritos, no un porcentaje. Te falta dividir entre el total de cupos."
+                  "feedback": "84 es el total de personas que terminaron, no un porcentaje. Te falta dividir entre el total de empleados."
                 }
               ],
               "pistas": [
-                "Suma los inscritos de las tres sedes: 30 + 18 + 36.",
-                "Suma los cupos: 40 + 20 + 60. Ahora divide: 84 ÷ 120."
+                "Suma quienes terminaron en las tres plantas: 30 + 18 + 36.",
+                "Suma los empleados: 40 + 20 + 60. Ahora divide: 84 ÷ 120."
               ],
-              "explicacion": "**Ocupación global = (30 + 18 + 36) ÷ (40 + 20 + 60) = 84 ÷ 120 = 0,70 = 70 %.** En la fila de total se **suman cantidades**, no tasas; la tasa del total se vuelve a calcular.",
+              "explicacion": "**Proporción de toda la empresa = (30 + 18 + 36) ÷ (40 + 20 + 60) = 84 ÷ 120 = 0,70 = 70 %.** En la fila de total se **suman cantidades**, no tasas; la proporción del total se vuelve a calcular.",
               "tema": "global-vs-promedio"
             },
             {
@@ -1674,13 +1722,13 @@
               "tipo": "seleccion",
               "fase": "entender",
               "titulo": "¿Por qué no coinciden?",
-              "consigna": "Mira las dos cuentas y el gráfico de cupos. ¿Por qué los dos números no coinciden?",
+              "consigna": "Mira las dos cuentas y el gráfico de empleados. ¿Por qué los dos números no coinciden?",
               "apoyo": [
                 {
                   "tipo": "comparacion",
                   "items": [
                     {
-                      "etiqueta": "Ocupación global",
+                      "etiqueta": "Toda la empresa",
                       "texto": "(30 + 18 + 36) ÷ (40 + 20 + 60) = 84 ÷ 120 = **70 %**"
                     },
                     {
@@ -1692,7 +1740,7 @@
                 {
                   "tipo": "grafico",
                   "forma": "barras",
-                  "titulo": "Cupos por sede",
+                  "titulo": "Empleados por planta",
                   "etiquetas": [
                     "Norte",
                     "Centro",
@@ -1700,7 +1748,7 @@
                   ],
                   "series": [
                     {
-                      "nombre": "Cupos",
+                      "nombre": "Empleados",
                       "valores": [
                         40,
                         20,
@@ -1709,28 +1757,28 @@
                       "color": "verde"
                     }
                   ],
-                  "unidad": "cupos"
+                  "unidad": "empleados"
                 }
               ],
               "opciones": [
                 {
                   "texto": "Porque uno de los dos cálculos está mal hecho",
-                  "feedback": "Las dos cuentas están bien hechas. Responden preguntas distintas: mira cuántos cupos aporta cada sede."
+                  "feedback": "Las dos cuentas están bien hechas. Responden preguntas distintas: mira cuántos empleados aporta cada planta."
                 },
                 {
-                  "texto": "Porque el promedio le da el mismo peso a cada sede, aunque Sur pone 60 de los 120 cupos y Centro solo 20",
+                  "texto": "Porque el promedio le da el mismo peso a cada planta, aunque Sur pone 60 de los 120 empleados y Centro solo 20",
                   "correcta": true
                 },
                 {
                   "texto": "Porque la tasa global siempre da menos que el promedio",
-                  "feedback": "No siempre. Aquí da menos porque la sede más grande (Sur) es la de menor ocupación. Si la sede grande fuera la más llena, la global daría más que el promedio."
+                  "feedback": "No siempre. Aquí da menos porque la planta más grande (Sur) es la de menor proporción. Si la planta grande fuera la que mejor va, el total daría más que el promedio."
                 },
                 {
                   "texto": "Porque en una de las dos hay que multiplicar otra vez por 100",
-                  "feedback": "El formato de porcentaje no cambia el resultado. La diferencia viene del peso de cada sede."
+                  "feedback": "El formato de porcentaje no cambia el resultado. La diferencia viene del peso de cada planta."
                 }
               ],
-              "explicacion": "El **promedio simple de tasas** le da el mismo peso a cada sede. La **ocupación global** le da el mismo peso a cada **cupo**: por eso Sur, con 60 cupos y 60 % de ocupación, la jala hacia abajo, y Centro, con solo 20 cupos, pesa poco. El promedio no es «malo»: responde otra pregunta, pero no reemplaza la ocupación conjunta. Dato curioso: dentro de cada sede los talleres tienen los mismos cupos, y ahí promediar o sumar da igual. Cuando los grupos pesan distinto, ya no.",
+              "explicacion": "El **promedio simple de proporciones** le da el mismo peso a cada planta. La **proporción de toda la empresa** le da el mismo peso a cada **empleado**: por eso Sur, con 60 empleados y 60 %, la jala hacia abajo, y Centro, con solo 20, pesa poco. El promedio no es «malo»: responde otra pregunta, pero no reemplaza la proporción de toda la empresa.",
               "tema": "global-vs-promedio"
             }
           ]
@@ -1749,9 +1797,9 @@
               "consigna": "Trabaja en una **copia rotulada «actualización»**, sin borrar la tabla base. Elige lo que completa la frase.",
               "apoyo": {
                 "tipo": "texto",
-                "texto": "**Actualización de contraste:** Centro registra **2 inscripciones adicionales** (una en Teatro y otra en Música). Los cupos no cambian (siguen siendo 20)."
+                "texto": "**Actualización de contraste:** **2 personas más** de la planta Centro terminan el curso. Los empleados no cambian (siguen siendo 20)."
               },
-              "frase": "En la actualización, Centro queda en {0}, la ocupación global queda en {1} y la sede con menor ocupación {2}.",
+              "frase": "En la actualización, Centro queda en {0}, toda la empresa queda en {1} y la planta con menor proporción {2}.",
               "huecos": [
                 {
                   "opciones": [
@@ -1761,11 +1809,11 @@
                     },
                     {
                       "texto": "20 ÷ 22 ≈ 91 %",
-                      "feedback": "Los cupos no cambian: siguen siendo 20. Solo cambia cuántas personas se inscribieron."
+                      "feedback": "Los empleados no cambian: siguen siendo 20. Solo cambia cuántas personas terminaron."
                     },
                     {
                       "texto": "90 % + 2 % = 92 %",
-                      "feedback": "Sumar 2 inscritos no es sumar 2 puntos. Recalcula la división: (18 + 2) ÷ 20."
+                      "feedback": "Sumar 2 personas no es sumar 2 puntos. Recalcula la división: (18 + 2) ÷ 20."
                     }
                   ]
                 },
@@ -1777,7 +1825,7 @@
                     },
                     {
                       "texto": "70 %, igual que antes",
-                      "feedback": "Si cambian los inscritos de una sede, cambia también el total: 84 + 2 = 86 inscritos de 120 cupos."
+                      "feedback": "Si cambian las personas de una planta, cambia también el total: 84 + 2 = 86 de 120 empleados."
                     },
                     {
                       "texto": "(75 % + 100 % + 60 %) ÷ 3 ≈ 78,3 %",
@@ -1793,7 +1841,7 @@
                     },
                     {
                       "texto": "pasa a ser Norte",
-                      "feedback": "Norte sigue en 75 % y Sur en 60 %: Sur sigue siendo la de menor ocupación."
+                      "feedback": "Norte sigue en 75 % y Sur en 60 %: Sur sigue siendo la de menor proporción."
                     },
                     {
                       "texto": "pasa a ser Centro",
@@ -1802,7 +1850,7 @@
                   ]
                 }
               ],
-              "explicacion": "Actualización: **Centro 20 ÷ 20 = 100 %** y **global 86 ÷ 120 ≈ 71,67 %**. La prioridad **no cambia**: Sur (60 %) sigue con la menor ocupación. Rotula siempre «base» y «actualización»: en la base, Centro sigue en 90 % y la global en 70 %.",
+              "explicacion": "Actualización: **Centro 20 ÷ 20 = 100 %** y **toda la empresa 86 ÷ 120 ≈ 71,67 %**. La prioridad **no cambia**: Sur (60 %) sigue con la menor proporción. Rotula siempre «base» y «actualización»: en la base, Centro sigue en 90 % y la empresa en 70 %.",
               "tema": "escenario-y-puntos"
             },
             {
@@ -1810,31 +1858,31 @@
               "tipo": "seleccion",
               "fase": "entender",
               "titulo": "¿Diez qué?",
-              "consigna": "Alguien escribe: «En la actualización, Centro sumó diez inscritos». ¿Cómo se dice bien el cambio?",
+              "consigna": "Alguien escribe: «En la actualización, Centro sumó diez personas con el curso». ¿Cómo se dice bien el cambio?",
               "apoyo": {
                 "tipo": "tabla",
-                "titulo": "Sede Centro: base y actualización",
+                "titulo": "Planta Centro: base y actualización",
                 "columnas": [
-                  "Sede Centro",
+                  "Planta Centro",
                   "Base",
                   "Actualización",
                   "Cambio"
                 ],
                 "filas": [
                   [
-                    "Cupos",
+                    "Empleados",
                     "20",
                     "20",
                     "0"
                   ],
                   [
-                    "Inscritos",
+                    "Terminaron el curso",
                     "18",
                     "20",
                     "2 más"
                   ],
                   [
-                    "Ocupación",
+                    "Parte que terminó",
                     "90 %",
                     "100 %",
                     "?"
@@ -1843,12 +1891,12 @@
               },
               "opciones": [
                 {
-                  "texto": "Subió 10 puntos porcentuales: de 90 % a 100 %, con 2 inscritos más",
+                  "texto": "Subió 10 puntos porcentuales: de 90 % a 100 %, con 2 personas más",
                   "correcta": true
                 },
                 {
-                  "texto": "Sumó 10 inscritos",
-                  "feedback": "En la actualización solo hay 2 inscritos más (de 18 a 20). Lo que subió 10 fue la ocupación, y eso se mide en puntos porcentuales."
+                  "texto": "Sumó 10 personas con el curso",
+                  "feedback": "En la actualización solo hay 2 personas más (de 18 a 20). Lo que subió 10 fue la proporción, y eso se mide en puntos porcentuales."
                 },
                 {
                   "texto": "Subió 10 %",
@@ -1856,10 +1904,10 @@
                 },
                 {
                   "texto": "Subió 2 puntos porcentuales",
-                  "feedback": "2 es el cambio en inscritos. La ocupación pasó de 90 % a 100 %: ¿cuántos puntos son?"
+                  "feedback": "2 es el cambio en personas. La proporción pasó de 90 % a 100 %: ¿cuántos puntos son?"
                 }
               ],
-              "explicacion": "Los **puntos porcentuales** miden la distancia entre dos porcentajes: de 90 % a 100 % hay **10 puntos**. Con solo 20 cupos de base, cada inscrito pesa 5 puntos; por eso 2 inscritos más mueven 10 puntos. Mira siempre las dos filas: personas y tasa.",
+              "explicacion": "Los **puntos porcentuales** miden la distancia entre dos porcentajes: de 90 % a 100 % hay **10 puntos**. Con solo 20 empleados de base, cada persona pesa 5 puntos; por eso 2 personas más mueven 10 puntos. Mira siempre las dos filas: personas y proporción.",
               "tema": "escenario-y-puntos"
             },
             {
@@ -1867,83 +1915,83 @@
               "tipo": "seleccion",
               "fase": "observar",
               "titulo": "La recomendación",
-              "consigna": "Lucía va a escribir su recomendación a la coordinación. ¿Cuál frase recomienda con datos y sin pasarse?",
+              "consigna": "Lucía va a escribir su recomendación a la gerencia. ¿Cuál frase recomienda con datos y sin pasarse?",
               "opciones": [
                 {
-                  "texto": "Revisen primero Centro: solo tiene 18 inscritos.",
-                  "feedback": "Usa la cantidad, no la tasa. Centro tiene pocos cupos (20) y ocupa 90 %: es la sede más llena."
+                  "texto": "Revisen primero Centro: solo 18 personas terminaron el curso.",
+                  "feedback": "Usa la cantidad, no la proporción. Centro tiene pocos empleados (20) y ya va en 90 %: es la planta que mejor va."
                 },
                 {
-                  "texto": "Conviene revisar primero Sur: se ocupan 36 de sus 60 cupos (60 %), la menor ocupación de las tres. Antes de proponer algo, preguntaríamos por horarios, difusión y cancelaciones.",
+                  "texto": "Conviene revisar primero Sur: terminaron 36 de sus 60 empleados (60 %), la menor proporción de las tres. Antes de proponer algo, preguntaríamos por los horarios del curso, las incapacidades y el personal nuevo.",
                   "correcta": true
                 },
                 {
-                  "texto": "La convocatoria de Sur es mala: solo llena el 60 %.",
-                  "feedback": "La tabla dice dónde mirar, no por qué pasa. Puede ser el horario, la difusión o las cancelaciones. Convierte la causa en una pregunta."
+                  "texto": "En Sur no les importa la seguridad: solo el 60 % terminó.",
+                  "feedback": "La tabla dice dónde mirar, no por qué pasa. Pueden ser los horarios del curso, las incapacidades o el personal nuevo. Convierte la causa en una pregunta."
                 },
                 {
-                  "texto": "No hay que revisar nada: la ocupación global ya subió a 71,67 %.",
+                  "texto": "No hay que revisar nada: toda la empresa ya subió a 71,67 %.",
                   "feedback": "Ese 71,67 % es de la actualización de contraste, no de la base. Rotula cada cifra: en la base, la global es 70 % y Sur sigue en 60 %."
                 }
               ],
-              "explicacion": "Una recomendación prudente dice **sede, tasa con su denominador y criterio**, y deja una **pregunta pendiente**. Afirmar la causa («la convocatoria es mala») es una hipótesis que necesita otros datos.",
+              "explicacion": "Una recomendación prudente dice **planta, proporción con su denominador y criterio**, y deja una **pregunta pendiente**. Afirmar la causa («no les importa la seguridad») es una hipótesis que necesita otros datos.",
               "tema": "prioridad-prudente"
             },
             {
               "id": "n3-reto",
               "tipo": "constructor",
               "fase": "aplicar",
-              "titulo": "El reto: ¿qué sede revisar primero?",
-              "consigna": "Prepara una comparación de las tres sedes para orientar dónde revisar primero la ocupación. Tu recomendación debe apoyarse en tasas, mostrar sus denominadores y distinguir la base de una actualización. Incluye información que aún necesitarías antes de proponer una intervención concreta.",
+              "titulo": "El reto: ¿qué planta revisar primero?",
+              "consigna": "Prepara una comparación de las tres plantas para orientar dónde revisar primero el curso de SST. Tu recomendación debe apoyarse en proporciones, mostrar sus denominadores y distinguir la base de una actualización. Incluye información que aún necesitarías antes de proponer una acción concreta.",
               "pasos": [
                 {
-                  "clave": "sedes-pregunta",
+                  "clave": "sst-pregunta",
                   "titulo": "1 · Mi pregunta",
-                  "ayuda": "Empieza con «En este periodo…» o «Entre estas tres sedes…».",
+                  "ayuda": "Empieza con «En octubre…» o «Entre estas tres plantas…».",
                   "pistas": [
-                    "Elige qué comparar: sedes, talleres, o base frente a actualización.",
-                    "Ejemplo de forma: «En este periodo, ¿qué sede ocupa la menor proporción de ___?»"
+                    "Elige qué comparar: plantas, áreas, o base frente a actualización.",
+                    "Ejemplo de forma: «En octubre, ¿qué planta tiene la menor proporción de ___?»"
                   ]
                 },
                 {
-                  "clave": "sedes-tabla",
+                  "clave": "sst-tabla",
                   "titulo": "2 · Mi tabla resumen y mis tasas",
-                  "ayuda": "Una fila por sede: cupos, inscritos y la división completa. Puedes marcar filas en la tabla y agregarlas aquí.",
+                  "ayuda": "Una fila por planta: empleados, terminaron y la división completa. Puedes marcar filas en la tabla y agregarlas aquí.",
                   "pistas": [
-                    "Junta los talleres de cada sede: Sur son las filas 02, 04 y 07.",
+                    "Junta las áreas de cada planta: Sur son las filas 10 a 13.",
                     "Escribe la división completa, por ejemplo: «Sur: 36 ÷ 60 = 60 %».",
-                    "Revisa: ¿los cupos son mayores que cero y los inscritos nunca superan los cupos?"
+                    "Revisa: ¿los empleados son más que cero y quienes terminaron nunca superan a los empleados?"
                   ],
                   "permiteFilas": true
                 },
                 {
-                  "clave": "sedes-total",
+                  "clave": "sst-total",
                   "titulo": "3 · El total (y la actualización, si la usas)",
-                  "ayuda": "Escribe la ocupación global con sus dos cantidades. Si usas la actualización, ponla aparte con su rótulo.",
+                  "ayuda": "Escribe la proporción de toda la empresa con sus dos cantidades. Si usas la actualización, ponla aparte con su rótulo.",
                   "pistas": [
-                    "Para el total, suma inscritos y cupos, y divide al final.",
-                    "Si te da 75 %, promediaste las tasas: ¿cada sede tiene los mismos cupos?",
+                    "Para el total, suma personas y empleados, y divide al final.",
+                    "Si te da 75 %, promediaste las proporciones: ¿cada planta tiene los mismos empleados?",
                     "Actualización: rotúlala y no borres la base."
                   ]
                 },
                 {
-                  "clave": "sedes-recomendacion",
+                  "clave": "sst-recomendacion",
                   "titulo": "4 · Mi recomendación y lo que todavía no sé",
                   "ayuda": "«Conviene revisar primero… porque… (tasa y criterio). Antes de intervenir, preguntaría…»",
                   "pistas": [
-                    "Nombra la sede, su tasa con la división y el criterio («la menor ocupación»).",
-                    "Piensa en lo que la tabla no tiene: horarios, difusión, cancelaciones, motivos para no inscribirse."
+                    "Nombra la planta, su proporción con la división y el criterio («la menor proporción con el curso»).",
+                    "Piensa en lo que la tabla no tiene: horarios del curso, incapacidades, personal nuevo."
                   ]
                 }
               ],
               "verificacion": [
-                "¿Cada tasa muestra su división (arriba los inscritos, abajo los cupos)?",
+                "¿Cada proporción muestra su división (arriba quienes terminaron, abajo los empleados)?",
                 "¿Ordené por tasa y dije por qué ese criterio responde la pregunta?",
                 "¿El total sale de sumar cantidades (84 ÷ 120)?",
                 "¿Separé la base de la actualización?",
                 "¿Mi recomendación deja una pregunta en vez de afirmar una causa?"
               ],
-              "ejemplo": "«En este periodo, ¿qué sede ocupa la menor proporción de sus cupos? Junté los talleres de cada sede: Norte 30 ÷ 40 = 75 %, Centro 18 ÷ 20 = 90 % y Sur 36 ÷ 60 = 60 %. En total, 84 ÷ 120 = 70 % de los cupos está ocupado; el promedio de las tres tasas (75 %) es otra medida. Si Centro suma dos inscritos, llega a 100 % y la global a 86 ÷ 120 ≈ 71,67 %, pero Sur sigue con la menor ocupación. Conviene revisar primero Sur, aunque tenga más inscritos en cantidad. Antes de intervenir, preguntaría si los horarios de Sur le sirven a la gente y cuántas personas cancelaron.»",
+              "ejemplo": "«En octubre, ¿qué planta tiene la menor proporción de empleados con el curso de SST? Junté las áreas de cada planta: Norte 30 ÷ 40 = 75 %, Centro 18 ÷ 20 = 90 % y Sur 36 ÷ 60 = 60 %. En toda la empresa, 84 ÷ 120 = 70 % terminó el curso; el promedio de las tres (75 %) es otra medida. Si 2 personas más de Centro terminan, Centro llega a 100 % y la empresa a 86 ÷ 120 ≈ 71,67 %, pero Sur sigue con la menor proporción. Conviene revisar primero Sur, aunque tenga más gente con el curso en cantidad. Antes de actuar, le preguntaría a Sur por los horarios del curso, las incapacidades y el personal nuevo; en Producción de Sur solo terminaron 19 de 40.»",
               "explicacion": "No se busca un texto largo: sirve si otra persona puede repetir tus divisiones y ver de dónde sale tu prioridad.",
               "tema": "prioridad-prudente"
             },
@@ -1955,11 +2003,11 @@
               "consigna": "Completa estas dos frases. Quedan guardadas en tu cuaderno (solo en este navegador).",
               "frases": [
                 {
-                  "clave": "sedes-cierre-necesito",
-                  "inicio": "Para comparar ocupación necesito…"
+                  "clave": "sst-cierre-necesito",
+                  "inicio": "Para comparar plantas con justicia necesito…"
                 },
                 {
-                  "clave": "sedes-cierre-preguntaria",
+                  "clave": "sst-cierre-preguntaria",
                   "inicio": "Antes de intervenir, preguntaría…"
                 }
               ],
@@ -1972,27 +2020,27 @@
         {
           "termino": "Tabla resumen",
           "definicion": "Una fila por grupo con las cantidades que necesitas para comparar.",
-          "ejemplo": "Sur: 60 cupos y 36 inscritos, juntando sus tres talleres."
+          "ejemplo": "Sur: 60 empleados y 36 con el curso, juntando sus áreas."
         },
         {
-          "termino": "Tasa (ocupación)",
+          "termino": "Proporción (parte que terminó)",
           "definicion": "Una división que compara una parte con su base: «tantos de cuántos».",
-          "ejemplo": "Centro: 18 inscritos ÷ 20 cupos = 90 %."
+          "ejemplo": "Centro: 18 que terminaron ÷ 20 empleados = 90 %."
         },
         {
           "termino": "Numerador y denominador",
           "definicion": "Arriba va lo que pasó; abajo, la base.",
-          "ejemplo": "En 30 ÷ 40, 30 son los inscritos y 40 los cupos."
+          "ejemplo": "En 30 ÷ 40, 30 son quienes terminaron y 40 los empleados."
         },
         {
           "termino": "Cantidad frente a proporción",
           "definicion": "«¿Cuántos?» y «¿cuántos de cuántos?» son preguntas distintas y pueden dar ganadores distintos.",
-          "ejemplo": "Sur tiene más inscritos (36), pero la menor ocupación (60 %)."
+          "ejemplo": "Sur tiene más gente con el curso (36), pero la menor proporción (60 %)."
         },
         {
           "termino": "Tasa global",
           "definicion": "Se suman las cantidades de todos los grupos y se divide al final.",
-          "ejemplo": "84 ÷ 120 = 70 % de los cupos de la red."
+          "ejemplo": "84 ÷ 120 = 70 % de los empleados de la empresa."
         },
         {
           "termino": "Promedio simple de tasas",
@@ -2002,27 +2050,27 @@
         {
           "termino": "Escenario o actualización",
           "definicion": "Una copia rotulada para probar un cambio sin borrar la base.",
-          "ejemplo": "Centro con 2 inscritos más: 100 %; global ≈ 71,67 %."
+          "ejemplo": "Centro con 2 personas más: 100 %; toda la empresa ≈ 71,67 %."
         },
         {
           "termino": "Punto porcentual",
           "definicion": "La distancia entre dos porcentajes.",
-          "ejemplo": "De 90 % a 100 % son 10 puntos porcentuales, con solo 2 inscritos más."
+          "ejemplo": "De 90 % a 100 % son 10 puntos porcentuales, con solo 2 personas más."
         },
         {
           "termino": "Recomendación prudente",
           "definicion": "Dice dónde mirar, con qué tasa y criterio, y qué falta saber. No afirma causas.",
-          "ejemplo": "«Revisemos primero Sur (36 de 60, 60 %). ¿Los horarios le sirven a la gente?»"
+          "ejemplo": "«Revisemos primero Sur (36 de 60, 60 %). ¿Los horarios del curso le sirven a su gente?»"
         }
       ],
       "fraseClave": "Antes de comparar, pregunto «¿de cuántos?»: una tasa necesita su denominador, y el total se calcula sumando cantidades antes de dividir.",
       "paraLlevar": {
-        "consigna": "Prepara una comparación de las tres sedes para orientar dónde revisar primero la ocupación. Tu recomendación debe apoyarse en tasas, mostrar sus denominadores y distinguir la base de una actualización. Incluye información que aún necesitarías antes de proponer una intervención concreta.",
+        "consigna": "Prepara una comparación de las tres plantas para orientar dónde revisar primero el curso de SST. Tu recomendación debe apoyarse en proporciones, mostrar sus denominadores y distinguir la base de una actualización. Incluye información que aún necesitarías antes de proponer una acción concreta.",
         "pasos": [
-          "Mi pregunta (empieza con «En este periodo…» o «Entre estas tres sedes…»).",
-          "Mi tabla resumen: una fila por sede, con cupos, inscritos y la división de cada ocupación.",
+          "Mi pregunta (empieza con «En octubre…» o «Entre estas tres plantas…»).",
+          "Mi tabla resumen: una fila por planta, con empleados, quienes terminaron y la división de cada proporción.",
           "El total: sumo cantidades y divido al final. Si pruebo una actualización, la rotulo aparte.",
-          "Mi recomendación (sede, tasa y criterio) y una pregunta sobre lo que todavía no sé."
+          "Mi recomendación (planta, proporción y criterio) y una pregunta sobre lo que todavía no sé."
         ],
         "lupa": [
           "Cada tasa muestra su división.",
@@ -2067,46 +2115,47 @@
     ],
     "ampliacion": [
       "Tasas con numerador y denominador visibles",
-      "Ocupación global frente a promedio simple de tasas",
+      "Proporción global frente a promedio simple de tasas",
       "Escenarios (base y actualización separadas)",
-      "Puntos porcentuales"
+      "Puntos porcentuales",
+      "Tabla dinámica: % del total de fila y de columna"
     ],
     "temas": [
       {
         "id": "tabla-resumen",
         "titulo": "Tabla resumen por grupo",
         "idea": "Una tabla resumen pone en una fila lo de cada grupo para poder compararlo.",
-        "explicacion": "Cuando quieres comparar sedes, grupos o barrios, lo primero es una **tabla resumen**: una fila por grupo y columnas con las cantidades que necesitas. En Excel se puede hacer con una **tabla dinámica**, que agrupa y suma por ti, o a mano. Antes de calcular, pregúntate qué representa cada fila y qué mide cada columna. **Cómo se calcula:** una fila por grupo; cuenta las filas de cada grupo (en Excel, CONTAR.SI) y suma sus cantidades (SUMAR.SI), o arma una tabla dinámica. **Úsala cuando:** vas a comparar grupos: siempre es el primer paso. **Cuidado:** contar filas no es lo mismo que sumar cantidades; revisa qué representa cada fila.",
+        "explicacion": "Cuando quieres comparar plantas, grupos o barrios, lo primero es una **tabla resumen**: una fila por grupo y columnas con las cantidades que necesitas. En Excel se puede hacer con una **tabla dinámica**, que agrupa y suma por ti, o a mano. Antes de calcular, pregúntate qué representa cada fila y qué mide cada columna. **Cómo se calcula:** una fila por grupo; cuenta las filas de cada grupo (en Excel, CONTAR.SI) y suma sus cantidades (SUMAR.SI), o arma una tabla dinámica. **Úsala cuando:** vas a comparar grupos: siempre es el primer paso. **Cuidado:** contar filas no es lo mismo que sumar cantidades; revisa qué representa cada fila.",
         "cotidiano": "En un torneo de microfútbol del barrio, la planilla anota partido por partido. Para comparar equipos, se arma una fila por equipo con sus partidos jugados y ganados.",
         "ejemplo": "Datos ficticios de un curso de natación: Grupo mañana: 50 cupos, 33 inscritos. Grupo tarde: 20 cupos, 19 inscritos.",
-        "enElReto": "Arma la tabla con una fila por sede y deja visibles los cupos y los inscritos antes de agregar cualquier cálculo."
+        "enElReto": "Arma la tabla con una fila por planta (una tabla dinámica con Planta en Filas) y deja visibles los empleados y quienes terminaron antes de agregar cualquier cálculo."
       },
       {
         "id": "tasa",
         "titulo": "Tasa: numerador y denominador",
         "idea": "Una tasa compara una parte con su base: «tantos de cuántos».",
-        "explicacion": "Una **tasa** es una división: arriba va lo que pasó (**numerador**) y abajo la base posible (**denominador**). La **ocupación** es inscritos ÷ cupos. El resultado se puede leer como porcentaje. Ojo en Excel: si a 0,66 le das formato de porcentaje, ya se muestra como 66 %; no hace falta multiplicar otra vez por 100. Y un porcentaje siempre se lee «de cada 100»: 80 % de ocupación son **80 de cada 100 cupos**, no 80 personas (en una sede de 10 cupos son 8 inscritos). **Cómo se calcula:** la parte ÷ el total de ESE grupo; en Excel, =parte/total y el botón %. **Úsala cuando:** comparas grupos de distinto tamaño. **Cuidado:** escríbela siempre con su «de cuántos» (8 de 20, no solo 40 %); con grupos muy pequeños, un solo dato la mueve mucho.",
+        "explicacion": "Una **tasa** es una división: arriba va lo que pasó (**numerador**) y abajo la base posible (**denominador**). Por ejemplo, la parte que terminó un curso es quienes terminaron ÷ empleados. El resultado se puede leer como porcentaje. Ojo en Excel: si a 0,66 le das formato de porcentaje, ya se muestra como 66 %; no hace falta multiplicar otra vez por 100. Y un porcentaje siempre se lee «de cada 100»: 80 % son **80 de cada 100**, no 80 personas (en un grupo de 10 son 8). **Cómo se calcula:** la parte ÷ el total de ESE grupo; en Excel, =parte/total y el botón %. **Úsala cuando:** comparas grupos de distinto tamaño. **Cuidado:** escríbela siempre con su «de cuántos» (8 de 20, no solo 40 %); con grupos muy pequeños, un solo dato la mueve mucho.",
         "cotidiano": "Si sembraste 10 semillas de frijol y germinaron 8, germinó el 80 %: 8 de 10.",
         "ejemplo": "Curso ficticio: mañana 33 ÷ 50 = 0,66 = 66 %. Tarde 19 ÷ 20 = 0,95 = 95 %. Ese 95 % no son «95 personas»: son 95 de cada 100 cupos.",
-        "enElReto": "Calcula la tasa de cada sede escribiendo la división completa, para que se vea qué va arriba y qué va abajo."
+        "enElReto": "Calcula la proporción de cada planta escribiendo la división completa, para que se vea qué va arriba y qué va abajo."
       },
       {
         "id": "cantidad-vs-tasa",
         "titulo": "Más cantidad no es mayor proporción",
-        "idea": "Un grupo puede tener más inscritos y aun así llenar menos sus cupos.",
-        "explicacion": "Las cantidades (cuántos) y las tasas (cuántos de cuántos) responden preguntas distintas. Un grupo grande puede tener más gente y menor ocupación, porque tiene muchos más cupos. Para decidir dónde revisar, define primero tu **criterio** según la pregunta. **Cantidad · úsala cuando:** necesitas el volumen (cuántos pedidos llevar, cuánta gente atender). **Tasa · úsala cuando:** quieres saber dónde pasa algo con más frecuencia. **Cuidado:** el grupo grande casi siempre «gana» en cantidad; no lo confundas con «le va peor».",
+        "idea": "Un grupo puede tener más gente que cumple algo y aun así la menor proporción.",
+        "explicacion": "Las cantidades (cuántos) y las tasas (cuántos de cuántos) responden preguntas distintas. Un grupo grande puede tener más gente que cumple algo y menor proporción, porque tiene muchas más personas en total. Para decidir dónde revisar, define primero tu **criterio** según la pregunta. **Cantidad · úsala cuando:** necesitas el volumen (cuántos pedidos llevar, cuánta gente atender). **Tasa · úsala cuando:** quieres saber dónde pasa algo con más frecuencia. **Cuidado:** el grupo grande casi siempre «gana» en cantidad; no lo confundas con «le va peor».",
         "cotidiano": "Una jugadora que cobró 10 penaltis y metió 7 tiene más goles que otra que cobró 4 y metió los 4. Pero la segunda acertó todos.",
         "ejemplo": "Curso ficticio: el grupo de la mañana tiene más inscritos (33 frente a 19), pero menor ocupación (66 % frente a 95 %).",
-        "enElReto": "Ordena las sedes por tasa, no solo por cantidad, y explica por qué ese es el criterio que responde la pregunta."
+        "enElReto": "Ordena las plantas por proporción, no solo por cantidad, y explica por qué ese es el criterio que responde la pregunta."
       },
       {
         "id": "global-vs-promedio",
         "titulo": "Tasa global frente a promedio de tasas",
         "idea": "Para el total, primero sumas las cantidades y después divides.",
-        "explicacion": "La **tasa global** responde por todos los cupos juntos: sumas todos los inscritos, sumas todos los cupos y divides. El **promedio simple de tasas** suma los porcentajes y los divide entre el número de grupos: trata a cada grupo como si pesara igual, aunque sean de tamaños distintos. No es un error en sí, pero responde otra pregunta y no reemplaza la ocupación conjunta. **Tasa global · cómo se calcula:** suma de las partes ÷ suma de los totales. **Úsala cuando:** preguntas por todo junto (el mes, la red). **Promedio simple · cómo se calcula:** las tasas sumadas ÷ el número de grupos. **Úsalo cuando:** quieres describir un grupo «típico» sin importar su tamaño. **Cuidado:** en la fila de total se suman cantidades, nunca porcentajes.",
+        "explicacion": "La **tasa global** responde por todos juntos: sumas todas las partes (por ejemplo, quienes terminaron), sumas todos los totales (los empleados) y divides. El **promedio simple de tasas** suma los porcentajes y los divide entre el número de grupos: trata a cada grupo como si pesara igual, aunque sean de tamaños distintos. No es un error en sí, pero responde otra pregunta y no reemplaza la proporción de todos juntos. **Tasa global · cómo se calcula:** suma de las partes ÷ suma de los totales. **Úsala cuando:** preguntas por todo junto (el mes, la red). **Promedio simple · cómo se calcula:** las tasas sumadas ÷ el número de grupos. **Úsalo cuando:** quieres describir un grupo «típico» sin importar su tamaño. **Cuidado:** en la fila de total se suman cantidades, nunca porcentajes.",
         "cotidiano": "Si en un quiz corto sacaste 9 de 10 preguntas (90 %) y en el examen 30 de 60 (50 %), promediar da 70 %. Pero de todas las preguntas acertaste 39 de 70, más o menos 56 %.",
         "ejemplo": "Curso ficticio: global = (33 + 19) ÷ (50 + 20) = 52 ÷ 70 ≈ 74,3 %. Promedio simple = (66 % + 95 %) ÷ 2 = 80,5 %. Son medidas distintas.",
-        "enElReto": "Para el total, suma inscritos y cupos y divide al final. Si te sale el promedio de los porcentajes, pregúntate si cada sede tiene los mismos cupos."
+        "enElReto": "Para el total, suma personas y empleados y divide al final. Si te sale el promedio de los porcentajes, pregúntate si cada planta tiene los mismos empleados."
       },
       {
         "id": "escenario-y-puntos",
@@ -2115,43 +2164,52 @@
         "explicacion": "Un **escenario** es una versión de prueba: «¿qué pasa si cambian estos datos?». Se hace en una **copia rotulada**, sin borrar la base original. Cuando una tasa cambia, la diferencia entre dos porcentajes se dice en **puntos porcentuales**: pasar de 40 % a 45 % es subir 5 puntos porcentuales. Eso no equivale a 5 personas más. **Puntos porcentuales · cómo se calcula:** porcentaje nuevo − porcentaje de antes. **Úsalos cuando:** dices cuánto cambió una tasa. **Cuidado:** no son personas ni pedidos (10 puntos pueden ser 2 personas), y no es lo mismo que el cambio relativo (de 40 % a 30 % es bajar la cuarta parte). El escenario siempre en una copia rotulada.",
         "cotidiano": "Si en tu barrio la cobertura de internet pasa de 52 % a 55 % de las casas, subió 3 puntos porcentuales, no 3 casas.",
         "ejemplo": "Escenario ficticio: el grupo de la mañana suma 4 inscritos más: 37 ÷ 50 = 74 %. Subió 8 puntos porcentuales (de 66 % a 74 %), pero solo llegaron 4 personas nuevas.",
-        "enElReto": "Haz la actualización en una copia rotulada, recalcula la tasa de la sede y la global, y revisa si cambia la sede con menor ocupación."
+        "enElReto": "Haz la actualización en una copia rotulada, recalcula la proporción de la planta y la de toda la empresa, y revisa si cambia la planta con menor proporción."
       },
       {
         "id": "prioridad-prudente",
         "titulo": "Priorizar no es explicar la causa",
         "idea": "Los datos pueden decirte dónde mirar primero, no por qué pasa algo.",
-        "explicacion": "Una **recomendación prudente** dice qué sede revisar, con qué tasa y con qué criterio, y añade qué información falta. Decir «aquí hay menor ocupación» es un hallazgo; decir «aquí la convocatoria es mala» es una **hipótesis** que necesita más datos (horarios, cancelaciones, motivos). **Cómo se hace:** una frase con grupo, tasa con su denominador y criterio, más una pregunta pendiente. **Úsala cuando:** tienes que orientar dónde revisar o apoyar primero. **Cuidado:** «aquí la gente es mala paga» o «la convocatoria es mala» son hipótesis, no datos.",
+        "explicacion": "Una **recomendación prudente** dice qué grupo revisar, con qué tasa y con qué criterio, y añade qué información falta. Decir «aquí hay menor proporción» es un hallazgo; decir «aquí no les importa la seguridad» es una **hipótesis** que necesita más datos (horarios, incapacidades, motivos). **Cómo se hace:** una frase con grupo, tasa con su denominador y criterio, más una pregunta pendiente. **Úsala cuando:** tienes que orientar dónde revisar o apoyar primero. **Cuidado:** «aquí la gente es mala paga» o «la convocatoria es mala» son hipótesis, no datos.",
         "cotidiano": "Si en una matera germinaron menos semillas que en otra, no sabes si fue el sol, el agua o la semilla hasta que lo averiguas.",
         "ejemplo": "Curso ficticio: «Conviene revisar primero el grupo de la mañana, que tiene 66 % de ocupación. Antes de cambiar algo, preguntaríamos si el horario le sirve a la gente».",
-        "enElReto": "Escribe una frase con sede, tasa y criterio, y una pregunta sobre lo que todavía necesitas saber."
+        "enElReto": "Escribe una frase con planta, proporción y criterio, y una pregunta sobre lo que todavía necesitas saber."
+      },
+      {
+        "id": "tabla-dinamica-proporcion",
+        "titulo": "Tabla dinámica: que la tabla saque la proporción",
+        "idea": "Con un grupo en Filas y otro en Columnas, la tabla dinámica reparte cada fila (o cada columna) en 100 por ti.",
+        "explicacion": "Una **tabla dinámica** cuenta o suma por grupo sin fórmulas: el grupo va en **Filas** (por ejemplo, Barrio) y lo que cuentas en **Valores** (Cuenta de Pedido). Si además pones otra categoría en **Columnas** (Pago: contado o fiado), puedes pedirle **Mostrar valores como > % del total de fila**: cada fila suma 100 % y ves la **proporción dentro de cada grupo** (Caicedo: 40 % fiado). Con **% del total de columna**, cada columna suma 100 % y ves la **participación**: de dónde salen los casos (Buenos Aires tiene el 47 % de todos los fiados). **Cómo se hace:** clic derecho en un número de la tabla (en Mac, Control + clic) > Mostrar valores como. **% del total de fila · úsalo cuando:** la pregunta es «¿dónde pasa con más frecuencia?». **% del total de columna · úsalo cuando:** la pregunta es «¿de dónde salen la mayoría de los casos?». **Cuidado:** son preguntas distintas con la misma tabla; mira qué pregunta respondes antes de elegir. Y si cambian los datos, clic derecho > Actualizar. **Truco del promedio:** si la columna tiene solo 1 (sí) y 0 (no), su **promedio es la proporción** de «sí»: 18 unos en 20 filas = 0,9 = 90 %. En la tabla dinámica, «Promedio de Terminó» con formato % da la parte que terminó en cada grupo sin dividir a mano. **Cuidado:** solo vale con 1 y 0.",
+        "cotidiano": "En un curso, «¿en qué grupo pierde más gente, de cada 100?» es por fila; «¿de qué grupo salen la mayoría de los que pierden?» es por columna.",
+        "ejemplo": "Doña Marta: Barrio en Filas, Pago en Columnas, Cuenta de Pedido. Por fila, lo fiado: Buenos Aires 20 %, Miraflores 25 %, Caicedo 40 %. Por columna, de los 34 fiados: Buenos Aires 47 %, Miraflores 29 %, Caicedo 24 %.",
+        "enElReto": "Resume las 120 personas con una tabla dinámica: Planta en Filas; Cuenta de Código, Suma de Terminó y Promedio de Terminó (formato %). Si avanzas, lo mismo con Área en Filas: ¿en qué área se quedó atrás el curso?"
       },
       {
         "id": "cual-uso",
         "titulo": "¿Cuál uso?",
         "idea": "Cada cifra responde una pregunta distinta: primero decide qué quieres saber y después escoge la cifra.",
-        "explicacion": "Antes de calcular, pregúntate qué quieres contar. **¿Dónde pasa más VECES?** → **Cantidad** (Buenos Aires: 16 fiados). **¿Dónde pasa con más FRECUENCIA?** → **Tasa, con su denominador** (Caicedo: 8 de 20 = 40 %). **¿Qué parte de TODO?** → **Tasa global: sumo y divido al final** (34 de 140 ≈ 24,3 %). **¿Cómo le va a un grupo «típico», sin importar su tamaño?** → **Promedio simple de tasas** (≈ 28,3 %). **¿Cuánto cambió una tasa?** → **Puntos porcentuales** (de 40 % a 30 %: −10 puntos). **¿Cuántas personas o pedidos cambiaron?** → **Cantidad** (2 pedidos; Centro: 2 inscritos, no 10). **Regla de oro:** toda tasa va con su «de cuántos», y el total se calcula sumando cantidades antes de dividir.",
+        "explicacion": "Antes de calcular, pregúntate qué quieres contar. **¿Dónde pasa más VECES?** → **Cantidad** (Buenos Aires: 16 fiados). **¿Dónde pasa con más FRECUENCIA?** → **Tasa, con su denominador** (Caicedo: 8 de 20 = 40 %). **¿Qué parte de TODO?** → **Tasa global: sumo y divido al final** (34 de 140 ≈ 24,3 %). **¿Cómo le va a un grupo «típico», sin importar su tamaño?** → **Promedio simple de tasas** (≈ 28,3 %). **¿Cuánto cambió una tasa?** → **Puntos porcentuales** (de 40 % a 30 %: −10 puntos). **¿Cuántas personas o pedidos cambiaron?** → **Cantidad** (2 pedidos; planta Centro: 2 personas, no 10). **Regla de oro:** toda tasa va con su «de cuántos», y el total se calcula sumando cantidades antes de dividir. **¿Qué parte de cada grupo, directo en la tabla dinámica?** → **Promedio de una columna de 1 y 0** (Promedio de Terminó: Centro 90 %).",
         "cotidiano": "Si un amigo dice «en mi colegio pierden más estudiantes que en el tuyo», la primera pregunta es: ¿de cuántos estudiantes?",
-        "ejemplo": "Cantidad y tasa dieron ganadores distintos: más fiados en Buenos Aires (16), más frecuencia en Caicedo (40 %). Con las sedes: más inscritos en Sur (36), menor ocupación también en Sur (60 %).",
+        "ejemplo": "Cantidad y tasa dieron ganadores distintos: más fiados en Buenos Aires (16), más frecuencia en Caicedo (40 %). En el reto: más gente con el curso en Sur (36), y también la menor proporción (60 %).",
         "enElReto": "Antes de escribir tu recomendación, revisa que cada cifra responda la pregunta: dónde revisar primero pide una tasa con su denominador."
       }
     ],
     "pasos": [
-      "Arma la tabla por sede con cupos e inscritos visibles.",
-      "Calcula la tasa de cada sede escribiendo la división.",
-      "Ordena las sedes según el criterio de la pregunta.",
-      "Calcula la tasa global sumando cantidades antes de dividir.",
+      "Arma la tabla por planta con empleados y quienes terminaron el curso visibles (en Excel, una tabla dinámica).",
+      "Calcula la proporción de cada planta escribiendo la división.",
+      "Ordena las plantas según el criterio de la pregunta.",
+      "Calcula la proporción de toda la empresa sumando cantidades antes de dividir.",
       "Prueba la actualización en una copia rotulada y compara con la base.",
-      "Escribe tu recomendación con sede, tasa, criterio y una pregunta pendiente."
+      "Escribe tu recomendación con planta, proporción, criterio y una pregunta pendiente."
     ],
     "errores": [
       {
-        "error": "Dividir al revés (cupos ÷ inscritos) o leer el porcentaje como cantidad de personas.",
+        "error": "Dividir al revés (empleados ÷ quienes terminaron) o leer el porcentaje como cantidad de personas.",
         "consejo": "Pregúntate: «¿tantos de cuántos?». Lo que pasó va arriba y la base va abajo."
       },
       {
-        "error": "Calcular el total promediando los porcentajes de las sedes.",
-        "consejo": "Vuelve a sumar inscritos y cupos y divide al final. El promedio de tasas responde otra pregunta."
+        "error": "Calcular el total promediando los porcentajes de las plantas.",
+        "consejo": "Vuelve a sumar personas y empleados y divide al final. El promedio de tasas responde otra pregunta."
       },
       {
         "error": "Mezclar las cifras del escenario con las de la base.",
@@ -2162,7 +2220,11 @@
         "consejo": "Mira las dos columnas: cuántas personas cambiaron y cuántos puntos cambió la tasa son cosas distintas."
       },
       {
-        "error": "Afirmar la causa: «en esa sede la convocatoria es mala».",
+        "error": "En la tabla dinámica, usar «% del total de columna» para «¿dónde pasa con más frecuencia?».",
+        "consejo": "La frecuencia dentro de cada grupo es «% del total de fila» (con el grupo en Filas). La columna dice de dónde salen los casos."
+      },
+      {
+        "error": "Afirmar la causa: «en esa planta no les importa la seguridad».",
         "consejo": "Convierte la causa supuesta en una pregunta por verificar. Los datos te dicen dónde mirar, no el porqué."
       }
     ]
